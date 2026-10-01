@@ -26,15 +26,38 @@ type Config struct {
 	Model     string `toml:"model"`
 	BaseURL   string `toml:"base_url"`
 	APIKeyEnv string `toml:"api_key_env"` // name of the env var holding the API key
+	// Effort is the Anthropic output_config.effort level (low, medium, high,
+	// xhigh, max). Ignored by other providers.
+	Effort string `toml:"effort"`
+	// NoFallbacks disables Anthropic server-side refusal fallbacks (needed
+	// for proxies and platforms that reject the beta).
+	NoFallbacks bool `toml:"no_fallbacks"`
 }
+
+// Provider-specific defaults, applied by Resolve when a field is empty.
+const (
+	DefaultAnthropicModel  = "claude-opus-5-5"
+	DefaultAnthropicKeyEnv = "ANTHROPIC_API_KEY"
+	DefaultAnthropicURL    = "https://api.anthropic.com"
+	DefaultAnthropicEffort = "high"
+	DefaultOpenAIKeyEnv    = "OPENAI_API_KEY"
+	DefaultOpenAIURL       = "https://api.openai.com/v1"
+)
 
 // Defaults returns the settings used when nothing else is configured.
 func Defaults() Config {
-	return Config{
-		Provider:  ProviderAnthropic,
-		Model:     "claude-sonnet-5-5",
-		APIKeyEnv: "ANTHROPIC_API_KEY",
+	return Config{Provider: ProviderAnthropic}
+}
+
+// Resolve fills provider-specific defaults into empty fields.
+func (c Config) Resolve() Config {
+	switch c.Provider {
+	case ProviderAnthropic:
+		c = Config{Model: DefaultAnthropicModel, APIKeyEnv: DefaultAnthropicKeyEnv, BaseURL: DefaultAnthropicURL, Effort: DefaultAnthropicEffort}.Merge(c)
+	case ProviderOpenAI:
+		c = Config{APIKeyEnv: DefaultOpenAIKeyEnv, BaseURL: DefaultOpenAIURL}.Merge(c)
 	}
+	return c
 }
 
 // Merge returns c with every non-empty field of over applied on top.
@@ -51,6 +74,10 @@ func (c Config) Merge(over Config) Config {
 	if over.APIKeyEnv != "" {
 		c.APIKeyEnv = over.APIKeyEnv
 	}
+	if over.Effort != "" {
+		c.Effort = over.Effort
+	}
+	c.NoFallbacks = c.NoFallbacks || over.NoFallbacks
 	return c
 }
 
@@ -62,7 +89,12 @@ func (c Config) Validate() error {
 		return fmt.Errorf("unknown provider %q (want %q or %q)", c.Provider, ProviderAnthropic, ProviderOpenAI)
 	}
 	if c.Model == "" {
-		return errors.New("model is required")
+		return errors.New("model is required (set --model, OWCLI_MODEL, or model in config.toml)")
+	}
+	switch c.Effort {
+	case "", "low", "medium", "high", "xhigh", "max":
+	default:
+		return fmt.Errorf("unknown effort %q (want low, medium, high, xhigh, or max)", c.Effort)
 	}
 	return nil
 }
@@ -95,18 +127,20 @@ func LoadFile(path string) (Config, error) {
 	return c, nil
 }
 
-// FromEnv reads OWCLI_PROVIDER, OWCLI_MODEL, OWCLI_BASE_URL and
-// OWCLI_API_KEY_ENV through getenv.
+// FromEnv reads OWCLI_PROVIDER, OWCLI_MODEL, OWCLI_BASE_URL,
+// OWCLI_API_KEY_ENV, and OWCLI_EFFORT through getenv.
 func FromEnv(getenv func(string) string) Config {
 	return Config{
 		Provider:  getenv("OWCLI_PROVIDER"),
 		Model:     getenv("OWCLI_MODEL"),
 		BaseURL:   getenv("OWCLI_BASE_URL"),
 		APIKeyEnv: getenv("OWCLI_API_KEY_ENV"),
+		Effort:    getenv("OWCLI_EFFORT"),
 	}
 }
 
-// Load resolves the effective config: defaults < file < env < flags.
+// Load resolves the effective config: defaults < file < env < flags, then
+// provider-specific defaults for anything still empty.
 // An empty path uses $XDG_CONFIG_HOME/owcli/config.toml.
 func Load(path string, flags Config) (Config, error) {
 	if path == "" {
@@ -120,6 +154,6 @@ func Load(path string, flags Config) (Config, error) {
 	if err != nil {
 		return Config{}, err
 	}
-	c := Defaults().Merge(file).Merge(FromEnv(os.Getenv)).Merge(flags)
+	c := Defaults().Merge(file).Merge(FromEnv(os.Getenv)).Merge(flags).Resolve()
 	return c, c.Validate()
 }

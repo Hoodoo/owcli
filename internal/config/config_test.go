@@ -15,6 +15,7 @@ func TestLoadPrecedence(t *testing.T) {
 	t.Setenv("OWCLI_BASE_URL", "")
 	t.Setenv("OWCLI_PROVIDER", "")
 	t.Setenv("OWCLI_API_KEY_ENV", "")
+	t.Setenv("OWCLI_EFFORT", "")
 
 	got, err := Load(path, Config{BaseURL: "http://flag"})
 	if err != nil {
@@ -24,7 +25,7 @@ func TestLoadPrecedence(t *testing.T) {
 		Provider:  ProviderOpenAI,
 		Model:     "from-env",
 		BaseURL:   "http://flag",
-		APIKeyEnv: Defaults().APIKeyEnv,
+		APIKeyEnv: DefaultOpenAIKeyEnv,
 	}
 	if got != want {
 		t.Fatalf("got %+v, want %+v", got, want)
@@ -32,15 +33,19 @@ func TestLoadPrecedence(t *testing.T) {
 }
 
 func TestLoadMissingFileUsesDefaults(t *testing.T) {
-	for _, k := range []string{"OWCLI_PROVIDER", "OWCLI_MODEL", "OWCLI_BASE_URL", "OWCLI_API_KEY_ENV"} {
+	for _, k := range []string{"OWCLI_PROVIDER", "OWCLI_MODEL", "OWCLI_BASE_URL", "OWCLI_API_KEY_ENV", "OWCLI_EFFORT"} {
 		t.Setenv(k, "")
 	}
 	got, err := Load(filepath.Join(t.TempDir(), "absent.toml"), Config{})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got != Defaults() {
-		t.Fatalf("got %+v, want defaults", got)
+	want := Config{Provider: ProviderAnthropic, Model: DefaultAnthropicModel, APIKeyEnv: DefaultAnthropicKeyEnv, BaseURL: DefaultAnthropicURL, Effort: DefaultAnthropicEffort}
+	if got != want {
+		t.Fatalf("got %+v, want %+v", got, want)
+	}
+	if _, err := Load(filepath.Join(t.TempDir(), "absent.toml"), Config{Provider: ProviderOpenAI}); err == nil {
+		t.Fatal("openai provider has no default model")
 	}
 }
 
@@ -59,6 +64,9 @@ func TestValidate(t *testing.T) {
 	}
 	if err := (Config{Provider: ProviderOpenAI}).Validate(); err == nil {
 		t.Fatal("want error for empty model")
+	}
+	if err := (Config{Provider: ProviderAnthropic, Model: "m", Effort: "huge"}).Validate(); err == nil {
+		t.Fatal("want error for unknown effort")
 	}
 }
 

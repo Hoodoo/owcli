@@ -254,7 +254,18 @@ non-ignored files, and porcelain status, excluding the wiki.
 - `llm.Provider` interface: one chat call with system prompt, messages, and
   tool definitions, returning text and tool calls. Implementations: Anthropic
   Messages API and OpenAI-compatible Chat Completions (base URL configurable),
-  raw HTTP.
+  raw HTTP with retries on 408/409/429/5xx and connection errors (honoring
+  `retry-after`).
+- Anthropic specifics: default model `claude-opus-5-5`, `effort` set
+  explicitly (default `high`; the model's own default is `medium`); thinking
+  left at the model default and never disabled; assistant content (including
+  thinking blocks) resent verbatim so history is append-only; `tool_choice`
+  only `auto` (forced tool use is rejected by current models); top-level
+  `cache_control` for the stable tools+system prefix; server-side refusal
+  fallbacks (`fallbacks: "default"`, beta `server-side-fallback-2026-07-01`)
+  on by default, disable with `no_fallbacks = true` for proxies/other platforms.
+- Requests are non-streaming with `max_tokens` 16000; streaming is a possible
+  later improvement for very long page writes.
 - Tools: `ls`, `glob`, `grep`, `read_file` (line-numbered, paged) over the
   repository with ignore enforcement; `write_file`/`edit_file` confined to the
   current job's page; no shell. Lifecycle actions (`submit_plan`, `submit_page`,
@@ -300,5 +311,7 @@ owcli search <query> [--path p]  ranked section search
 owcli read <page> <anchor>...    print sections
 ```
 
-Configuration: provider, model, base URL, API key env var name — via flags,
-env (`OWCLI_*`), or `$XDG_CONFIG_HOME/owcli/config.toml`.
+Configuration: provider, model, base URL, API key env var name, effort,
+fallback opt-out — via flags, env (`OWCLI_*`), or
+`$XDG_CONFIG_HOME/owcli/config.toml`. The OpenAI-compatible provider has no
+default model; local endpoints (localhost) need no API key.
