@@ -18,11 +18,24 @@ var ErrInvalidState = errors.New("invalid persisted state")
 // goes to a fresh temporary file in the target directory, is synced, and is
 // renamed over path, so readers see either the old or the new content.
 func WriteJSONAtomic(path string, v any) error {
-	data, err := json.MarshalIndent(v, "", "  ")
+	data, err := MarshalJSON(v)
 	if err != nil {
 		return err
 	}
-	return WriteFileAtomic(path, append(data, '\n'), 0o644)
+	return WriteFileAtomic(path, data, 0o644)
+}
+
+// MarshalJSON renders v the way owcli persists state: two-space indent, a
+// trailing newline, and no HTML escaping of <, >, and &.
+func MarshalJSON(v any) ([]byte, error) {
+	var b bytes.Buffer
+	enc := json.NewEncoder(&b)
+	enc.SetEscapeHTML(false)
+	enc.SetIndent("", "  ")
+	if err := enc.Encode(v); err != nil {
+		return nil, err
+	}
+	return b.Bytes(), nil
 }
 
 // WriteFileAtomic writes data to path through a synced temporary file and a

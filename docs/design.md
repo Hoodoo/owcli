@@ -183,7 +183,9 @@ resolution, and source fingerprinting.
   event. Only concept pages get sidecars.
 - **Preflight** re-resolves all evidence: unresolved beats stale; issues are
   sorted deterministically and attached to owning pages. Issues demand a
-  recheck, not a retraction.
+  recheck, not a retraction. Unlike upstream, evidence that has become
+  *invalid* (e.g. newly matched by `.openwikiignore`) is reported as
+  unresolved instead of aborting the run.
 - **Mutations** `add/confirm/update/retract` apply as an all-or-nothing batch;
   no duplicate targets, no unknown ids, no duplicate evidence; confirm and
   evidence-less update refresh versions. Success marks the page dirty and clears
@@ -201,7 +203,9 @@ resolution, and source fingerprinting.
   orphan sidecars.
 - **Projection**: evidence → OKF `sources` (collapsed to whole-file resources,
   deterministic ids `openwiki-source-<hash>`, foreign entries kept); durable
-  verification → one `verified` event appended after non-owcli events; page
+  verification → one `verified` event appended after events by other actors
+  (both `owcli/*` and upstream `openwiki/*` events count as machine-owned and
+  are replaced, so either tool can take over a wiki); page
   versions refreshed after projection, rolling back the stamp if refresh fails.
 
 ## Generation lifecycle
