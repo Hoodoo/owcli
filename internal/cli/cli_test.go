@@ -2,6 +2,8 @@ package cli
 
 import (
 	"bytes"
+	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -48,5 +50,26 @@ func TestVersionFlag(t *testing.T) {
 	}
 	if !strings.Contains(out, "owcli version") {
 		t.Fatalf("unexpected version output %q", out)
+	}
+}
+
+func TestBindExternalAndUnbind(t *testing.T) {
+	base := t.TempDir()
+	t.Setenv("XDG_CONFIG_HOME", filepath.Join(base, "config"))
+	t.Setenv("XDG_DATA_HOME", filepath.Join(base, "data"))
+	repo := t.TempDir()
+	if out, err := exec.Command("git", "-C", repo, "init", "-q").CombinedOutput(); err != nil {
+		t.Fatalf("git init: %v %s", err, out)
+	}
+
+	out, err := run("bind", "--external", repo)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out, "(external)") || !strings.Contains(out, filepath.Join(base, "data")) {
+		t.Fatalf("unexpected bind output %q", out)
+	}
+	if out, err = run("unbind", "--purge", repo); err != nil || !strings.Contains(out, "deleted") {
+		t.Fatalf("unbind: %q, %v", out, err)
 	}
 }

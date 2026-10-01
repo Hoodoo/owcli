@@ -3,10 +3,13 @@ package cli
 
 import (
 	"fmt"
+	"path/filepath"
+	"time"
 
 	"github.com/spf13/cobra"
 
 	"owcli/internal/config"
+	"owcli/internal/store"
 	"owcli/internal/version"
 )
 
@@ -56,9 +59,27 @@ func newBindCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "bind [path]",
 		Short: "Register a repository with an in-repo or external wiki",
-		Args:  cobra.MaximumNArgs(1),
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("4eq6")
+		Long: `Register the Git repository containing path (default: current directory).
+
+By default the wiki lives in <repo>/openwiki. With --external it lives under
+$XDG_DATA_HOME/owcli/wikis/ and owcli writes nothing into the repository,
+which suits exploring projects you do not own.`,
+		Args: cobra.MaximumNArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			dirs, err := store.DefaultDirs()
+			if err != nil {
+				return err
+			}
+			kind := store.InRepo
+			if external {
+				kind = store.External
+			}
+			l, err := dirs.Bind(pathArg(args), kind, time.Now())
+			if err != nil {
+				return err
+			}
+			fmt.Fprintf(cmd.OutOrStdout(), "bound %s (%s)\nwiki: %s\n", l.RepoRoot, l.Kind, l.WikiRoot)
+			return nil
 		},
 	}
 	cmd.Flags().BoolVar(&external, "external", false, "store the wiki outside the repository; write nothing into it")
@@ -71,12 +92,31 @@ func newUnbindCommand() *cobra.Command {
 		Use:   "unbind [path]",
 		Short: "Forget a repository binding",
 		Args:  cobra.MaximumNArgs(1),
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("4eq6")
+		RunE: func(cmd *cobra.Command, args []string) error {
+			dirs, err := store.DefaultDirs()
+			if err != nil {
+				return err
+			}
+			l, err := dirs.Unbind(pathArg(args), purge)
+			if err != nil {
+				return err
+			}
+			fmt.Fprintf(cmd.OutOrStdout(), "unbound %s\n", l.RepoRoot)
+			if purge {
+				fmt.Fprintf(cmd.OutOrStdout(), "deleted %s\n", filepath.Dir(l.WikiRoot))
+			}
+			return nil
 		},
 	}
 	cmd.Flags().BoolVar(&purge, "purge", false, "also delete an external wiki")
 	return cmd
+}
+
+func pathArg(args []string) string {
+	if len(args) == 0 {
+		return "."
+	}
+	return args[0]
 }
 
 func newGenerateCommand(opts *options, name, short string) *cobra.Command {
