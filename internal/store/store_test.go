@@ -360,6 +360,51 @@ func TestCustomWikiDir(t *testing.T) {
 	}
 }
 
+func TestListBindingsAndReattachStaleWiki(t *testing.T) {
+	d := testDirs(t)
+	oldRepo := gitRepo(t)
+	oldLayout, err := d.Bind(oldRepo, External, "", now)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := oldLayout.SaveLastUpdate(LastUpdate{UpdatedAt: now.Format(time.RFC3339), Command: "init", GitHead: "abcdef", Model: "test", Status: StatusComplete}); err != nil {
+		t.Fatal(err)
+	}
+	orphan := filepath.Join(d.Data, "wikis", "orphan")
+	if err := os.MkdirAll(orphan, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	inv, err := d.ListBindings()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(inv.Bindings) != 1 || !inv.Bindings[0].RepoExists || inv.Bindings[0].LastUpdate.GitHead != "abcdef" {
+		t.Fatalf("inventory: %+v", inv)
+	}
+	if len(inv.Orphans) != 1 || inv.Orphans[0] != orphan {
+		t.Fatalf("orphans: %v", inv.Orphans)
+	}
+
+	newRepo := gitRepo(t)
+	if _, err := d.Bind(newRepo, External, oldLayout.Home, now); err == nil || !strings.Contains(err.Error(), "already bound") {
+		t.Fatalf("must not steal live binding: %v", err)
+	}
+	if err := os.RemoveAll(oldRepo); err != nil {
+		t.Fatal(err)
+	}
+	newLayout, err := d.Bind(newRepo, External, oldLayout.Home, now)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if newLayout.Home != oldLayout.Home {
+		t.Fatalf("reattached home %s, want %s", newLayout.Home, oldLayout.Home)
+	}
+	inv, err = d.ListBindings()
+	if err != nil || len(inv.Bindings) != 1 || inv.Bindings[0].RepoRoot != newRepo || len(inv.Orphans) != 1 || inv.Orphans[0] != orphan {
+		t.Fatalf("relocated inventory: %+v, %v", inv, err)
+	}
+}
+
 func TestCommitWikiOwnRepository(t *testing.T) {
 	repo := gitRepo(t)
 	d := testDirs(t)

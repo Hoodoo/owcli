@@ -19,7 +19,7 @@ func runCLI(args ...string) (string, error) {
 }
 
 func TestCommandsRegistered(t *testing.T) {
-	want := []string{"bind", "unbind", "init", "update", "status", "check", "search", "read"}
+	want := []string{"bind", "bindings", "unbind", "init", "update", "status", "check", "search", "read"}
 	cmd := NewRootCommand()
 	for _, name := range want {
 		if c, _, err := cmd.Find([]string{name}); err != nil || c.Name() != name {
@@ -64,6 +64,27 @@ func TestBindExternalAndUnbind(t *testing.T) {
 	}
 	if out, err = runCLI("unbind", "--purge", repo); err != nil || !strings.Contains(out, "deleted") {
 		t.Fatalf("unbind: %q, %v", out, err)
+	}
+}
+
+func TestBindingsCommand(t *testing.T) {
+	base := t.TempDir()
+	t.Setenv("XDG_CONFIG_HOME", filepath.Join(base, "config"))
+	t.Setenv("XDG_DATA_HOME", filepath.Join(base, "data"))
+	repo := t.TempDir()
+	if out, err := exec.Command("git", "-C", repo, "init", "-q").CombinedOutput(); err != nil {
+		t.Fatalf("git init: %v %s", err, out)
+	}
+	if _, err := runCLI("bind", "--external", repo); err != nil {
+		t.Fatal(err)
+	}
+	out, err := runCLI("bindings")
+	if err != nil || !strings.Contains(out, repo) || !strings.Contains(out, "last run: none") {
+		t.Fatalf("bindings: %q, %v", out, err)
+	}
+	out, err = runCLI("bindings", "--json")
+	if err != nil || !strings.Contains(out, `"repoRoot"`) || !strings.Contains(out, `"orphans"`) {
+		t.Fatalf("bindings json: %q, %v", out, err)
 	}
 }
 

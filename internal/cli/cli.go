@@ -44,6 +44,7 @@ func NewRootCommand() *cobra.Command {
 
 	root.AddCommand(
 		newBindCommand(),
+		newBindingsCommand(),
 		newUnbindCommand(),
 		newGenerateCommand(opts, run.Init),
 		newGenerateCommand(opts, run.Update),
@@ -73,7 +74,12 @@ $XDG_DATA_HOME/owcli/wikis/ (or in --wiki-dir) and owcli writes nothing into
 the repository, which suits exploring projects you do not own. External
 wikis are versioned with Git: owcli commits after every finished run, in the
 wiki's own repository or, when --wiki-dir is inside an existing repository
-such as a shared knowledge base, in that repository (only the wiki's files).`,
+such as a shared knowledge base, in that repository (only the wiki's files).
+
+The registry is $XDG_CONFIG_HOME/owcli/bindings.json. To reattach a wiki after
+moving a clone, pass the existing directory that contains openwiki/ with
+--wiki-dir. If its previous repository no longer exists, the binding is moved
+to the new canonical repository path. Use "owcli bindings" to find paths.`,
 		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			dirs, err := store.DefaultDirs()
@@ -97,6 +103,49 @@ such as a shared knowledge base, in that repository (only the wiki's files).`,
 	}
 	cmd.Flags().BoolVar(&external, "external", false, "store the wiki outside the repository; write nothing into it")
 	cmd.Flags().StringVar(&wikiDir, "wiki-dir", "", "external wiki location (implies --external); e.g. a directory in a knowledge-base repository")
+	return cmd
+}
+
+func newBindingsCommand() *cobra.Command {
+	var asJSON bool
+	cmd := &cobra.Command{
+		Use:   "bindings",
+		Short: "List repository bindings and orphaned managed wikis",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			dirs, err := store.DefaultDirs()
+			if err != nil {
+				return err
+			}
+			inv, err := dirs.ListBindings()
+			if err != nil {
+				return err
+			}
+			if asJSON {
+				return writeJSON(cmd.OutOrStdout(), inv)
+			}
+			out := cmd.OutOrStdout()
+			if len(inv.Bindings) == 0 {
+				fmt.Fprintln(out, "no bindings")
+			}
+			for _, b := range inv.Bindings {
+				state := "ok"
+				if !b.RepoExists {
+					state = "missing repository"
+				}
+				last := "none"
+				if b.LastUpdate != nil {
+					last = fmt.Sprintf("%s at %s (source %s)", b.LastUpdate.Status, b.LastUpdate.UpdatedAt, short(b.LastUpdate.GitHead))
+				}
+				fmt.Fprintf(out, "%s\n  kind: %s\n  wiki: %s\n  state: %s\n  last run: %s\n", b.RepoRoot, b.Kind, b.WikiDir, state, last)
+			}
+			for _, orphan := range inv.Orphans {
+				fmt.Fprintf(out, "orphan: %s\n", orphan)
+			}
+			return nil
+		},
+	}
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
 	return cmd
 }
 

@@ -200,7 +200,7 @@ func TestInstructions(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, want := range []string{"owcli run begin update", "owcli run submit <jobId>", "## Planning standard", "## Page standard", "## Claim standard", "repo://"} {
+	for _, want := range []string{"owcli run begin update", "owcli run submit <jobId>", "## Where wikis live", "$XDG_CONFIG_HOME/owcli/bindings.json", "owcli bindings", "## Planning standard", "## Page standard", "## Claim standard", "repo://"} {
 		if !strings.Contains(out, want) {
 			t.Errorf("quickstart lacks %q", want)
 		}

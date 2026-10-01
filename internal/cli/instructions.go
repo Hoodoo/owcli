@@ -76,6 +76,8 @@ this mode.
 
 ## Health
 
+- owcli bindings [--json]: all registered repository roots, wiki paths, last
+  run status/source commit, missing repositories, and orphaned managed wikis.
 - owcli status: binding, last run, pending run, Claim health.
 - owcli check: read-only validation (stale or unresolved Claims, orphaned
   sidecars, front matter, broken links, suspicious diagrams); exit 1 on problems.
@@ -94,6 +96,17 @@ source commit in the message, in the wiki's own Git repository or, for a
 directory). Review or revert runs with git log / git revert in that directory.
 In-repo wikis are versioned by the repository: commit openwiki/ like any other
 change.
+
+## Where wikis live
+
+The binding registry is $XDG_CONFIG_HOME/owcli/bindings.json. Resolution order
+is an explicit registry binding, then an existing <repo>/openwiki/ directory,
+then unbound. By default external wiki homes are
+$XDG_DATA_HOME/owcli/wikis/<repo-slug>-<path-hash>/ and their pages are in the
+openwiki/ child. A custom --wiki-dir is the home containing openwiki/. To
+reattach after moving a clone, run "owcli bind --wiki-dir <existing-home>" in
+the new clone; owcli transfers a binding only when the old repository is gone.
+Use "owcli bindings" to inspect paths and managed orphan directories.
 
 ## Writing: the run lifecycle
 

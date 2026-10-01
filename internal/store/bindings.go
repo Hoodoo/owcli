@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 )
@@ -52,6 +53,23 @@ type registry struct {
 	Bindings      map[string]Binding `json:"bindings"` // keyed by repository root
 }
 
+// BindingInfo is a registry entry enriched with filesystem and run metadata.
+type BindingInfo struct {
+	RepoRoot   string      `json:"repoRoot"`
+	Kind       Kind        `json:"kind"`
+	WikiDir    string      `json:"wikiDir"`
+	RepoExists bool        `json:"repoExists"`
+	Custom     bool        `json:"custom"`
+	LastUpdate *LastUpdate `json:"lastUpdate,omitempty"`
+}
+
+// BindingsInventory describes every registered repository and unreferenced
+// directory in owcli's managed external-wiki directory.
+type BindingsInventory struct {
+	Bindings []BindingInfo `json:"bindings"`
+	Orphans  []string      `json:"orphans"`
+}
+
 func (d Dirs) registryPath() string { return filepath.Join(d.Config, "bindings.json") }
 
 func (d Dirs) externalWikiDir(id string) string { return filepath.Join(d.Data, "wikis", id) }
@@ -94,6 +112,45 @@ func (d Dirs) layoutFor(root string, b Binding) Layout {
 		return Layout{Kind: External, RepoRoot: root, Home: home, WikiRoot: filepath.Join(home, WikiDirName), CustomHome: b.WikiDir != ""}
 	}
 	return Layout{Kind: InRepo, RepoRoot: root, Home: root, WikiRoot: filepath.Join(root, WikiDirName)}
+}
+
+// ListBindings returns registered bindings and managed wiki homes that no
+// binding references. User-chosen wiki directories are never classified as
+// orphans because owcli does not own their parent directory.
+func (d Dirs) ListBindings() (BindingsInventory, error) {
+	r, err := d.loadRegistry()
+	if err != nil {
+		return BindingsInventory{}, err
+	}
+	inv := BindingsInventory{}
+	referenced := map[string]bool{}
+	for root, b := range r.Bindings {
+		l := d.layoutFor(root, b)
+		_, statErr := os.Stat(root)
+		info := BindingInfo{RepoRoot: root, Kind: b.Kind, WikiDir: l.WikiRoot, RepoExists: statErr == nil, Custom: l.CustomHome}
+		if info.LastUpdate, err = l.LoadLastUpdate(); err != nil {
+			return BindingsInventory{}, err
+		}
+		inv.Bindings = append(inv.Bindings, info)
+		if b.Kind == External {
+			referenced[l.Home] = true
+		}
+	}
+	sort.Slice(inv.Bindings, func(i, j int) bool { return inv.Bindings[i].RepoRoot < inv.Bindings[j].RepoRoot })
+	root := filepath.Join(d.Data, "wikis")
+	entries, err := os.ReadDir(root)
+	if err != nil && !os.IsNotExist(err) {
+		return BindingsInventory{}, err
+	}
+	for _, entry := range entries {
+		if entry.IsDir() {
+			home := filepath.Join(root, entry.Name())
+			if !referenced[home] {
+				inv.Orphans = append(inv.Orphans, home)
+			}
+		}
+	}
+	return inv, nil
 }
 
 // customWikiDir validates a user-chosen external wiki location: absolute,
@@ -167,6 +224,20 @@ func (d Dirs) Bind(dir string, kind Kind, wikiDir string, now time.Time) (Layout
 			return Layout{}, fmt.Errorf("%s is already bound %s at %s; unbind it first", root, b.Kind, d.layoutFor(root, b).WikiRoot)
 		}
 		return d.layoutFor(root, b), nil
+	}
+	// Reattaching an existing wiki home after a clone was moved transfers a
+	// stale registry entry. Never steal a wiki from a repository that exists.
+	if kind == External && custom != "" {
+		for oldRoot, oldBinding := range r.Bindings {
+			if d.layoutFor(oldRoot, oldBinding).Home != custom {
+				continue
+			}
+			if _, err := os.Stat(oldRoot); err == nil || !os.IsNotExist(err) {
+				return Layout{}, fmt.Errorf("wiki directory %s is already bound to %s", custom, oldRoot)
+			}
+			delete(r.Bindings, oldRoot)
+			break
+		}
 	}
 	b := Binding{Kind: kind, BoundAt: now.UTC(), WikiDir: custom}
 	if kind == External {

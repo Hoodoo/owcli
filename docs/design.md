@@ -370,6 +370,7 @@ Upstream's "semantic" search is lexical. owcli reproduces it:
 ```
 owcli bind [--external] [path]     register a repo; in-repo or external layout
 owcli unbind [--purge] [path]      forget a binding (optionally delete external wiki)
+owcli bindings [--json]            list bindings and orphaned managed wiki directories
 owcli init [--external] [message]  generate a wiki from scratch; binds an unbound repo
 owcli update [message]             incremental update driven by drift and claim issues
 owcli status                       binding, last update, pending run, claim health
