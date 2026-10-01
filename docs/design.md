@@ -246,8 +246,26 @@ the native agent runner:
 
 Worker failure before submit → restore the page and sidecar from the pre-worker
 snapshot and mark the job `skipped`. Failure after a successful submit never
-rolls back. The **source fingerprint** hashes HEAD, tracked and untracked
-non-ignored files, and porcelain status, excluding the wiki.
+rolls back. The **source fingerprint** hashes HEAD plus the path and content
+of every tracked and untracked, non-git-ignored, non-`.openwikiignore`d file,
+excluding the wiki.
+
+owcli specifics (implemented in `internal/run`):
+
+- `.run.json` carries `producer: "owcli"`; a checkpoint written by another
+  tool is reported, never resumed or discarded.
+- Clean-update no-op: no user message, last run `complete` at the current
+  HEAD, clean source tree, no grounding issues, and every page's manifest
+  `pageVersion` matching its bytes.
+- Init backs the old wiki up to a temporary directory, clears it (keeping
+  `INSTRUCTIONS.md`, seeding a default one if absent), and restores the backup
+  if begin fails before the checkpoint is durable.
+- Finish restores skipped pages *before* the OKF passes (so indexes describe
+  the restored pages), deletes pages left behind by a superseded plan, and
+  marks the run `interrupted` when pages were skipped or source drifted.
+- While a page is submitted, other pending pages are excluded from Claims
+  finalization *and* from verification projection.
+- Only English is written; translation is out of scope.
 
 ## Agent runtime
 

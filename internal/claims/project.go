@@ -142,15 +142,18 @@ func contains(list []string, s string) bool {
 // SyncVerification projects durable verification into each grounded page's
 // OKF verified field: events by other actors are kept, machine events are
 // replaced by at most one active event. A bare mapping is normalized to a
-// list. It returns the original content of every page it changed so a caller
-// can roll back.
-func SyncVerification(st *Store, active map[string]*Verification) (map[string]string, error) {
+// list. Excluded pages are not touched. It returns the original content of
+// every page it changed so a caller can roll back.
+func SyncVerification(st *Store, active map[string]*Verification, excluded map[string]bool) (map[string]string, error) {
 	originals := map[string]string{}
 	pages, err := st.DiscoverPages()
 	if err != nil {
 		return originals, err
 	}
 	for _, page := range pages {
+		if excluded[page] {
+			continue
+		}
 		content, err := st.ReadMarkdown(page)
 		if err != nil {
 			return originals, err

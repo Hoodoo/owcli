@@ -58,7 +58,7 @@ func (rt *Runtime) Finalize(at string, excluded map[string]bool) error {
 	}
 	warnings := res.Warnings
 
-	originals, err := SyncVerification(rt.Store, res.Verification)
+	originals, err := SyncVerification(rt.Store, res.Verification, excluded)
 	if err != nil {
 		return err
 	}

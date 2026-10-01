@@ -473,7 +473,7 @@ func TestSyncVerification(t *testing.T) {
 	originals, err := SyncVerification(e.st, map[string]*Verification{
 		page:             {By: producer, At: "2026-10-01T00:00:00.000Z"},
 		"/openwiki/b.md": nil,
-	})
+	}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
