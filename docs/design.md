@@ -42,9 +42,15 @@ Actions scheduling, telemetry, translation.
 The on-disk wiki format is compatible with upstream: same directory layout,
 front matter conventions, sidecar and manifest schemas, and evidence URI
 syntax. `owcli search` should work on a wiki upstream generated, and vice versa.
-Evidence *version tokens* should match upstream for whole-file evidence; line
-range tokens aim for compatibility but may diverge (a divergence only causes a
-one-time "stale" recheck, never data loss).
+Evidence *version tokens* match upstream for both whole-file and line-range
+evidence (verified against all 1,155 evidence entries of upstream's own wiki).
+The one known divergence is files that are not valid UTF-8: upstream hashes
+them after lossy decoding, owcli hashes raw bytes; the effect is a one-time
+"stale" recheck, never data loss.
+
+Compatibility tests are opt-in: set `OWCLI_UPSTREAM_DIR` to an upstream
+checkout (and `OWCLI_UPSTREAM_SOURCE_DIR` to a checkout of a manifest
+`gitHead` for evidence checks) and run `go test ./...`.
 
 ## Architecture
 
