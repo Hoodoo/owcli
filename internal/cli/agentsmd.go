@@ -15,13 +15,6 @@ import (
 const (
 	agentsStart = "<!-- OPENWIKI:START -->"
 	agentsEnd   = "<!-- OPENWIKI:END -->"
-	agentsBlock = agentsStart + `
-## Repository wiki
-
-This repository has an engineering wiki under [openwiki/](openwiki/quickstart.md),
-kept grounded in the source by owcli. Start with openwiki/quickstart.md, follow
-its links to the relevant pages, and search it with ` + "`owcli search \"<question>\"`" + `.
-` + agentsEnd
 )
 
 // ensureAgentsBlock adds or refreshes the managed block in AGENTS.md
@@ -59,10 +52,10 @@ func ensureAgentsBlock(repo string) ([]string, error) {
 func withBlock(content string) string {
 	start, end := strings.Index(content, agentsStart), strings.Index(content, agentsEnd)
 	if start >= 0 && end > start {
-		return content[:start] + agentsBlock + content[end+len(agentsEnd):]
+		return content[:start] + agentsBlockFor() + content[end+len(agentsEnd):]
 	}
 	if strings.TrimSpace(content) == "" {
-		return agentsBlock + "\n"
+		return agentsBlockFor() + "\n"
 	}
-	return strings.TrimRight(content, "\n") + "\n\n" + agentsBlock + "\n"
+	return strings.TrimRight(content, "\n") + "\n\n" + agentsBlockFor() + "\n"
 }

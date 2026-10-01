@@ -77,6 +77,20 @@ type BeginResult struct {
 	Issues          []claims.Issue // grounding issues found by preflight
 }
 
+func newRun(env Env) (*Run, error) {
+	l := env.Layout
+	m, err := ignore.Load(l.RepoRoot)
+	if err != nil {
+		return nil, err
+	}
+	m = m.Exclude(l.RepoExclusions()...)
+	resolver, err := evidence.NewRepoResolver(l.RepoRoot, m)
+	if err != nil {
+		return nil, err
+	}
+	return &Run{env: env, ignore: m, resolver: resolver, store: claims.NewStore(l), wiki: okf.ForLayout(l)}, nil
+}
+
 // State returns a copy of the checkpointed state.
 func (r *Run) State() *State { return r.state.clone() }
 
@@ -93,17 +107,10 @@ func Begin(env Env, mode Mode, message string) (*Run, BeginResult, error) {
 	if err := os.MkdirAll(l.WikiRoot, 0o755); err != nil {
 		return nil, BeginResult{}, err
 	}
-	m, err := ignore.Load(l.RepoRoot)
+	r, err := newRun(env)
 	if err != nil {
 		return nil, BeginResult{}, err
 	}
-	m = m.Exclude(l.RepoExclusions()...)
-	resolver, err := evidence.NewRepoResolver(l.RepoRoot, m)
-	if err != nil {
-		return nil, BeginResult{}, err
-	}
-	r := &Run{env: env, ignore: m, resolver: resolver, store: claims.NewStore(l), wiki: okf.ForLayout(l)}
-
 	state, err := loadState(l)
 	if err != nil {
 		return nil, BeginResult{}, err
@@ -318,10 +325,11 @@ func (r *Run) commit(next *State) error {
 
 // PlannedPage is one page in a proposed plan.
 type PlannedPage struct {
-	Path      string   `json:"path"`
-	Title     string   `json:"title,omitempty"`
-	Purpose   string   `json:"purpose,omitempty"`
-	SeedPaths []string `json:"seedPaths,omitempty"`
+	Path         string   `json:"path"`
+	Title        string   `json:"title,omitempty"`
+	Purpose      string   `json:"purpose,omitempty"`
+	SeedPaths    []string `json:"seedPaths,omitempty"`
+	RelatedPages []string `json:"relatedPages,omitempty"`
 }
 
 // PlanInput is a proposed plan.
@@ -352,8 +360,8 @@ func (r *Run) SubmitPlan(in PlanInput) error {
 }
 
 func (r *Run) normalizePlan(in PlanInput) (*Plan, error) {
-	if len(in.Pages) == 0 {
-		return nil, newErr(InvalidInput, "a plan needs at least one page")
+	if len(in.Pages) == 0 && r.state.Mode == Init {
+		return nil, newErr(InvalidInput, "an init plan needs at least quickstart.md")
 	}
 	existing := map[string]bool{}
 	pages, err := r.store.DiscoverPages()
@@ -374,7 +382,13 @@ func (r *Run) normalizePlan(in PlanInput) (*Plan, error) {
 			continue
 		}
 		seen[page] = true
-		plan.Jobs = append(plan.Jobs, Job{Page: page, Title: strings.TrimSpace(pp.Title), Purpose: strings.TrimSpace(pp.Purpose), SeedPaths: pp.SeedPaths, Status: Pending})
+		var related []string
+		for _, rp := range pp.RelatedPages {
+			if norm, err := claims.NormalizeToolPage(rp); err == nil && norm != page {
+				related = append(related, norm)
+			}
+		}
+		plan.Jobs = append(plan.Jobs, Job{Page: page, Title: strings.TrimSpace(pp.Title), Purpose: strings.TrimSpace(pp.Purpose), SeedPaths: pp.SeedPaths, RelatedPages: related, Status: Pending})
 	}
 	deleted := map[string]bool{}
 	for _, d := range in.Deletions {
@@ -428,7 +442,7 @@ func samePlan(a, b *Plan) bool {
 	}
 	for i := range a.Jobs {
 		x, y := a.Jobs[i], b.Jobs[i]
-		if x.Page != y.Page || x.Title != y.Title || x.Purpose != y.Purpose || strings.Join(x.SeedPaths, "\n") != strings.Join(y.SeedPaths, "\n") {
+		if x.Page != y.Page || x.Title != y.Title || x.Purpose != y.Purpose || strings.Join(x.SeedPaths, "\n") != strings.Join(y.SeedPaths, "\n") || strings.Join(x.RelatedPages, "\n") != strings.Join(y.RelatedPages, "\n") {
 			return false
 		}
 	}
@@ -775,6 +789,9 @@ func (r *Run) Finish(skipped []PageSnapshot) (FinishResult, error) {
 		res.Status = store.StatusInterrupted
 	}
 	if err := r.writeLastUpdate(r.state, res.Status); err != nil {
+		return res, err
+	}
+	if err := os.RemoveAll(r.snapshotDir()); err != nil {
 		return res, err
 	}
 	if err := store.RemoveIfExists(l.RunPath()); err != nil {

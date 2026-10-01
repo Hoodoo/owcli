@@ -300,6 +300,27 @@ owcli specifics (implemented in `internal/run`):
 - Planner agent produces the plan; one worker agent per page job, run
   sequentially. Prompts and claim guidance are written fresh for owcli.
 
+## Agent-driven runs
+
+Interactive coding agents can drive the lifecycle themselves; owcli then calls
+no model. `owcli run begin|plan|next|inspect|submit|skip|finish` are stateless
+per invocation (each reattaches to `.run.json` via `run.Open`), take JSON on
+stdin or `--file`, and print one JSON object with a `next` hint; errors print
+`{"error":{"code","message"}}` with the lifecycle error code and exit 1.
+`next` persists the pre-edit snapshot under `<wiki>/.run-snapshots/` so `skip`
+and `finish` work across processes; `finish` removes it. `begin update`
+reports `changedPaths` since the last documented commit (committed,
+uncommitted, and untracked; ignored and wiki paths left out) and per-page
+Claim issue counts. Update plans may list no pages: pages with Claim issues
+are added automatically. Agent-driven runs record `host-agent` as the model.
+
+Instructions follow Kata's pattern: `owcli agents-md` writes a compact
+routing block (rules plus a dot digraph) into `AGENTS.md` between managed
+markers (refused for external bindings; `--print` for global agent config),
+and `owcli quickstart` prints the full procedure, JSON formats, and the
+planning, page, and Claim standards. Those standards live in
+`internal/guide` and are shared with owcli's own planner and worker prompts.
+
 ## Search
 
 Upstream's "semantic" search is lexical. owcli reproduces it:
@@ -336,6 +357,9 @@ owcli status                       binding, last update, pending run, claim heal
 owcli check                        read-only: preflight, OKF, links, diagrams; non-zero exit on problems
 owcli search <query> [--path p]    ranked section search
 owcli read <ref | page anchor...>  print sections
+owcli run <step>                   agent-driven lifecycle (see Agent-driven runs)
+owcli quickstart                   full guide for coding agents
+owcli agents-md [--print]          compact routing block for AGENTS.md
 ```
 
 `init`/`update` resume an interrupted run of the same kind (Ctrl-C keeps

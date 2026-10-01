@@ -51,6 +51,9 @@ func NewRootCommand() *cobra.Command {
 		newCheckCommand(),
 		newSearchCommand(),
 		newReadCommand(),
+		newRunCommand(),
+		newQuickstartCommand(),
+		newAgentsMDCommand(),
 	)
 	return root
 }

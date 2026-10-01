@@ -297,7 +297,7 @@ func TestPlanValidation(t *testing.T) {
 	f := newFixture(t)
 	r, _ := f.begin(Init)
 	bad := []PlanInput{
-		{},
+		{}, // init needs pages
 		{Pages: []PlannedPage{{Path: "concepts/x.md"}}},
 		{Pages: []PlannedPage{{Path: "quickstart.md"}, {Path: "index.md"}}},
 		{Pages: []PlannedPage{{Path: "quickstart.md"}, {Path: "../x.md"}}},

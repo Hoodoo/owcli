@@ -47,13 +47,14 @@ const (
 
 // Job is one page to write.
 type Job struct {
-	ID        string    `json:"id"`
-	Page      string    `json:"page"` // canonical "/openwiki/<path>.md"
-	Title     string    `json:"title,omitempty"`
-	Purpose   string    `json:"purpose,omitempty"`
-	SeedPaths []string  `json:"seedPaths,omitempty"`
-	Reason    string    `json:"reason,omitempty"` // why a job was added automatically
-	Status    JobStatus `json:"status"`
+	ID           string    `json:"id"`
+	Page         string    `json:"page"` // canonical "/openwiki/<path>.md"
+	Title        string    `json:"title,omitempty"`
+	Purpose      string    `json:"purpose,omitempty"`
+	SeedPaths    []string  `json:"seedPaths,omitempty"`
+	RelatedPages []string  `json:"relatedPages,omitempty"`
+	Reason       string    `json:"reason,omitempty"` // why a job was added automatically
+	Status       JobStatus `json:"status"`
 }
 
 // Plan is the installed, ordered page queue.
@@ -175,6 +176,10 @@ func (s *State) clone() *State {
 	if s.Plan != nil {
 		p := *s.Plan
 		p.Jobs = append([]Job(nil), s.Plan.Jobs...)
+		for i := range p.Jobs {
+			p.Jobs[i].SeedPaths = append([]string(nil), p.Jobs[i].SeedPaths...)
+			p.Jobs[i].RelatedPages = append([]string(nil), p.Jobs[i].RelatedPages...)
+		}
 		p.Deletions = append([]string(nil), s.Plan.Deletions...)
 		c.Plan = &p
 	}

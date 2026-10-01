@@ -66,3 +66,14 @@ func TestBindExternalAndUnbind(t *testing.T) {
 		t.Fatalf("unbind: %q, %v", out, err)
 	}
 }
+
+func runCLIIn(input string, args ...string) (string, error) {
+	cmd := NewRootCommand()
+	var out bytes.Buffer
+	cmd.SetOut(&out)
+	cmd.SetErr(&out)
+	cmd.SetIn(strings.NewReader(input))
+	cmd.SetArgs(args)
+	err := cmd.Execute()
+	return out.String(), err
+}
