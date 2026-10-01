@@ -257,3 +257,40 @@ func TestRead(t *testing.T) {
 		}
 	}
 }
+
+func TestSearchWikisRanksAcrossWikis(t *testing.T) {
+	a := wiki(t, map[string]string{"concepts/errors.md": errorsPage})
+	b := wiki(t, map[string]string{"concepts/retry.md": retryPage})
+	both := wiki(t, map[string]string{"concepts/errors.md": errorsPage, "concepts/retry.md": retryPage})
+	req := Request{Query: "retry backoff", Limit: MaxResults}
+
+	rs, err := SearchWikis([]Source{{Store: a, Wiki: "a"}, {Store: b, Wiki: "b"}}, req, Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	// One index over both wikis ranks exactly like one wiki holding both pages.
+	single, err := Search(both, req, Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Join(refs(rs), " ") != strings.Join(refs(single), " ") {
+		t.Fatalf("federated %v != combined %v", refs(rs), refs(single))
+	}
+	for _, r := range rs {
+		want := "b"
+		if strings.Contains(r.Ref[0], "errors.md") {
+			want = "a"
+		}
+		if r.Wiki != want {
+			t.Errorf("%s: wiki = %q, want %q", r.Ref[0], r.Wiki, want)
+		}
+	}
+	if rs[0].Wiki != "b" || rs[len(rs)-1].Wiki != "a" {
+		t.Errorf("ranking did not interleave by relevance: %+v", rs)
+	}
+	for _, r := range single {
+		if r.Wiki != "" {
+			t.Errorf("standalone result carries a wiki: %+v", r)
+		}
+	}
+}

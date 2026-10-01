@@ -184,9 +184,10 @@ func pathArg(args []string) string {
 
 func newSearchCommand() *cobra.Command {
 	var (
-		paths  []string
-		limit  int
-		asJSON bool
+		paths     []string
+		limit     int
+		asJSON    bool
+		workspace string
 	)
 	cmd := &cobra.Command{
 		Use:   "search <query>",
@@ -194,26 +195,75 @@ func newSearchCommand() *cobra.Command {
 		Long: `Rank wiki sections for a question, behavior, or concept.
 
 Search is lexical (SQLite FTS5 BM25 with stemming), matching upstream
-OpenWiki. Results are "page#anchor" refs; pass them to "owcli read".`,
+OpenWiki. Results are "page#anchor" refs; pass them to "owcli read".
+
+A repository in a workspace searches every wiki of that workspace in one
+ranking, and each result names its wiki: pass it to "owcli read --wiki". In
+several workspaces it uses the active one (owcli workspace use); without one,
+search exits non-zero with status "workspace_required" and the choices.`,
 		Args: cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			l, err := resolveLayout()
+			dirs, err := store.DefaultDirs()
 			if err != nil {
 				return err
 			}
-			results, err := search.Search(claims.NewStore(l), search.Request{Query: strings.Join(args, " "), Paths: paths, Limit: limit}, search.Options{})
+			scope, err := dirs.ResolveSearchScope(".", workspace)
 			if err != nil {
 				return err
 			}
 			out := cmd.OutOrStdout()
+			if scope.Status == store.ScopeWorkspaceRequired {
+				if asJSON {
+					if err := writeJSON(out, map[string]any{"status": scope.Status, "wiki": scope.Current, "workspaces": scope.Choices}); err != nil {
+						return err
+					}
+				} else {
+					fmt.Fprintf(out, "%s is in several workspaces and none is active; choose one with --workspace <id>, or set it with `owcli workspace use <id>`:\n", scope.Current.Name)
+					for _, w := range scope.Choices {
+						fmt.Fprintf(out, "  %s  %s (%d wikis)\n", w.ID, w.Name, w.WikiCount)
+					}
+				}
+				return ErrReported
+			}
+			var sources []search.Source
+			var wikis []store.WikiIdentity
+			for _, w := range scope.Wikis {
+				src := search.Source{Store: claims.NewStore(w.Layout)}
+				if scope.Workspace != nil {
+					src.Wiki = w.ID
+					wikis = append(wikis, w.WikiIdentity)
+				}
+				sources = append(sources, src)
+			}
+			results, err := search.SearchWikis(sources, search.Request{Query: strings.Join(args, " "), Paths: paths, Limit: limit}, search.Options{})
+			if err != nil {
+				return err
+			}
 			if asJSON {
-				return writeJSON(out, map[string]any{"results": results})
+				resp := map[string]any{"results": results}
+				if scope.Workspace != nil {
+					resp["workspace"], resp["wikis"] = scope.Workspace, wikis
+					if len(scope.Skipped) > 0 {
+						resp["skipped"] = scope.Skipped
+					}
+				}
+				return writeJSON(out, resp)
+			}
+			if scope.Workspace != nil {
+				fmt.Fprintf(out, "workspace %s: %d wiki(s) searched\n", scope.Workspace.Name, len(scope.Wikis))
+				for _, m := range scope.Skipped {
+					fmt.Fprintf(out, "  skipped %s: %s\n", m.Wiki.ID, m.Problem)
+				}
 			}
 			if len(results) == 0 {
 				fmt.Fprintln(out, "no results")
 			}
 			for i, r := range results {
-				fmt.Fprintf(out, "%d. %s\n", i+1, r.Ref[0])
+				if r.Wiki != "" {
+					fmt.Fprintf(out, "%d. [%s] %s\n", i+1, r.Wiki, r.Ref[0])
+				} else {
+					fmt.Fprintf(out, "%d. %s\n", i+1, r.Ref[0])
+				}
 				for _, line := range strings.Split(r.Content, "\n") {
 					fmt.Fprintf(out, "   %s\n", line)
 				}
@@ -224,16 +274,22 @@ OpenWiki. Results are "page#anchor" refs; pass them to "owcli read".`,
 	cmd.Flags().StringArrayVar(&paths, "path", nil, "repository-relative source path hint (repeatable)")
 	cmd.Flags().IntVar(&limit, "limit", search.DefaultResults, fmt.Sprintf("maximum results (1-%d)", search.MaxResults))
 	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
+	cmd.Flags().StringVar(&workspace, "workspace", "", "search this workspace (ID or name) instead of the automatic choice")
 	return cmd
 }
 
 func newReadCommand() *cobra.Command {
-	var asJSON bool
+	var (
+		asJSON bool
+		wiki   string
+	)
 	cmd := &cobra.Command{
 		Use:   "read <page> <anchor>...",
 		Short: "Print wiki sections",
 		Long: `Print complete sections of one wiki page. Accepts a search ref
-("openwiki/concepts/x.md#anchor") or a page plus anchors.`,
+("openwiki/concepts/x.md#anchor") or a page plus anchors. With --wiki, read
+a wiki from a workspace this repository belongs to (the "wiki" of a search
+result).`,
 		Args: cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			page, anchors := args[0], args[1:]
@@ -243,17 +299,25 @@ func newReadCommand() *cobra.Command {
 			if len(anchors) == 0 {
 				return fmt.Errorf("give at least one section anchor")
 			}
-			l, err := resolveLayout()
+			dirs, err := store.DefaultDirs()
 			if err != nil {
 				return err
 			}
-			p, secs, err := search.Read(claims.NewStore(l), page, anchors)
+			w, err := dirs.ResolveReadableWiki(".", wiki)
+			if err != nil {
+				return err
+			}
+			p, secs, err := search.Read(claims.NewStore(w.Layout), page, anchors)
 			if err != nil {
 				return err
 			}
 			out := cmd.OutOrStdout()
 			if asJSON {
-				return writeJSON(out, map[string]any{"page": p, "sections": secs})
+				resp := map[string]any{"page": p, "sections": secs}
+				if w.ID != "" {
+					resp["wiki"] = w.ID
+				}
+				return writeJSON(out, resp)
 			}
 			for i, s := range secs {
 				if i > 0 {
@@ -265,6 +329,7 @@ func newReadCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
+	cmd.Flags().StringVar(&wiki, "wiki", "", "wiki ID from a workspace search result (default: this repository's wiki)")
 	return cmd
 }
 

@@ -58,8 +58,16 @@ type Request struct {
 // Result is one ranked section.
 type Result struct {
 	Kind    string   `json:"kind"`
-	Ref     []string `json:"ref"`     // "openwiki/<page>#<anchor>"
-	Content string   `json:"content"` // title, section, description, excerpt
+	Ref     []string `json:"ref"`            // "openwiki/<page>#<anchor>"
+	Content string   `json:"content"`        // title, section, description, excerpt
+	Wiki    string   `json:"wiki,omitempty"` // supplying wiki, in workspace searches only
+}
+
+// Source is one wiki to search. Wiki is its workspace ID, stamped on its
+// results; it is empty when a single standalone wiki is searched.
+type Source struct {
+	Store *claims.Store
+	Wiki  string
 }
 
 // Reranker reorders lexical candidates, e.g. with embeddings. It receives up
@@ -83,6 +91,12 @@ func init() {
 
 // Search ranks the sections of every retrievable page in the wiki.
 func Search(st *claims.Store, req Request, opts Options) ([]Result, error) {
+	return SearchWikis([]Source{{Store: st}}, req, opts)
+}
+
+// SearchWikis ranks the sections of every retrievable page in all sources
+// together, in one index, so scores are comparable across wikis.
+func SearchWikis(sources []Source, req Request, opts Options) ([]Result, error) {
 	query := strings.TrimSpace(req.Query)
 	if query == "" || len(query) > MaxQueryChars {
 		return nil, invalidf("use a non-empty search query of at most %d characters", MaxQueryChars)
@@ -110,20 +124,25 @@ func Search(st *claims.Store, req Request, opts Options) ([]Result, error) {
 		return []Result{}, nil
 	}
 
-	pages, err := st.DiscoverPages()
-	if err != nil {
-		return nil, err
-	}
 	var all []unit
-	for _, p := range pages {
-		if !retrievable(p) {
-			continue
-		}
-		md, err := st.ReadMarkdown(p)
+	for _, src := range sources {
+		pages, err := src.Store.DiscoverPages()
 		if err != nil {
 			return nil, err
 		}
-		all = append(all, units(md, p, terms)...)
+		for _, p := range pages {
+			if !retrievable(p) {
+				continue
+			}
+			md, err := src.Store.ReadMarkdown(p)
+			if err != nil {
+				return nil, err
+			}
+			for _, u := range units(md, p, terms) {
+				u.wiki = src.Wiki
+				all = append(all, u)
+			}
+		}
 	}
 	if len(all) == 0 {
 		return []Result{}, nil
@@ -328,6 +347,7 @@ type unit struct {
 	sourcePaths      []string
 	excerpt          string
 	introductionOnly bool
+	wiki             string
 }
 
 func (u unit) result() Result {
@@ -337,7 +357,7 @@ func (u unit) result() Result {
 			parts = append(parts, p)
 		}
 	}
-	return Result{Kind: resultKindLabel, Ref: []string{u.ref}, Content: strings.Join(parts, "\n")}
+	return Result{Kind: resultKindLabel, Ref: []string{u.ref}, Content: strings.Join(parts, "\n"), Wiki: u.wiki}
 }
 
 func sectionLabel(h string) string {
