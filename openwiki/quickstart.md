@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/70f8d76
-    at: "2026-10-01T21:32:50.205Z"
+  - by: owcli/8cd3bda
+    at: "2026-10-01T22:04:05.081Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/70f8d76", at: "2026-10-01T21:32:50.382Z" }
+generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
 ---
 
 # owcli Quickstart
@@ -62,6 +62,8 @@ owcli search "how are retries handled" --path src/net/retry.go
 owcli read openwiki/concepts/retries.md#backoff-policy
 owcli bind --external | unbind [--purge]
 owcli bind --wiki-dir /old/wiki/home  # reattach after moving a clone
+owcli workspace create "Emacs packages" ~/src/lib ~/src/new-pkg  # search several wikis together
+owcli read --wiki lib openwiki/concepts/x.md#anchor  # read a result from another wiki
 ```
 
 Interrupting `init` or `update` keeps every completed page; running the same
@@ -84,6 +86,7 @@ run step by step. See [Agent-Driven Runs](workflows/agent-driven-runs.md).
 | touch evidence, Claims, staleness, or `verified`/`sources` projection | [Grounded Claims and Evidence](concepts/grounded-claims.md) |
 | change front matter rules, indexes, link stamps, Mermaid checks, or provenance | [OKF Front Matter and Finalization](concepts/okf-output.md) |
 | change ranking, excerpts, or add a semantic reranker | [Wiki Search and Read](concepts/search.md) |
+| group wikis into workspaces, or change cross-wiki search scope and the workspace commands | [Workspaces](concepts/workspaces.md) |
 | add a provider, change retries or fallbacks, or add a config option | [Model Providers and Configuration](integrations/model-providers.md) |
 | write tests, fake the model, or run the upstream compatibility tests | [Testing](testing/overview.md) |
 

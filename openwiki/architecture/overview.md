@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: owcli/0.0.0-dev
-    at: "2026-10-01T18:35:58.470Z"
+  - by: owcli/8cd3bda
+    at: "2026-10-01T22:02:21.201Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -27,7 +27,7 @@ sources:
     resource: repo://internal/search/search.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
-generated: { by: "owcli/0.0.0-dev", at: "2026-10-01T18:37:57.940Z" }
+generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
 ---
 
 # Architecture Overview
@@ -39,8 +39,10 @@ wiki's factual statements in versioned source evidence ("Claims"), keeps the
 output conformant with the Open Knowledge Format (OKF) v0.2, and searches it.
 The behavioral specification lives in `docs/design.md`; that document also
 lists what is deliberately out of scope (MCP server, parallel page workers,
-the visualizer, coding-agent integrations, personal mode, workspaces,
-GitHub Actions scheduling, telemetry, translation).
+the visualizer, coding-agent integrations, personal mode, upstream's
+interactive `link` repository finder, GitHub Actions scheduling, telemetry,
+translation). Workspaces themselves are in scope; see
+[Workspaces](../concepts/workspaces.md).
 
 ## Package layering
 
@@ -73,7 +75,8 @@ flowchart TD
 
 Arrows point from a package to the packages it imports.
 
-- **Leaf packages.** `store` (layouts, bindings, atomic JSON state), `ignore`
+- **Leaf packages.** `store` (layouts, bindings, workspace registry and
+  search scope, atomic JSON state), `ignore`
   (`.openwikiignore`), and `config` have no internal dependencies. See
   [Storage Layouts and Bindings](storage-and-bindings.md).
 - **Deterministic core.** `evidence`, `claims`, `okf`, `search`, and `run`
@@ -109,10 +112,11 @@ lifecycle to an interactive coding agent, one JSON step per command, so the
 agent researches and writes pages and owcli calls no model at all. See
 [Agent-Driven Runs](../workflows/agent-driven-runs.md).
 
-`owcli search`, `read`, `status`, `check`, and `bindings` never call a model.
-`bindings` inventories registered repositories and orphaned managed wiki
-homes; `search` builds an in-memory SQLite FTS5 index per query and ranks wiki
-sections with weighted BM25.
+`owcli search`, `read`, `status`, `check`, `bindings`, and `workspace` never
+call a model. `bindings` inventories registered repositories and orphaned
+managed wiki homes; `workspace` manages named groups of wikis; `search`
+builds an in-memory SQLite FTS5 index per query over every wiki in its scope
+(one wiki, or a whole workspace) and ranks sections with weighted BM25.
 
 ## Two storage layouts
 

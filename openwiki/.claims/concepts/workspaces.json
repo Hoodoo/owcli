@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:6aee7867b57450bf62fb3245e59560118ad582bebe149fa459dab5b13b1ac04e",
+  "claims": [
+    {
+      "id": "claim_d58c5c1c7635440fddc582a8156e6267",
+      "statement": "The workspace registry is workspaces.json in owcli's config directory, with upstream's version-1 schema of wikis, workspaces, and active selections.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/workspaces.go#L16-L66",
+          "version": "repo-lines-v1:sha256:64210f5f2d7b3ba4531c9b9f5a64f6a3cbfe44cf9a1cc084301fce4a3895f7fc:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlMzFkNGRlZTM3YTY2NzJmMTRmNGFmNjAxYjBlYWFlMjZiYWQzZWU0YjkyZjYzY2ZkZTFmYTdkOTFkOGViNDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNWRlNjczOTBjZTMyYmZmZWYwZGU5NjRjMWM3MjAwOTk1ZDY4Y2EzZWVjYWRlYjNkZDA5Yjg3MmE1NGViNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIwOWQzOWQwZmY3Mzc1MTgxODQ5M2NkNzk3YzlhYWE2N2RjYjhjNGE5ODI5MDIyMDk4NmQ4OGRjZjQzYmNiNGUifQ"
+        },
+        {
+          "resource": "repo://internal/store/workspaces.go#L68-L68",
+          "version": "repo-lines-v1:sha256:0eac8978af0d5abd017d2317be7e6655babb2ffe4c24c3e9e8aa1860035a0a62:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVhYzg5NzhhZjBkNWFiZDAxN2QyMzE3YmU3ZTY2NTViYWJiMmZmZTRjMjRjM2U5ZThhYTE4NjAwMzVhMGE2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVhYzg5NzhhZjBkNWFiZDAxN2QyMzE3YmU3ZTY2NTViYWJiMmZmZTRjMjRjM2U5ZThhYTE4NjAwMzVhMGE2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA4NDI5ZWJjNTI1YWMyMDEyMTNkYTE1NzIxMmI1MjM1YTg0MmFlOGQxODhjMDE1YTFkZGI3MjAwODJhYjdjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDRkYjk0Y2NkYjM1ZGIyMzdkNTQ0YTJkMzUwMWYxOGFlYjZkNDNlZjkxMzVjMTQ2M2JhN2ZkYTM1MDJiNWNmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4821d1df08c6dc56b5ba9eb90d430d21",
+      "statement": "Loading the registry rejects unknown fields, other versions, duplicate IDs or roots, names clashing ignoring case, unregistered members, and active selections outside their workspace.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/workspaces.go#L76-L161",
+          "version": "repo-lines-v1:sha256:93e0daa5ca78972b43cd66ff1ae7f508c297fc733312f1f03bf19d49e1393372:eyJzZWxlY3RlZExpbmVDb3VudCI6ODYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0ZTNjYjdjN2JhOTk4ZmU1MDAwZDA5NzBkODJhZDZiZGE3N2U1MTFjM2FkZTBlZjZiY2I0NzAxZDBjNzFjNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczMzQwMWJiNjUxM2I1MDE0ZTFkODgwMWRhYjlkNTQwMGZjZjc5MDMwMTZlOTcxNzY4YjZmOThhMmRlZTViNjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiMmYwMDliNjcyZWYzNDNiNTI5ODgyYjU2YjVlNDE4NWI3MjNiYTc1MjllNTVkODVjOTRlZWZkZTc5MDQ1ZTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVlYTE4ZmNmMTdiZTQ2ODc0MzY1ZDY5OWFiNmEwZjY5YmY5M2I2ZjMxNjM1YzUzYjc2YTNhZjc1NjVlOGM5MmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea9f08aae196f491c2c32c16004bb150",
+      "statement": "SaveWorkspaces replaces the whole registry from drafts, keeps surviving wiki and workspace IDs, names new ones as slugs made unique with numeric suffixes, drops unlisted wikis, and removes invalidated active selections.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/workspaces.go#L181-L311",
+          "version": "repo-lines-v1:sha256:50f28e52f936c832539182fa3428b648936da13882872be3d90e9b8ad674f5df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMDU5ZjJiMzAyOWIwMzQ5ZGFjNGI3ZmJkNjg3Y2VjN2JkMDJiMjMzMGY4MjIxMGY2MGQyMDRmMzc5MjdlM2RjIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJmNDAwMDRlNDQwZDhmMGNjZTFmYzQ2N2FhYTMwMzBmNDg0NWVjNmU0NjY0ZmQyYmQyZjRhZWQ0MTc4ZTMxN2JlIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJjYmFhNzE1NzAwZjdhMTRmNTllOTdiMmExYWYyZmI2MTlhYmIzNzBjZDYwNmVkM2YxYmQ3ODcxOGIyODExZDY1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJmMDMyNmE5Yjk3YTM0NGMxMTE2MmUxNTEwN2I0NmM4ODUxMjYzOTE4MTM4Y2E3MTg0OWE0NDc0M2YwNmY5NDM5In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_20fec6a68ee0ed2f660583a7d2f81d41",
+      "statement": "Workspace names are trimmed, limited to 80 characters, and unique ignoring case, and lookups accept an ID or a case-insensitive name.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/workspaces.go#L199-L230",
+          "version": "repo-lines-v1:sha256:3246330970e57359eea2aca45a2a64a23361178fafc9939b89215556dfe755f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4ZTAyZjlhYjM1OGZlN2RhN2ViMzQxZTc5MjcwMzBkMmRjZGRkYzJjNGNkNGFhMzEyNzFjYzk1N2QzMWFkMGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1NzQ1NzNlOWE2NjMwNTI5Mzk0MTg4Y2IyMDM0ODNjMjFhMmIxYWNlYzNlMmFkNTk5ZTg4ZmM0N2VjZDZkNjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxMzY1YjQ2YjkyZGE4MjUzMmIxMWUwYzQ3ZTE3ZjYzYmZlMjI5ZGY3OTY5NWJjYzVkMGQ5YjM3YjRiYTNlYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY4Y2ZlZGIyMzIyYzRlMmM5YmE2OGM1MzVjMjE3ZWZhNjBkZTg5ODQwOWQwM2ZmOTliZTVmZDZkMGI5NWQyZGQifQ"
+        },
+        {
+          "resource": "repo://internal/store/workspaces.go#L24-L24",
+          "version": "repo-lines-v1:sha256:27e6820dee3a2c4b5a55b69750f6a481558a1266464f7c13ef22c233af15ff93:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNjgyMGRlZTNhMmM0YjVhNTViNjk3NTBmNmE0ODE1NThhMTI2NjQ2NGY3YzEzZWYyMmMyMzNhZjE1ZmY5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNjgyMGRlZTNhMmM0YjVhNTViNjk3NTBmNmE0ODE1NThhMTI2NjQ2NGY3YzEzZWYyMmMyMzNhZjE1ZmY5MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDE3NjlmZGUxNjM5ZWIyMmIzMzM4MWZiMzkyZWQ4OWJmN2M5OTQxNzMyMjcwNjU0OTRkZDQwNmRjMWI1MDU5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjZhY2U0MjgxMmM0NjcwZmNiNDQ1ZGM4ZDJiZTQxZDFkMzhlYjYyOGEwZThiYzVjZDAyYjE5NjQ2NWQ4OTBiZCJ9"
+        },
+        {
+          "resource": "repo://internal/store/workspaces.go#L313-L327",
+          "version": "repo-lines-v1:sha256:f09125a15735fe9d8322506a5591b6611c05c6ac8f84bc442d03319335c3015a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiZWIxMzYzYTEwY2FlYmE5NmJkYjZkMTYzNWNkYzZjODE2NWZkZmU3OTdhNjkyYmY3NWI2ZDUxNDYzNGFkYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1ZGY4MWJkN2M4YjNkMDZhYzM4NDE5YThhNTZhMDk5YjEyYTJiODAxNWYxNmVlYTMwNWM0MmEwZTBjMDQ2YjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE3OTU4MGFlZGI4Y2UxYWE2YmE0MDZkMDZhZTkxN2Q1MzdkNDZmYjNiZGI5NDRjMGUwN2UyM2NjYzUyOWQ0YjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b52fe5173b2a0e125680d68511ebfb6",
+      "statement": "ResolveMembers resolves members through bindings and reports a missing repository, a repository without a wiki, or a missing wiki directory instead of failing.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/workspaces.go#L420-L454",
+          "version": "repo-lines-v1:sha256:bf721e4498b9207b32218c45cb73df44794a5f5a5135ea0683cee110327cbfb0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMzU4MzhhY2ZmZmY5MDIwOTMyZmNmYmNkNDA4NzFlMTEzY2RiYjEwOGY5Y2ZjMzljMWI0NTU2ZmM3YTI2ZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmYTc5NmY2MGU5ZDJiY2Y5YjgxMWZlMGExOTFlNjRmZDkxOTdhNzZmYmVmN2M0YzBjODIyMGVjMGI5YmM5NzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlODA3NGI1NzNiZGU0MTQ3MGE4NzMzYzRlOTRiOTQyNmNlM2EwMjJlYjQxZGZhOWQyMTAyMmI3NTBlNDEwNmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_add06797531a81b42f08ff9721e2cd7c",
+      "statement": "A workspace member without its own wiki can still search its workspaces.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/scope.go#L62-L94",
+          "version": "repo-lines-v1:sha256:00c2e699daab86f1225f0478c3a0db2180cfd70f856582343f66710ca7e578e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlZWIwNzY2MDExY2I5Mzk5YjllOTQ5NjExYWY5MTgxNjEwNmFjNjljNmZmMDYxN2M5ZWUyZDczZDk5M2YxMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkMzEzZmI2YWNhYWRlZjhmNjEzMjIwMmYyNzhhZTVkODVkNjEzNTY2ODU3ODcxZWNmMGY2OTFmOTQ1Y2RiZDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3895d5af6daa5a30439cf1085938d8c6",
+      "statement": "ResolveSearchScope requires an explicit workspace to contain the repository, searches the own wiki with no workspace, uses a single workspace automatically, uses the active one among several, and otherwise returns workspace_required with the choices.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/scope.go#L117-L171",
+          "version": "repo-lines-v1:sha256:3072c0ed58b8347ae22b330370e3e17841fb0d2846f3101d2e9da4fbc7d8806a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjNWQwYzU3MzRmOTBhNTFiYTY2M2ZhMWRlNTdkOGVmYjI2ODhlMDI4MDE2NTQzMTM4YzgzZTk4NGE5N2I5MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhMDNkNjFiYmI3NDAyYjNhMWFiMTJiODY2Yzk3NWNmNzc0ZjRkZTI3NjBkNWYwOTg1NmNmNTBlYzQ4NTIxNzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_95824c7846631104ae60b4bcf46b7c2f",
+      "statement": "ResolveReadableWiki allows the repository's own wiki or a wiki sharing a workspace with it.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/scope.go#L172-L201",
+          "version": "repo-lines-v1:sha256:6914cc1a78aa94a5747df740f242371c6768b2c5fe83c9e6d244356a3ad7b3d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwMjY1ZDJmY2EzMWE4NzYwZWNkNDRiZmE1MmU5OGIwZDcwOWQxNmNiZjJlMjRhNDY1NGMxZjM3YTdjNTZkMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkYWZiOTM3OTMxZDEwMmJhODc3NDgyOTJlYzdiN2FmY2FhOWJjNmEwNDNkZTA3NzI5ZjU4ODMxOWM1ZWNkOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_833da3ba094a24744fbee4199aec74fa",
+      "statement": "owcli workspace offers create, add, remove, delete, list, wikis, use, current, and clear, and with --json prints errors as invalid_input for wrong requests and not_found for unbound repositories.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/workspace.go#L22-L99",
+          "version": "repo-lines-v1:sha256:802432bbd7c050d6e219e34cef7b6c7cf8e7ca65dc3e0a20f0dbb62988ddf340:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkNGVmYmQ4MDVmODNjY2NhNzdmNGRmMWYzODQxZGNlZGU1YmVkODJlZmVjMmIzODdhZWFkY2M4OTk1N2NkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwYjcxOWFjMGVmZjI3MWI1MWRhMjAxNjJhYWNmNzdlMGUxMTU4YzMwZjkyNGY2OTQ1M2Y0NzBkZmY3N2Q4YmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2MGVkNzkyZjk2MWIzMjYwZDU0OTE3NjAyZDg4OThkZTM2ZGQxYTBkOTllNTFlYmU3YTQxZTI4ZGU4YzI2MmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea9ce0d651a546626d97cc2bbe7d167b",
+      "statement": "Removing a path that is not a member of the workspace is an error.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/workspace.go#L180-L219",
+          "version": "repo-lines-v1:sha256:bad190581e606c8bd81ebd79a8bc794c943ca472cbd31692e714eb40f14c9154:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzOWYxNDY3Nzg3YTI4YWFiMzRhYTY4YWU1ZDIwOWE0YWE5NmM5N2M0OGFjZDEwNzdmODQwNDNiODg3YWZmYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmZDk2MjIwN2FjMDU5ZGQ5NDQyNzllMTQ4OWZmZWZhMTc2ZTAxYmFmMTM2NGRjNmJkNzljMmMzYTAxNWYwZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYmRjYWY5MzFjMjRmZmMyZWNjMTI3OWI4MjNlMDM2NDk4MjFmN2RkY2QwY2FmMTBmMjk1NzllZWNjYzUxYWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_857cc696f1631924f0dc0256548bdd6f",
+      "statement": "An opt-in test splits owcli's wiki across two repositories in one workspace and compares federated wiki and ref rankings with upstream's.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/compat_test.go#L121-L239",
+          "version": "repo-lines-v1:sha256:83700f19dbbf90cfd54d85e3a6a9ff3569a9c2338a86a9f92ccb470f89751790:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzN2ZkMmNjZTg2Mzg1NTk1YmUxMzIyMjY0ZWFmNzUxMDUyM2MxNmQ4N2ZhOTg3NDU2NWJiYTEwMWM1NzkyMThiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJjNzAzNGVhMTIxY2JhMjk0OGEyMGRlNzIwODZlZDVmMzc0NzlkYWQxNzlmOWEzODU0NDkxODYzOWQxMTBmM2EwIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "owcli/8cd3bda",
+    "at": "2026-10-01T22:03:35.570Z"
+  }
+}

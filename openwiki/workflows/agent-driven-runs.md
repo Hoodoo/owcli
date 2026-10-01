@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/70f8d76
-    at: "2026-10-01T21:32:35.200Z"
+  - by: owcli/8cd3bda
+    at: "2026-10-01T22:03:52.878Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/70f8d76", at: "2026-10-01T21:32:50.382Z" }
+generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -127,7 +127,8 @@ Following Kata's pattern, there are two levels:
   imports `AGENTS.md`, between managed `OPENWIKI:START/END` markers. Refreshing
   is idempotent, and the markers are upstream's, so the block replaces an
   upstream-generated one. The block says:
-  - search just in time;
+  - search just in time, read other wikis of a workspace with `--wiki`, and
+    ask the user when search reports `workspace_required`;
   - never hand-edit the wiki;
   - pass plan and submit JSON with `--file`, from outside the repository;
   - after merging code into the default branch, run `owcli check` there, and
@@ -139,8 +140,9 @@ Following Kata's pattern, there are two levels:
   For an external binding owcli refuses to write into the repository;
   `owcli agents-md --print` outputs the block for the agent's global
   instructions instead.
-- **`owcli quickstart`** prints the full procedure: reading commands, health
-  checks, binding inventory, where registry and wiki files live, safe
+- **`owcli quickstart`** prints the full procedure: reading commands,
+  workspaces (cross-wiki search and read, `workspace_required`, the
+  `owcli workspace` commands), health checks, binding inventory, where registry and wiki files live, safe
   reattachment after a clone moves, each lifecycle step with example JSON,
   error codes, and the planning, page, and Claim standards.
 

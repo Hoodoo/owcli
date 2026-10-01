@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "pages": {
     "/openwiki/architecture/overview.md": {
-      "pageVersion": "sha256:b1fe09cb962ccd414ac4d2be2bdde10ece475746e99107320a9d5469e004d890",
-      "completedBy": "owcli/0.0.0-dev",
-      "completedRunId": "9c5e6c89-545e-48bc-8a7b-3c03791bdf7a",
-      "gitHead": "006ae4991ac5579e9a96f0625768ab0637fba989",
-      "sourceFingerprint": "sha256:9e06ac81dbaab581b4f0f5f8b78d0981913775d820c38e11768aef2bbaea96d1"
+      "pageVersion": "sha256:d08e1be0c4ac9faf852c7cc83bac58c7b5b1c02a818d0b210be42e75f9047684",
+      "completedBy": "owcli/8cd3bda",
+      "completedRunId": "8edf944a-0380-4c63-b0f1-79f1900c9b07",
+      "gitHead": "8cd3bda33944fd49a009f5ad123e147b98d67114",
+      "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
     },
     "/openwiki/architecture/storage-and-bindings.md": {
       "pageVersion": "sha256:9b0d77cafa9789f249b361b92523d8f8f963f83111d19fff2e044607f2de37f3",
@@ -30,11 +30,18 @@
       "sourceFingerprint": "sha256:88673e87937a4e02489ab32a6597247e80f39d9cba4e1cc98bbf0071b18c60d7"
     },
     "/openwiki/concepts/search.md": {
-      "pageVersion": "sha256:8d16efc6d2988e284f44d8c0aed933f4736cb32d66cf6b142cee93aaf415fc3b",
-      "completedBy": "claude-code",
-      "completedRunId": "8cb7e59b-3dda-467e-bed9-7a34742f61d0",
-      "gitHead": "0f7cda701025b0a53715fa7d9612573be6410be6",
-      "sourceFingerprint": "sha256:88673e87937a4e02489ab32a6597247e80f39d9cba4e1cc98bbf0071b18c60d7"
+      "pageVersion": "sha256:602f81624e9a12545802264c05dc0fc0e7a17c07ac94cee4f59219b1507887a4",
+      "completedBy": "owcli/8cd3bda",
+      "completedRunId": "8edf944a-0380-4c63-b0f1-79f1900c9b07",
+      "gitHead": "8cd3bda33944fd49a009f5ad123e147b98d67114",
+      "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
+    },
+    "/openwiki/concepts/workspaces.md": {
+      "pageVersion": "sha256:6aee7867b57450bf62fb3245e59560118ad582bebe149fa459dab5b13b1ac04e",
+      "completedBy": "owcli/8cd3bda",
+      "completedRunId": "8edf944a-0380-4c63-b0f1-79f1900c9b07",
+      "gitHead": "8cd3bda33944fd49a009f5ad123e147b98d67114",
+      "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
     },
     "/openwiki/integrations/model-providers.md": {
       "pageVersion": "sha256:970f27d667cd7c358409a19ef5b4317c3716b74f2fd259e4829220eba4827ea3",
@@ -44,11 +51,11 @@
       "sourceFingerprint": "sha256:88673e87937a4e02489ab32a6597247e80f39d9cba4e1cc98bbf0071b18c60d7"
     },
     "/openwiki/quickstart.md": {
-      "pageVersion": "sha256:f9397b53bdb23ccf12ffa4709e6c07e523c6c88fe26e54d99ca74b789dcfb528",
-      "completedBy": "owcli/70f8d76",
-      "completedRunId": "973893a8-2fda-41fe-bcda-4089fa53ae58",
-      "gitHead": "dde534c8a948c7d8b36af51c90bd65637b5e4cb6",
-      "sourceFingerprint": "sha256:ebf2c67f7eeb598cec66107118ae50dc38b249ed58a6177a5d2bde2aa7030937"
+      "pageVersion": "sha256:81ff32f1b018946bfc605192d95c19eced6fd65b176e9c868db0a914225814c7",
+      "completedBy": "owcli/8cd3bda",
+      "completedRunId": "8edf944a-0380-4c63-b0f1-79f1900c9b07",
+      "gitHead": "8cd3bda33944fd49a009f5ad123e147b98d67114",
+      "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
     },
     "/openwiki/testing/overview.md": {
       "pageVersion": "sha256:e893891284536a86a2a2c4a26943a6aa4d6a57ee7ace3a338cda8bd7988e36de",
@@ -58,11 +65,11 @@
       "sourceFingerprint": "sha256:ebf2c67f7eeb598cec66107118ae50dc38b249ed58a6177a5d2bde2aa7030937"
     },
     "/openwiki/workflows/agent-driven-runs.md": {
-      "pageVersion": "sha256:a633c032d28d0780356335faaf571170e54a32f8225dc4f7e543d7e655d56e92",
-      "completedBy": "owcli/70f8d76",
-      "completedRunId": "973893a8-2fda-41fe-bcda-4089fa53ae58",
-      "gitHead": "dde534c8a948c7d8b36af51c90bd65637b5e4cb6",
-      "sourceFingerprint": "sha256:ebf2c67f7eeb598cec66107118ae50dc38b249ed58a6177a5d2bde2aa7030937"
+      "pageVersion": "sha256:79b560fadf1b1766fd1a6eadf4e2bb7d0b4d51ae238af975858f480b772e515f",
+      "completedBy": "owcli/8cd3bda",
+      "completedRunId": "8edf944a-0380-4c63-b0f1-79f1900c9b07",
+      "gitHead": "8cd3bda33944fd49a009f5ad123e147b98d67114",
+      "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
     },
     "/openwiki/workflows/generation-run.md": {
       "pageVersion": "sha256:93d9c73ddb67f944d547fbc59a8adb1af45308c714be4080d47d2de2b9cc2bd8",

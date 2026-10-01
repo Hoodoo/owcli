@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:8d16efc6d2988e284f44d8c0aed933f4736cb32d66cf6b142cee93aaf415fc3b",
+  "pageVersion": "sha256:602f81624e9a12545802264c05dc0fc0e7a17c07ac94cee4f59219b1507887a4",
   "claims": [
     {
       "id": "claim_6ade388ddfb74da78bee16e2770554da",
       "statement": "Search splits each page into one unit per non-navigation H2 section plus an introduction unit for text between the H1 and first H2, falling back to a single whole-body unit when there are no qualifying H2 sections, and skips deprecated or empty pages.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L363-L435",
+          "resource": "repo://internal/search/search.go#L383-L455",
           "version": "repo-lines-v1:sha256:27fa7c6d3c313ec9442f0218926b2f2aaa1dfb061d692843d3375389fac2ebdc:eyJzZWxlY3RlZExpbmVDb3VudCI6NzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyYWRhYjEyYzVhNzZhNWJkN2I1ZmRjNzgyZGUwOWQ4OGJlNWQwNTA0NDk1ZTYyNjhmMTgzYTVlNWQyM2EyODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMzU3MmVkZmFkYTZhNDIyMDU0MzJiNDYyYWZkNmRhNTYwYTU5N2Q3ZGQwMDRhZTVmOTZmNTJkOTI1OTU2YTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4ZWZmZDg1NzRhNTAyODk0NWRhMjZlZGJmYTZmZmYxYWY2NDlhZjEwOTc0M2QwNjNlZTMxNTU0ODQxNTFlMDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmNjBmZDEyMmFiNzI4OGIyNThjM2M3NzNjZTMzYzA4OGViOTlhNjRjMWQxZDM5MmVkZGNkMGJlNGNjYTcyM2UifQ"
         }
       ]
@@ -17,7 +17,7 @@
       "statement": "Introduction units index only heading and prose, leaving title, description, and identifiers empty.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L176-L186",
+          "resource": "repo://internal/search/search.go#L195-L205",
           "version": "repo-lines-v1:sha256:a1272f8abcc29ec8761cf229f01adc63c01b58adc7ce2be0f190e460c2207480:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllMWU5NjYxZTNkYWNiYjNiYWRhNGEzMDM4Mzg3N2M1YzUzYzMyODcxOWE3Y2VjYmEwMzM4ZTU5OWIzZjA1ODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI3ZThlODhmNGU1YjcyN2I1MzhhOWJmYTM5YjUxYWQwMGY4OTVmZDI0ZTRjNDU0NTA5MmQyM2ZjOTAwMDJjMTIifQ"
         }
       ]
@@ -41,7 +41,7 @@
       "statement": "Each query builds an in-memory FTS5 table tokenized with porter unicode61 over title, description, heading, prose, and identifiers, ranked with bm25 weights 8, 4, 6, 1, 3.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L158-L170",
+          "resource": "repo://internal/search/search.go#L177-L189",
           "version": "repo-lines-v1:sha256:d4ca9e9df8aef403b4ed34642e5e7f21e5e16a91d243c681b6f2d6557f4ce53b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwYzMzNTlmNGIyYmE0NjU0ZGVjNmM4MWU2YzY3YjUxMzU2YzIyYzkwM2JmYmE5MjlhZWZkOWQ2OThjYzA5MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4YzAzODc5YTdiODFmNDQ3OTNmZmRlNTkwOGEzNDVmNjE0NzYxMWI0OTgwNDYwNWM5M2NlMTUwNDc3YjhhMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIzMjllZmY5YWE1YTk1MGFiNGRmY2E4MDFkZWQxMWRhY2I2ZjQxZTAwYjA4M2IxMGVlMzhmZGZhMmUyMzhjOTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0MjliZWZhZTcxYmM3ZmVlMjViMDg2YzRhNGMzMTQ1M2EzNjNmZWZmMTgyOTJmMWMyODNkYTNiMzhlYWJmN2YifQ"
         },
         {
@@ -55,7 +55,7 @@
       "statement": "Ranking orders matches by source-path hint matches, then the number of query terms matched, then BM25 score, then insertion order.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L209-L248",
+          "resource": "repo://internal/search/search.go#L228-L267",
           "version": "repo-lines-v1:sha256:ef843b233e0d7e63f02202c3e701f1b8500cbfcf7cf386fd1437d3795053c4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ZWZjNDk0MThkMjZkY2YxMjliMjJhNmFhMjExMDhjZWVjMzc2NzdhMzJkMDhlOWQ1ZmVlMzVkZGE2NmJiOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyMjNkNjBlNGY5MTg4Y2FhMjA5YWE3ZWUxNTkyZjFjNGI1MTE2OTBjODA5NzgzYzU4OTRmOGY3ZWM2ZDlkMDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxNjM0ZDViOTFhYTczZjEyOWZhODYyZWE2Y2U4OWRjNTU2MDI1NzA0ZjgwYTY5ZjBhYjdjYjVhNWFkNDExNDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiYjFhNzI0NGI1YjgwNDJmMWFhZDM5MzAzYWU2OTVkNmQwMWRhYjYzYmE5ZTIxYjhlY2ZhNmYzZWM4NzExMTYifQ"
         }
       ]
@@ -65,7 +65,7 @@
       "statement": "Indexed text is expanded with camelCase, acronym, and separator splits, and query terms are distinct lowercase word tokens (at most 64) with stop words dropped unless none remain.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L251-L292",
+          "resource": "repo://internal/search/search.go#L270-L311",
           "version": "repo-lines-v1:sha256:e27c1a34c87ccc184183a790ecb49c2726d427b9cafb49326d024ef432122c38:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxNDU2ZDM5ZjZmYWExMjhmZGQ5NzU3NWY0ZDEwMjk2MWExZDYyNTY2NjczZGE0ZTNiZTk4MGMwM2E3ZTlkMzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3Y2M5NzkxMTA3MWZmNTAyNjdkM2NmMGIxNDc0MjkyODJhN2Q5NjU2ZTAzMjI5N2I0ZThmNzE0YzU0NTQ1MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZGM5ZjE0MzhiNTJiNmFlNTJkYTExMmZiM2U1MTVhMTMyZWQyYzRkZDQ2NmNlYTViODFjNTY3Y2I4NDI0ZGMifQ"
         }
       ]
@@ -79,12 +79,12 @@
           "version": "repo-lines-v1:sha256:14a4f40f0032208f8fa70aa5815150ebb24b5521e37975b174e6460234c67858:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmMTg0NjZhMDk5ZWQwMGFhOGYzZTU5OGQ5MGJhMzAzODgyZTE1ODNkNDAzNGJkMzk2YmQ4M2ZkMmVjZTllODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1OTAxMjk4ZWYyZDkyMWYyNmVhNTFlM2RjODBlOTg2MDNmNmU1MzNkYTYwMTJlYTUwMDg0ZTQxMmY1MTExMzUifQ"
         },
         {
-          "resource": "repo://internal/search/search.go#L294-L309",
-          "version": "repo-lines-v1:sha256:12c39b1a24bf6a314788d6ada1729c013e130e9996d3cc562ca1f5fb7519ac60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiNjg0MDZhNjU3NmIwOWZmNWM0NGNlOWZmZTNhNzJjMDQxMTMxODc2NGZmZjUxMjkzMjE3MTNlYzI5MzljOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYzg5NjdmOGQzOTA2ZjQ3ZTdjOGRiZDRhYmI3ZjU1YmFjOTA5MmZjNjljMWQ4MzY3MDU1NDFlODY1ZWNlNmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5OThhNGNmYWI2ZTliNjlhMDE1YWEzNTA1NzQ5MDYxNzJiNzU2MzcxOGQyMmE0OTY0YTFiMWY3MDAxMmJhNjYifQ"
+          "resource": "repo://internal/search/search.go#L313-L327",
+          "version": "repo-lines-v1:sha256:9b448a62b1fc517db4b25c0ea5c30f65a91c02ba0d4fc3492b296ec331eaea19:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiNjg0MDZhNjU3NmIwOWZmNWM0NGNlOWZmZTNhNzJjMDQxMTMxODc2NGZmZjUxMjkzMjE3MTNlYzI5MzljOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYzg5NjdmOGQzOTA2ZjQ3ZTdjOGRiZDRhYmI3ZjU1YmFjOTA5MmZjNjljMWQ4MzY3MDU1NDFlODY1ZWNlNmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE5ZTJiZTVkNWIwMDViNWJkNWVkOWFkOWUxODFmNmIyN2YyMzFiNTU5NjdiMzc1ZjQ5ZTg5YWZkZjQzZDg2OWUifQ"
         },
         {
-          "resource": "repo://internal/search/search.go#L85-L120",
-          "version": "repo-lines-v1:sha256:194bf67c7f175bc119492feee2cbddef90c71088ec26a6aec2b8ccbeaf34925e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2Njg4NTEzNTRlYzRjYjFlMzY2MGM2YzkyYjQ5M2FkNzAyZmUxNDQ0Y2EwZWMyYjBlMGQ5YmZlZGJjYmEwMmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYTU3MDgxMDUxZjQ2ODJhN2RiM2U1OTBiNGRkNTQxM2Q1M2RjOWEwMTU1MTI3NmRhY2I1MjFhN2UxZGI5YTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjNDRjNjZjMDE3YTRjZjQ4YmIyMWU1ZWZjOWMxYTIyNzE0NTdlMzhiMjkzMTU0ZTU0Zjg2MGJjNTU4NTRiMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiYThmMWJiZGNlYzNlYjM0MzFiOTczYzVmODBhNTkyMWEwNzZhZWQwNDBiMmM3ZmEyZjQxYWU5NGI5ZGY4MjkifQ"
+          "resource": "repo://internal/search/search.go#L99-L125",
+          "version": "repo-lines-v1:sha256:557e0cd21a2eb6c5302e6b8bfe0755dbc3be50ca5370d6cee977c83989b9ee1d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwY2I5Mjg4YTljMzNlZmM1OGU4MmVmOWU1N2MyNjZhYzZjODNlNmQwOTA5NzEwZmFiYzc5YjZmM2Y5YzkyZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNzc1NjI5YTQ2MWNlYTFjZmI4YWYxOTBlZDQ3N2EyZDc4NDZmMDg1OTFkY2NjNjZlYTFjNDA3ZTZkYTc1MjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4NTUzODRjNjNkZjViMzgzYWEzNGI1MWU3YTZhNGFkOTZmMWNmZGM1ZTRkMTU2NTQxYWU0ZTYwMWRkM2FmMDYifQ"
         }
       ]
     },
@@ -93,7 +93,7 @@
       "statement": "When a Reranker is configured, the top 20 lexical candidates are passed to it and its output is truncated to the requested limit.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L138-L155",
+          "resource": "repo://internal/search/search.go#L157-L174",
           "version": "repo-lines-v1:sha256:136aa34b7ef413ba98a7515fcd7974a379feed697653de7bf13162c3032c780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmMTQyMWY1NjgyM2QxMzExZGM1YmJiNGRmNTIzZjkyZjE2ODJmNDIwMDk4MmNhZDBmNTQ4ZWNkNmJmZWE2NTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyNGVlY2VlYTZkODZkNjU1NjlhYzJjNzhiNzBmNTM5MmFiNWJmNGE3ZjE1N2M3ZGY4NjZmOWFiYjM0MzhjMmEifQ"
         }
       ]
@@ -103,7 +103,7 @@
       "statement": "Excerpts choose the block with the most query terms, strip links, images, and Markdown punctuation, and truncate at a word boundary near 600 characters.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L463-L507",
+          "resource": "repo://internal/search/search.go#L483-L527",
           "version": "repo-lines-v1:sha256:218786bfcbb7492fdf1ddef23d56513c8ed7857060bc11affde39a5001eea495:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxNDU2ZDM5ZjZmYWExMjhmZGQ5NzU3NWY0ZDEwMjk2MWExZDYyNTY2NjczZGE0ZTNiZTk4MGMwM2E3ZTlkMzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NmU5MDVlMzNmNWRjZDJkZTEyZjRiOTczYjRiMTQ2NDI1ZTkwMWQyY2QyNWE5MWRlMWI0MDM4ZjcwNTFlOTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjMjBkY2RlMGJiZGM5ZDBmODI2NDAyNmY5YTQyY2NjYzUyOWY4YWU3NTBmZjliYzIyMzE3ZWJjMjE5Njk4NjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyYmI3MzVlNTAxNjBjNDMzMTEzNDI1OWQxYzRjMzE3YTQxYjc2OTIxMGFmYWUyZWMwOTFkOWMyODI2OGViZmYifQ"
         }
       ]
@@ -113,14 +113,48 @@
       "statement": "Read returns complete sections by anchor in request order for a normalized, retrievable page and rejects unknown anchors.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L512-L557",
+          "resource": "repo://internal/search/search.go#L532-L577",
           "version": "repo-lines-v1:sha256:3b295d7cc46a8d8f0b6689e9d7c6ab96fc0836f6bd315ffa53e24bde1ddb3188:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkMjA1NzQyYTE5N2MzZTg4ZTg5ZTNiOTY0NzEwYWEzNjRiZTgyNmFmNzM4NTcwYzRkYzg3ZDk1MjhlMjk1NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmNmRlZjNhYTI0YzUwMTE2ZGEzM2M1MjM3ZTk5ZTllNDcyMGE3ZGFlMTdiMWE4ZDljYTQyM2VkZTRmYjk0NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI0YjE4ODBiNzNjMzg1MTdkNGI3NzZlMGU2MjQwYjZiMjVmN2MwMGMzZDc0OTg5MWJlZGZhMWRiYTFiMzU5NTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df07b7c4533e31f0d694059878248f19",
+      "statement": "SearchWikis puts the sections of every source into one index and stamps each result with its source's wiki ID, and Search is the single-source case with no wiki ID.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L58-L72",
+          "version": "repo-lines-v1:sha256:655b52b7556a25cfa924fedccfef2187b0fe36838314501069650a58b23e5c0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyMzMyN2Q5Yjk1MmU1N2FiODU0ZTQ5Yjg0Y2JjODJlOTVlNTUxMzI1NjRhMjYxZmQ3Y2ZiMjlmZTA2ZDhlNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyNDI0Y2FlY2ZiMzJhZDUxYjY1MGI0MjIwNTE3Y2ExZGM1ODdiNDE2OGJjYmJlYTY4YTE2N2E5MzJiYWI2MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmZTFkOGFlOGJiODc4NTIyM2UzYTJhZjhhOTRlNjI1MGM5ZTliODY1YmNiZTM2YmFkZTM2OWNjNmI5ZTcwNWQifQ"
+        },
+        {
+          "resource": "repo://internal/search/search.go#L92-L174",
+          "version": "repo-lines-v1:sha256:ac71a72967398604a4b3cb3e9d0f56ac841cd6eaecd4f6da9a17eb7c78630094:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyZDlhZTE5ODY3MzJiY2YzZmY1ZTVjNzI4NjU2NjE5ODRkOGYyZTgzZTFlMzAxY2UzZTUwMmMwYjZhNzUwNTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyNGVlY2VlYTZkODZkNjU1NjlhYzJjNzhiNzBmNTM5MmFiNWJmNGE3ZjE1N2M3ZGY4NjZmOWFiYjM0MzhjMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b42c7b32cca2181b2a91e0c690f9869a",
+      "statement": "owcli search resolves its scope with ResolveSearchScope, exits with workspace_required and the choices when the choice is ambiguous, and reports workspace, wikis, and skipped members in workspace searches.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L207-L277",
+          "version": "repo-lines-v1:sha256:24af6a8558ec23c649df23eaa02e1cad3982e71eb5b3e65a024d3ece3ca9b9f2:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5YzFlYzhlYjEyZjdiNzc0ZjM2MzViNDI0OWM1OWJiMTg0MTcxMmM0NTFjOTJiMjIxNjZjZGNjNWI5YTE4MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlNWZmMTFkMmEzYzhkYTgzYjg4NTJmOTIzNjA1M2VkZWJiMjYzZWU0NDIxNTMyOWIwYjM1YTNmMWQxNjAzYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjMjM5NTI2ZGEyZGNiMjMxM2JlNTNiMWI4ODQ1YzYwMGUzNTEwMjIyYmY0YmYwZGFlNWNkYzgyYmI0NjI5YWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiZDY2NGQ1ZjVjOTVkZjAyYmNlMTYyMjg2OGU5MjU3YTI1MGNmMGE5NTFkZjg0NDEzNzY0ZGEyOTg1NDMzM2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8ec9690866e9fc8e3e64e18499d300c0",
+      "statement": "owcli read --wiki opens a wiki resolved by ResolveReadableWiki.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L303-L315",
+          "version": "repo-lines-v1:sha256:78e73d1fd037c03ab586e440e93471f87eec3fc08a7678647f9758b026c7db7d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5YzFlYzhlYjEyZjdiNzc0ZjM2MzViNDI0OWM1OWJiMTg0MTcxMmM0NTFjOTJiMjIxNjZjZGNjNWI5YTE4MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExMjgwMzA2NzdhZmEyMjA2MzkyMDEyMTRhOGFiODQ1YmUzZGYzYTVjZjg5ZGY1MDk1YWFlN2JmMDRmM2YxNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4MDk0ZmQ3ODlmOTdmNzg1Mjg1N2RlODM3MzFlNWFlZDJmOTg4MTI1Yjk5N2EwMjhlOGVjNmM5OTgyMzFhMTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMWMzNjIxMDMzNGQxNTUzZWE0NjZjODJjZjZmMTQ0NDdjMzczNTg2ZGQzZjU2NTQ4ZDEwNjE0MWFiNDU3NzYifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/8cd3bda",
+    "at": "2026-10-01T22:02:54.214Z"
   }
 }

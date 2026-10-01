@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a633c032d28d0780356335faaf571170e54a32f8225dc4f7e543d7e655d56e92",
+  "pageVersion": "sha256:79b560fadf1b1766fd1a6eadf4e2bb7d0b4d51ae238af975858f480b772e515f",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -117,7 +117,7 @@
           "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L191-L228",
+          "resource": "repo://internal/cli/instructions.go#L211-L248",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -127,18 +127,18 @@
       "statement": "The compact instructions route agents to run owcli check after merging code into the default branch and to update the wiki through the run lifecycle when it fails, and not to update on work branches unless asked.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L15-L54",
-          "version": "repo-lines-v1:sha256:655e37200ae19ab6904e6090014fedd70663f8d765f8159ac22a320088c52d78:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNWJhZDU4NDA1M2ZlZDJiYmY3ZDVkN2M0YmM5NWIwY2M3MDM5ZDZlZTYyYTUyZGVjMDM2NmM4MWE2ZGM3NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzY2JjNWM2ZGIzMTBjYjA2NWNmNGYxZjM0ZmRkMGIxN2M3MzJmYjFiNTI3ZDQ0Y2IwNjUzY2EwZjU2NWE0ZGQifQ"
+          "resource": "repo://internal/cli/instructions.go#L15-L56",
+          "version": "repo-lines-v1:sha256:f0c5bc4590abb94bffa5075c03c85573cfaa985ea34721cb93858f78a957ff52:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNWJhZDU4NDA1M2ZlZDJiYmY3ZDVkN2M0YmM5NWIwY2M3MDM5ZDZlZTYyYTUyZGVjMDM2NmM4MWE2ZGM3NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzY2JjNWM2ZGIzMTBjYjA2NWNmNGYxZjM0ZmRkMGIxN2M3MzJmYjFiNTI3ZDQ0Y2IwNjUzY2EwZjU2NWE0ZGQifQ"
         }
       ]
     },
     {
       "id": "claim_f036f60d7b498aa02712a9d3abc378f3",
-      "statement": "owcli quickstart prints reading and health commands, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
+      "statement": "owcli quickstart prints reading and health commands, workspaces, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L62-L176",
-          "version": "repo-lines-v1:sha256:53f2294fcc9e81a52228110f3491de79a2a5f80afe57daa457a918131c4c31dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
+          "resource": "repo://internal/cli/instructions.go#L64-L196",
+          "version": "repo-lines-v1:sha256:6c1f72ba102f826214a7d888f318a81ebd6441e2f228a04f27892cd83baad207:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
         }
       ]
     },
@@ -185,11 +185,11 @@
           "version": "repo-lines-v1:sha256:421327094401ee987c48a55584ba3f0b7db04c1a08002766c96e19c502eedeba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhlMzg1ZGIzNzRkOTU5ZmI0MDUzOGJkMjRkYjE5ZTExNDljYzMzYjJhMjA5OThhOWQ3NGMxMjNkMjY1NzNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1YTUxZDdmYjM2M2E1OGUwNjRhMTBlNmFjNjExNTMxMTYwZGVjYWY2MGE3ZDEwMGZmMmQzZTAxNzM2MjQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQ1MDdkNDI2MWNkZjNmNWRkZTQ1Yzk5ZWNkZmJmZjY4ZjkwOGJmZWM4NzYzODhmMDIwNjI5ZDE4NmJiODBlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzMmM2NTczMGEwMjFmNGU1ZGM5MGMwMWQwZjE1YTlhODRiYWVmYWIwMmU4NjMxNDY5MjM3MTlhMWIxMjAxNSJ9"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L131-L134",
+          "resource": "repo://internal/cli/instructions.go#L151-L154",
           "version": "repo-lines-v1:sha256:99ccd002d0aecf413a343ee6f8c8a45d0fcd6a6a8d4891d7cb6fdff51622481c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU0YmMyZmM4ZTk1YmM1MzFlNzZlYzQ3Y2U5ZWY2OTJkMWIwMTIyYzZlNTFkMjI2NmI2ZTJhNTIwNThhYzNiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ5M2E3YzI4YzI3M2E4OTJlOThiZDEwZTQwMWE0Y2Y2MDE2ZGU2OGRhNjExOGY3OTVmZGRjMGM3MGU2MDk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIwMTQ2ZjYxOTVkN2FkNTI0ZDQ2Nzg4NmJiOTVlMGIxNWU1ODliZmQ5ZWRiNDEwYzA2ODc2Nzg3ZjllNjgzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWI2MTI2NGE2ZDc5YmYxMzhiNDE0N2M4NjVmZWI5YTIxN2U2NWU3YzY0ZTFjMmU0NzRmZTYyMDQ3YTQxNjBkYyJ9"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L24-L25",
+          "resource": "repo://internal/cli/instructions.go#L26-L27",
           "version": "repo-lines-v1:sha256:4f3c298d3457ee69c453bedc51113b5802b1d90c4b192bec78790ca2511d36cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRiNzE0NTA3MjZjYmE2OTExZmYyY2IxYjliZjMwZWNmYWJlYjVkOTAzZmYwOGJiYTA5ZmI2MjVmNTkyNzZkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNkMmI0M2I2Y2IwMjJlMDFkNTIzOTdiOTg2ZTIzMzhmOWE5YThlOGM0NmIzMjc5YTU1N2Y3YWY1MzljOTRkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQyYmYwYmZhZDY4NjFhNDliOWVjODBkZDljODE3OTM4NDAxNjhjODBlNjRjNjhlZjNkMzQ5ZWQ0Y2I2ZjExZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVjNjNjNTJlZDBlMjkxYzc5MmM1ZWVhMTlkOTAzYjI0YjhmMTQwMjg3ZWUzYWEyNWExNDdjMDNmNTQ1MmY3MSJ9"
         }
       ]
@@ -203,10 +203,30 @@
           "version": "repo-lines-v1:sha256:b7f85351c8c86be06096956973f51c44358fc9dedd8a6e42d54213c24bf8989e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI5MmUxM2Q1NmEyOWFhZWE3ZDFkZDk5MDAwNmRlNDlkYzIyOTU2MTE0ZDZiYjg5MTgzMTZmYjk4MGYzZDkzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJhY2EwZDljM2RkZjQzNDAxZjlmZTZiYmJmZmQ0YzI2NDM5NDNlNWMwOWRhNjkwNjIwM2U1ZGVkYjk0NWM0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWZhYjBhYjk2OTRkMDc1Y2U5ZTE1NTcwMzU0NWM0M2UzZWI3OWNlYTM2OTAwMTQ2NTQzN2NiNjM4NmQ3OGY1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzc0ZjMwMjk4NTcwYTY3MmEzZWFlNzIzYzA2YWFkODRlMTY4N2E3OTYxNDczNTYyMmY3NzYwOGZhNmQ4NTJhNSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_4abe751f8f51c9472f6e4366ec994ced",
+      "statement": "The compact instructions tell agents to read other workspace wikis with --wiki and to ask the user on workspace_required.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/instructions.go#L18-L21",
+          "version": "repo-lines-v1:sha256:a9da667b1cbaf194e62ca1db9dcbeddafdb15c6cd95bfa4b8e858f93215ab1b5:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZiNjYwMGU1NmJkM2Q1ZjgyNjQxMzY2MTY5ZDlkYTI5ZDNhOTAzZmNiODQ4YWQzMzY4ZTE1ZWUwY2RmOTY2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjc2NThmNGU5ZjhmNjhhNjc4YTBjOTAzYWFkNDQ3NzlmYjA5MDM2NDYwODVjZDU0NjA3NTVjMjU4MjYxMGM2ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjljODU4ZTkzMzFmNzJlMTE0MmNkYzVmNDhkNzY3MjFiYjExZGEzMzllYzE4YTkyNWRiZWE4NWNiZGVjMWRkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3YjkwNGEzYWI1MjMzMmQ1MWZiZWQ2NTg4OTcxNTI2NmUyODQ1YTEwMDQzNjAwM2IyNmU5YzFiNjBmNGFhYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f67af9f93f5c044d661d3a3925b871ee",
+      "statement": "The quickstart's Workspaces section explains cross-wiki search and read, workspace_required, and the workspace commands.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/instructions.go#L81-L98",
+          "version": "repo-lines-v1:sha256:7b92d64a9257e5bae5f91c5ea0f4125c9f0635ac4ef26c80823e966b206213e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmODU2ODY5NjE3YWFmNzViZjA5YmYyMTA2OWU0ZGM0MzdkMGNjYzJkOWU0YWM1ZDY5ZWNmZTdhM2E0NGJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNjY2IwOWY2MTNmN2Y4YTA1ZWE0OTBlMjg4NzUyNDIwZGNhNjFlMjRhMWZmYjA1MzBmZGY5ZDZjZTRiYjEyZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwZDQ1ZGMzMGI5NjVlYmUwMzNkYjU5OWRmNTZkODY4ZWQ5ZTRmYThjMGIzZTJkNTA4YTMzNTViZjhjYmM4YmEifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/70f8d76",
-    "at": "2026-10-01T21:32:35.200Z"
+    "by": "owcli/8cd3bda",
+    "at": "2026-10-01T22:03:52.878Z"
   }
 }

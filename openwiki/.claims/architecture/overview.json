@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:b1fe09cb962ccd414ac4d2be2bdde10ece475746e99107320a9d5469e004d890",
+  "pageVersion": "sha256:d08e1be0c4ac9faf852c7cc83bac58c7b5b1c02a818d0b210be42e75f9047684",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_547da34b35324cf1aaeed4b5ac939590",
-      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L45-L59",
-          "version": "repo-lines-v1:sha256:3a299a88cfff71d4f23da0ff3a5e3e4e7079d0e32b7e434ae74e2518db90ce0d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
+          "resource": "repo://internal/cli/cli.go#L45-L60",
+          "version": "repo-lines-v1:sha256:df225cfaf6cf4c55b3dc56238d9e71eb0cfaa660630f4b5a1abcd35436ea6bd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
         }
       ]
     },
@@ -65,7 +65,7 @@
       "statement": "Wiki search builds a throwaway in-memory SQLite database per query and ranks with BM25 field weights 8, 4, 6, 1, 3 for title, description, heading, prose, and identifiers.",
       "evidence": [
         {
-          "resource": "repo://internal/search/search.go#L157-L166",
+          "resource": "repo://internal/search/search.go#L176-L185",
           "version": "repo-lines-v1:sha256:c6a57a4ad1961f29b15a4779e7829b60e40fbec21a81fecdd088a4ba6eea4b4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3YjBmMGIyNTY0OTdiZmQ1NzhjNzkxZGRmNmQ2OGE4MTgwZTkyMjM3NzZmY2JjYzA0ZmQ3ZWJmMmRhMWY2YTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4YzAzODc5YTdiODFmNDQ3OTNmZmRlNTkwOGEzNDVmNjE0NzYxMWI0OTgwNDYwNWM5M2NlMTUwNDc3YjhhMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZhMjY5NmYwNTg4YWY1MTUxMTAyOGE1MmZkOGU3YjQzYzhkNTNlMTMzMTgwZmU0NmY1NTk4YjZiMmUxMTY2NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0N2UyZjM1ZjgxZmQ1NzJjZGY2ZWJiYzMxZWVjYjAyZDRkNTNiMjVlNzI4Nzg0NTRlMTE0YmNmMTAxMTNiNWQifQ"
         },
         {
@@ -96,11 +96,11 @@
     },
     {
       "id": "claim_b7afe4f4cfc04bb9954d7c20e5e7d243",
-      "statement": "The MCP server, parallel page workers, the visualizer UI, coding-agent integrations, personal mode, workspaces, GitHub Actions scheduling, telemetry, and translation are out of scope for owcli.",
+      "statement": "The MCP server, parallel page workers, the visualizer UI, coding-agent integrations, personal mode, the interactive link repository finder, GitHub Actions scheduling, telemetry, and translation are out of scope for owcli, while workspace search is in scope.",
       "evidence": [
         {
-          "resource": "repo://docs/design.md#L36-L38",
-          "version": "repo-lines-v1:sha256:a45bb52e030025e1b8addbaa59f4619bc8ae4f7b27b9af27a7ea4d55bce68a18:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWViZTAzZDQ5NzI4ZmJiMTMwN2ViOTE1NDVlZDk4Y2QzNWY3ODZkOWM2OTlkOTNhY2I3M2RjODhmYjc0OGNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI2ZTE4ZjQ0YzNiYjA0YTljNzg3OTBkYWNhOTVhMDgwZTg2NTAyZTQ4NGU5NjZiMGFjYTk3NGUwNGQzOTc0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhkNTU0YmRlMjY4OTY4NjkxZWZhMWRiYjhhYjFjNTAzN2M0ODRmNzZjYWExM2E5ZTY5ZmFmZWZmNWU3ZmVkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDIwOWEzMzEyZmY0MDZjZmU2ZGJkNzhmNTQ2NGYxZmYyMTU0NTc3NWM3YjQ1NzUzODAyYTZhNmY2YzcyMjNhNCJ9"
+          "resource": "repo://docs/design.md#L19-L38",
+          "version": "repo-lines-v1:sha256:49ba53fdb57abfef5abc2b816bd1c4fbd5e43306ffe4b4faf4c500c19bec79e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmZWVjOGNiMzkzMTY1ZTk1MTgxMTk3ZWJlZmVjYTQ0YTQyNTZiZWY2ZjRjZmMxMGRlNjg4NDMxMzVkMWVjYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmNmJiOWVkNWRhNjQyNTNiOTliNGE0ZjU1ODc2Nzk4ZDdiODZkN2M3ODdmN2JiMTk1M2Y4YjFjNjI1OGJhZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2ZDBmYjFhMWExYmUxYzk4M2EwZTM1YTM5MWNkYjBmODg0NjFmNTNhMTNhNjRiYTdjNjU3YTNhZjdiM2U2YTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQyMDlhMzMxMmZmNDA2Y2ZlNmRiZDc4ZjU0NjRmMWZmMjE1NDU3NzVjN2I0NTc1MzgwMmE2YTZmNmM3MjIzYTQifQ"
         }
       ]
     },
@@ -120,7 +120,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/0.0.0-dev",
-    "at": "2026-10-01T18:35:58.470Z"
+    "by": "owcli/8cd3bda",
+    "at": "2026-10-01T22:02:21.201Z"
   }
 }

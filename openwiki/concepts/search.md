@@ -4,21 +4,24 @@ title: Wiki Search and Read
 description: How owcli search ranks wiki sections lexically with an in-memory SQLite FTS5 index and weighted BM25, re-orders by source-path hints and query-term coverage, builds excerpts, leaves a hook for semantic reranking, and how owcli read returns whole sections.
 tags: [search, retrieval, fts5, bm25, ranking]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/8cd3bda
+    at: "2026-10-01T22:02:54.214Z"
 sources:
+  - id: openwiki-source-da21f52d07ab623ce6a4f0a7
+    resource: repo://internal/cli/cli.go
   - id: openwiki-source-a5b2fc2f70918963e2e2700c
     resource: repo://internal/search/markdown.go
   - id: openwiki-source-737fd75f8183342d95459c99
     resource: repo://internal/search/search.go
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
 ---
 
 # Wiki Search and Read
 
 Upstream OpenWiki's "semantic" search is actually lexical, and owcli
-reproduces it exactly: for the same wiki and query, the ranked refs and the
-result text are byte-identical to upstream's (see
+reproduces it: for the same wiki and query, the ranked refs match upstream's,
+and so does the result text except for one known excerpt difference (a list
+item that continues after a blank line is split into its own block; see
 [Testing](../testing/overview.md)). Everything lives in `internal/search`
 and is model-free. `owcli search` and `owcli read` are thin CLI wrappers.
 
@@ -77,7 +80,8 @@ match no query term.
 
 ## Results
 
-A result is `{kind: "section", ref: [...], content}`. The content joins:
+A result is `{kind: "section", ref: [...], content}`, plus `wiki` in a
+workspace search. The content joins:
 
 - the page title;
 - `Section: <heading>`;
@@ -90,6 +94,21 @@ A result is `{kind: "section", ref: [...], content}`. The content joins:
 Limits: queries up to 2,000 characters, 1-20 results (default 5), and up to
 20 path hints, which must be repository-relative without traversal or globs.
 Invalid requests return `ErrInvalidRequest`.
+
+## Searching several wikis
+
+`SearchWikis` takes a list of sources, each a Claims store and a wiki ID,
+and puts the sections of all of them into the same throwaway index. Scores
+are therefore comparable, and results from different wikis interleave by
+relevance instead of being merged per wiki. Each result is stamped with its
+source's wiki ID; `Search` is the single-wiki case with an empty ID, so
+standalone results carry no `wiki` field, as upstream's do.
+
+`owcli search` asks `store.ResolveSearchScope` which wikis to cover: its own
+wiki, or every searchable member of its workspace (`--workspace` picks one
+explicitly). In a workspace search the JSON also reports the `workspace`, its
+`wikis`, and any `skipped` members; when the choice is ambiguous the command
+exits 1 with `workspace_required`. See [Workspaces](workspaces.md).
 
 ## Reranker hook
 
@@ -104,5 +123,6 @@ ships today.
 of its subtree, by anchor, in request order. Pages may be written as
 `concepts/x.md`, `openwiki/concepts/x.md`, or `/openwiki/concepts/x.md`.
 `owcli read` also accepts a search ref directly
-(`owcli read openwiki/concepts/x.md#anchor`). Unknown anchors, structural
+(`owcli read openwiki/concepts/x.md#anchor`), and `--wiki <id>` reads a wiki
+that shares a workspace with the current repository. Unknown anchors, structural
 pages, and traversal are rejected.
