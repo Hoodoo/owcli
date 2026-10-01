@@ -34,6 +34,10 @@ type Options struct {
 	MaxSteps  int // model calls; 0 means 60
 	MaxTokens int
 	OnEvent   func(Event)
+	// Continue is asked when the model ends its turn without a stopping
+	// tool. A non-empty reply is sent as the next user message; "" ends the
+	// run.
+	Continue func(Outcome) string
 }
 
 // Outcome summarizes a run.
@@ -90,6 +94,12 @@ func Run(ctx context.Context, p llm.Provider, o Options) (Outcome, error) {
 			if resp.Stop == llm.StopMaxTokens {
 				msgs = append(msgs, llm.Message{Role: llm.User, Text: maxTokensNudge})
 				continue
+			}
+			if o.Continue != nil {
+				if next := o.Continue(out); next != "" {
+					msgs = append(msgs, llm.Message{Role: llm.User, Text: next})
+					continue
+				}
 			}
 			return out, nil
 		}

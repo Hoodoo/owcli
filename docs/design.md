@@ -328,15 +328,20 @@ Upstream's "semantic" search is lexical. owcli reproduces it:
 ## CLI
 
 ```
-owcli bind [--external] [path]   register a repo; in-repo or external layout
-owcli unbind [--purge] [path]    forget a binding (optionally delete external wiki)
-owcli init [message]             generate a wiki from scratch
-owcli update [message]           incremental update driven by drift and claim issues
-owcli status                     binding, last update, pending run, claim issues
-owcli check                      deterministic preflight + OKF validation, no model
-owcli search <query> [--path p]  ranked section search
-owcli read <page> <anchor>...    print sections
+owcli bind [--external] [path]     register a repo; in-repo or external layout
+owcli unbind [--purge] [path]      forget a binding (optionally delete external wiki)
+owcli init [--external] [message]  generate a wiki from scratch; binds an unbound repo
+owcli update [message]             incremental update driven by drift and claim issues
+owcli status                       binding, last update, pending run, claim health
+owcli check                        read-only: preflight, OKF, links, diagrams; non-zero exit on problems
+owcli search <query> [--path p]    ranked section search
+owcli read <ref | page anchor...>  print sections
 ```
+
+`init`/`update` resume an interrupted run of the same kind (Ctrl-C keeps
+completed pages). `--agents-md` adds or refreshes a managed pointer block
+(upstream's `OPENWIKI:START/END` markers) in `AGENTS.md` and an existing
+`CLAUDE.md`; it is refused for external wikis. `-v` prints every tool call.
 
 Configuration: provider, model, base URL, API key env var name, effort,
 fallback opt-out — via flags, env (`OWCLI_*`), or

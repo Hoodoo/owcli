@@ -140,6 +140,21 @@ func recoverable(err error) bool {
 
 var errNoSubmit = errors.New("the worker stopped without submitting the page")
 
+// maxNudges is how often an agent that ends its turn early is reminded of
+// its task before the attempt counts as abandoned.
+const maxNudges = 2
+
+func nudge(limit int, text string) func(agent.Outcome) string {
+	n := 0
+	return func(agent.Outcome) string {
+		if n >= limit {
+			return ""
+		}
+		n++
+		return text
+	}
+}
+
 func describe(err error) string {
 	if err == nil {
 		return "skipped"
@@ -168,7 +183,8 @@ func plan(ctx context.Context, o Options, r *run.Run, ws *agent.Workspace, issue
 	out, err := agent.Run(ctx, o.Provider, agent.Options{
 		System: plannerSystem, Prompt: prompt, Tools: append(agent.ReadTools(ws), submit),
 		MaxSteps: plannerMaxSteps, MaxTokens: o.MaxTokens,
-		OnEvent: func(e agent.Event) { report(Progress{Stage: "plan", Event: &e}) },
+		Continue: nudge(maxNudges, "You have not submitted a plan yet. Continue your research if needed, then call submit_plan."),
+		OnEvent:  func(e agent.Event) { report(Progress{Stage: "plan", Event: &e}) },
 	})
 	addUsage(&res.Usage, out.Usage)
 	switch {
@@ -216,6 +232,7 @@ func writePage(ctx context.Context, o Options, r *run.Run, ws *agent.Workspace, 
 	out, err := agent.Run(ctx, o.Provider, agent.Options{
 		System: workerSystem, Prompt: prompt, Tools: tools,
 		MaxSteps: workerMaxSteps, MaxTokens: o.MaxTokens, OnEvent: onEvent,
+		Continue: nudge(maxNudges, fmt.Sprintf("You have not finished. Do not reply with the page as text: call write_file with path %s and the complete Markdown, then call submit_page with its Claims.", strings.TrimPrefix(next.Page, "/"))),
 	})
 	addUsage(&res.Usage, out.Usage)
 	switch {

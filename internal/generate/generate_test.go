@@ -67,6 +67,14 @@ func TestGenerateInit(t *testing.T) {
 		// concepts/lost.md: the worker stops without submitting
 		llmtest.Call("l1", "write_file", map[string]string{"path": "openwiki/concepts/lost.md", "content": "partial"}),
 		llmtest.Text("I could not finish."),
+		func(req llm.Request) (llm.Response, error) {
+			last := req.Messages[len(req.Messages)-1].Text
+			if !strings.Contains(last, "call write_file with path openwiki/concepts/lost.md") {
+				t.Errorf("expected a nudge, got %q", last)
+			}
+			return llmtest.Text("Still cannot.")(req)
+		},
+		llmtest.Text("Giving up."),
 		// quickstart.md
 		llmtest.Call("q1", "write_file", map[string]string{"path": "openwiki/quickstart.md", "content": quickPage}),
 		llmtest.Call("q2", "submit_page", claim("The Greet function lives in greet.go.", "repo://greet.go")),
@@ -114,7 +122,7 @@ func TestGenerateInit(t *testing.T) {
 	if strings.Join(names, ",") != "ls,glob,grep,read_file,git_log,write_file,edit_file,inspect_page_claims,submit_page" {
 		t.Errorf("worker tools %v", names)
 	}
-	quick := p.Requests[len(p.Requests)-2].Messages[0].Text
+	quick := p.Requests[len(p.Requests)-2].Messages[0].Text // quickstart worker's first request
 	if !strings.Contains(quick, "This is the quickstart") {
 		t.Errorf("quickstart prompt:\n%s", quick)
 	}

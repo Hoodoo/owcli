@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func run(args ...string) (string, error) {
+func runCLI(args ...string) (string, error) {
 	cmd := NewRootCommand()
 	var out bytes.Buffer
 	cmd.SetOut(&out)
@@ -28,23 +28,16 @@ func TestCommandsRegistered(t *testing.T) {
 	}
 }
 
-func TestStubsNameTheirIssue(t *testing.T) {
-	_, err := run("status")
-	if err == nil || !strings.Contains(err.Error(), "e564") {
-		t.Fatalf("want not-implemented error naming e564, got %v", err)
-	}
-}
-
 func TestGenerateValidatesConfig(t *testing.T) {
 	t.Setenv("XDG_CONFIG_HOME", t.TempDir())
-	_, err := run("init", "--provider", "bogus")
+	_, err := runCLI("init", "--provider", "bogus")
 	if err == nil || !strings.Contains(err.Error(), "unknown provider") {
 		t.Fatalf("want provider error, got %v", err)
 	}
 }
 
 func TestVersionFlag(t *testing.T) {
-	out, err := run("--version")
+	out, err := runCLI("--version")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -62,14 +55,14 @@ func TestBindExternalAndUnbind(t *testing.T) {
 		t.Fatalf("git init: %v %s", err, out)
 	}
 
-	out, err := run("bind", "--external", repo)
+	out, err := runCLI("bind", "--external", repo)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if !strings.Contains(out, "(external)") || !strings.Contains(out, filepath.Join(base, "data")) {
 		t.Fatalf("unexpected bind output %q", out)
 	}
-	if out, err = run("unbind", "--purge", repo); err != nil || !strings.Contains(out, "deleted") {
+	if out, err = runCLI("unbind", "--purge", repo); err != nil || !strings.Contains(out, "deleted") {
 		t.Fatalf("unbind: %q, %v", out, err)
 	}
 }

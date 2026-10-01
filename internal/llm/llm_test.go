@@ -207,7 +207,7 @@ func TestOpenAIToolLoop(t *testing.T) {
 	msgs = (*reqs)[1].body["messages"].([]any)
 	assistant := msgs[2].(map[string]any)
 	calls := assistant["tool_calls"].([]any)
-	if len(calls) != 2 || assistant["content"] != nil {
+	if len(calls) != 2 || assistant["content"] != "" {
 		t.Errorf("assistant %v", assistant)
 	}
 	tool := msgs[4].(map[string]any)

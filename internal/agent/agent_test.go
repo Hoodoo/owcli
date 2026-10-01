@@ -103,6 +103,9 @@ func TestWorkspaceListAndWalk(t *testing.T) {
 	if got != ".openwikiignore,bin,docs,main.go,openwiki,src" {
 		t.Errorf("root listing %s", got)
 	}
+	if _, err := w.List("main.go"); err == nil || strings.Contains(err.Error(), w.Repo) {
+		t.Errorf("listing a file should say so without leaking paths: %v", err)
+	}
 	wikiEntries, _ := w.List("openwiki")
 	var wikiNames []string
 	for _, e := range wikiEntries {

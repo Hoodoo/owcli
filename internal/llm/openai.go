@@ -89,10 +89,9 @@ func (o *OpenAI) Complete(ctx context.Context, req Request) (Response, error) {
 				body.Messages = append(body.Messages, oMessage{Role: "user", Content: strPtr(m.Text)})
 			}
 		case Assistant:
-			om := oMessage{Role: "assistant"}
-			if m.Text != "" {
-				om.Content = strPtr(m.Text)
-			}
+			// Always send a string: some servers (Ollama) reject null content
+			// on assistant turns, and "" is accepted alongside tool calls.
+			om := oMessage{Role: "assistant", Content: strPtr(m.Text)}
 			for _, c := range m.ToolCalls {
 				tc := oToolCall{ID: c.ID, Type: "function"}
 				tc.Function.Name = c.Name

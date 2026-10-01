@@ -45,7 +45,12 @@ type LinkReport struct {
 // Link targets are resolved in the repository's coordinate space with the
 // wiki at /openwiki, so a page may link to source files ("../src/x.go") in
 // either storage layout.
-func (w Wiki) ValidateLinks() (LinkReport, error) {
+func (w Wiki) ValidateLinks() (LinkReport, error) { return w.links(true) }
+
+// CheckLinks reports broken links like ValidateLinks without writing.
+func (w Wiki) CheckLinks() (LinkReport, error) { return w.links(false) }
+
+func (w Wiki) links(write bool) (LinkReport, error) {
 	var r LinkReport
 	pages, err := w.ConceptPages()
 	if err != nil {
@@ -73,6 +78,9 @@ func (w Wiki) ValidateLinks() (LinkReport, error) {
 			}
 		}
 		r.Issues = append(r.Issues, issues...)
+		if !write {
+			continue
+		}
 		stamped := stamp(cleaned, issues)
 		if stamped == original {
 			continue

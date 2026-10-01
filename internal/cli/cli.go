@@ -12,6 +12,7 @@ import (
 
 	"owcli/internal/claims"
 	"owcli/internal/config"
+	"owcli/internal/run"
 	"owcli/internal/search"
 	"owcli/internal/store"
 	"owcli/internal/version"
@@ -39,23 +40,19 @@ func NewRootCommand() *cobra.Command {
 	pf.StringVar(&opts.model.Model, "model", "", "model id")
 	pf.StringVar(&opts.model.BaseURL, "base-url", "", "provider API base URL")
 	pf.StringVar(&opts.model.APIKeyEnv, "api-key-env", "", "environment variable holding the API key")
+	pf.StringVar(&opts.model.Effort, "effort", "", "Anthropic effort: low, medium, high, xhigh, max")
 
 	root.AddCommand(
 		newBindCommand(),
 		newUnbindCommand(),
-		newGenerateCommand(opts, "init", "Generate a wiki from scratch"),
-		newGenerateCommand(opts, "update", "Update the wiki for source drift and claim issues"),
+		newGenerateCommand(opts, run.Init),
+		newGenerateCommand(opts, run.Update),
 		newStatusCommand(),
 		newCheckCommand(),
 		newSearchCommand(),
 		newReadCommand(),
 	)
 	return root
-}
-
-// notImplemented marks a command whose implementation is tracked in Kata.
-func notImplemented(issue string) error {
-	return fmt.Errorf("not implemented yet (kata %s)", issue)
 }
 
 func newBindCommand() *cobra.Command {
@@ -121,42 +118,6 @@ func pathArg(args []string) string {
 		return "."
 	}
 	return args[0]
-}
-
-func newGenerateCommand(opts *options, name, short string) *cobra.Command {
-	return &cobra.Command{
-		Use:   name + " [message]",
-		Short: short,
-		Args:  cobra.MaximumNArgs(1),
-		RunE: func(*cobra.Command, []string) error {
-			if _, err := config.Load(opts.configPath, opts.model); err != nil {
-				return err
-			}
-			return notImplemented("e564")
-		},
-	}
-}
-
-func newStatusCommand() *cobra.Command {
-	return &cobra.Command{
-		Use:   "status",
-		Short: "Show binding, last update, pending run, and claim issues",
-		Args:  cobra.NoArgs,
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("e564")
-		},
-	}
-}
-
-func newCheckCommand() *cobra.Command {
-	return &cobra.Command{
-		Use:   "check",
-		Short: "Run claims preflight and OKF validation without a model",
-		Args:  cobra.NoArgs,
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("e564")
-		},
-	}
 }
 
 func newSearchCommand() *cobra.Command {

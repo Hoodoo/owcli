@@ -196,6 +196,9 @@ func (w *Workspace) List(p string) ([]Entry, error) {
 	if err := contained(t); err != nil {
 		return nil, notFound(err, t.virtual)
 	}
+	if fi, err := os.Stat(t.abs); err == nil && !fi.IsDir() {
+		return nil, fmt.Errorf("%s is a file; use read_file", t.virtual)
+	}
 	entries, err := os.ReadDir(t.abs)
 	if err != nil {
 		return nil, notFound(err, t.virtual)
