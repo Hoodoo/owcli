@@ -1,11 +1,14 @@
 package cli
 
 import (
+	"bytes"
 	"encoding/json"
 	"os"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/mattn/go-isatty"
 )
 
 // step runs one `owcli run` command as an agent would and decodes its JSON.
@@ -216,5 +219,33 @@ func TestInstructions(t *testing.T) {
 	}
 	if _, err := runCLI("agents-md"); err == nil || !strings.Contains(err.Error(), "--print") {
 		t.Fatalf("agents-md on an external binding must point to --print: %v", err)
+	}
+}
+
+func TestRunInputFromFileAndTerminal(t *testing.T) {
+	cliRepo(t)
+	mustStep(t, "", "begin", "init", "--external")
+	plan := filepath.Join(t.TempDir(), "plan.json")
+	if err := os.WriteFile(plan, []byte(`{"pages": [{"path": "quickstart.md", "title": "Quickstart", "purpose": "Orient.", "seedPaths": ["greet.go"]}]}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if v := mustStep(t, "", "plan", "--file", plan); v["status"] != "accepted" {
+		t.Fatalf("plan --file: %v", v)
+	}
+
+	tty, err := os.OpenFile("/dev/ptmx", os.O_RDWR, 0)
+	if err != nil || !isatty.IsTerminal(tty.Fd()) {
+		t.Skip("no pseudo-terminal available")
+	}
+	defer tty.Close()
+	job := mustStep(t, "", "next")["job"].(map[string]any)
+	cmd := NewRootCommand()
+	var out bytes.Buffer
+	cmd.SetOut(&out)
+	cmd.SetErr(&out)
+	cmd.SetIn(tty)
+	cmd.SetArgs([]string{"run", "submit", job["id"].(string)})
+	if err := cmd.Execute(); err == nil || !strings.Contains(out.String(), "invalid_input") || !strings.Contains(out.String(), "--file") {
+		t.Fatalf("submit with a terminal on stdin must fail fast: %v %s", err, out.String())
 	}
 }

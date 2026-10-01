@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
 
 	"owcli/internal/claims"
@@ -36,10 +37,10 @@ func newRunCommand() *cobra.Command {
 owcli enforcing the lifecycle, Claims, and OKF rules. No model is called.
 
   owcli run begin init|update [--external] [--message M]
-  owcli run plan < plan.json
+  owcli run plan --file plan.json   (or JSON on stdin)
   owcli run next
   owcli run inspect <jobId>
-  owcli run submit <jobId> < claims.json
+  owcli run submit <jobId> --file claims.json
   owcli run skip <jobId>
   owcli run finish
 
@@ -178,7 +179,7 @@ func newRunBegin() *cobra.Command {
 				out["instructions"] = ins
 			}
 			if s.Phase == run.Planning {
-				out["next"] = "Research the repository, then pipe the plan JSON to `owcli run plan`."
+				out["next"] = "Research the repository, write the plan JSON to a file outside the repository, then run `owcli run plan --file <path>`."
 			} else {
 				out["next"] = "Continue with `owcli run next`."
 			}
@@ -236,10 +237,17 @@ func instructionsBody(l store.Layout) string {
 	return strings.TrimSpace(okf.Body(string(data)))
 }
 
-// readInput decodes JSON from --file or stdin.
+// readInput decodes JSON from --file or stdin. A terminal on stdin fails
+// fast instead of waiting for input an agent may never send.
 func readInput(cmd *cobra.Command, file string, v any) error {
 	var r io.Reader = cmd.InOrStdin()
-	if file != "" && file != "-" {
+	if file == "" || file == "-" {
+		if f, ok := r.(*os.File); ok {
+			if isatty.IsTerminal(f.Fd()) {
+				return &run.Error{Code: run.InvalidInput, Msg: "no JSON input: stdin is a terminal; write the JSON to a file outside the repository and pass --file <path>, or pipe it"}
+			}
+		}
+	} else {
 		f, err := os.Open(file)
 		if err != nil {
 			return err
@@ -259,7 +267,7 @@ func newRunPlan() *cobra.Command {
 	var file string
 	cmd := &cobra.Command{
 		Use:   "plan",
-		Short: "Submit the page plan (JSON on stdin or --file)",
+		Short: "Submit the page plan (JSON from --file or stdin)",
 		Args:  cobra.NoArgs,
 		RunE: jsonCmd(func(cmd *cobra.Command, _ []string) (any, error) {
 			var in run.PlanInput
@@ -280,7 +288,7 @@ func newRunPlan() *cobra.Command {
 			return map[string]any{"status": "accepted", "pages": order, "next": "Loop: `owcli run next`, write the page, `owcli run submit <jobId>`."}, nil
 		}),
 	}
-	cmd.Flags().StringVar(&file, "file", "", "read JSON from this file instead of stdin")
+	cmd.Flags().StringVar(&file, "file", "", "read JSON from this file (keep it outside the repository); - or empty reads stdin")
 	return cmd
 }
 
@@ -329,7 +337,7 @@ func newRunNext() *cobra.Command {
 				plan = append(plan, map[string]string{"path": rel(j.Page), "title": j.Title, "status": string(j.Status)})
 			}
 			out := map[string]any{"status": "pending", "job": job, "remaining": next.Remaining, "plan": plan,
-				"next": fmt.Sprintf("Research, write %s, then pipe Claim decisions to `owcli run submit %s`.", rel(next.Page), next.ID)}
+				"next": fmt.Sprintf("Research, write %s, then write Claim decisions to a file outside the repository and run `owcli run submit %s --file <path>`.", rel(next.Page), next.ID)}
 			if s.Plan.Instructions != "" {
 				out["instructions"] = s.Plan.Instructions
 			}
@@ -395,7 +403,7 @@ func newRunSubmit() *cobra.Command {
 	var file string
 	cmd := &cobra.Command{
 		Use:   "submit <jobId>",
-		Short: "Complete the current page with sparse Claim decisions (JSON on stdin or --file)",
+		Short: "Complete the current page with sparse Claim decisions (JSON from --file or stdin)",
 		Args:  cobra.ExactArgs(1),
 		RunE: jsonCmd(func(cmd *cobra.Command, args []string) (any, error) {
 			var in proposalInput
@@ -421,7 +429,7 @@ func newRunSubmit() *cobra.Command {
 			return map[string]any{"status": "complete", "remaining": remaining, "next": next}, nil
 		}),
 	}
-	cmd.Flags().StringVar(&file, "file", "", "read JSON from this file instead of stdin")
+	cmd.Flags().StringVar(&file, "file", "", "read JSON from this file (keep it outside the repository); - or empty reads stdin")
 	return cmd
 }
 

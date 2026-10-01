@@ -21,6 +21,8 @@ by Claims (repo:// evidence that owcli rechecks against the source).
   touch .claims/, .run.json, .run-snapshots/, or index.md files.
 - Run steps print JSON with a "next" hint; errors are {"error":{"code","message"}}.
   invalid_input means fix your input and retry the same step.
+- Write plan and submit JSON to a file outside the repository (a file in the
+  repo counts as a source change) and pass it with --file.
 
 ~~~dot
 digraph owcli {
@@ -29,10 +31,10 @@ digraph owcli {
   check  [label="owcli check on the default branch (read-only, no model)"];
   ok     [shape=diamond label="exit 0?"];
   begin  [label="owcli run begin update\n(owcli run begin init for a new wiki)"];
-  plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan < plan.json"];
+  plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan --file /tmp/plan.json"];
   next   [label="owcli run next"];
   write  [label="status pending: research seedPaths, read the page if existing;\nwrite exactly job.path with OKF front matter"];
-  submit [label="owcli run submit <jobId> < claims.json\nnew Claims without id; each claimsRequiringAttention entry:\nconfirm, revise (same id), or retract"];
+  submit [label="owcli run submit <jobId> --file /tmp/claims.json\nnew Claims without id; each claimsRequiringAttention entry:\nconfirm, revise (same id), or retract"];
   skip   [label="cannot complete the page: owcli run skip <jobId>"];
   finish [label="status complete: owcli run finish"];
   done -> check -> ok;
@@ -126,15 +128,19 @@ Errors print {"error":{"code","message"}} and exit 1:
    - status "generating": a resumed run; go to step 3.
    Calling begin again after any interruption resumes the same run.
 
-2. Research, then submit the plan:
-   owcli run plan <<'EOF'
+Plan and submit read JSON. Write it with your file tools to a file outside the
+repository (an untracked file in the repository counts as a source change and
+interrupts the run), then pass it with --file: one command per step. Piping
+the JSON on stdin also works; a terminal on stdin is rejected.
+
+2. Research, then submit the plan: owcli run plan --file /tmp/plan.json
+   where /tmp/plan.json holds:
    {"pages": [{"path": "architecture/overview.md", "title": "Architecture Overview",
                "purpose": "What the system is made of and how requests flow.",
                "seedPaths": ["cmd/", "internal/server"],
                "relatedPages": ["workflows/request-flow.md"]}],
     "deletions": [],
     "instructions": "Short guidance every page writer should follow."}
-   EOF
    Paths are relative to openwiki/. Init plans must include quickstart.md.
 
 3. owcli run next
@@ -148,14 +154,14 @@ Errors print {"error":{"code","message"}} and exit 1:
    the page standard below. Edit no other wiki file.
 
 5. Submit the page with sparse Claim decisions:
-   owcli run submit <jobId> <<'EOF'
+   owcli run submit <jobId> --file /tmp/claims.json
+   where /tmp/claims.json holds:
    {"claims": [{"statement": "Retries use exponential backoff capped at 30 seconds.",
                 "evidence": ["repo://internal/net/retry.go#L40-L62"]},
                {"id": "claim_<existing>", "statement": "Revised statement.",
                 "evidence": ["repo://internal/net/retry.go#L64-L70"]}],
     "confirmedClaimIds": ["claim_<rechecked, still true>"],
     "retractedClaimIds": ["claim_<no longer true>"]}
-   EOF
    Evidence may also be written as {"resource": "repo://..."}. On success, go
    back to step 3. If you cannot complete the page, owcli run skip <jobId>
    restores it and leaves it for a later run. owcli run inspect <jobId> lists
