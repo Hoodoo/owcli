@@ -3,12 +3,16 @@ package cli
 
 import (
 	"fmt"
+	"io"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
 
+	"owcli/internal/claims"
 	"owcli/internal/config"
+	"owcli/internal/search"
 	"owcli/internal/store"
 	"owcli/internal/version"
 )
@@ -157,29 +161,105 @@ func newCheckCommand() *cobra.Command {
 
 func newSearchCommand() *cobra.Command {
 	var (
-		paths []string
-		limit int
+		paths  []string
+		limit  int
+		asJSON bool
 	)
 	cmd := &cobra.Command{
 		Use:   "search <query>",
 		Short: "Search wiki sections",
-		Args:  cobra.MinimumNArgs(1),
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("t1k2")
+		Long: `Rank wiki sections for a question, behavior, or concept.
+
+Search is lexical (SQLite FTS5 BM25 with stemming), matching upstream
+OpenWiki. Results are "page#anchor" refs; pass them to "owcli read".`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			l, err := resolveLayout()
+			if err != nil {
+				return err
+			}
+			results, err := search.Search(claims.NewStore(l), search.Request{Query: strings.Join(args, " "), Paths: paths, Limit: limit}, search.Options{})
+			if err != nil {
+				return err
+			}
+			out := cmd.OutOrStdout()
+			if asJSON {
+				return writeJSON(out, map[string]any{"results": results})
+			}
+			if len(results) == 0 {
+				fmt.Fprintln(out, "no results")
+			}
+			for i, r := range results {
+				fmt.Fprintf(out, "%d. %s\n", i+1, r.Ref[0])
+				for _, line := range strings.Split(r.Content, "\n") {
+					fmt.Fprintf(out, "   %s\n", line)
+				}
+			}
+			return nil
 		},
 	}
 	cmd.Flags().StringArrayVar(&paths, "path", nil, "repository-relative source path hint (repeatable)")
-	cmd.Flags().IntVar(&limit, "limit", 5, "maximum results (1-20)")
+	cmd.Flags().IntVar(&limit, "limit", search.DefaultResults, fmt.Sprintf("maximum results (1-%d)", search.MaxResults))
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
 	return cmd
 }
 
 func newReadCommand() *cobra.Command {
-	return &cobra.Command{
+	var asJSON bool
+	cmd := &cobra.Command{
 		Use:   "read <page> <anchor>...",
 		Short: "Print wiki sections",
-		Args:  cobra.MinimumNArgs(2),
-		RunE: func(*cobra.Command, []string) error {
-			return notImplemented("t1k2")
+		Long: `Print complete sections of one wiki page. Accepts a search ref
+("openwiki/concepts/x.md#anchor") or a page plus anchors.`,
+		Args: cobra.MinimumNArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			page, anchors := args[0], args[1:]
+			if p, a, ok := strings.Cut(page, "#"); ok {
+				page, anchors = p, append([]string{a}, anchors...)
+			}
+			if len(anchors) == 0 {
+				return fmt.Errorf("give at least one section anchor")
+			}
+			l, err := resolveLayout()
+			if err != nil {
+				return err
+			}
+			p, secs, err := search.Read(claims.NewStore(l), page, anchors)
+			if err != nil {
+				return err
+			}
+			out := cmd.OutOrStdout()
+			if asJSON {
+				return writeJSON(out, map[string]any{"page": p, "sections": secs})
+			}
+			for i, s := range secs {
+				if i > 0 {
+					fmt.Fprintln(out)
+				}
+				fmt.Fprintln(out, s.Content)
+			}
+			return nil
 		},
 	}
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
+	return cmd
+}
+
+// resolveLayout finds the wiki of the repository containing the working
+// directory.
+func resolveLayout() (store.Layout, error) {
+	dirs, err := store.DefaultDirs()
+	if err != nil {
+		return store.Layout{}, err
+	}
+	return dirs.Resolve(".")
+}
+
+func writeJSON(w io.Writer, v any) error {
+	data, err := store.MarshalJSON(v)
+	if err != nil {
+		return err
+	}
+	_, err = w.Write(data)
+	return err
 }

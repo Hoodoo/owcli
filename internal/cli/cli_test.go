@@ -29,9 +29,9 @@ func TestCommandsRegistered(t *testing.T) {
 }
 
 func TestStubsNameTheirIssue(t *testing.T) {
-	_, err := run("search", "retry handling")
-	if err == nil || !strings.Contains(err.Error(), "t1k2") {
-		t.Fatalf("want not-implemented error naming t1k2, got %v", err)
+	_, err := run("status")
+	if err == nil || !strings.Contains(err.Error(), "e564") {
+		t.Fatalf("want not-implemented error naming e564, got %v", err)
 	}
 }
 

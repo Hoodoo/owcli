@@ -281,6 +281,11 @@ Upstream's "semantic" search is lexical. owcli reproduces it:
   best-matching block excerpt (≤600 chars). Default 5, max 20.
 - Read: return full raw section(s) for `page` + anchors.
 - An interface is left for an optional embedding reranker later.
+- Implementation: FTS5 via `modernc.org/sqlite` (pure Go, no cgo) for exact
+  tokenizer/BM25 parity, and goldmark for heading structure. `modernc.org/sqlite`
+  is pinned to v1.34.5 because newer releases need Go ≥ 1.26 and the toolchain
+  here is 1.22. Verified identical to upstream (refs and result content) on 18
+  queries over upstream's wiki (`OWCLI_UPSTREAM_PKG` compat test).
 
 ## CLI
 
