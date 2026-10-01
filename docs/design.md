@@ -111,6 +111,8 @@ exclusive create + rename).
 - leading `/` anchors to root; a pattern containing `/` is also anchored;
   otherwise it matches at any depth;
 - trailing `/` = directory-only (also matches files below that directory);
+  unlike upstream, a *file* whose name matches a directory-only pattern in a
+  subdirectory (`cache/` vs file `a/cache`) is not ignored;
 - `**/` = zero or more directories, `**` = anything, `*` = within a segment,
   `?` = one non-slash char; matching is case-insensitive;
 - a match on a directory also covers everything below it.
