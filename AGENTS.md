@@ -66,7 +66,9 @@ owcli maintains openwiki/: an engineering wiki whose statements are grounded
 by Claims (repo:// evidence that owcli rechecks against the source).
 
 - Read just in time, not at task start: `owcli search "<question>" [--path <src>]`,
-  then `owcli read <ref>`. Source and tests stay authoritative.
+  then `owcli read <ref>` (`--wiki <id>` for a result from another wiki of
+  a workspace). Source and tests stay authoritative. On "workspace_required",
+  ask the user which workspace to use.
 - Write the wiki only inside a run. Never edit openwiki/ by hand, and never
   touch .claims/, .run.json, .run-snapshots/, or index.md files.
 - Run steps print JSON with a "next" hint; errors are {"error":{"code","message"}}.

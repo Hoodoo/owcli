@@ -29,13 +29,13 @@ In scope:
 - `.openwikiignore` rules.
 - OKF v0.2 output: front matter validation and repair, generation provenance,
   index synchronization, Mermaid validation/degradation, link validation.
-- Search and section read over a wiki.
+- Search and section read over a wiki, and across the wikis of a workspace.
 - Binding a repository **without writing artifacts into it** (external
   storage), for exploring other people's projects.
 
 Out of scope: MCP server, parallel page workers, the visualizer UI, coding-agent
-host integrations, personal mode and connectors, workspaces/linking, GitHub
-Actions scheduling, telemetry, translation.
+host integrations, personal mode and connectors, the interactive `link`
+repository finder, GitHub Actions scheduling, telemetry, translation.
 
 ## Compatibility goal
 
@@ -365,6 +365,38 @@ Upstream's "semantic" search is lexical. owcli reproduces it:
   here is 1.22. Verified identical to upstream (refs and result content) on 18
   queries over upstream's wiki (`OWCLI_UPSTREAM_PKG` compat test).
 
+## Workspaces
+
+A workspace groups repository wikis so an agent in one repository can search
+and read the others, as upstream's `openwiki link` does.
+
+- Registry: `$XDG_CONFIG_HOME/owcli/workspaces.json`, upstream's version-1
+  schema (`wikis` `{id, name, root}`, `workspaces` `{id, name, wikis}`,
+  `active` `{wiki, workspace}`), decoded strictly. It is owcli's own file;
+  upstream's `~/.openwiki/wiki-workspaces.json` is never read or written.
+- Membership is many-to-many and keyed by canonical repository root. Members
+  are resolved through owcli bindings, so in-repo, external, and `--wiki-dir`
+  wikis all work (upstream only finds in-repo wikis). A member whose repository
+  is gone, that is unbound, or whose wiki directory is missing is reported and
+  skipped rather than failing the workspace.
+- Edits replace the whole collection. Wiki and workspace IDs persist while
+  their root or ID survives; new IDs are name slugs (lowercase, runs of other
+  characters to `-`, at most 56 characters) made unique with `-2`, `-3`, ...
+  Names are unique ignoring case and at most 80 characters. Active selections
+  an edit invalidates are dropped.
+- Search scope from a repository: an explicit `--workspace` (ID or name) must
+  contain it; otherwise no workspace searches its own wiki, one workspace is
+  used automatically, several use the active selection, and several without
+  one return `workspace_required` with the choices (non-zero exit). Unlike
+  upstream, a member needs no wiki of its own to search its workspaces.
+- All wikis in scope are ranked in one index, so results interleave by
+  relevance; each result carries its `wiki` in workspace searches only.
+  `read --wiki <id>` opens a wiki that shares a workspace with the current
+  repository. Verified identical to upstream's federated ranking (wiki and ref
+  per rank) on the 18 compat queries over owcli's wiki split across two repos.
+- Management is non-interactive (`owcli workspace ...`) instead of upstream's
+  finder TUI, so agents can drive it.
+
 ## CLI
 
 ```
@@ -375,8 +407,9 @@ owcli init [--external] [message]  generate a wiki from scratch; binds an unboun
 owcli update [message]             incremental update driven by drift and claim issues
 owcli status                       binding, last update, pending run, claim health
 owcli check                        read-only: preflight, OKF, links, diagrams; non-zero exit on problems
-owcli search <query> [--path p]    ranked section search
-owcli read <ref | page anchor...>  print sections
+owcli search <query> [--path p] [--workspace w]  ranked section search (workspace-aware)
+owcli read [--wiki id] <ref | page anchor...>    print sections
+owcli workspace <create|add|remove|delete|list|wikis|use|current|clear>  workspace registry
 owcli run <step>                   agent-driven lifecycle (see Agent-driven runs)
 owcli quickstart                   full guide for coding agents
 owcli agents-md [--print]          compact routing block for AGENTS.md
