@@ -25,8 +25,8 @@ by Claims (repo:// evidence that owcli rechecks against the source).
 ~~~dot
 digraph owcli {
   rankdir=TB; node [shape=box];
-  done   [shape=diamond label="Finishing a task that changed code?"];
-  check  [label="owcli check (read-only, no model)"];
+  done   [shape=diamond label="Just merged code into the default branch?"];
+  check  [label="owcli check on the default branch (read-only, no model)"];
   ok     [shape=diamond label="exit 0?"];
   begin  [label="owcli run begin update\n(owcli run begin init for a new wiki)"];
   plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan < plan.json"];
@@ -45,8 +45,10 @@ digraph owcli {
 }
 ~~~
 
-A "noop" begin means the wiki is current: stop. If the user did not ask for
-wiki work, report a failing check instead of updating.
+The wiki documents the default branch: update it after a merge, not on work
+branches (begin warns when you are elsewhere), unless the user asks. A "noop"
+begin means the wiki is current: stop. External wikis are committed to their
+own history automatically at finish.
 Full procedure, JSON formats, and the page and Claim standards: ` + "`owcli quickstart`" + `.`
 
 // agentsBlockFor wraps the instructions in the managed markers.
@@ -77,6 +79,21 @@ this mode.
 - owcli status: binding, last run, pending run, Claim health.
 - owcli check: read-only validation (stale or unresolved Claims, orphaned
   sidecars, front matter, broken links, suspicious diagrams); exit 1 on problems.
+
+## When to update
+
+The wiki documents the repository's default branch. Update it after work is
+merged into that branch (one run can cover several merges), or whenever the
+user asks; owcli check is cheap and safe at any time. owcli run begin reports
+the current and default branch and warns when they differ.
+
+External wikis (owcli bind --external, optionally --wiki-dir <dir>) are
+versioned automatically: owcli run finish commits the wiki's files with the
+source commit in the message, in the wiki's own Git repository or, for a
+--wiki-dir inside an existing repository, in that repository (only the wiki's
+directory). Review or revert runs with git log / git revert in that directory.
+In-repo wikis are versioned by the repository: commit openwiki/ like any other
+change.
 
 ## Writing: the run lifecycle
 

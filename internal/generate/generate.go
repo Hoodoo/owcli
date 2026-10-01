@@ -41,6 +41,8 @@ type Progress struct {
 // Result summarizes a run.
 type Result struct {
 	Noop    bool
+	RunID   string
+	GitHead string // source commit the run documented
 	Begin   run.BeginResult
 	Written []string
 	Skipped []string
@@ -66,6 +68,7 @@ func Generate(ctx context.Context, o Options) (Result, error) {
 		res.Noop = true
 		return res, nil
 	}
+	res.RunID, res.GitHead = r.State().RunID, r.State().GitHead
 	note := "starting"
 	if begin.Resumed {
 		note = "resuming an interrupted run"

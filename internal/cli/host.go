@@ -108,6 +108,7 @@ func wikiPages(l store.Layout) []pageInfo {
 func newRunBegin() *cobra.Command {
 	var (
 		external bool
+		wikiDir  string
 		message  string
 	)
 	cmd := &cobra.Command{
@@ -119,7 +120,7 @@ func newRunBegin() *cobra.Command {
 			if mode != run.Init && mode != run.Update {
 				return nil, fmt.Errorf("mode must be init or update, got %q", args[0])
 			}
-			l, err := layoutFor(mode, external)
+			l, err := layoutFor(mode, external, wikiDir)
 			if err != nil {
 				return nil, err
 			}
@@ -146,6 +147,15 @@ func newRunBegin() *cobra.Command {
 			out["resumed"] = res.Resumed
 			out["planInvalidated"] = res.PlanInvalidated
 			out["head"] = s.GitHead
+			if branch, def := branches(l.RepoRoot); branch != "" {
+				out["branch"] = branch
+				if def != "" {
+					out["defaultBranch"] = def
+					if branch != def {
+						out["warning"] = fmt.Sprintf("The wiki documents the default branch; you are on %s. Update after merging into %s unless the user asked otherwise.", branch, def)
+					}
+				}
+			}
 			out["pages"] = wikiPages(l)
 			if s.Message != "" {
 				out["message"] = s.Message
@@ -176,8 +186,28 @@ func newRunBegin() *cobra.Command {
 		}),
 	}
 	cmd.Flags().BoolVar(&external, "external", false, "init only: if the repository is not bound yet, store the wiki outside it")
+	cmd.Flags().StringVar(&wikiDir, "wiki-dir", "", "init only: if the repository is not bound yet, store the wiki in this directory")
 	cmd.Flags().StringVar(&message, "message", "", "what this run should focus on")
 	return cmd
+}
+
+// branches returns the current branch and the repository's default branch
+// (origin's HEAD, else a local main or master).
+func branches(repo string) (string, string) {
+	branch, err := gitOutput(repo, "rev-parse", "--abbrev-ref", "HEAD")
+	if err != nil {
+		return "", ""
+	}
+	branch = strings.TrimSpace(branch)
+	if ref, err := gitOutput(repo, "symbolic-ref", "--short", "refs/remotes/origin/HEAD"); err == nil {
+		return branch, strings.TrimPrefix(strings.TrimSpace(ref), "origin/")
+	}
+	for _, name := range []string{"main", "master"} {
+		if _, err := gitOutput(repo, "rev-parse", "--verify", "--quiet", "refs/heads/"+name); err == nil {
+			return branch, name
+		}
+	}
+	return branch, ""
 }
 
 func issueCounts(issues []claims.Issue) []map[string]any {
@@ -419,15 +449,29 @@ func newRunFinish() *cobra.Command {
 		Short: "Finalize the run once no page is pending",
 		Args:  cobra.NoArgs,
 		RunE: jsonCmd(func(*cobra.Command, []string) (any, error) {
-			r, _, err := openRun()
+			r, l, err := openRun()
 			if err != nil {
 				return nil, err
 			}
+			s := r.State()
 			res, err := r.FinishSaved()
 			if err != nil {
 				return nil, err
 			}
 			out := map[string]any{"status": res.Status, "sourceChanged": res.SourceChanged, "finishedAt": time.Now().UTC().Format(time.RFC3339)}
+			written := 0
+			for _, j := range s.Plan.Jobs {
+				if j.Status == run.Complete {
+					written++
+				}
+			}
+			sha, err := commitExternal(l, s.Mode, res.Status, written, len(res.Skipped), s.RunID, s.GitHead)
+			if err != nil {
+				return nil, fmt.Errorf("the run finished but committing the wiki failed: %w", err)
+			}
+			if sha != "" {
+				out["wikiCommit"] = sha
+			}
 			if len(res.Skipped) > 0 {
 				out["skipped"] = res.Skipped
 			}

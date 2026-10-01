@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -41,7 +42,8 @@ func DefaultDirs() (Dirs, error) {
 // Binding is one registry entry.
 type Binding struct {
 	Kind    Kind      `json:"kind"`
-	ID      string    `json:"id,omitempty"` // external wiki directory name
+	ID      string    `json:"id,omitempty"`      // external wiki directory name
+	WikiDir string    `json:"wikiDir,omitempty"` // custom external location (absolute)
 	BoundAt time.Time `json:"boundAt"`
 }
 
@@ -85,9 +87,33 @@ func (d Dirs) loadRegistry() (registry, error) {
 
 func (d Dirs) layoutFor(root string, b Binding) Layout {
 	if b.Kind == External {
-		return Layout{Kind: External, RepoRoot: root, WikiRoot: filepath.Join(d.externalWikiDir(b.ID), WikiDirName)}
+		home := d.externalWikiDir(b.ID)
+		if b.WikiDir != "" {
+			home = b.WikiDir
+		}
+		return Layout{Kind: External, RepoRoot: root, Home: home, WikiRoot: filepath.Join(home, WikiDirName), CustomHome: b.WikiDir != ""}
 	}
-	return Layout{Kind: InRepo, RepoRoot: root, WikiRoot: filepath.Join(root, WikiDirName)}
+	return Layout{Kind: InRepo, RepoRoot: root, Home: root, WikiRoot: filepath.Join(root, WikiDirName)}
+}
+
+// customWikiDir validates a user-chosen external wiki location: absolute,
+// and not inside the repository it documents.
+func customWikiDir(dir, repoRoot string) (string, error) {
+	abs, err := filepath.Abs(dir)
+	if err != nil {
+		return "", err
+	}
+	if err := os.MkdirAll(abs, 0o755); err != nil {
+		return "", err
+	}
+	real, err := filepath.EvalSymlinks(abs)
+	if err != nil {
+		return "", err
+	}
+	if real == repoRoot || strings.HasPrefix(real, repoRoot+string(filepath.Separator)) {
+		return "", fmt.Errorf("--wiki-dir %s is inside the repository %s; an external wiki must live outside it", dir, repoRoot)
+	}
+	return real, nil
 }
 
 // Resolve finds the layout for the repository containing dir: an explicit
@@ -112,12 +138,15 @@ func (d Dirs) Resolve(dir string) (Layout, error) {
 }
 
 // Bind registers the repository containing dir. Binding again with the same
-// kind is a no-op; switching kinds requires Unbind first so no wiki is
-// silently orphaned. An external bind creates the wiki directory under Data
-// and writes nothing into the repository.
-func (d Dirs) Bind(dir string, kind Kind, now time.Time) (Layout, error) {
+// kind and location is a no-op; switching requires Unbind first so no wiki
+// is silently orphaned. An external bind creates the wiki directory (under
+// Data, or in wikiDir when given) and writes nothing into the repository.
+func (d Dirs) Bind(dir string, kind Kind, wikiDir string, now time.Time) (Layout, error) {
 	if kind != InRepo && kind != External {
 		return Layout{}, fmt.Errorf("unknown binding kind %q", kind)
+	}
+	if wikiDir != "" && kind != External {
+		return Layout{}, errors.New("a wiki directory can only be chosen for external bindings")
 	}
 	root, err := RepoRoot(dir)
 	if err != nil {
@@ -127,13 +156,19 @@ func (d Dirs) Bind(dir string, kind Kind, now time.Time) (Layout, error) {
 	if err != nil {
 		return Layout{}, err
 	}
+	custom := ""
+	if wikiDir != "" {
+		if custom, err = customWikiDir(wikiDir, root); err != nil {
+			return Layout{}, err
+		}
+	}
 	if b, ok := r.Bindings[root]; ok {
-		if b.Kind != kind {
-			return Layout{}, fmt.Errorf("%s is already bound %s; unbind it first", root, b.Kind)
+		if b.Kind != kind || (custom != "" && b.WikiDir != custom) {
+			return Layout{}, fmt.Errorf("%s is already bound %s at %s; unbind it first", root, b.Kind, d.layoutFor(root, b).WikiRoot)
 		}
 		return d.layoutFor(root, b), nil
 	}
-	b := Binding{Kind: kind, BoundAt: now.UTC()}
+	b := Binding{Kind: kind, BoundAt: now.UTC(), WikiDir: custom}
 	if kind == External {
 		b.ID = ExternalID(root)
 	}
@@ -168,6 +203,9 @@ func (d Dirs) Unbind(dir string, purge bool) (Layout, error) {
 	}
 	if purge && b.Kind == InRepo {
 		return Layout{}, fmt.Errorf("refusing to purge in-repo wiki %s; delete it with git if intended", filepath.Join(root, WikiDirName))
+	}
+	if purge && b.WikiDir != "" {
+		return Layout{}, fmt.Errorf("refusing to purge %s: it is a directory you chose; delete it yourself if intended", b.WikiDir)
 	}
 	l := d.layoutFor(root, b)
 	delete(r.Bindings, root)

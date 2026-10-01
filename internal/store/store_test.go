@@ -50,7 +50,7 @@ func TestExternalBindWritesNothingIntoRepo(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	l, err := d.Bind(sub, External, now)
+	l, err := d.Bind(sub, External, "", now)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -101,7 +101,7 @@ func TestExplicitBindingWinsOverInRepoWiki(t *testing.T) {
 	if err := os.Mkdir(filepath.Join(repo, WikiDirName), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := d.Bind(repo, External, now); err != nil {
+	if _, err := d.Bind(repo, External, "", now); err != nil {
 		t.Fatal(err)
 	}
 	l, err := d.Resolve(repo)
@@ -113,15 +113,15 @@ func TestExplicitBindingWinsOverInRepoWiki(t *testing.T) {
 func TestBindIdempotentAndKindSwitchRefused(t *testing.T) {
 	repo := gitRepo(t)
 	d := testDirs(t)
-	a, err := d.Bind(repo, External, now)
+	a, err := d.Bind(repo, External, "", now)
 	if err != nil {
 		t.Fatal(err)
 	}
-	b, err := d.Bind(repo, External, now.Add(time.Hour))
+	b, err := d.Bind(repo, External, "", now.Add(time.Hour))
 	if err != nil || a != b {
 		t.Fatalf("rebind changed layout: %+v vs %+v (%v)", a, b, err)
 	}
-	if _, err := d.Bind(repo, InRepo, now); err == nil {
+	if _, err := d.Bind(repo, InRepo, "", now); err == nil {
 		t.Fatal("switching kinds without unbind should fail")
 	}
 }
@@ -129,7 +129,7 @@ func TestBindIdempotentAndKindSwitchRefused(t *testing.T) {
 func TestUnbind(t *testing.T) {
 	repo := gitRepo(t)
 	d := testDirs(t)
-	l, err := d.Bind(repo, External, now)
+	l, err := d.Bind(repo, External, "", now)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -143,7 +143,7 @@ func TestUnbind(t *testing.T) {
 		t.Errorf("second unbind: want ErrUnbound, got %v", err)
 	}
 
-	if _, err := d.Bind(repo, External, now); err != nil {
+	if _, err := d.Bind(repo, External, "", now); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := d.Unbind(repo, true); err != nil {
@@ -153,7 +153,7 @@ func TestUnbind(t *testing.T) {
 		t.Error("purge should delete the external wiki")
 	}
 
-	if _, err := d.Bind(repo, InRepo, now); err != nil {
+	if _, err := d.Bind(repo, InRepo, "", now); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := d.Unbind(repo, true); err == nil {
@@ -325,5 +325,105 @@ func TestWriteFileAtomicLeavesNoTempFiles(t *testing.T) {
 	}
 	if err := RemoveIfExists(path); err != nil {
 		t.Error("removing a missing file should succeed")
+	}
+}
+
+func TestCustomWikiDir(t *testing.T) {
+	repo := gitRepo(t)
+	d := testDirs(t)
+	kb := filepath.Join(t.TempDir(), "kb", "projects", "foo")
+	l, err := d.Bind(repo, External, kb, now)
+	if err != nil {
+		t.Fatal(err)
+	}
+	realKB, _ := filepath.EvalSymlinks(kb)
+	if !l.CustomHome || l.Home != realKB || l.WikiRoot != filepath.Join(realKB, WikiDirName) {
+		t.Fatalf("layout %+v", l)
+	}
+	if got, err := d.Resolve(repo); err != nil || got != l {
+		t.Fatalf("resolve %+v %v", got, err)
+	}
+	if _, err := d.Bind(repo, External, t.TempDir(), now); err == nil {
+		t.Error("rebinding to another directory must be refused")
+	}
+	if _, err := d.Unbind(repo, true); err == nil || !strings.Contains(err.Error(), "delete it yourself") {
+		t.Errorf("purging a chosen directory must be refused: %v", err)
+	}
+	if _, err := d.Unbind(repo, false); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := d.Bind(repo, External, filepath.Join(repo, "docs", "wiki"), now); err == nil || !strings.Contains(err.Error(), "inside the repository") {
+		t.Errorf("a wiki dir inside the repository must be refused: %v", err)
+	}
+	if _, err := d.Bind(repo, InRepo, kb, now); err == nil {
+		t.Error("a wiki dir only applies to external bindings")
+	}
+}
+
+func TestCommitWikiOwnRepository(t *testing.T) {
+	repo := gitRepo(t)
+	d := testDirs(t)
+	l, err := d.Bind(repo, External, "", now)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(l.WikiRoot, "quickstart.md"), []byte("# Q\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(l.RunPath(), []byte("{}"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	sha, err := l.CommitWiki("owcli init complete", "Source commit: abc")
+	if err != nil || sha == "" {
+		t.Fatalf("commit: %q %v", sha, err)
+	}
+	files := git(t, l.Home, "ls-files")
+	if !strings.Contains(files, "openwiki/quickstart.md") || strings.Contains(files, ".run.json") {
+		t.Errorf("tracked files:\n%s", files)
+	}
+	if msg := git(t, l.Home, "log", "-1", "--format=%B"); !strings.Contains(msg, "owcli init complete") || !strings.Contains(msg, "Source commit: abc") {
+		t.Errorf("message %q", msg)
+	}
+	if sha, err := l.CommitWiki("again", ""); err != nil || sha != "" {
+		t.Errorf("nothing changed: %q %v", sha, err)
+	}
+	if status := git(t, repo, "status", "--porcelain", "--ignored"); status != "" {
+		t.Errorf("explored repository changed:\n%s", status)
+	}
+	if sha, err := (Layout{Kind: InRepo, Home: repo}).CommitWiki("x", ""); err != nil || sha != "" {
+		t.Error("in-repo wikis are never committed by owcli")
+	}
+}
+
+func TestCommitWikiInSharedRepository(t *testing.T) {
+	repo := gitRepo(t)
+	kb := gitRepo(t) // a knowledge-base repository with unrelated work in progress
+	if err := os.WriteFile(filepath.Join(kb, "notes.txt"), []byte("draft\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	git(t, kb, "add", "notes.txt")
+	d := testDirs(t)
+	l, err := d.Bind(repo, External, filepath.Join(kb, "projects", "foo"), now)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := l.EnsureWikiRepo(); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(filepath.Join(l.Home, ".git")); !os.IsNotExist(err) {
+		t.Fatal("a wiki inside an existing repository must not get its own repository")
+	}
+	if err := os.WriteFile(filepath.Join(l.WikiRoot, "quickstart.md"), []byte("# Q\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := l.CommitWiki("owcli update", ""); err != nil {
+		t.Fatal(err)
+	}
+	committed := git(t, kb, "show", "--name-only", "--format=", "HEAD")
+	if !strings.Contains(committed, "projects/foo/openwiki/quickstart.md") || strings.Contains(committed, "notes.txt") {
+		t.Errorf("commit touched:\n%s", committed)
+	}
+	if staged := git(t, kb, "diff", "--cached", "--name-only"); strings.TrimSpace(staged) != "notes.txt" {
+		t.Errorf("the user's staged work must stay staged: %q", staged)
 	}
 }

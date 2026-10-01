@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"strings"
 	"syscall"
 	"time"
@@ -29,6 +30,7 @@ var providerFactory = llm.New
 func newGenerateCommand(opts *options, mode run.Mode) *cobra.Command {
 	var (
 		external, agentsMD, verbose bool
+		wikiDir                     string
 	)
 	short := "Generate a wiki from scratch (resumes an interrupted init)"
 	if mode == run.Update {
@@ -47,7 +49,7 @@ The optional message tells the planner what to focus on. Interrupting a run
 			if err != nil {
 				return err
 			}
-			l, err := layoutFor(mode, external)
+			l, err := layoutFor(mode, external, wikiDir)
 			if err != nil {
 				return err
 			}
@@ -98,6 +100,11 @@ The optional message tells the planner what to focus on. Interrupting a run
 				fmt.Fprintf(out, ", %d deleted", len(res.Finish.Deleted))
 			}
 			fmt.Fprintf(out, ".\nWiki: %s\n", l.WikiRoot)
+			if sha, err := commitExternal(l, mode, res.Finish.Status, len(res.Written), len(res.Skipped), res.RunID, res.GitHead); err != nil {
+				return fmt.Errorf("the run finished but committing the wiki failed: %w", err)
+			} else if sha != "" {
+				fmt.Fprintf(out, "Committed wiki as %s.\n", sha)
+			}
 			fmt.Fprintf(out, "Tokens: %d input (%d cached), %d output.\n", res.Usage.InputTokens+res.Usage.CacheReadTokens+res.Usage.CacheWriteTokens, res.Usage.CacheReadTokens, res.Usage.OutputTokens)
 			if res.Finish.SourceChanged {
 				fmt.Fprintln(out, "The source changed during the run; run `owcli update` to reconcile.")
@@ -110,6 +117,7 @@ The optional message tells the planner what to focus on. Interrupting a run
 	}
 	if mode == run.Init {
 		cmd.Flags().BoolVar(&external, "external", false, "if the repository is not bound yet, store the wiki outside it")
+		cmd.Flags().StringVar(&wikiDir, "wiki-dir", "", "if the repository is not bound yet, store the wiki in this directory (implies --external)")
 	}
 	cmd.Flags().BoolVar(&agentsMD, "agents-md", false, "add or refresh a pointer to the wiki in AGENTS.md (in-repo wikis only)")
 	cmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "show every tool call")
@@ -118,14 +126,14 @@ The optional message tells the planner what to focus on. Interrupting a run
 
 // layoutFor resolves the wiki location. init binds an unbound repository
 // (in-repo unless --external); update requires an existing binding.
-func layoutFor(mode run.Mode, external bool) (store.Layout, error) {
+func layoutFor(mode run.Mode, external bool, wikiDir string) (store.Layout, error) {
 	dirs, err := store.DefaultDirs()
 	if err != nil {
 		return store.Layout{}, err
 	}
 	l, err := dirs.Resolve(".")
 	if err == nil {
-		if external && l.Kind != store.External {
+		if (external || wikiDir != "") && l.Kind != store.External {
 			return l, fmt.Errorf("%s is already bound %s; use `owcli unbind` first to switch", l.RepoRoot, l.Kind)
 		}
 		return l, nil
@@ -134,10 +142,25 @@ func layoutFor(mode run.Mode, external bool) (store.Layout, error) {
 		return l, err
 	}
 	kind := store.InRepo
-	if external {
+	if external || wikiDir != "" {
 		kind = store.External
 	}
-	return dirs.Bind(".", kind, time.Now())
+	l, err = dirs.Bind(".", kind, wikiDir, time.Now())
+	if err != nil {
+		return l, err
+	}
+	return l, l.EnsureWikiRepo()
+}
+
+// commitExternal versions an external wiki after a finished run.
+func commitExternal(l store.Layout, mode run.Mode, status string, written, skipped int, runID, head string) (string, error) {
+	subject := fmt.Sprintf("owcli %s %s: %d page(s) written", mode, status, written)
+	if skipped > 0 {
+		subject += fmt.Sprintf(", %d skipped", skipped)
+	}
+	subject += fmt.Sprintf(" @ %s %s", filepath.Base(l.RepoRoot), short(head))
+	body := fmt.Sprintf("Repository: %s\nSource commit: %s\nRun: %s", l.RepoRoot, head, runID)
+	return l.CommitWiki(subject, body)
 }
 
 func progressPrinter(w io.Writer, verbose bool) func(generate.Progress) {

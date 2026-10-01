@@ -82,6 +82,25 @@ A *wiki root* is the directory holding the wiki pages. Two layouts:
   repository's canonical absolute path. Nothing is written inside the repo: no
   wiki, no state files, no `AGENTS.md` block, no workflow.
 
+`owcli bind --external --wiki-dir <dir>` (or `init --wiki-dir`) places an
+external wiki in a chosen directory instead, e.g. inside a shared
+knowledge-base repository; directories inside the documented repository are
+refused, and `unbind --purge` never deletes a chosen directory.
+
+**Versioning.** In-repo wikis are versioned by the repository. External
+wikis are versioned by owcli: at bind time `Home` (the directory holding
+`openwiki/`) becomes a Git repository unless it already lies inside one, with
+`.run.json` and `.run-snapshots/` ignored; after every finished run owcli
+commits only `Home`'s paths, with the mode, status, page counts, and the
+documented source commit in the message. A shared repository's other staged
+changes are left alone. History, review, revert, and sharing then use plain
+Git in that directory.
+
+**When to update.** The wiki documents the default branch. The agent
+instructions trigger an update after merging into it (several merges may share
+one run); `owcli run begin` reports the current and default branch and warns
+when they differ.
+
 The binding registry (`$XDG_CONFIG_HOME/owcli/bindings.json`) maps canonical
 repo roots to their layout. Resolution: explicit registry entry, else in-repo if
 `<repo>/openwiki/` exists, else unbound. All components receive a resolved

@@ -33,9 +33,11 @@ const (
 
 // Layout is a resolved binding: one repository and the location of its wiki.
 type Layout struct {
-	Kind     Kind
-	RepoRoot string // absolute, symlink-free repository top level
-	WikiRoot string // absolute directory holding the pages
+	Kind       Kind
+	RepoRoot   string // absolute, symlink-free repository top level
+	Home       string // directory containing the wiki directory; versioned for external wikis
+	WikiRoot   string // absolute directory holding the pages (Home/openwiki)
+	CustomHome bool   // an external wiki in a user-chosen directory
 }
 
 // RepoExclusions lists repository-relative directories that are generated

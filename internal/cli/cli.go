@@ -59,15 +59,21 @@ func NewRootCommand() *cobra.Command {
 }
 
 func newBindCommand() *cobra.Command {
-	var external bool
+	var (
+		external bool
+		wikiDir  string
+	)
 	cmd := &cobra.Command{
 		Use:   "bind [path]",
 		Short: "Register a repository with an in-repo or external wiki",
 		Long: `Register the Git repository containing path (default: current directory).
 
 By default the wiki lives in <repo>/openwiki. With --external it lives under
-$XDG_DATA_HOME/owcli/wikis/ and owcli writes nothing into the repository,
-which suits exploring projects you do not own.`,
+$XDG_DATA_HOME/owcli/wikis/ (or in --wiki-dir) and owcli writes nothing into
+the repository, which suits exploring projects you do not own. External
+wikis are versioned with Git: owcli commits after every finished run, in the
+wiki's own repository or, when --wiki-dir is inside an existing repository
+such as a shared knowledge base, in that repository (only the wiki's files).`,
 		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			dirs, err := store.DefaultDirs()
@@ -75,11 +81,14 @@ which suits exploring projects you do not own.`,
 				return err
 			}
 			kind := store.InRepo
-			if external {
+			if external || wikiDir != "" {
 				kind = store.External
 			}
-			l, err := dirs.Bind(pathArg(args), kind, time.Now())
+			l, err := dirs.Bind(pathArg(args), kind, wikiDir, time.Now())
 			if err != nil {
+				return err
+			}
+			if err := l.EnsureWikiRepo(); err != nil {
 				return err
 			}
 			fmt.Fprintf(cmd.OutOrStdout(), "bound %s (%s)\nwiki: %s\n", l.RepoRoot, l.Kind, l.WikiRoot)
@@ -87,6 +96,7 @@ which suits exploring projects you do not own.`,
 		},
 	}
 	cmd.Flags().BoolVar(&external, "external", false, "store the wiki outside the repository; write nothing into it")
+	cmd.Flags().StringVar(&wikiDir, "wiki-dir", "", "external wiki location (implies --external); e.g. a directory in a knowledge-base repository")
 	return cmd
 }
 

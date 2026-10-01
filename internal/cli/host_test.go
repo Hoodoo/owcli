@@ -109,8 +109,15 @@ func TestAgentDrivenLifecycle(t *testing.T) {
 		t.Fatalf("next after last page: %v", v)
 	}
 	fin := mustStep(t, "", "finish")
-	if fin["status"] != "complete" {
+	if fin["status"] != "complete" || fin["wikiCommit"] == nil {
 		t.Fatalf("finish: %v", fin)
+	}
+	home := filepath.Dir(wiki)
+	if log := gitRun(t, home, "log", "--format=%s"); !strings.Contains(log, "owcli init complete: 2 page(s) written @ repo") {
+		t.Fatalf("wiki history: %q", log)
+	}
+	if files := gitRun(t, home, "ls-files"); strings.Contains(files, ".run") || !strings.Contains(files, "openwiki/.claims/quickstart.json") {
+		t.Fatalf("wiki tracked files: %q", files)
 	}
 	if _, err := os.Stat(filepath.Join(wiki, ".run-snapshots")); !os.IsNotExist(err) {
 		t.Error("snapshots must be cleaned up at finish")
@@ -129,6 +136,12 @@ func TestAgentDrivenLifecycle(t *testing.T) {
 	if _, err := runCLI("check"); err == nil {
 		t.Fatal("check should fail on a stale Claim")
 	}
+	gitRun(t, repo, "switch", "-q", "-c", "feature")
+	onFeature := mustStep(t, "", "begin", "update")
+	if onFeature["branch"] != "feature" || onFeature["warning"] == nil {
+		t.Fatalf("begin on a work branch should warn: %v", onFeature)
+	}
+	gitRun(t, repo, "switch", "-q", "-")
 	upd := mustStep(t, "", "begin", "update")
 	changed, _ := upd["changedPaths"].([]any)
 	if upd["status"] != "planning" || len(changed) != 1 || changed[0] != "greet.go" || upd["claimIssues"] == nil {
@@ -156,6 +169,12 @@ func TestAgentDrivenLifecycle(t *testing.T) {
 	mustStep(t, `{"confirmedClaimIds": ["`+qid+`"]}`, "submit", qs["id"].(string))
 	if v := mustStep(t, "", "finish"); v["status"] != "complete" {
 		t.Fatalf("update finish: %v", v)
+	}
+	if n := strings.Count(gitRun(t, home, "log", "--format=%s"), "\n"); n != 2 {
+		t.Fatalf("expected two wiki commits, got %d", n)
+	}
+	if !strings.Contains(gitRun(t, home, "log", "-1", "--format=%B"), "Source commit: "+strings.TrimSpace(gitRun(t, repo, "rev-parse", "HEAD"))) {
+		t.Error("the wiki commit should record the documented source commit")
 	}
 	if out, err := runCLI("check"); err != nil {
 		t.Fatalf("check after update: %s", out)
