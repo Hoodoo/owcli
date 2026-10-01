@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/486e6ea-dirty
-    at: "2026-10-01T18:03:28.143Z"
+  - by: owcli/51f887a
+    at: "2026-10-01T18:15:08.929Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -19,7 +19,7 @@ sources:
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/459c44e", at: "2026-10-01T18:01:43.250Z" }
+generated: { by: "owcli/51f887a", at: "2026-10-01T18:15:17.069Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -77,6 +77,19 @@ An interrupted session resumes by calling `owcli run begin` again in the same
 mode: skipped jobs become pending, and if the source changed since planning,
 the plan is dropped and `status` is `planning` again.
 
+## When updates happen
+
+The wiki documents the repository's default branch, and the default trigger
+is a merge into it. Several merges can share one update run, and work
+branches never churn the wiki. To support this, `owcli run begin` reports
+`branch` and `defaultBranch` (origin's HEAD, else a local `main` or
+`master`). When they differ, it adds a `warning` telling the agent to update
+after merging unless the user asked otherwise.
+
+For external wikis, `owcli run finish` also commits the wiki's files to their
+own Git history and returns the commit as `wikiCommit`. See
+[Storage Layouts and Bindings](../architecture/storage-and-bindings.md).
+
 ## Planning inputs for updates
 
 `begin update` reports `changedPaths`: everything that differs from the last
@@ -99,9 +112,11 @@ Following Kata's pattern, there are two levels:
   upstream-generated one. The block says:
   - search just in time;
   - never hand-edit the wiki;
-  - before finishing a task that changed code, run `owcli check`, and if it
-    fails, follow a dot digraph through begin, plan, next, write, submit (or
-    skip), and finish.
+  - after merging code into the default branch, run `owcli check` there, and
+    if it fails, follow a dot digraph through begin, plan, next, write,
+    submit (or skip), and finish;
+  - the wiki documents the default branch, so it is not updated on work
+    branches unless the user asks.
 
   For an external binding owcli refuses to write into the repository;
   `owcli agents-md --print` outputs the block for the agent's global

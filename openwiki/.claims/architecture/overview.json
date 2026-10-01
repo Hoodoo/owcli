@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a90b59690699e185a1324a2b57af33fabaa29c2705ddbef11f7e5023e9039619",
+  "pageVersion": "sha256:30fca7468ad8ae6f72887099b04620c024d1f7a4e30257efabd1dba81a02078a",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -27,8 +27,8 @@
       "statement": "generate.Generate begins (or resumes) a run, plans only when the run is still in the planning phase, then loops over pending page jobs, snapshotting each page before a worker writes it and skipping the job with the snapshot when the worker does not complete it.",
       "evidence": [
         {
-          "resource": "repo://internal/generate/generate.go#L53-L124",
-          "version": "repo-lines-v1:sha256:420279612952128843ac9acb2b15a15d9cb9a583b3720c951a60739f145de686:eyJzZWxlY3RlZExpbmVDb3VudCI6NzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzY2FkMzI2OWQ3ODA5NjVkYWI0ZWUxMzY4YjY5ZjRkYmY5ODdiYWZkYjM5YzgwZTdiYjJmYmRlMjgwYzIwNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzZjM0Zjk5NzBlYjc3NjQ2M2RjNDg3ZjUyZGI2YmQyMjc1MjdiYzUxYjk0ZDY1N2VjYzZmOWExMWJhODgwYTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMxZGI4Y2NlM2RhMjdmNDg1NGNjMjIwMjMwMGM3M2ZmZDQ3ZmU4MGRiODhjZWRlNjE3YjNmNGM0YjA2MWFiY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NGI2YTM0NDJiY2FiY2YyZDMxMWZkM2YyY2I1OWUyYTY5ZTMzYWNjZWE5MWNhZDI4N2RmYmZmMDJmMmUxZDAifQ"
+          "resource": "repo://internal/generate/generate.go#L55-L128",
+          "version": "repo-lines-v1:sha256:28d37d4cec6baa59d3c9c56c1f1179e33f2ce36fe01b096e42ef1158809aa00d:eyJzZWxlY3RlZExpbmVDb3VudCI6NzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzY2FkMzI2OWQ3ODA5NjVkYWI0ZWUxMzY4YjY5ZjRkYmY5ODdiYWZkYjM5YzgwZTdiYjJmYmRlMjgwYzIwNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMxZGI4Y2NlM2RhMjdmNDg1NGNjMjIwMjMwMGM3M2ZmZDQ3ZmU4MGRiODhjZWRlNjE3YjNmNGM0YjA2MWFiY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmNjZiYzE2OWUxMDQ3YTA4YWMyN2ZmYjhiZDc1NzkxNjliY2FhNjFkZDkyMjIwMzJhMmMyYWYzNjVjMjAyNzUifQ"
         }
       ]
     },
@@ -37,11 +37,11 @@
       "statement": "A worker failure that is not recoverable (anything other than a step limit, a refusal, or ending without submitting) aborts generation after the page is rolled back, leaving the run resumable.",
       "evidence": [
         {
-          "resource": "repo://internal/generate/generate.go#L108-L120",
+          "resource": "repo://internal/generate/generate.go#L111-L123",
           "version": "repo-lines-v1:sha256:67a0929ea739d9e7fa8bd875c9dfed98ac0ef3080f8065aaa7ef31b63bdbec11:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ZWZjNDk0MThkMjZkY2YxMjliMjJhNmFhMjExMDhjZWVjMzc2NzdhMzJkMDhlOWQ1ZmVlMzVkZGE2NmJiOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQzN2I3NDFmNGM2YWM0MjIxYzJjMzE0OTEyZTU5Y2M1MTZmNGUzZDI2NzkyOWY3YWRhY2JmMjY5YjI2MmI1ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxYWMzODhlNTJhNmNlN2U3ZDFhNjY1NzBhZjRkMTkwYjQwNGM3MGViNjY4ODViODI5NWYzMmExMDgxNTdjZDcifQ"
         },
         {
-          "resource": "repo://internal/generate/generate.go#L134-L138",
+          "resource": "repo://internal/generate/generate.go#L137-L141",
           "version": "repo-lines-v1:sha256:27b0244f3ef732c69e1db64fa2598f61d2f648b95296997410488f093b9f56bb:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1OTAxNDdmOGQ3MTgxZmRiZTRhYzczYzY3YTAxOTliMGM4OGNmZWU5NGNlNTljZjkzZjQ4OTgxZGMyN2Y0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ3MWM2MmU5ZGM4MGQ0NGUxZjE4YzgyMGIwOWMyNGVhMTI2YWRkZTM3ZWE0NzgzZTdhNmFjNzhjM2NjMThjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTkxOThjY2U5NjU2NDNjZTNiNDNjNzI1YjU5ZTk4NTRkMDY5MjZmNjVjOTE2Njk1N2I4ZWY0Y2QwYzU0M2FjZCJ9"
         }
       ]
@@ -79,8 +79,8 @@
       "statement": "The wiki directory is named openwiki in both storage layouts (in-repo and external), and the repository's own openwiki directory is always excluded from source views.",
       "evidence": [
         {
-          "resource": "repo://internal/store/layout.go#L19-L45",
-          "version": "repo-lines-v1:sha256:e230dbf1983ea7db289fa725f49bc3999956defe03c9d3201cc8906f4aef837b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzZjYxYjIzZWI0OThiYTJhZWEwMDc3NWQ1OWQ4NjNhNjgwZDU5MTBjNjdkNTY0M2RlNDhlYzU4ZWE5NmNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1YjE3YWQyNWMxN2MwNDU0YzI1NjRmZDU4OWI5OTlhOGYwNDAyNGJiZjM2YzkzYjc1ZTAzMTU2OGRiMzJiZWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNWRlNjczOTBjZTMyYmZmZWYwZGU5NjRjMWM3MjAwOTk1ZDY4Y2EzZWVjYWRlYjNkZDA5Yjg3MmE1NGViNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzNTdlNjU3MmQxNmZmNmU3NjdiYTc5ODkxZWRkODg1MzM0MTM0YzBiZmUwNGQyYmM5NGMxZTQ5OTk4OWJjYjcifQ"
+          "resource": "repo://internal/store/layout.go#L19-L47",
+          "version": "repo-lines-v1:sha256:927c8383f39bd7fee3ed861d61ff66af1d6f53942b055d3413149a08343cce81:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzZjYxYjIzZWI0OThiYTJhZWEwMDc3NWQ1OWQ4NjNhNjgwZDU5MTBjNjdkNTY0M2RlNDhlYzU4ZWE5NmNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1YjE3YWQyNWMxN2MwNDU0YzI1NjRmZDU4OWI5OTlhOGYwNDAyNGJiZjM2YzkzYjc1ZTAzMTU2OGRiMzJiZWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNWRlNjczOTBjZTMyYmZmZWYwZGU5NjRjMWM3MjAwOTk1ZDY4Y2EzZWVjYWRlYjNkZDA5Yjg3MmE1NGViNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzNTdlNjU3MmQxNmZmNmU3NjdiYTc5ODkxZWRkODg1MzM0MTM0YzBiZmUwNGQyYmM5NGMxZTQ5OTk4OWJjYjcifQ"
         }
       ]
     },
@@ -120,7 +120,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/486e6ea-dirty",
-    "at": "2026-10-01T18:03:21.177Z"
+    "by": "owcli/51f887a",
+    "at": "2026-10-01T18:14:12.118Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4dad062637b84ba763728b1c97e16696255e7f9030f56111909ac8ac5a05078b",
+  "pageVersion": "sha256:353c9d961eafbe492cfe33daef2f99a1512bd0805e6864780153fc7f56a428e7",
   "claims": [
     {
       "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
@@ -55,14 +55,28 @@
       "statement": "init and update can be interrupted and resumed by rerunning the same command, and an optional message guides the planner.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/generate.go#L29-L45",
-          "version": "repo-lines-v1:sha256:56e8516c5258f1b84e300fc164e5567dc76bd6ac39964d1ffe3dd501a2996f2f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNWI3NTc0NjdjOTJjYTZmZWU4YTdhYWNiY2JhMzUwNDhjZWIzYjQ1MzM4Mjc1NTgxM2M2ZjJhYjE1MjcxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmZmEyMzg4NmUyOTcyOGFiODMzMTQ2YmYxNTdkNzg1ZDM1NGFkNDk2ODg1MDJhNThjOWJjMGQwZDA1NjMyOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxYTRlYWYzOGMxMDI3ZmE1ZTczOGFiMTc0MjVkOTlmYmM1NTY1NDNiYmNlNWI0YTNlYzQ1NTZjODljYTlhYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NTUxNzhkZjA5NjlkM2IyN2U3NGIxMjY4ZGI3MWYwNGZjM2ZiNmFlYjQ3ZGJkYTliMjIwZTdmOGU5NDg5MzEifQ"
+          "resource": "repo://internal/cli/generate.go#L30-L47",
+          "version": "repo-lines-v1:sha256:7b753958c3e075bfee3319e248df7228bfb5298a99429a0baf335ca7dcf6b530:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNWI3NTc0NjdjOTJjYTZmZWU4YTdhYWNiY2JhMzUwNDhjZWIzYjQ1MzM4Mjc1NTgxM2M2ZjJhYjE1MjcxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmZmEyMzg4NmUyOTcyOGFiODMzMTQ2YmYxNTdkNzg1ZDM1NGFkNDk2ODg1MDJhNThjOWJjMGQwZDA1NjMyOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxYTRlYWYzOGMxMDI3ZmE1ZTczOGFiMTc0MjVkOTlmYmM1NTY1NDNiYmNlNWI0YTNlYzQ1NTZjODljYTlhYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NTUxNzhkZjA5NjlkM2IyN2U3NGIxMjY4ZGI3MWYwNGZjM2ZiNmFlYjQ3ZGJkYTliMjIwZTdmOGU5NDg5MzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_42a129139afc7f0736f92e5596b1249c",
+      "statement": "External wikis can be placed in a user-chosen directory with --wiki-dir, which implies an external binding.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/generate.go#L117-L122",
+          "version": "repo-lines-v1:sha256:18e3a27fd280adaaf16de0fb4f1334ed1b09ee96bad8020304886238c0168e78:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM1OWQyNTA4YTkwOTIyMTBkYmYzNzQ1NWM4NDI0NGJmZGRiMjNhNTY1ZmMyMDI0YmMxODI3NGYxYmY0NjMxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJjMmQ1Y2E2YTQ2YmM5MDQ2NjNmYzdlMGJjYmIwNTYxMDI3ODE1MGFhZmY3ODYxZTIzYmI5MTNiODgwODQwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDA0ZGE0ZWYzOTg4ODE0OTRhZTdjNzJlZTdiNWQ3YjlmN2Y2ODNjNTdkODgwZmRhOWNmOWNiYjA5MmQwMzAxYyJ9"
+        },
+        {
+          "resource": "repo://internal/cli/generate.go#L127-L154",
+          "version": "repo-lines-v1:sha256:f335331e5ba8db985f90d189ebc45507cc5896d4c412e22e27c337a520bd7516:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZjcwN2FlMTI0OGJmMTUzMjM1NWM3MmEwNGJmMWQyY2FkOTNiMjRjYzA5YTQ5ZTQ4MjMyZTc5Njk1MDg3ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0NzRkNTUxNzg4YmM2MWM0Zjg1NWM1NzE5MzU1OWQxNzI0NmE5NTI2OTk0NjMyMDc2NWE2OTVkYmYyMzQ5NjYifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/459c44e",
-    "at": "2026-10-01T18:01:43.075Z"
+    "by": "owcli/51f887a",
+    "at": "2026-10-01T18:15:16.892Z"
   }
 }

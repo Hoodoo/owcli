@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:7bc545f189ec462eb787b6df0e3a638d1ec523f8f94b80807fbebc53a99ea530",
+  "pageVersion": "sha256:0cffd6acf9cd7220db1e1d2fd8940cc8eb25c7295bc19f187fae4de54c1681bc",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -39,7 +39,7 @@
       "statement": "next persists the current job's pre-edit snapshot under .run-snapshots and keeps the first capture, and skip and finish use the persisted snapshots.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L257-L309",
+          "resource": "repo://internal/cli/host.go#L287-L339",
           "version": "repo-lines-v1:sha256:15600efbb7def073a9e5a3a8a219c9445c87c504341e2cdb57ada280b826393f:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTYzOGEyNDRlYTRlOWJlYTI4NWU2OGFlMjM1MzY5Zjk2ZTIyMmMyYmY3ZWQyZWE1NTQzZDMxNTBiZjEwNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFmODhiNmRiOGJkMjMyNjZmZTg4YmY3N2MzMmIxM2UyOTBkNDYyNDdmN2QyZThmNWI0YTM4ZmMwMTNmMDE5YTYifQ"
         },
         {
@@ -53,7 +53,7 @@
       "statement": "begin update reports changedPaths since the last documented commit, including uncommitted and untracked files and excluding ignored paths, capped at 300 entries.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L151-L163",
+          "resource": "repo://internal/cli/host.go#L161-L173",
           "version": "repo-lines-v1:sha256:74d02f3e76c0034d1ab1435e247de2508d1a8401514aa95f67fff50e6ee317c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjY2JkMGExMjcxMzViYmYxYmRkNDBmOTc4OWE1NTIxNjAwZmRjZjcwN2ZjY2NlMWMyNDY4ZTI4NDM5ZWEzNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4N2Y2ZWM5Nzc3NmY5OGNjN2MyYzA4YjA0OTg1NDViNDI5NmM5YmNiMDM5NDFmMDA0M2RmODcxZWI1ZGFlMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYjZjMGVhZDA4NTc4MTcxZDFlYzY0N2Y2M2QwOTE2YjI3MzlhM2U0MGZlMWI2M2FiY2QxZjk3OGIzMTczYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0M2RlNGRiNTRiMTkwOGZkNzdjN2ZlN2I3ZjhjZTM0NjljOGNhNmYxOTRiN2M4NWVlNTdmNDhiZDQ4ZGZlYTIifQ"
         },
         {
@@ -71,11 +71,11 @@
       "statement": "JSON input is decoded with unknown fields disallowed, and submitted evidence may be either a string or an object with a resource field.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L208-L226",
+          "resource": "repo://internal/cli/host.go#L238-L256",
           "version": "repo-lines-v1:sha256:85613c1bc6b9811aea7e448f3006cd63ab671a4635856154f0bf996c86c95387:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY2NTBjMWEzNzNiMTQxNThkMzFiZjM1MjZhMzEwZDAxYWU1MzZhMjA4YTJmOTg5ZDMyMDBmZjBkZjY3MTVjNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3YTg3YTZlYTEwN2I5NjljZDI4YmYzYzk3NzA1ZTM2MjkxZDE0NWRjNzUzOWY0MTc3ODJhNjQ5ZjIzNGY0Y2UifQ"
         },
         {
-          "resource": "repo://internal/cli/host.go#L329-L362",
+          "resource": "repo://internal/cli/host.go#L359-L392",
           "version": "repo-lines-v1:sha256:7b9f4fe949d289bc0b41f31ea23139246143d8f76d0a089e7cbd194b83a98d44:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0NTg4MjhmYTY2ODBlNWFkNzhhMTE3NjY1ZTNiYTA4M2Q2MTM0ZDMyN2IyMTE4YTRjMGUyODJjY2M4MjY5NjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxOWI3MWExMTdjYWI4ZGVjNGU5NzczYzFjYThmNjc1MTU5NTY4ZWY5NTdhOGNmNzYyY2U4Nzk0MjcwMGEzODIifQ"
         }
       ]
@@ -117,34 +117,58 @@
           "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L155-L192",
+          "resource": "repo://internal/cli/instructions.go#L172-L209",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
     {
       "id": "claim_2218888d7eac691661a39266e2f17d1c",
-      "statement": "The compact instructions route agents to run owcli check before finishing a task that changed code and to update the wiki through the run lifecycle when it fails.",
+      "statement": "The compact instructions route agents to run owcli check after merging code into the default branch and to update the wiki through the run lifecycle when it fails, and not to update on work branches unless asked.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L15-L50",
-          "version": "repo-lines-v1:sha256:fcf33bcc6d3f7236bab81d300fbb200067a50a68f8fb9df1e4c1876374079135:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNWJhZDU4NDA1M2ZlZDJiYmY3ZDVkN2M0YmM5NWIwY2M3MDM5ZDZlZTYyYTUyZGVjMDM2NmM4MWE2ZGM3NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzY2JjNWM2ZGIzMTBjYjA2NWNmNGYxZjM0ZmRkMGIxN2M3MzJmYjFiNTI3ZDQ0Y2IwNjUzY2EwZjU2NWE0ZGQifQ"
+          "resource": "repo://internal/cli/instructions.go#L15-L53",
+          "version": "repo-lines-v1:sha256:0abd86ec7b1c17ad5b2c087857f0b3221886db92a8dd308d7942d3a02097a4cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIxNmQ3YmJlMmQxMzY5YzAyODBhYzA3YTYxMjVhNDNjMjEzZmFhNjViMmI3ZDM5MTBmN2I1MWRjMjVlNDcifQ"
         }
       ]
     },
     {
       "id": "claim_f036f60d7b498aa02712a9d3abc378f3",
-      "statement": "owcli quickstart prints the full procedure followed by the planning, page, and Claim standards from the guide package.",
+      "statement": "owcli quickstart prints the full procedure, including when to update and how external wikis are versioned, followed by the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L56-L141",
-          "version": "repo-lines-v1:sha256:de09a699b10b454796a5259f94d0ddb5c56f47fb384fc146cecc34b33b6b8859:eyJzZWxlY3RlZExpbmVDb3VudCI6ODYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMTU0YTc2ZmUxMzk4YjJkNGY4NzJmY2FmNDMxYjQ4Mjc4ZGI2Yzg2MjU3ZDA0N2IyMDVkZTg0OTE1MThkNjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNWJmOGUwYzcwMWIxZWMxNDRiYjkzNzdkOTUzMTZmNTM2NzQwZWM0ZTMxZDNlMjMyZTAwMTE5OWUzNzU1NjAifQ"
+          "resource": "repo://internal/cli/instructions.go#L60-L158",
+          "version": "repo-lines-v1:sha256:250c61dfa74b87a305f880cf6cc18d95bf1db225cb26dcaa23957c7c8f62af4c:eyJzZWxlY3RlZExpbmVDb3VudCI6OTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ODgxMzFhOWI3NDU0ZmFkOWI2ZmYwZWMwMWIyN2M1MDI5NjljMWIyNWRiNDU3MDcwMjkxN2E2OTY5NzY2YjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzODQyYjhkYWFiZjRlZTQ3NTA3M2RhNDJkZWRhNzg0NDc5ZjljNThjMjZmNTE4NzJjODcwYWI3ZWIxMzk4YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNWJmOGUwYzcwMWIxZWMxNDRiYjkzNzdkOTUzMTZmNTM2NzQwZWM0ZTMxZDNlMjMyZTAwMTE5OWUzNzU1NjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bfc9163adf6ece547328c01ff12ffa5",
+      "statement": "owcli run begin reports the current branch and the default branch (origin's HEAD, else a local main or master) and adds a warning when they differ.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L148-L159",
+          "version": "repo-lines-v1:sha256:bc3027870d263e47990a37f7bb03bcb1cbb1a430a26bb116aab8ebeb57c45b7a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OWU1NTI3MGQyNGEyNDc4NjA2NDllZDEzNzE0Mzk2NGFhODE3YTkyNDE0MGE4NjExODUzYjQyNTE4YzllNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZjFkMDRhOTRhYjI0N2U4Yzg2YjgwNzIzOTIzMmYxMTU1NDk3Yzc0YWJjMDU2NWI0MGJhYTAzMjJjYWY2ZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3MzY2OGVjZDg0NTNmNGE3NTRiZDVmNWI1MzE0MmIyNzhlZTk1MzMwZWViNWVmMTI0ZTA1NjQ0ZGU2MDk5NzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxNzU3N2Y3MjUzYTAyNWM2OTMxODZiOTFlODE4NzNiNGYxZDI4YjUzNjU1M2FiYmFjYmI1ZDJkMmM4YTU0NzEifQ"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L194-L212",
+          "version": "repo-lines-v1:sha256:a19e951257ddc06c37621691ee99ed51d3b6a6c86df48322d4f8d1d0a4c4dc47:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3Zjg3NDMxMzg1Nzg2ZmI5ZTZhY2U3MDAxZmZjNzI5NzBhNzY2ZGE2YzJkMTZjNGFkM2Q3NWIxMDNiYTM4OTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYjA2ZGIwYThmNDRhNjZlNWJiNTJmYjVlM2UyN2JmNDk0MTAyYzJjOGJmYWY1YTA1YjM5MWNmNjYwZWRjNjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_26c9a0059a38371eb7f34a16c749c976",
+      "statement": "owcli run finish commits an external wiki and reports the commit as wikiCommit.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L455-L476",
+          "version": "repo-lines-v1:sha256:8163f7ceef44fb9b0490b744454a27c9ea76d04007ee4f8e824cb72ead8d2d1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2ODA2ZjE1NWM1YWMxYWUyNzIyY2EwNmYyYWM5Y2FkY2I4ODFiOTEyM2NiNjI0YTNjMTA0NzViNDQ0OWRjMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzYWVmMTc0YjkzYzUwOTA1YTU0NWY5NTEwMjlhYTZlZWYyZGIyMWQ3NTQ5YzNjNmMxN2M3MzZmMWZmMDJhNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5YTA3MjMzODc3MDllYTA5ZWFmYzllMzAwNmFjMDg1YTU4ZjI0MTMyNjcyZjJjOGQ2NzU2MDM0YmI3YjFjYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVhN2JiZDdjY2EzZmY0MTczYjA2MmI4MzYwMDdhZGY2YTc5N2NhNGI4N2U1Mjg3Njk2ZTFlMDFiODQzMzNhNWUifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/486e6ea-dirty",
-    "at": "2026-10-01T18:03:28.143Z"
+    "by": "owcli/51f887a",
+    "at": "2026-10-01T18:15:08.929Z"
   }
 }

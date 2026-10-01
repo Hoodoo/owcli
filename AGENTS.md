@@ -75,8 +75,8 @@ by Claims (repo:// evidence that owcli rechecks against the source).
 ~~~dot
 digraph owcli {
   rankdir=TB; node [shape=box];
-  done   [shape=diamond label="Finishing a task that changed code?"];
-  check  [label="owcli check (read-only, no model)"];
+  done   [shape=diamond label="Just merged code into the default branch?"];
+  check  [label="owcli check on the default branch (read-only, no model)"];
   ok     [shape=diamond label="exit 0?"];
   begin  [label="owcli run begin update\n(owcli run begin init for a new wiki)"];
   plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan < plan.json"];
@@ -95,7 +95,9 @@ digraph owcli {
 }
 ~~~
 
-A "noop" begin means the wiki is current: stop. If the user did not ask for
-wiki work, report a failing check instead of updating.
+The wiki documents the default branch: update it after a merge, not on work
+branches (begin warns when you are elsewhere), unless the user asks. A "noop"
+begin means the wiki is current: stop. External wikis are committed to their
+own history automatically at finish.
 Full procedure, JSON formats, and the page and Claim standards: `owcli quickstart`.
 <!-- OPENWIKI:END -->

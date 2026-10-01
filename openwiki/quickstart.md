@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/459c44e
-    at: "2026-10-01T18:01:43.075Z"
+  - by: owcli/51f887a
+    at: "2026-10-01T18:15:16.892Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -19,7 +19,7 @@ sources:
     resource: repo://internal/cli/inspect.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/459c44e", at: "2026-10-01T18:01:43.250Z" }
+generated: { by: "owcli/51f887a", at: "2026-10-01T18:15:17.069Z" }
 ---
 
 # owcli Quickstart
@@ -48,7 +48,8 @@ make check                      # go vet + all tests (offline)
 export ANTHROPIC_API_KEY=...    # default provider; see Model Providers for others
 cd /path/to/some/repo
 owcli init                      # wiki in ./openwiki
-owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo untouched
+owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo untouched, Git-versioned
+owcli init --wiki-dir ~/kb/foo  # external wiki in a directory you choose (e.g. a knowledge-base repo)
 owcli update "cover the new billing module"
 owcli status                    # binding, last run, Claim health
 owcli check                     # model-free validation; non-zero exit on problems

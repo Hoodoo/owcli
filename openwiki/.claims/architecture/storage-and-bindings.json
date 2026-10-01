@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:d4c19d652113e77b938309442bc54d94d909098613485f10e51f3843fa0b9516",
+  "pageVersion": "sha256:eb99a4befc814655d5fe31dd654969af411f80b7a146fdf8e25b56f00ef999d8",
   "claims": [
     {
       "id": "claim_ef779a1b85614312a6a3496dc3925e81",
       "statement": "A Layout derives every control path from the wiki root: .claims, .run.json, .page-manifest.json, .last-update.json, and INSTRUCTIONS.md.",
       "evidence": [
         {
-          "resource": "repo://internal/store/layout.go#L47-L60",
+          "resource": "repo://internal/store/layout.go#L49-L62",
           "version": "repo-lines-v1:sha256:dc090444755a4e503b04b33721a0931ee0822a087209a80e6525149cd3f86fdb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzNGE5NmM0NDRlZWZiZjM2NzBkNTJjN2U5Mjg2NjM2MmFhZDhmOTZmOGI0MDgzM2FjODc4Y2VkNjdhZmUzZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4NDUwYWU2YWJiZTI1OGVlNmQ3MGVkOTY4ZmIxN2U5ODI1NzI1NGM0MzZjZmM0MjQ5ODZhMjVkODc5ZjkwMmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNDQzYTA1NzkzYTUzNTFhMWZkOTgxMTAxMzdhZGFhM2UzMzFkYWUxMTcyZGM4Yzc2OGE1ZGZmMTY3MzZiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY5ZThjZjYxYTMwNDNjZTY1ZWNmM2VjODVlNTVjZmRlOTUzMmU5MzY4YTA5YmRiMmRiNjA3OGUyZWRhZjYxZGEifQ"
         }
       ]
@@ -17,7 +17,7 @@
       "statement": "Both layouts exclude the repository's own top-level openwiki directory from source views via RepoExclusions.",
       "evidence": [
         {
-          "resource": "repo://internal/store/layout.go#L40-L45",
+          "resource": "repo://internal/store/layout.go#L42-L47",
           "version": "repo-lines-v1:sha256:6cd5c2e9e628552a12112ebbcf6cabf6ce1cb0f617375bf0aacfe92646e42bc8:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzViMTdhZDI1YzE3YzA0NTRjMjU2NGZkNTg5Yjk5OWE4ZjA0MDI0YmJmMzZjOTNiNzVlMDMxNTY4ZGIzMmJlZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDg3NGRmOGE0OWIzOGNhZWU5ZjQzMGUxZTE1ZTYyMWZiYWVjM2Y3ZjNiMWVkMDRkNTk5Mjg1ZTA5ZjA1OTMyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjM1N2U2NTcyZDE2ZmY2ZTc2N2JhNzk4OTFlZGQ4ODUzMzQxMzRjMGJmZTA0ZDJiYzk0YzFlNDk5OTg5YmNiNyJ9"
         }
       ]
@@ -27,11 +27,11 @@
       "statement": "External wikis live under the data directory at wikis/<id>, where the id is a slug of the repository name plus a hash of its root path.",
       "evidence": [
         {
-          "resource": "repo://internal/store/bindings.go#L53-L55",
+          "resource": "repo://internal/store/bindings.go#L55-L57",
           "version": "repo-lines-v1:sha256:e29a99769e85d2ba06021b4248269d4fd07b115c9202ff8b897abdfbd2420a92:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI4YzhiOWYzOTY5MjdhN2Y0ZWQ2OGU1OGM0Zjk5ODExZjRlY2ZhOWVlM2YxZDdmNzBiYWUxMDBjOGEwYzk5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg2YzFhZDRiMDkwYmYwNGYxY2Q1NjdiYTQyZDkyMmM5OGFmNzMwOTJjNDQ4YmFmMjIwOWU0OGZmM2IyZTNhOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmNiMDA4MDViYzk4YzY4NWRkNGVkNzdkOTNjMDM5NjBlZTNiZTE5YzRlNWFjMWIyMGZhZDJlZTA2ODJlMmMyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODY0N2Y2YjE5YWQ0MDZjZDU3Yjc2ODE3MmZiM2EwNWVkMTMwMGZiMDg1ZDgxMjcwYmEzMjAyODllNjc0YzQ0OSJ9"
         },
         {
-          "resource": "repo://internal/store/layout.go#L103-L117",
+          "resource": "repo://internal/store/layout.go#L105-L119",
           "version": "repo-lines-v1:sha256:0db504c77ed89812e4af1258589ddce426f412d95ff3821f6faf49dcd2cea2fc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3MDliNmQ3ZjdjOTUxM2QxNDU3NWI5OTY0OGM1NzBkMDA1MDRhYThkOTAzMjdlNmExMWIxNTEwNjMyYzNkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNlMzg0NmNkMTIxNGY1ZmI5MDliN2MxMjhkODMwOTExNGNiZDg3MzZiMWMwMjEzMDlmNTFiZjRmNmQzZmNkYTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -41,28 +41,28 @@
       "statement": "Resolve prefers an explicit registry binding, then treats an existing <repo>/openwiki directory as an implicit in-repo binding, and otherwise reports ErrUnbound.",
       "evidence": [
         {
-          "resource": "repo://internal/store/bindings.go#L96-L112",
+          "resource": "repo://internal/store/bindings.go#L122-L138",
           "version": "repo-lines-v1:sha256:37bc6b50b2eaa25e8d7dbb6a8cac2456f94d7a570d6546fde685d2a5381db375:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZGEyODA3MTEzZTcxZDRjZjlmYzFmYjdiYTI4MDg5YjY1NGE3NDYzMDk5ODRkMjNlNGU5NDc0MDhkYWI3NzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzMDE4N2UwZDNkZjc1MWEzNjgwNzMxYWY1ZWVjMzA1ZWQ5ZjNhYjMxZjI3YzlkYTdjNmE0Mjc4OWEzMzg5NTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2OWEwNDQ4NDcwMWFkMWUxNDFmZGQ5ZjUxOWI3NmQ4MzgxZjNmMWM1ZmE0ZjEwYjcyNDdkMWM1YTJlYTRjYjEifQ"
         }
       ]
     },
     {
       "id": "claim_d73509b5620c4ab7bbb63da3df7d6695",
-      "statement": "Binding again with a different kind is refused until the repository is unbound, and an external bind creates the wiki directory under the data directory.",
+      "statement": "Binding again with a different kind or a different wiki directory is refused until the repository is unbound, and an external bind creates the wiki directory.",
       "evidence": [
         {
-          "resource": "repo://internal/store/bindings.go#L114-L151",
-          "version": "repo-lines-v1:sha256:b55fb8bc06b1608bf7461f779d27f5efc9aa3eff680bae31a61b5a1b0bf9d1ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNTAwMWYyMjE4MDU4M2ZiM2Y3ZWFmNzVhMWUwYmRmYzgwNWY2ZGQyZDU5MjFlMmM5NjRlMGZlYWNkOTJmNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxZmRlODkyZTZmMjVhNmEwZTc1NTM3ZjU2MzJkZmE5MGMyNDhhNzg2NDVkZWEyYmFhZDRjMmQwNTFlNTM2MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA4OGNiM2VmNmJjY2JkZjA2NjVhMTg5YjBjOTg0MjNmYjE3MmYwM2UyNWIyNGI2YTgzNmNmMjEwYTNiYjU2OTYifQ"
+          "resource": "repo://internal/store/bindings.go#L140-L186",
+          "version": "repo-lines-v1:sha256:cbdc94549f72673d1e5038c632d57527b0cb35b7e51d7417ecf0e843923fd937:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNTAwMWYyMjE4MDU4M2ZiM2Y3ZWFmNzVhMWUwYmRmYzgwNWY2ZGQyZDU5MjFlMmM5NjRlMGZlYWNkOTJmNjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxZmRlODkyZTZmMjVhNmEwZTc1NTM3ZjU2MzJkZmE5MGMyNDhhNzg2NDVkZWEyYmFhZDRjMmQwNTFlNTM2MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA4OGNiM2VmNmJjY2JkZjA2NjVhMTg5YjBjOTg0MjNmYjE3MmYwM2UyNWIyNGI2YTgzNmNmMjEwYTNiYjU2OTYifQ"
         }
       ]
     },
     {
       "id": "claim_4266cdde881b465cbbc32215d34acb4f",
-      "statement": "Unbind with purge deletes an external wiki directory but refuses to purge an in-repo wiki.",
+      "statement": "Unbind with purge deletes an external wiki in the data directory but refuses to purge an in-repo wiki or a user-chosen wiki directory.",
       "evidence": [
         {
-          "resource": "repo://internal/store/bindings.go#L156-L183",
-          "version": "repo-lines-v1:sha256:9c800d8002a8167ae27e1ccb8f5b906e13bca2bad882c04031b626995874fe59:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzMGZjOWFhYzU1ZjkzODUwZWVhYjNlNGU3M2IxNDQyZTQ4ZjMzNzcwYTk5MDBhMDhhYjVlMjQxODY2ZTU0OGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllNTYwYTVkNTAzY2QzYTgxMDRlZTI4MzlmNjNjMTQ5ZWM3ZDZlZGZlNTM5YTZmZDIwMGVmYjAzM2Y1NTQ5ZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://internal/store/bindings.go#L191-L221",
+          "version": "repo-lines-v1:sha256:bdf6f9c8c547a9079b531e52079c0b9f0bfc992530db4f56d2845ae3109bd6c1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzMGZjOWFhYzU1ZjkzODUwZWVhYjNlNGU3M2IxNDQyZTQ4ZjMzNzcwYTk5MDBhMDhhYjVlMjQxODY2ZTU0OGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllNTYwYTVkNTAzY2QzYTgxMDRlZTI4MzlmNjNjMTQ5ZWM3ZDZlZGZlNTM5YTZmZDIwMGVmYjAzM2Y1NTQ5ZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -71,7 +71,7 @@
       "statement": "Repository roots are resolved with git rev-parse --show-toplevel and symlink evaluation, so owcli requires a Git work tree.",
       "evidence": [
         {
-          "resource": "repo://internal/store/layout.go#L87-L101",
+          "resource": "repo://internal/store/layout.go#L89-L103",
           "version": "repo-lines-v1:sha256:96deaa015b041de52ab846791fa2ae71bfdbea9edb86b93053d66b72ee310f29:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmZTg1MjNhZTVhODllMzg0OTk4YTkwYzIxOWQ0NGJkMjFmMWU2ZjI0YjA0ZTI2Yjc5MDA3ZDJmYTY1YmZhOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyNjk0MzRhOTlhMDZlOTY0MmQyZGZjZTA5YTIxOGY0MjY2ZDJjZDg2MWRiNDkzMDNkZDI0YWNiMDRhYWU1YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkNmYyMmU3MjYwNDk0NTQxYzNkOGUxZTA5MmE2MGI2MGI1NGE4M2M4ZGUxZTczOGJiODVjNTZjNThhNWQ5ZWYifQ"
         }
       ]
@@ -118,17 +118,79 @@
     },
     {
       "id": "claim_a77d7ad4d9184684ba98590f591210c8",
-      "statement": "owcli init binds an unbound repository in-repo by default or externally with --external, and refuses --external for a repository already bound in-repo.",
+      "statement": "owcli init binds an unbound repository in-repo by default or externally with --external or --wiki-dir, refuses an external request for a repository already bound in-repo, and prepares the external wiki's Git repository.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/generate.go#L119-L142",
-          "version": "repo-lines-v1:sha256:3a372a655541a812fb62038738d0a6f7717473020b487c650d073c8838ac20b9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZjcwN2FlMTI0OGJmMTUzMjM1NWM3MmEwNGJmMWQyY2FkOTNiMjRjYzA5YTQ5ZTQ4MjMyZTc5Njk1MDg3ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyZGY3MzQ1MmJkMzQyYTgxNTI5NmE4OTVmY2JmYjhmMDM4ZTIxNjE2MDE1NzY0OWMxMzk3NGMxYzNjODUzZDEifQ"
+          "resource": "repo://internal/cli/generate.go#L127-L154",
+          "version": "repo-lines-v1:sha256:f335331e5ba8db985f90d189ebc45507cc5896d4c412e22e27c337a520bd7516:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZjcwN2FlMTI0OGJmMTUzMjM1NWM3MmEwNGJmMWQyY2FkOTNiMjRjYzA5YTQ5ZTQ4MjMyZTc5Njk1MDg3ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0NzRkNTUxNzg4YmM2MWM0Zjg1NWM1NzE5MzU1OWQxNzI0NmE5NTI2OTk0NjMyMDc2NWE2OTVkYmYyMzQ5NjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_af01bf272d45b71ec4c2b92f42594f3b",
+      "statement": "A user-chosen wiki directory is resolved to an absolute path and refused when it lies inside the documented repository.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/bindings.go#L99-L118",
+          "version": "repo-lines-v1:sha256:4eb8b5d814630f4afc889cade98ee4b515c435fc39094c251802f79cdf214400:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3ZWEyMTQyNWQ2NTQyZTk4ZTJmYzUzNDVmOWM2MDk1MjJkNGNlZjIxZjA4OTc1YTEzMDQyMjdmYjEwMWU1ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZhMjA3OTgyZmMxNjBmMmUyNTg5NzNhYTlmNTRhNjUwNmZjYzE0Njg2Zjc2MmZmZGMyZWNjZmU4NjYyNWU5ZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzMDE4N2UwZDNkZjc1MWEzNjgwNzMxYWY1ZWVjMzA1ZWQ5ZjNhYjMxZjI3YzlkYTdjNmE0Mjc4OWEzMzg5NTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_255a9af37d75cb74abe2b79741b60a9b",
+      "statement": "An external layout's Home is the data directory's wikis/<id> or the chosen wiki directory, and its wiki root is Home/openwiki.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/bindings.go#L88-L97",
+          "version": "repo-lines-v1:sha256:d8b324ad9ea4cd2dc79b4182af7c981add93608d5456234307d1e8fcc49e2712:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4YzU2OWM2ODVhMWE0OWFmZWNmZTE5ZmEzYmRkNTI0ZDAyODljNGIyYjFkYjAwNThmYTU2OThlODAzMTRhYmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjMjYwMjAwOWJlMjM0MGYwNmQ1ZTU1ZWRhMTExZjM3MjMxYmY2YzkyNTQ0NWUyZTRhYmQ2OTkyMDJiM2ZjOTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiZWJmMzM5MWZjYWI4YjRjYjYyYjFjNDU5ZmFmNDEyOTViMGM5NjUyZmRhZWE1YzliYzIzMjJhNWRhM2QwYTIifQ"
+        },
+        {
+          "resource": "repo://internal/store/layout.go#L33-L41",
+          "version": "repo-lines-v1:sha256:28c21c054852e5e0aa338ee44a00ae281b4ded5c4df37e41c9ddca99d5fddca1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjU5MmM4NGNjOGMxMTZlMWU2MmYyYmU2ZWZlNTU4YTYwM2VhYmMyYTdhNTVkZTg5ZTE2N2NlYzkzNWIwZTYyMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDI1OWRlNmQyYzJmNDNhNDNkYTE4ZDQ0NWU5NWFmNjI5NmFmMjU3YWE4ZTNlNzRiMjY4YjRiY2E5ZjIwNjUyYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0f287d0d5f17f0712a0dc76d3af62469",
+      "statement": "EnsureWikiRepo initializes a Git repository in an external wiki's Home unless Home is already inside a Git work tree, and adds a .gitignore excluding .run.json and .run-snapshots; it does nothing for in-repo wikis.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/vcs.go#L13-L56",
+          "version": "repo-lines-v1:sha256:c585deaa8cf0a7d0516db43d2cc419d14daa36055a2ff2d80cb0b873229ddcaf:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjOWE3ZDk1OGQxOWQ1NzJjZDViOTA3MTgyMWJiMTQ2ZWMyYWRiNjNhYzZiN2I4MzdjNThkZjAxMjA1ZjRlYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViZTcxN2JkZDlhMTFiMzZkNjY4ODI1NjAxM2Y0ZDYzMTJmYzJiMDllOGVlYzBiZjk2YmVjMTRkZWQ3YzVhNDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9c2f544778904280c0514e6688c72177",
+      "statement": "CommitWiki stages and commits only paths under Home, skips the commit when nothing changed, falls back to an owcli identity when none is configured, and never commits in-repo wikis.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/vcs.go#L57-L87",
+          "version": "repo-lines-v1:sha256:54029a5ba1d2270e9ace97cb8cbab4a2ba26627960780c449fe464103bf11708:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3NTBmMjMwMzZhOTVlNGZiYzRhYjA2YTdiMjQ1MDBjMjM0Mjk0MjRhZDg1NTlhOWUwYjc1NGZhNmFjYTU5MmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2MzFiNmUyY2EwN2Q4YmFmMGViNDRlNzQ5ZGJmNDkwYjM5MmUzYTUzNGVmNjEwMjI3NzExNDZjZGY5YWYxYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c24645f231ea4539a4aca1570615faf0",
+      "statement": "Wiki commits name the mode, status, written and skipped page counts, repository, and documented source commit, and are made after owcli init/update and after owcli run finish.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/generate.go#L100-L109",
+          "version": "repo-lines-v1:sha256:fbb2723e020e0d92f8c13db85318f13b672f6241f15838d90c90bb60177ab21b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMTA0OTMwZDVmODc0ZDQ4NzBkMTg5NTc5YjIyZmQ1OTU3NTUzNWQwZjIyNDlhOGQ1ZjU4NmIzNzQ3MGY5ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1NDY4YWE2OGFhNDk2MTE2OGNmZjdjYmJmZDA0MTYyZTViOThhMzFiN2JlODQyMTYwOWRlNDNlZGM0Nzk1OTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZTQxMmUzZjE1NzY0NTc5NDRkYTI0Yzc4Y2ViYzQ1ZWFhY2UxZGUxOGZlNTc1ZGRiMTFhNGZlYTZlODZlMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczOWE3MzQ3YzdjMGI2ZjYzNmM1YWRhNjFlNzVkZWI5NTFkYjhjZWUwMGRmNmIyNmRiYWQ3MGIyMjU5ZTgyY2UifQ"
+        },
+        {
+          "resource": "repo://internal/cli/generate.go#L155-L166",
+          "version": "repo-lines-v1:sha256:9ef0032eeac0137d7bc25a88bac81137f2a4502f88ad073ad347534c822004bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkNzhlMDVhYjkyMzRlN2I2MjIyZDA1Mzk2YjQyZDIzNGM4NTUwOTVkMTEyMWNhMTUzODQzNmU1ZDE1NjdjZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1NTJmY2Q5OTNjN2U0NmQxOTU5YjU0ZDJjNzNmMDYwZDg5ZTBhZWFkOGVmMTE3NDAwNTEyMjNjMjRlMjQwZTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3OWMwZDcwNGYzOTU3OGI1MmMzNzBkZmZkNDkxNjc5MjNmZmRiYzE3NzY2NzhjMWM4ZjQ0MmY4NzcwMWEwNTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyNDFhNmZjODVjNGNmZTkzY2ZhMzE0MzdmMTY2ZWI1YWFjN2JhZGYwNWM4YTFjMWI1YWRkOTIwNTY3NjM0Y2UifQ"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L455-L476",
+          "version": "repo-lines-v1:sha256:8163f7ceef44fb9b0490b744454a27c9ea76d04007ee4f8e824cb72ead8d2d1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2ODA2ZjE1NWM1YWMxYWUyNzIyY2EwNmYyYWM5Y2FkY2I4ODFiOTEyM2NiNjI0YTNjMTA0NzViNDQ0OWRjMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzYWVmMTc0YjkzYzUwOTA1YTU0NWY5NTEwMjlhYTZlZWYyZGIyMWQ3NTQ5YzNjNmMxN2M3MzZmMWZmMDJhNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5YTA3MjMzODc3MDllYTA5ZWFmYzllMzAwNmFjMDg1YTU4ZjI0MTMyNjcyZjJjOGQ2NzU2MDM0YmI3YjFjYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVhN2JiZDdjY2EzZmY0MTczYjA2MmI4MzYwMDdhZGY2YTc5N2NhNGI4N2U1Mjg3Njk2ZTFlMDFiODQzMzNhNWUifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/51f887a",
+    "at": "2026-10-01T18:14:47.330Z"
   }
 }
