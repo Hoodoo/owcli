@@ -460,6 +460,15 @@ func TestSyncSources(t *testing.T) {
 	if again != content {
 		t.Errorf("second sync changed the page:\n%s", again)
 	}
+	// Sources sort case-insensitively, like upstream's locale collation.
+	e.page("/openwiki/order.md", "---\ntype: t\n---\n\n# O\n")
+	if err := SyncSources(e.st, map[string][]string{"/openwiki/order.md": {"repo://Makefile", "repo://internal/a.go", "repo://README.md"}}); err != nil {
+		t.Fatal(err)
+	}
+	ordered, _ := e.st.ReadMarkdown("/openwiki/order.md")
+	if i, j, k := strings.Index(ordered, "internal/a.go"), strings.Index(ordered, "Makefile"), strings.Index(ordered, "README.md"); !(i < j && j < k) {
+		t.Errorf("sources order:\n%s", ordered)
+	}
 	// Upstream id derivation (sha256 of the resource, 24 hex digits).
 	if SourceID("repo://src/agent/wiki-finalizer.ts") != "openwiki-source-adcadc660c1888613ec50f9a" {
 		t.Errorf("SourceID mismatch: %s", SourceID("repo://src/agent/wiki-finalizer.ts"))

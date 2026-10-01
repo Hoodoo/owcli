@@ -91,7 +91,18 @@ func mergeSources(current []map[string]any, resources []string) []map[string]any
 			whole[res.WholeFile().String()] = true
 		}
 	}
-	for _, r := range sortedKeys(whole) {
+	ordered := sortedKeys(whole)
+	// Upstream orders these with locale collation; case-insensitive then
+	// byte order matches it for repository paths and avoids reordering an
+	// upstream wiki's sources.
+	sort.SliceStable(ordered, func(i, j int) bool {
+		a, b := strings.ToLower(ordered[i]), strings.ToLower(ordered[j])
+		if a != b {
+			return a < b
+		}
+		return ordered[i] < ordered[j]
+	})
+	for _, r := range ordered {
 		if !retained[r] {
 			out = append(out, map[string]any{"id": SourceID(r), "resource": r})
 		}

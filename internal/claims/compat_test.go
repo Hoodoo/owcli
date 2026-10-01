@@ -65,3 +65,48 @@ func TestUpstreamClaimsCompat(t *testing.T) {
 		t.Fatalf("session over upstream state: %v", err)
 	}
 }
+
+// TestUpstreamSourcesProjectionIsNoop re-projects every page's evidence into
+// OKF sources over a copy of an upstream wiki and expects no byte to change.
+func TestUpstreamSourcesProjectionIsNoop(t *testing.T) {
+	dir := os.Getenv("OWCLI_UPSTREAM_DIR")
+	if dir == "" {
+		t.Skip("OWCLI_UPSTREAM_DIR not set")
+	}
+	src := filepath.Join(dir, "openwiki")
+	dst := filepath.Join(t.TempDir(), "openwiki")
+	if out, err := exec.Command("cp", "-r", src, dst).CombinedOutput(); err != nil {
+		t.Fatalf("copy: %v %s", err, out)
+	}
+	st := NewStore(store.Layout{WikiRoot: dst})
+	pages, err := st.DiscoverPages()
+	if err != nil {
+		t.Fatal(err)
+	}
+	persisted, err := st.LoadAll(pages)
+	if err != nil {
+		t.Fatal(err)
+	}
+	before := map[string]string{}
+	resources := map[string][]string{}
+	for _, p := range pages {
+		before[p], _ = st.ReadMarkdown(p)
+		set := map[string]bool{}
+		if pc := persisted[p]; pc != nil {
+			for _, c := range pc.Claims {
+				for _, e := range c.Evidence {
+					set[e.Resource] = true
+				}
+			}
+		}
+		resources[p] = sortedKeys(set)
+	}
+	if err := SyncSources(st, resources); err != nil {
+		t.Fatal(err)
+	}
+	for _, p := range pages {
+		if after, _ := st.ReadMarkdown(p); after != before[p] {
+			t.Errorf("%s changed", p)
+		}
+	}
+}
