@@ -24,8 +24,9 @@ const hostModel = "host-agent"
 // maxChangedPaths caps the changed-path list returned by begin.
 const maxChangedPaths = 300
 
-// errReported marks an error already printed as JSON.
-var errReported = errors.New("reported")
+// ErrReported marks an error already printed (as JSON); main exits non-zero
+// without printing it again.
+var ErrReported = errors.New("error already reported")
 
 func newRunCommand() *cobra.Command {
 	cmd := &cobra.Command{
@@ -66,7 +67,7 @@ func jsonCmd(fn func(cmd *cobra.Command, args []string) (any, error)) func(*cobr
 			}
 			_ = writeJSON(cmd.OutOrStdout(), map[string]any{"error": map[string]string{"code": code, "message": err.Error()}})
 			cmd.SilenceErrors = true
-			return errReported
+			return ErrReported
 		}
 		return writeJSON(cmd.OutOrStdout(), v)
 	}
