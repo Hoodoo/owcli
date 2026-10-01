@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:0cffd6acf9cd7220db1e1d2fd8940cc8eb25c7295bc19f187fae4de54c1681bc",
+  "pageVersion": "sha256:2f1ba8c58e082c244f27bae86fe4ed203c3e8b7d6b86602f7bd4aa243924fb19",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -117,7 +117,7 @@
           "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L172-L209",
+          "resource": "repo://internal/cli/instructions.go#L185-L222",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -134,11 +134,11 @@
     },
     {
       "id": "claim_f036f60d7b498aa02712a9d3abc378f3",
-      "statement": "owcli quickstart prints the full procedure, including when to update and how external wikis are versioned, followed by the planning, page, and Claim standards from the guide package.",
+      "statement": "owcli quickstart prints reading and health commands, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L60-L158",
-          "version": "repo-lines-v1:sha256:250c61dfa74b87a305f880cf6cc18d95bf1db225cb26dcaa23957c7c8f62af4c:eyJzZWxlY3RlZExpbmVDb3VudCI6OTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ODgxMzFhOWI3NDU0ZmFkOWI2ZmYwZWMwMWIyN2M1MDI5NjljMWIyNWRiNDU3MDcwMjkxN2E2OTY5NzY2YjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzODQyYjhkYWFiZjRlZTQ3NTA3M2RhNDJkZWRhNzg0NDc5ZjljNThjMjZmNTE4NzJjODcwYWI3ZWIxMzk4YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNWJmOGUwYzcwMWIxZWMxNDRiYjkzNzdkOTUzMTZmNTM2NzQwZWM0ZTMxZDNlMjMyZTAwMTE5OWUzNzU1NjAifQ"
+          "resource": "repo://internal/cli/instructions.go#L60-L170",
+          "version": "repo-lines-v1:sha256:1ef782b1454c14c020b338d94b9aa7c9a9413a167c4f26cd84f029e92cc41918:eyJzZWxlY3RlZExpbmVDb3VudCI6MTExLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
         }
       ]
     },
@@ -168,7 +168,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/51f887a",
-    "at": "2026-10-01T18:15:08.929Z"
+    "by": "owcli/0.0.0-dev",
+    "at": "2026-10-01T18:37:20.804Z"
   }
 }

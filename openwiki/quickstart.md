@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/51f887a
-    at: "2026-10-01T18:15:16.892Z"
+  - by: owcli/0.0.0-dev
+    at: "2026-10-01T18:37:57.759Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -17,9 +17,11 @@ sources:
     resource: repo://internal/cli/generate.go
   - id: openwiki-source-1d2731c7c1f08c4fb512ad26
     resource: repo://internal/cli/inspect.go
+  - id: openwiki-source-e370da3884d4a2d6ea7a5245
+    resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/51f887a", at: "2026-10-01T18:15:17.069Z" }
+generated: { by: "owcli/0.0.0-dev", at: "2026-10-01T18:37:57.940Z" }
 ---
 
 # owcli Quickstart
@@ -52,10 +54,12 @@ owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo u
 owcli init --wiki-dir ~/kb/foo  # external wiki in a directory you choose (e.g. a knowledge-base repo)
 owcli update "cover the new billing module"
 owcli status                    # binding, last run, Claim health
+owcli bindings                  # all bindings, missing repos, managed orphan wikis
 owcli check                     # model-free validation; non-zero exit on problems
 owcli search "how are retries handled" --path src/net/retry.go
 owcli read openwiki/concepts/retries.md#backoff-policy
 owcli bind --external | unbind [--purge]
+owcli bind --wiki-dir /old/wiki/home  # reattach after moving a clone
 ```
 
 Interrupting `init` or `update` keeps every completed page; running the same
@@ -72,7 +76,7 @@ run step by step. See [Agent-Driven Runs](workflows/agent-driven-runs.md).
 | If you want to... | Read |
 | --- | --- |
 | understand the packages and how a command flows through them | [Architecture Overview](architecture/overview.md) |
-| know where a wiki is stored, what the state files are, or how ignore rules work | [Storage Layouts and Bindings](architecture/storage-and-bindings.md) |
+| find, relocate, or clean up wiki bindings; understand state files or ignore rules | [Storage Layouts and Bindings](architecture/storage-and-bindings.md) |
 | change how pages are planned, written, resumed, or rolled back | [Generation Run Lifecycle](workflows/generation-run.md) |
 | let a coding agent maintain the wiki, or change the agent instructions | [Agent-Driven Runs and Agent Instructions](workflows/agent-driven-runs.md) |
 | touch evidence, Claims, staleness, or `verified`/`sources` projection | [Grounded Claims and Evidence](concepts/grounded-claims.md) |

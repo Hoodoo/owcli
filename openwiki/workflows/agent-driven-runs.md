@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/51f887a
-    at: "2026-10-01T18:15:08.929Z"
+  - by: owcli/0.0.0-dev
+    at: "2026-10-01T18:37:20.804Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -19,7 +19,7 @@ sources:
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/51f887a", at: "2026-10-01T18:15:17.069Z" }
+generated: { by: "owcli/0.0.0-dev", at: "2026-10-01T18:37:57.940Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -122,8 +122,9 @@ Following Kata's pattern, there are two levels:
   `owcli agents-md --print` outputs the block for the agent's global
   instructions instead.
 - **`owcli quickstart`** prints the full procedure: reading commands, health
-  checks, each lifecycle step with example JSON, error codes, and the
-  planning, page, and Claim standards.
+  checks, binding inventory, where registry and wiki files live, safe
+  reattachment after a clone moves, each lifecycle step with example JSON,
+  error codes, and the planning, page, and Claim standards.
 
 Those standards are text constants in `internal/guide`. owcli's own planner
 and worker prompts are composed from the same constants, so an interactive

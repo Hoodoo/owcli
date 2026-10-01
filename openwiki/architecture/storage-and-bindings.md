@@ -4,8 +4,8 @@ title: Storage Layouts and Bindings
 description: Where owcli keeps a wiki and its control state, how repositories are bound in-repo or externally (writing nothing into the repository, optionally in a chosen directory), how external wikis are versioned with Git, how state files are persisted atomically, and how .openwikiignore excludes paths.
 tags: [storage, bindings, layout, state, ignore]
 verified:
-  - by: owcli/51f887a
-    at: "2026-10-01T18:14:47.330Z"
+  - by: owcli/0.0.0-dev
+    at: "2026-10-01T18:36:54.389Z"
 sources:
   - id: openwiki-source-4b30a1d99e54458bf298f962
     resource: repo://internal/cli/generate.go
@@ -23,7 +23,7 @@ sources:
     resource: repo://internal/store/state.go
   - id: openwiki-source-e9a6561d6a59924c5bdad33d
     resource: repo://internal/store/vcs.go
-generated: { by: "owcli/51f887a", at: "2026-10-01T18:15:17.069Z" }
+generated: { by: "owcli/0.0.0-dev", at: "2026-10-01T18:37:57.940Z" }
 ---
 
 # Storage Layouts and Bindings
@@ -69,14 +69,34 @@ be a Git work tree.
 3. otherwise the repository is unbound (`ErrUnbound`).
 
 `Bind` is idempotent for the same kind and location but refuses to switch
-kind or move the wiki; the user must `owcli unbind` first, so no wiki is
-silently orphaned. An external bind creates the wiki directory.
+kind or move the current repository's wiki; the user must `owcli unbind`
+first. An external bind creates the wiki directory.
 
 `--wiki-dir <dir>` (on `bind`, `init`, and `run begin init`; it implies
 external) places the wiki in a chosen directory instead of the data
 directory, for example `~/kb/projects/foo` in a shared knowledge-base
 repository. A directory inside the documented repository is refused, since
 that would write into it.
+
+The same flag reattaches an existing external wiki after its source clone was
+moved or renamed: run `owcli bind --wiki-dir <existing-home>` from the new
+clone. If that home is registered to an old repository path which no longer
+exists, `Bind` removes the stale key and records the new canonical root. It
+refuses to take a wiki home away from a repository that still exists.
+
+## Discovering bindings and orphans
+
+`owcli bindings` lists every explicit registry entry in repository-path order.
+Each entry includes its canonical repository root, layout kind, wiki path,
+whether the repository still exists, and the last run's status, time, and
+documented source commit (or `none`). `--json` emits the same inventory as
+structured data.
+
+The command also reports orphan directories directly under
+`$XDG_DATA_HOME/owcli/wikis`: these are managed wiki homes which no external
+binding references. It never scans or classifies user-chosen `--wiki-dir`
+parents as orphans, and it does not delete anything. Custom homes that happen
+to be inside owcli's managed directory still count as referenced.
 
 `Unbind --purge` deletes an external wiki in the data directory. It refuses
 to delete an in-repo wiki, which belongs to the repository and should be
