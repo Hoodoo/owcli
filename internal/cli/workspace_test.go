@@ -111,3 +111,92 @@ func TestWorkspaceSearchAndRead(t *testing.T) {
 		t.Fatalf("active workspace: %v %v", v, err)
 	}
 }
+
+func wsJSON(t *testing.T, args ...string) (map[string]any, error) {
+	t.Helper()
+	out, err := runCLI(append([]string{"workspace", "--json"}, args...)...)
+	var v map[string]any
+	if jerr := json.Unmarshal([]byte(out), &v); jerr != nil {
+		t.Fatalf("workspace %v: not JSON (%v): %q", args, jerr, out)
+	}
+	return v, err
+}
+
+func TestWorkspaceCommands(t *testing.T) {
+	here, peer := workspaceRepos(t)
+	empty := filepath.Join(t.TempDir(), "kata.el")
+	if err := os.MkdirAll(empty, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	gitRun(t, empty, "init", "-q")
+
+	v, err := wsJSON(t, "create", "Emacs Packages", ".", peer)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ws := v["workspace"].(map[string]any)
+	if ws["id"] != "emacs-packages" || ws["wikiCount"] != 2.0 {
+		t.Fatalf("create: %v", v)
+	}
+	if v, err = wsJSON(t, "create", "emacs packages"); err != ErrReported || v["error"].(map[string]any)["code"] != "invalid_input" {
+		t.Fatalf("duplicate create: %v %v", v, err)
+	}
+
+	// A member without a wiki is listed as not searchable but still joins.
+	if v, err = wsJSON(t, "add", "EMACS PACKAGES", empty); err != nil {
+		t.Fatal(err)
+	}
+	wikis := v["workspace"].(map[string]any)["wikis"].([]any)
+	if len(wikis) != 3 || !strings.Contains(wikis[2].(map[string]any)["problem"].(string), "no wiki") {
+		t.Fatalf("add: %v", v)
+	}
+	if out, err := runCLI("workspace", "wikis", "emacs-packages"); err != nil || !strings.Contains(out, "not searchable") || !strings.Contains(out, here) {
+		t.Fatalf("wikis text: %v %q", err, out)
+	}
+
+	if _, err := runCLI("workspace", "create", "Tools", "."); err != nil {
+		t.Fatal(err)
+	}
+	if v, err = wsJSON(t, "list"); err != nil || len(v["workspaces"].([]any)) != 2 {
+		t.Fatalf("list: %v %v", v, err)
+	}
+	if v, err = wsJSON(t, "current"); err != nil || len(v["workspaces"].([]any)) != 2 || v["activeWorkspace"] != nil {
+		t.Fatalf("current: %v %v", v, err)
+	}
+	if v, err = wsJSON(t, "use", "tools"); err != nil || v["activeWorkspace"].(map[string]any)["id"] != "tools" {
+		t.Fatalf("use: %v %v", v, err)
+	}
+	if out, err := runCLI("workspace", "current"); err != nil || !strings.Contains(out, "* tools") {
+		t.Fatalf("current text: %v %q", err, out)
+	}
+	if v, err = wsJSON(t, "clear"); err != nil || v["cleared"] != true {
+		t.Fatalf("clear: %v %v", v, err)
+	}
+
+	// From the wiki-less member, search covers the workspace.
+	if err := os.Chdir(empty); err != nil {
+		t.Fatal(err)
+	}
+	if v, err := searchJSON(t, "retry backoff"); err != nil || len(v["results"].([]any)) == 0 || len(v["skipped"].([]any)) != 1 {
+		t.Fatalf("search from wiki-less member: %v %v", v, err)
+	}
+	if err := os.Chdir(here); err != nil {
+		t.Fatal(err)
+	}
+
+	if v, err = wsJSON(t, "remove", "emacs-packages", peer, empty); err != nil || v["workspace"].(map[string]any)["wikiCount"] != 1.0 {
+		t.Fatalf("remove: %v %v", v, err)
+	}
+	if v, err = wsJSON(t, "remove", "emacs-packages", peer); err != ErrReported || !strings.Contains(v["error"].(map[string]any)["message"].(string), "not a member") {
+		t.Fatalf("remove non-member: %v %v", v, err)
+	}
+	if v, err = wsJSON(t, "delete", "Tools"); err != nil || v["deleted"].(map[string]any)["id"] != "tools" {
+		t.Fatalf("delete: %v %v", v, err)
+	}
+	if v, err = wsJSON(t, "use", "tools"); err != ErrReported || v["error"].(map[string]any)["code"] != "invalid_input" {
+		t.Fatalf("use deleted: %v %v", v, err)
+	}
+	if _, err := os.Stat(filepath.Join(peer, "openwiki", "concepts", "retry.md")); err != nil {
+		t.Fatal("workspace commands must not touch member wikis")
+	}
+}
