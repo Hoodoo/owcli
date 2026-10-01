@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:39b6ee64c180586bc80d4cbbe62a89928fb48be9739faf6f7ee2f5d2e2e79d8d",
+  "claims": [
+    {
+      "id": "claim_5d03454900e04f338c345602586056f7",
+      "statement": "The owcli binary's entrypoint only builds and executes the cobra command tree from internal/cli, exiting with status 1 on error.",
+      "evidence": [
+        {
+          "resource": "repo://cmd/owcli/main.go#L11-L16",
+          "version": "repo-lines-v1:sha256:9d1a53a832cf0d6893db31c1ef7e111a2e6a19e7607eb7243d65a53a98068b36:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI0MjkzZWZiNGY2MDI5NDUyY2E4ZmQzYWExN2ZlYmZkN2M3MTA4MTY3NWY5NWQ4ODE0MWEzMTEyMmIzMDc3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_547da34b35324cf1aaeed4b5ac939590",
+      "statement": "The root command registers bind, unbind, init, update, status, check, search, and read subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L45-L54",
+          "version": "repo-lines-v1:sha256:077dfc56407d079703de5fbefe59343750b25d9f7e48716938a27625d9019eec:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1cd7373bd78b4a739b99e2b6447da0ce",
+      "statement": "generate.Generate begins (or resumes) a run, plans only when the run is still in the planning phase, then loops over pending page jobs, snapshotting each page before a worker writes it and skipping the job with the snapshot when the worker does not complete it.",
+      "evidence": [
+        {
+          "resource": "repo://internal/generate/generate.go#L53-L124",
+          "version": "repo-lines-v1:sha256:420279612952128843ac9acb2b15a15d9cb9a583b3720c951a60739f145de686:eyJzZWxlY3RlZExpbmVDb3VudCI6NzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzY2FkMzI2OWQ3ODA5NjVkYWI0ZWUxMzY4YjY5ZjRkYmY5ODdiYWZkYjM5YzgwZTdiYjJmYmRlMjgwYzIwNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzZjM0Zjk5NzBlYjc3NjQ2M2RjNDg3ZjUyZGI2YmQyMjc1MjdiYzUxYjk0ZDY1N2VjYzZmOWExMWJhODgwYTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMxZGI4Y2NlM2RhMjdmNDg1NGNjMjIwMjMwMGM3M2ZmZDQ3ZmU4MGRiODhjZWRlNjE3YjNmNGM0YjA2MWFiY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NGI2YTM0NDJiY2FiY2YyZDMxMWZkM2YyY2I1OWUyYTY5ZTMzYWNjZWE5MWNhZDI4N2RmYmZmMDJmMmUxZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bad547b3e6fe4e9fb5b00ef615c66b76",
+      "statement": "A worker failure that is not recoverable (anything other than a step limit, a refusal, or ending without submitting) aborts generation after the page is rolled back, leaving the run resumable.",
+      "evidence": [
+        {
+          "resource": "repo://internal/generate/generate.go#L108-L120",
+          "version": "repo-lines-v1:sha256:67a0929ea739d9e7fa8bd875c9dfed98ac0ef3080f8065aaa7ef31b63bdbec11:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ZWZjNDk0MThkMjZkY2YxMjliMjJhNmFhMjExMDhjZWVjMzc2NzdhMzJkMDhlOWQ1ZmVlMzVkZGE2NmJiOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQzN2I3NDFmNGM2YWM0MjIxYzJjMzE0OTEyZTU5Y2M1MTZmNGUzZDI2NzkyOWY3YWRhY2JmMjY5YjI2MmI1ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxYWMzODhlNTJhNmNlN2U3ZDFhNjY1NzBhZjRkMTkwYjQwNGM3MGViNjY4ODViODI5NWYzMmExMDgxNTdjZDcifQ"
+        },
+        {
+          "resource": "repo://internal/generate/generate.go#L134-L138",
+          "version": "repo-lines-v1:sha256:27b0244f3ef732c69e1db64fa2598f61d2f648b95296997410488f093b9f56bb:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1OTAxNDdmOGQ3MTgxZmRiZTRhYzczYzY3YTAxOTliMGM4OGNmZWU5NGNlNTljZjkzZjQ4OTgxZGMyN2Y0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ3MWM2MmU5ZGM4MGQ0NGUxZjE4YzgyMGIwOWMyNGVhMTI2YWRkZTM3ZWE0NzgzZTdhNmFjNzhjM2NjMThjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTkxOThjY2U5NjU2NDNjZTNiNDNjNzI1YjU5ZTk4NTRkMDY5MjZmNjVjOTE2Njk1N2I4ZWY0Y2QwYzU0M2FjZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_01c3f6be388d4e9aad3a7ada605d0abe",
+      "statement": "Run finalization wires Claims evidence into OKF sources through a ClaimSources callback that calls claims.SyncSources, so the okf package does not depend on the claims package.",
+      "evidence": [
+        {
+          "resource": "repo://internal/okf/finalize.go#L1-L45",
+          "version": "repo-lines-v1:sha256:4f4d2eae54fad1c4107e67e107f0f3ca420187a51c9bd9c83004ff733020a1d4:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZjc2NTlkZTViMTAxZmRkNTg3Nzk4NjU5NmY4ZGRlMzhiYzRiMGVlYTRmNDM0NzkxMzU1NTRmYjY4Nzc4MTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://internal/run/run.go#L752-L756",
+          "version": "repo-lines-v1:sha256:4bda7c55d74f6ad7bda8af0e6de435ad90896ffa4d27fe093d3daf55f40df594:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmRkYzIwNTE1Yjk5ZDUzNzA2ZjdhOTBlYmE4YjU4NGEwNTc2OGQyODQ1Y2ZlZWJkOGNmMzdkNjdmMjZmN2M1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUxYjQ5ZGM3MmY2MzI2M2RjNGY4MWRkMjFkZjNlZGJmZTY1ZTk2NWU3YWYyOGM0Mzg4YWYyNzQ1OGVlNjBjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDczMTI3NzM1YmI3NDJkODU0NTdlMjdlMDhlMTJiMzBmZTFiNWQ3MjcxZjA2MTA2NGExM2ZhMzYwM2I2OWUxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjc3MDAwNDZiNGI3YWZhODBhZTE3M2E3MWI0YTg4N2FiOWVmNjdhYWY5ZTk0NTA1ZTJhNzI1ZDc3YjY3YTkxMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_947c845aa3bf4f0994a61f9e8090ba4c",
+      "statement": "Wiki search builds a throwaway in-memory SQLite database per query and ranks with BM25 field weights 8, 4, 6, 1, 3 for title, description, heading, prose, and identifiers.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L157-L166",
+          "version": "repo-lines-v1:sha256:c6a57a4ad1961f29b15a4779e7829b60e40fbec21a81fecdd088a4ba6eea4b4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3YjBmMGIyNTY0OTdiZmQ1NzhjNzkxZGRmNmQ2OGE4MTgwZTkyMjM3NzZmY2JjYzA0ZmQ3ZWJmMmRhMWY2YTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4YzAzODc5YTdiODFmNDQ3OTNmZmRlNTkwOGEzNDVmNjE0NzYxMWI0OTgwNDYwNWM5M2NlMTUwNDc3YjhhMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZhMjY5NmYwNTg4YWY1MTUxMTAyOGE1MmZkOGU3YjQzYzhkNTNlMTMzMTgwZmU0NmY1NTk4YjZiMmUxMTY2NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0N2UyZjM1ZjgxZmQ1NzJjZGY2ZWJiYzMxZWVjYjAyZDRkNTNiMjVlNzI4Nzg0NTRlMTE0YmNmMTAxMTNiNWQifQ"
+        },
+        {
+          "resource": "repo://internal/search/search.go#L40-L43",
+          "version": "repo-lines-v1:sha256:2d79c8ca89a52ab1afca3f0d2baba751ab1881628f4861f3a0bd2eb522fb2337:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMDU4YWMyZWYyMzExMDg2NWQ1MTg5NDljOWI0MjBhMTk1Y2Y5ZjI2NzZlMzIxNzA5YjQ2ODc1NDI1NDk0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTAxOWYxMWNkYzczNWRjZWE2OGM2NWM0OTM2NzEzODcyOWExYmU5MzM2MTI3ODgwYWZlMzQ3NGY4Mzk3MTY1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTkwY2ZlNTZmMjVmMjVhZjRlMmQ5ZTU1OTVlYWI0MDg1YjJiMDQ3YzUwMTM4N2E3ZDYwYTVlZGMwOTFjZGMyNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_117bec4028d7444eb4eda72e98ee8772",
+      "statement": "The wiki directory is named openwiki in both storage layouts (in-repo and external), and the repository's own openwiki directory is always excluded from source views.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/layout.go#L19-L45",
+          "version": "repo-lines-v1:sha256:e230dbf1983ea7db289fa725f49bc3999956defe03c9d3201cc8906f4aef837b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzZjYxYjIzZWI0OThiYTJhZWEwMDc3NWQ1OWQ4NjNhNjgwZDU5MTBjNjdkNTY0M2RlNDhlYzU4ZWE5NmNiODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1YjE3YWQyNWMxN2MwNDU0YzI1NjRmZDU4OWI5OTlhOGYwNDAyNGJiZjM2YzkzYjc1ZTAzMTU2OGRiMzJiZWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNWRlNjczOTBjZTMyYmZmZWYwZGU5NjRjMWM3MjAwOTk1ZDY4Y2EzZWVjYWRlYjNkZDA5Yjg3MmE1NGViNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzNTdlNjU3MmQxNmZmNmU3NjdiYTc5ODkxZWRkODg1MzM0MTM0YzBiZmUwNGQyYmM5NGMxZTQ5OTk4OWJjYjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0220f8473f514112ad560257af231de9",
+      "statement": "The design targets on-disk compatibility with upstream OpenWiki, including evidence version tokens, with opt-in compatibility tests driven by OWCLI_UPSTREAM_DIR and OWCLI_UPSTREAM_SOURCE_DIR.",
+      "evidence": [
+        {
+          "resource": "repo://docs/design.md#L40-L53",
+          "version": "repo-lines-v1:sha256:c400491a3a31ac8039acb5843aa0bc16b1455fc7afcaadcd3b65f3c4e4aa535a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkODRkOGFiMzcxOWQ1NmI2NWRiYjFhZjY3ZDAzMWY0YmQ1NTNjYTZkNmYwNGIzY2RmODczNzg2ZDFiMGMwNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTkzZDY5Zjc2YzRlMGMyMTRjMzI0ODlmZjU3OTdkMDc1NWExYjA4OTQ2NGE0ZTdmYWI3MTAwNjc1YTFkNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhZjM1MDQ0Y2MzZmY3NDlmN2RiZWRlNTQzZjAzN2EzNTA2NGI3NDVhMmM1MzhkMzM0Nzc5NzcxNmY5ZTMxNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3YTc1Nzk5NzNmYjA2ZGRhM2Y3MGMyMjM4YzQyMWExZTAwZGYxNjIxMGRlMzI2N2RiYWE4MmQ0YWU2ZjYyZGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7afe4f4cfc04bb9954d7c20e5e7d243",
+      "statement": "The MCP server, parallel page workers, the visualizer UI, coding-agent integrations, personal mode, workspaces, GitHub Actions scheduling, telemetry, and translation are out of scope for owcli.",
+      "evidence": [
+        {
+          "resource": "repo://docs/design.md#L36-L38",
+          "version": "repo-lines-v1:sha256:a45bb52e030025e1b8addbaa59f4619bc8ae4f7b27b9af27a7ea4d55bce68a18:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWViZTAzZDQ5NzI4ZmJiMTMwN2ViOTE1NDVlZDk4Y2QzNWY3ODZkOWM2OTlkOTNhY2I3M2RjODhmYjc0OGNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI2ZTE4ZjQ0YzNiYjA0YTljNzg3OTBkYWNhOTVhMDgwZTg2NTAyZTQ4NGU5NjZiMGFjYTk3NGUwNGQzOTc0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhkNTU0YmRlMjY4OTY4NjkxZWZhMWRiYjhhYjFjNTAzN2M0ODRmNzZjYWExM2E5ZTY5ZmFmZWZmNWU3ZmVkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDIwOWEzMzEyZmY0MDZjZmU2ZGJkNzhmNTQ2NGYxZmYyMTU0NTc3NWM3YjQ1NzUzODAyYTZhNmY2YzcyMjNhNCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}

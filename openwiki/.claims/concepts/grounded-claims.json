@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:01d7d14eea147c198381ca8b494579514a58f157a8463b550e4fdf38ce3d4f4e",
+  "claims": [
+    {
+      "id": "claim_a3f95abd954f45a5a060016eb96b9838",
+      "statement": "Evidence resources use the repo:// scheme with an optional #Lstart-Lend fragment, single-line fragments are canonicalized to a range, and paths that escape the repository, absolute paths, control characters, or anything under .git or openwiki are rejected.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resource.go#L52-L104",
+          "version": "repo-lines-v1:sha256:938dac4a4ea7b4f710f1b114331f103fe77282b6e07acee15663bf37a543e69d:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3OThlZTAyNmIyYTQ4MDA1Mzg0NzgwYTI5NGJiMDY2YzU3NzBiNjQ5MjRiZDQxNmM5MzY3YTljYzBlODhjM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczNWU4OGU4MDViOTk3MWE5NmQ2MjFmZjhmY2YwNmRjMWQzNTVhYjI4NjRjYzRiYmUyNjgxOTE3MTBmYmEwZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2MjU0NGNkMzBlNDg2MGI2NWYzZjUwYWEwMDM1YjY1ZGZmMjQwMzkwNmFlZTU5ZGY0ZTc4OWY4NzVhNzZhNDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a86525342dbb492a96fc19506817fa9a",
+      "statement": "Canonical resources percent-encode each path segment like JavaScript's encodeURIComponent.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resource.go#L108-L121",
+          "version": "repo-lines-v1:sha256:602bec11b0614337686c2cf4e2212ec800b3a43b17dd94e9ff188591b059d511:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmMjBmNTdkMmI2YzMxMzRhNDhhZWJiMzBhMjYyNmRhZTU4MmNmNDA3YmUwMjg5ZDhiMmQwYzNmODdjMjU3OWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2MjU0NGNkMzBlNDg2MGI2NWYzZjUwYWEwMDM1YjY1ZGZmMjQwMzkwNmFlZTU5ZGY0ZTc4OWY4NzVhNzZhNDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlNWRmMjk1MzFkZDhiNGI1Zjg0ODcxNzBlY2U1OWUxMDM0ZDA3NzNlNjYyMWZiMzA1OTgxOWFiYjcyM2M0MjkifQ"
+        },
+        {
+          "resource": "repo://internal/evidence/resource.go#L148-L161",
+          "version": "repo-lines-v1:sha256:9cd2227a8124527d6d8c59c8faedcf56795aec318c86c148c39acb8034057d26:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyNDA5MmZjNzg0MjRlZmQ2MGU2M2E5OWQ3MDA3MmFkMzM4OTcwNjEwZGM1YTVhMzM3ZWQ0Yzk3OWIwNDVmOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNjU5NzA4NjNkNTgxM2JmOTcwYjAyZTM0YjU1YTIxMDIyZmY5MWZiYjM3NjAwYmM5ZjZhNzY2NzkwZWVkMjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlYTczYTZkNTZhOWUyMDZkN2MyNWQ2MDMzZjY4N2NkNjZkMDkxZmQ5YzRkYzdmYWZhMWQyMjg2OTE1YTM4Y2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c450af7e834a481e826a1f63558024d6",
+      "statement": "The resolver refuses symbolic links and paths whose physical location differs from the logical repository path with ErrSecurity, treats ignored paths as invalid evidence, and resolves missing files or non-regular files to nil.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resolver.go#L74-L134",
+          "version": "repo-lines-v1:sha256:f07c130eaf3172f63a0ab94888ada0c185557f6a0f8aae7a9bf8f9c8c2c6d9b9:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5ZGZhZTNmMzBiN2JiN2QzNTlhNzVjNjcwZWYxMjZjYzlkYzA3OTUyODVkZGVlZDM5ZGFkMzk1OGQ0YmQ2MjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcwYjhkZjhhYTQzNTViNGNlOTZiZjQ1OTIwZDQxZTNjYWQ1YjkyM2MzODRmYjkwZjhiYWM2Nzg2Y2I5ZDAwM2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA1NjZhZGJlNTM0NDYzMzdmNTY5YmQ4NTI0MjQ4M2E4ZjE2ODQxMWUyNzgzZTdkOTFlNmQ1YTUzMmQ2N2ZhYzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0a811725729c4f34a8f059cd6dd9534d",
+      "statement": "Whole-file evidence is versioned as repo-file-v1:sha256 of the file, and line-range evidence as repo-lines-v1 with a content hash plus base64url JSON anchors that include up to three lines of surrounding context.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resolver.go#L199-L220",
+          "version": "repo-lines-v1:sha256:266e964d24a4eb4761230d40101d86cfdf2a87dca9323d9468c61a64e78fc8de:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlMGYxMGMzODE0ZTJiMWEwYmI1MTk1ZGNjODNhMWVlMTZiYTViMmVlZjM5ZWRiMWNhZTgwZmY0OGE0ZDdkZWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmYWM0NzRjN2MxYWQxZjBmOGM1ZTc5NzI5YmU5Nzc2MGQxNGVkNzcxZDgwMmU0N2EwMTAwYzAzNTI1OTk2ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3MWM3MDc4ZjY2YTUxZTBlYTJkMGYwMDczYWVmZjNkNmY3NWIwYTEzYTMwYTM2YmIyNmYzOTNiYjE1NjJmNTkifQ"
+        },
+        {
+          "resource": "repo://internal/evidence/resolver.go#L21-L27",
+          "version": "repo-lines-v1:sha256:d27d6f91834a8e4ab54b79a23ab713cb7679048049ee3f0a2c0a7bb7400a753f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDBkOTg2YjBkZjdlOWM0N2FhNzgyYjA2NjA5NDY5YmM4ZWVjYTQ3NjEyYjgzOGNmODI5ZGRhNGJjZGRkMzMyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQyYTNmNGJlNjY0YjRkMzlhZjhmZTdhMTVhYmFlZjUwYzRjZGNjZGRiYzY1ODdlNzJhOTcyYzFiOTgzMzhjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY4Yzg5MmRmZjA0NmM2MmEyODlmODhlYjc3OGJlM2Q2NTgzN2Y0ZTQ0MWQwOTg4NmJlZTg1ODE5NzQ2ZmRiNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTM5ZWQxMzNmNzBmOTVhNzJlMTNhYzliZGQ2M2Y0N2ZmM2M5YWI0NDViOWI1ZDZhMzI5ZTBiNmI4Yjg1NzJjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b6fece233aee467695cb74c6c505ab00",
+      "statement": "Given a previous line-range version, the resolver keeps the old token for unchanged text found at the hint or at a unique matching span (disambiguated by context), and otherwise locates changed text between the unique surviving preceding and following contexts.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resolver.go#L152-L177",
+          "version": "repo-lines-v1:sha256:bb492590526865966132a76d6a1b83fc174d015be4ba90099ce82b72edfdadb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3NmNiNTk3YjcyOGNkYTk1NGY0ZmU3MDdjZGM3YjBiZTc0MTU5MTQyNmE4ZTI2NzVkN2Y5YWU5MTZjMDI0MmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlNTNjMzExOTlmMTA3MThkYmEyNTBiODk5MTEyYmUyNTk2N2ExNzIwYWRmZTk3MGMxZmYxNjUwMzJjNjE1MWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhY2ZjNjNjODcwODJkYmNkZDlmN2Y4MmNiOTRiZGZlZTc3YTk2MWQ0YjhjNWQxN2ViY2Y2YzI1YTE5ZmI5NGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0ZTIzNDkxODU3MGY0N2Q1ZDFiNzdlNzg1ZmY3N2NjOWQ4MmI5MDdmY2Y4ZTNiZTk1YTRlYzc4MmNkNWM2MzEifQ"
+        },
+        {
+          "resource": "repo://internal/evidence/resolver.go#L254-L339",
+          "version": "repo-lines-v1:sha256:6df9873f99807ae07b74f272edf2f5cabefe7ad1524c33b7faca4f710be5a3db:eyJzZWxlY3RlZExpbmVDb3VudCI6ODYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmYTdhMmYxMzk0OTc3NzI3YmU0NDUyYjVkZGFkN2FiZjI1Y2EwM2Y2ZjQwZGYyYmIzNzMyNGUzYWFmYzg2NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4MjMxNmUyM2Y1YzI2ZGY0OWI3OTBhM2JlNDk4OTA1ZWZjNDBlNWI3YmYwNDY0ZDViNzcyNzVkNjUzNmViZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0NjQ5MDM2MDhjNzEwNGNkOGM1MDRlMDRiODc4Mjk5NDBkYzQxNDNhZDlkNjM2YzMwZTcwYWJjM2Y2ZTQ5NDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8865057138fe47e1aa2a7f170369c45c",
+      "statement": "Evidence resolution results are memoized per (resource, previousVersion) pair by a cache wrapper intended to be created fresh for each processing phase.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/resolver.go#L355-L374",
+          "version": "repo-lines-v1:sha256:40d7f501fb4e8739c83dc15a15945ca34c2cd993b722ee4f790e6fe72bc1aae8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhZmI1YjNjMzA2NmY1YjY3MDFhOTk1Y2I4NDg1ZmIxYTMyZDA4MmIzNDg4MDQ3YzhmNWNkMzkwOTMzMjUyMWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiMzNhNWM2OTBlMmFkNzc0MDFhNWM0ZWU1NGJkNmJiY2UwZmE2ZDM1OTE5YjViM2RlOWI0NmE5NzAwYzkwZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_38a0f6c8921c49f6a51297b109dea169",
+      "statement": "Sidecars are decoded with unknown fields disallowed and validated for schema version, sha256 page version, canonical non-empty strings, unique claim ids, non-empty evidence, and no repeated evidence.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/store.go#L211-L240",
+          "version": "repo-lines-v1:sha256:14dedcbc7d9d3c665aa0aa69820c2ced9a76600e359f5f7b366c566794545d12:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyYzIwYTBjNGQxNWQ5MTZmN2NmNTk0ZjU1YWQyNjRiMWQ5MzNkMzE1NWNmNzFkMWVjNzY0MGI1YzliMGRkNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NzE4ZjJjMTFhY2U5NWQyNTEzMWE3ZDlhOGI5ZDI3MzQzOGE2ZTljMWNhNTNmNDVhYWM4NTg3NjIxY2NkYjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhiNDhjZDJiMmFiOTFhMTM2OWE2YzhjMjg1NmRjMGQ4N2NiMGI2MDA0OTk3ZGVmZTBkZDIyZTRmZGQ2N2MyNTUifQ"
+        },
+        {
+          "resource": "repo://internal/claims/store.go#L347-L400",
+          "version": "repo-lines-v1:sha256:a39b1452ec1f4d259f58c84ea2e35680e5f28bd2ea15142cadd8853d57936823:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2NWQ1MTExZTU4ZTIwM2IwOGQ1N2UyMzE2MTAwMzk3M2I1ZWViODgyNTA2MjBkZmIyMjgwNGEwYzRhNWY0MmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2MzFiNmUyY2EwN2Q4YmFmMGViNDRlNzQ5ZGJmNDkwYjM5MmUzYTUzNGVmNjEwMjI3NzExNDZjZGY5YWYxYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d41923d4055b45f0afdee36beba361a2",
+      "statement": "Preflight classifies a Claim as unresolved when any evidence no longer resolves (including security refusals and newly invalid resources) and as stale when all resolve but a version changed, and reports sidecars without pages as orphans.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/preflight.go#L22-L90",
+          "version": "repo-lines-v1:sha256:6c43aa8bf333dc467c8a90a3f50914cdbab5a70f825c452550f41c1ae2a9944e:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1NDI4MjdlOWZhODExYjJjNmFjNTM1YjNiOTBlMWIxM2VlNTRlODZjYWQ3MTVhZTM4NDRkYjU2NTAyNDhmNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1ZWFlYzQ4ZmM0ZjU0NGU5ZDc0OTZiNWEzNzMzOTQ5NDM0OTkxZWViMzZhMDMzODQ3NmQxMGY4MTU0MzIwZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b745349b96ee4fe59cbded181620a8c4",
+      "statement": "Apply validates every operation and resolves all evidence before changing any Claim, so a batch either applies completely or not at all.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/mutations.go#L26-L105",
+          "version": "repo-lines-v1:sha256:9596af237715cc3d347ca5df1c683ed18fd42dbc235bb2ea8ae22f98ee51e8ab:eyJzZWxlY3RlZExpbmVDb3VudCI6ODAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiMGE1YWQ5NmU2MTZhZTg5NzQ1ZDNlZDRkN2FjOTQyYzUxMjc3ZGVjMWRmNjk3NzU1MmM3NDVmNDE3NGUxYzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVhYmNiM2FhOTJhZGRiNjQ1ZjhmOTc3ZjFiMTUwZTNjZmJjOWZlYjQwNjJlNDk1N2I3OTI3MTcyNTljYzhmYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJjNGE5ZDNkMWIxZGE4YTU4YjRiOTZhZmYzM2Q3MzU2YzhlN2EzZjFjYzY5NTg1NzAyODQ3YjZkODdkYzFjMGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_508fe7d3bf854c8db5ddecb8e41f5a36",
+      "statement": "Reconcile confirms omitted issue-free Claims, rejects a proposal that omits a stale or unresolved Claim, tolerates retraction of ids no page owns, and refuses a result with zero Claims.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/reconcile.go#L38-L162",
+          "version": "repo-lines-v1:sha256:afe33bdf3775ca91606055a66cd6fd25d86dd64c55880ae8695d96aa561d4f10:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJhMDBhZjFhNDE4ZGQ1ODcwZDAyMzZhY2U4ZjMwZmJkYTk3MjhiYTAwMmZjYzc5MDZmODcwZDcyZmI2ZjgxNzUyIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI1ZThjZDUxNTNkYWYzYmI4ZWQ4YzA1YTM0NWU2NThjOGI3MzM5YTdkMWFlODFmMjNlMGJmNDFkMzk0YjEzOTdiIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIxZWIyZDhjYTI0YzFmNWQ3MzRhNmUzMTlkNmE3YmJhMWVmZGY4YjA4ZmQzMGFmN2NiMzRhMTczMDJkNjU4ZWE4In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_c470c2215f11419c9d69a15d755a9f13",
+      "statement": "Session finalization skips excluded pages, refuses pages with evidence debt or evidence that changed since acceptance, removes sidecars for orphaned, missing, and deleted pages, and gives a verification event only to pages with at least one Claim.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/session.go#L255-L355",
+          "version": "repo-lines-v1:sha256:0bdd9013785f7c907264839bf08d04e528354140991c6c533c5c2d229bbe1b1d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI1NmU3MWU2MjgwZDViNjc5N2NlZjc5YjcxY2M4NGQzMDljMGQ4NDhkNjY1NWZkNTU2NjNlMTkzNzUwOGQ4MTAzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIxZGZiZDFiZDVjMzk2YTg5ZWRiMWE2ZDU4ZWE5MWEzNmEwMGEzMjQ5M2I2YTljNzg3NjY5NWQ5ZWVkODRmNWNlIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzNGE4Njg5YTBjMDRlZGFlNGJhYzBjNDQ5ODUwZDc4OTVlYzBiNWVhM2I1OWJhMWFmOGYyZjZjNDY1ZTZmMjE0IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiIzMDk5NTYxOWJkZWI1Y2RkNDMzMjhkMmQ1OGJmZmVlNDUyN2FjZWI0OWEyZWIyZGVmNDkxYWU3ZWI1ZWY1ZGU2In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_f5f64739e3984b5c9f2ffbb702cbf568",
+      "statement": "Runtime.Finalize turns any per-page finalization warning into an error and rolls back newly projected verification stamps for pages whose page version could not be refreshed.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/runtime.go#L54-L92",
+          "version": "repo-lines-v1:sha256:e446d229a2e80dd21bbc99f78055808d77e50577c89b0a91a6b7a39615b08f71:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0OGQ2NmU2MmZiMTE1MDBlMTJhYzAxZWNmYWMwZGRmZDUyZDU3OTU2YmEwY2E4YjNlNjJkYzU4ZjllZTNkN2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxMGM5YWU2MWEyZDA0NDE0OGRiYTExMDA2Y2YzYTAzMWM3ODExNGVjMjZjODdjZTcwZjA3NjRlOWQ5ZGMyYzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzMjI0MGUxODcyNDJlMzBiNDhjMDg4ODk4M2FiYzQwNzE3ZTllOGIzMWJiN2Q4Yzc2MmY2MDg5ZjgxN2EyOWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmZTJkNDc5ZmQxYjA3N2VkYTQ5OWVhMDM4MTU5NGE0ZTBjZjcyZmE2ZTg1MDIzZTUwZDJiODBiODg4MWY2ODgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f72643b1772e4685b33a97bb37721ef2",
+      "statement": "The per-page durability proof requires a persisted sidecar whose pageVersion matches the current bytes, a verification event projected into front matter, and Claims identical to the session's by id, statement, and evidence set.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/runtime.go#L95-L144",
+          "version": "repo-lines-v1:sha256:5052d237d8ffd0507836f1638f63f74a485fba3bac9fb26ec27440386e3fcd70:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1NDJiYzIwNzZhZWEwMTM2YjZkOTliZWM5NzQzZjg3NDgwMDhiNjM2ZDcyMTdiOTE3MmRiODhhMTg3NjRiNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4YTllNzIyMWIyMWU0NDY0NjFkZGE5NWU2NmNjMzgxZWEwNWZjYWQyNGEyMzIxOWQ5ZDA1MzNjMWU2ODBlZTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhMWJiZGIzMjM1NTQwZDI3YmM5N2ZhMmZjZTYyYjAxNGVmMmVhOTFiNjZiZjlkMDI5YzhiY2Y3ZjI5ZDhjNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwMGQ0NGFkMWYxYTJiYjc1OTNhYjFkZmIyMzZkZjYxNzE1ODU2N2RhYzdjNWE4NWU1NjY5NDVkN2Y3ODdiNjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae5dc73e87134aef93114760590bdbd9",
+      "statement": "Projected sources entries use ids openwiki-source- plus 24 hex digits of the SHA-256 of the whole-file resource, and entries authored by others are retained and not duplicated.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/project.go#L20-L102",
+          "version": "repo-lines-v1:sha256:264234ecc76c853062d926fc16820ecbac51a7db860c48eba96a2d4af594d144:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5ZjdmOWYwYjM3ODUzYWI1ZTM1ODJlMTQ2MTgzMWU1ZDJmMmUwZGIyZGY5NzJiMmEyNTkxMDY5YzUxZjhlOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJiZmRiZmExOThhNTI0ZGU0NWZiODUwMWFjMzE1NWVlNjQyYTNlNDM0MWQ4MmM1NGQ5MmQ4MzZmM2M5ZGYzNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkYmNlMGZlMDM5ZTQwMTM0OWQ4MDBiZGY5M2RhN2I2YWZhMGYwNjlhYThkNGM2NWUzMTIxMjE3OGI2MjA2M2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c93af698dc049329eb80c2879371a98",
+      "statement": "Verification projection replaces machine-owned events from both owcli/ and openwiki/ actors with at most one active event, keeps other actors' events, and skips excluded pages.",
+      "evidence": [
+        {
+          "resource": "repo://internal/claims/project.go#L136-L188",
+          "version": "repo-lines-v1:sha256:4a97bddd8dc66832593a62f4233f470736fb9956993d0243985247fa15f082c5:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiZTEzZTYxYTc5OWE5ZDJjNjAwY2MzMDMxZGRiYzFkMzhmOTlkMTdlZTlmMjU2NjMxNjQ5YTlhY2EwN2MzZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4MDE4MDgwNDM5ZmRmYWI5ZmEzYTExMzU0ZDU5NTU4ZGI0ZGViODQ1YWQ0ZGJhY2U3MmE4ZWE0ZDdmODgzMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRlZTgxZDdjMmVmZWE3ODBkY2I5YjdhNDYxMjJhNGZhYThmODUzMTNiZGJiM2VjNWRhMjZmNmRhZmMwMmNjMDQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}

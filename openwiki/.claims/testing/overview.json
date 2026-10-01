@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ed8ceb1d964c4303b60c141e78959ad4eab29eaef68038847adbbdbc6431b8b7",
+  "claims": [
+    {
+      "id": "claim_03e24234579044ca91bae272759e502b",
+      "statement": "make check runs go vet and go test over all packages, and make build produces bin/owcli with the version stamped from git describe.",
+      "evidence": [
+        {
+          "resource": "repo://Makefile",
+          "version": "repo-file-v1:sha256:99c4fb219c70b2c7c8930cdced69b21d4cc0e67cec5caec97e4f091b9dfff861"
+        }
+      ]
+    },
+    {
+      "id": "claim_b92013bad1814d2fa8ca67c80144af78",
+      "statement": "llmtest.Scripted is a fake provider that replays a fixed sequence of turn functions, records every request, and errors on unexpected extra requests.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/llmtest/llmtest.go#L12-L33",
+          "version": "repo-lines-v1:sha256:2d2548edc8ae44940410312e56866c6d10e45e4c2e4eef22f165d9579bddd567:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5YTFiMWY2ZjdiOTUxMzhlMmNjZDgxZjQ4YWFiNzE5YjQxNWIxZjQzYjY3MmEyNjg5NDY1NTczMGNjOWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmMzYzZDBmMDRlMTcwYWJjMzQ2NWIyMWYwMmRlNmFiMDIwYjBhY2MyZWU5YmY2YjQ5Y2U1MGNkYmQ1YjUzNzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiNzBhYTI5ODI1ODVlZjZiYzI4Zjc1OWU3NGQ4OGM1ZDA2ZWIwNjUxNGFmNWEwZWRkNzQ3MDlmNmQ0MmZiNDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_49217b0d73624704b2ccfe6ee5dd0824",
+      "statement": "The CLI exposes a providerFactory variable that tests replace to run commands against a scripted model.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/e2e_test.go#L60-L68",
+          "version": "repo-lines-v1:sha256:ff0641e552d1b5714cb0fd3bbdab8f68c3c72fa49c712684f96c2eb204b0e42e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGM5MjU5ZTczNjM2NDBjZGFmZTgzNWJlNDgxNzk2ZjE3NDQwOWQ0NWFlYTdiMmZjZDUwNGEyYWQwNjY2NjA5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzBjNjNmODU0N2VmZDJjMTMyOWY1ZTNmOTUyZDRhNmQ0OTRmZWZmOTc3NTEyZmU2ODI2NjE0YjZjM2QxNGViNSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/generate.go#L26-L27",
+          "version": "repo-lines-v1:sha256:2b58654a54d99a5350f1bb683bf2a6498f5193db602c7542586d47bbd74c329c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIyODExMGQ4YWIyYTIwYTc0OGM0MjZmMDM3YjgyZWY0Njg0MDQwMDBhYTAxMzAzMjQ2NjlkM2UxYzI0ODZiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjBhNzc3YTZmYjM1YjY5MzE4MzU5NTE0Y2VmMDk1ZDI0NmJkMTZmZDdiZGFhOGI4ODhhZGFlNTdiZjEzMjZkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmZjN2M2MTVlMDZlOWY4YzNiMDk3ZTk2YmVhM2IwODg3MmQ5NDYzNTUyYzhjMThhZjc4NGM0MmFiZTM4ZTU3YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVhZmY0NGEwMjAwOWI5N2Y4NGU3NjU1MzBiZTI2YTYyY2U2ODdkZmQ3M2Q3OWE2MzAwYTczZWQzY2UzMmViMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7954377488c4d269263ebbab79be2a0",
+      "statement": "CLI end-to-end tests isolate owcli state with temporary XDG_CONFIG_HOME and XDG_DATA_HOME directories and change into a freshly committed repository.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/e2e_test.go#L18-L40",
+          "version": "repo-lines-v1:sha256:f311ac6c452d8a708fdf7229d73fdf19b6a200cbd3bbb688c9b5353de12d3a91:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyZWY3ZTliNDhhMzgwNTdmNjNlMDdiYTlmMTY1ZDcwMDViN2FkZGUzOTM3YzNmOGYxZjdlNDNkOTQzN2YxYTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3ZDZlNmYzMzU4NGVjN2IyODFlM2MyNTI1Y2NiZTEyM2I4N2U1N2YzYmFiMWM2MmUyYjE1MGU2ZmQ2NjVjYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0ZjA1MjYwZTU2OGYzNjFmZDFkOTU5YjliOTQ2NDZmOWUxMDAxMTNjNGQ3ZDIyMmM0MDE4OTZkOTI0NWFkMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJmZmYyYjQ2OGY3ZWVmYzMwYzFiYjFmMDMyMGRlN2I3YTQ0MThlNzVmM2M2OWYxN2M2ZmUwZjA0NDE2YzdiYzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_40f2bc7742d1409dbda3e107eb62813c",
+      "statement": "The external CLI lifecycle test asserts that git status --porcelain --ignored is empty after an external init.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/e2e_test.go#L79-L90",
+          "version": "repo-lines-v1:sha256:2e99f0d75e678f40421e0e5c0691f4a57301574bdc1899260f2e75eee194c890:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmMWI0NWJiYTgxZDc1NzVkZThiYjViMWMyMTFlYjllOTMzMzhmZmZmMjc0MGNiZjQ2MjcxMjA3ZmY3NjUzNmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlNzJmYTQ4MDI5YzRmNWVlNWMyMzBlOTJlYzI2ZjI5NGExZTEwYTRiMDExZmU2NmRkMzkwODQ4OGQ1ZTJkNGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjNTRkNmE4NDMwZTVlOTdlNjc3NTQ5ODYwNTk5OTAwNDkyNWIyMWNkY2YxN2RhMWRkODYwMDZmODBmZmJjMzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f8d54dd044e43b8bdeb1a15caf5f42a",
+      "statement": "The search parity test runs upstream's searchWiki through node from the package named by OWCLI_UPSTREAM_PKG and skips unless OWCLI_UPSTREAM_DIR and OWCLI_UPSTREAM_PKG are set.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/compat_test.go#L13-L25",
+          "version": "repo-lines-v1:sha256:c1dd6f886ee9387ad923f17a0f6d7d89797f3df8bf7fe8a2740425f9c80e8b19:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjOGJhMGYwYzE2YjA3N2ViMjExMGZmNjdiYjNlYTdlMmMwOGQ5NDk0ZDIxZDJmN2M0NjhlYTg4MjUwZWI1YjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQzYmJjZjkzNzg5MDY5OWE4Mzk4ZGFiMThhN2QyOWNjYmJlZGRkY2Q3YmFkMjhhYmY2NjllOWFiMTI4MTFkMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRlNDY1MmFmZWZjZjQ5MmU2OGI0YzFlNTQxYTY0NWE3MTk3N2Y4YTEzYzkyOGMzNDgzZDk1MDlhMGY2YTA2MGIifQ"
+        },
+        {
+          "resource": "repo://internal/search/compat_test.go#L53-L72",
+          "version": "repo-lines-v1:sha256:8bf7882dd55767cfbdcee69203e236b8ef984d0f460b5a3f8f3bdd50e9045186:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4MTAxN2IzYTAyYmI2NTc0OTMwZWNmNjk2OTI3NWEzZWFhNzMyOWJjYjY1ODc1ZDlhZTM0NjcyNTk4NmM4MzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllZjUwNWE4NzFhOTlmOTgzMmRlNzFiNmQwNzM4NTU3YzBjM2RjYWZkYzc2NjIxNmRmNmQ5YjMyMWRiMDgyMzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmM2UzMDY5OGFjZmU4YzZmN2VmYzJjOTFiMTYxOTY1NGU4NDE3NjEzOTg4NTJkYzlmMmJhNDM0MWNiNzM2NDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_41ff37aece1d408ab7e7a8f4f0259690",
+      "statement": "The evidence compatibility test only compares pages whose manifest gitHead equals the source checkout's HEAD and accepts tokens reproduced either freshly or by relocating the retained token.",
+      "evidence": [
+        {
+          "resource": "repo://internal/evidence/compat_test.go#L14-L123",
+          "version": "repo-lines-v1:sha256:4025ae55ccea28d9c7931121a2567dcfa19b51f964bfb4122525bacce0b9708e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI5YTc1MDQxYTI1YjA1NzQ0MDM2OTc1ZWI3YTNjZTdlZmQzZjZkMmJmMDkxOTA3YzI0NzhlY2M0MWEyM2ExNThlIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJiZDM1MDgxOWQyOTE1YjU4MjQzZDgzMTZhYTVmNDA4ZTMwYzc2OWU1NWFjZGFiZWMyMmU2ZGE5MmQxNzUzZWZjIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_b280f7718d21457a8d8fbd1e7bb95681",
+      "statement": "The okf compatibility tests require every upstream page to validate unchanged under Repair and the full finalization pipeline to change no file in a copy of upstream's wiki.",
+      "evidence": [
+        {
+          "resource": "repo://internal/okf/compat_test.go#L11-L106",
+          "version": "repo-lines-v1:sha256:f1448706198b12db5837c47bf621961cfdcaba6427f8e233fe31791363c61378:eyJzZWxlY3RlZExpbmVDb3VudCI6OTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2NDlmYjMwYmEzNjc5OGEzOWM3YzEyMmEyMmNkMGFmMWE4NmNmNGFiNDliOWZkZmQyMjA1YzRlZGJlNWIzNDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzZTljYzQ5MGMxMDE3OTYwOGZiMGI1MmViMjZkMDM2NGRiYjM3Zjg0YzMxYjQ1MDhmMzZlNjg3Zjk4YjhiZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}

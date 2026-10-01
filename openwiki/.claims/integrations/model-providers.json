@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:970f27d667cd7c358409a19ef5b4317c3716b74f2fd259e4829220eba4827ea3",
+  "claims": [
+    {
+      "id": "claim_646448b590514f51842160640a0e35a1",
+      "statement": "A Provider performs one chat call with a system prompt, messages, and tool definitions, returning an assistant message, a normalized stop reason (end, tool_use, max_tokens, refusal), a detail string, and usage.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/llm.go#L46-L99",
+          "version": "repo-lines-v1:sha256:41f771d04c213fc9355f8ae2f4d0bf74e247288d0c21852a5496ebededadb8e8:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3ODU2ZDAyZGQ3NzY2NGM0ZjNkNjg3YzU5NzVmM2QzZjk5Zjk0ODM4MTgwZmMzN2JmZjhlOTYyZGY0ZmUzYTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2YWFiNDU3Y2UxMTNmMDczNWY5MzcwZDBhYTBmMzlmNDI0ZmEwNTZlMzQ2YTM1MmI0NDE2YTI1YTNhNGIxZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxMTQyYjQ2NWM3MmYwODRlMGNhMzFkMGJiNGZkN2RlOWI5YTE4NGUzMjY4NDk3YzAzYjczN2NlNmNjNTA5ZTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_97e52039c8fa4fb8a88050fceef5d509",
+      "statement": "Messages keep the provider's verbatim assistant content so providers that need their own blocks back unchanged can resend them.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/anthropic.go#L164-L168",
+          "version": "repo-lines-v1:sha256:6d1dcd0d32610224d803401ae17e52a489238e99e6e495bcfff8427273c5858a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTFlZmU4NTllMGNkYjg1NzE2MGRiOTJlNDUzNjdiMjI4NzE0NjJmODQ5N2EzMjdlZjIwMjZiNWI2NTc4ZDg4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI5YTljYWNlODBmYmMyYTg1NzQ4OGJhNDI0MjE2Y2Q2OWM2NDg4ZGRlMDFkOWYxYTNiZTM0N2Y3NTdlZDQ1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFiNTQzMmFjNjUzODEyNTM5NmRiYWFhZWY0OGJhMDJiMjFlZjk4MzlkNGNhYmYyNTJiMDJhYWM0OTFkY2U1YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjYxMTkzMGNhZjA5NGY1NWIzMzE1MGUyOWRjN2VkMzRkMzEzZmQ0ZDg0YzdmZWFjYjAyNzMyOTc2Y2M5ZGU5NyJ9"
+        },
+        {
+          "resource": "repo://internal/llm/llm.go#L46-L58",
+          "version": "repo-lines-v1:sha256:fb698dc048746fb3fd52caea462d9cf16c63f83051818ce1cd32d8841d16199f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2YWFiNDU3Y2UxMTNmMDczNWY5MzcwZDBhYTBmMzlmNDI0ZmEwNTZlMzQ2YTM1MmI0NDE2YTI1YTNhNGIxZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVlYTllNWEzNjZjZjRiZGRmMDc5ZjQ1ZTFiYzNhNzA3MTAxNDZkMTIzNTg5MzNiNmUwOGI5M2M5ODExMjg4NmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a00e173345e74b0f94ab73eb50fad023",
+      "statement": "llm.New requires the configured API key environment variable to be set except for OpenAI-compatible endpoints on localhost.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/llm.go#L103-L125",
+          "version": "repo-lines-v1:sha256:6f654cc59090d50ae1cc1abe8a241d5ae4cbb53d69311f35f38e57f333e8c40c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDgzODdkNDNhNGEzMDYyNzdjNjBiNGQwNGUwZTkxNGNhMDBlMDlmYzg4ZjliOWI1NGFlYjZhNmVmNWI1NDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIxMTQyYjQ2NWM3MmYwODRlMGNhMzFkMGJiNGZkN2RlOWI5YTE4NGUzMjY4NDk3YzAzYjczN2NlNmNjNTA5ZTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6903375a6f9b4616b31fa12b07a02618",
+      "statement": "The shared HTTP client retries statuses 408, 409, 429, and 5xx plus connection errors up to three times with exponential backoff or the retry-after delay, and fails immediately on other statuses with a typed APIError.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/http.go#L28-L125",
+          "version": "repo-lines-v1:sha256:2d959558276c5995f2b1be4a5fa30c1f99063573351cac096896f2cd30a7b8b1:eyJzZWxlY3RlZExpbmVDb3VudCI6OTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3YzBhNzNjYTYwYTZiNWJlNTdhZDEyOWVlMjYzMzk2NmI5Y2IzMmZkMGJiYTMxNmY0N2E4Nzg2YTBhMDQ5NzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjN2Q0Yjg4MjNiMGM1OTk5ZGE2Mjg5ZjI3NjdjMDRhMmFkOGM0NjRmNTg5NDAzNzExOGU5ZmJjNzI0MzA2YTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc203de277e64c52bc9e156f60214a7d",
+      "statement": "The Anthropic client posts to /v1/messages with x-api-key and anthropic-version 2023-06-01, sets top-level ephemeral cache_control, uses auto tool choice when tools are present, sets output_config.effort when configured, and adds fallbacks default with the server-side-fallback-2026-07-01 beta header unless disabled.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/anthropic.go#L10-L36",
+          "version": "repo-lines-v1:sha256:fbac296bde8b6d1316cf099ac9bfe0a461e8a47e719877e9a4a76b7d69dd4ba4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwMThkMGRlNzE2MTJlYmVmYWQ1NWIyZjlmMGI5NDQ5MDRiOGNjODZhZTE2ZGQ2MTZiNTQxYjRhNmRmMDQ5ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkNWRlNjczOTBjZTMyYmZmZWYwZGU5NjRjMWM3MjAwOTk1ZDY4Y2EzZWVjYWRlYjNkZDA5Yjg3MmE1NGViNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhMjBhNmQ2MzZkNjEyYjk3MzI0NWU3OTY4MWQzZTNkODU4NWIwMDMxY2VjOTMxYzYwN2YwZDkyZWQ1NmFiMzQifQ"
+        },
+        {
+          "resource": "repo://internal/llm/anthropic.go#L89-L121",
+          "version": "repo-lines-v1:sha256:44c39798e43fdf89b77d255ea42a4e7843aa27a200da40b75fb24dd0673d77b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkMjI3ZDRjNTNjYzAwOTYyNjkxODczNTUwNGQyMjg5NzFkZDUwM2I4NDAyZDBmNjVkZWU5MDI5NDUzNWFlMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyZjk1Y2RiNmNjZTIyNzNmNGY2NzJmMDhmMGQ1YzEzYWVlZDQwNDY5MjA3YmIyNWE4NmY1MThlYjliMGZmOTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkY2FkNzFmYjZkMDQ2MTVjMDJiMDAzYmNmYjdkZjRmY2EyNDI4ZWI1ODg4MzM5N2IwNjk1ZjNlMTUyNGM0MzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiNGJlODgwNjhkYzU4ODFjY2Q1NmI2MTM0ZDZiZDIxY2UwMDQzY2MyNDY4ODdlMzkxMTY3NDZhMzc1NzRjZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_99b0bbc84b95421fbc37cbfe75805633",
+      "statement": "Anthropic refusals are reported as StopRefusal with the stop_details category and explanation as detail, and the default max_tokens is 16000.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/anthropic.go#L10-L15",
+          "version": "repo-lines-v1:sha256:30d6570b392108b2e2de7521d91ac44bf69ea7a07229d1c40f19dfff7261e3cd:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDBkOTg2YjBkZjdlOWM0N2FhNzgyYjA2NjA5NDY5YmM4ZWVjYTQ3NjEyYjgzOGNmODI5ZGRhNGJjZGRkMzMyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ1ZGU2NzM5MGNlMzJiZmZlZjBkZTk2NGMxYzcyMDA5OTVkNjhjYTNlZWNhZGViM2RkMDliODcyYTU0ZWI3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWNmZGFkYmI5YTE3ZDhmMGZmOWQ4ZjczN2QwMjEzNTRjOTgyZDQ4MmRlMjk4MTRjY2I3YmUxMjJmNzAwNmE5OSJ9"
+        },
+        {
+          "resource": "repo://internal/llm/anthropic.go#L134-L161",
+          "version": "repo-lines-v1:sha256:01df1133cbb83cec56d62bec1b7b31f77bc74ec5ccefa9ba29e56c9b4706bfe9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2ZmMwY2E1ODg4YzkyNWZmMTMxMzQ1MDQyYTFhOTNkYTY4ZjRiMGU4NGJhOTRmNTg4ZjBjMmMxYzUxN2I1ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEzYTkzMmQ5NGQ1YzNmYzQ3MDhkOTIxMWZkYmQwNmQzMTNlNDNiZGFiMTg2ZTA1N2U0MThjOTJlYzc1Mzk0ZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmZDMxNTNhMTY0YzBmYmU3NTVhMTNlNTY4MDA5ZjI5ZmU0MDMxZWQ3NjZlOTVjOTAzOWYwODFmOTM1Y2RiNDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a26b13e7418145929f17c8955584bd29",
+      "statement": "The OpenAI-compatible client posts to the base URL's /chat/completions, maps tool results to tool messages, always sends string content for assistant turns, and preserves invalid tool-call arguments as an _invalid_json field.",
+      "evidence": [
+        {
+          "resource": "repo://internal/llm/openai.go#L73-L152",
+          "version": "repo-lines-v1:sha256:6cb48bc2112145eb3e53fac75628677e16d35444c88e5d37ad2082329f5e7991:eyJzZWxlY3RlZExpbmVDb3VudCI6ODAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3NWI3MjA5M2FhNmY0YWMyZWRmM2U1NjY2OWRhOGMzZWJjYzU5YWMwY2NiZWQ1NDdhYTcyMDhlZGE1M2IwMTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlmYzJiNTUxNjIxOWU4NTg4NDcyYjU1ZTQ1MTU0N2UxOTA0ZmFhODNlNTlmODI0MGFjNDEzZTY2NTQxM2U3NzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2MzVkYWRjNDIwMjgxMjUxMTBhNjFhMDQ2OGQ5MWFlMGFhMzdjYjcxYzM4NjFkMzBjZWJiZTNlOTllMjUxZjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e86581aa159e49369ad8510313a082fc",
+      "statement": "Configuration precedence is defaults, then the TOML config file, then OWCLI_* environment variables, then flags, after which provider-specific defaults fill empty fields and the result is validated.",
+      "evidence": [
+        {
+          "resource": "repo://internal/config/config.go#L140-L159",
+          "version": "repo-lines-v1:sha256:b56212ac8e353c4ab208aec9961446540dd698e8f3b99b1865eea9aab1eafd0d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFiMmIwY2RlMjlhMTY3M2MyODBhMmI5ZGFhMWZiYTZiNzZiZTVkNTMwMTBkYzVjZDQ2NTQyZDJlODcwOWJlY2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://internal/config/config.go#L53-L62",
+          "version": "repo-lines-v1:sha256:9eb26110cc5830deada5633306c1e9080f5eee9caba381d7ccda509887b15b5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWEzZGVmZDY5ZjQyMjBhYTkyYzQ2YTcwNDFhMDc1Y2M2YjBlNzMzNzNiMmExZWFjMjUzZDhkNjExNTYzYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMzYjNkMTU0ZWM2NTAyNTJmMGI0NTA0MWFiNGY1YWQzNjdjZDYwNTVkOTliMGZlYTM0NmUyYzE3MTIzNDM1NzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZTIxZDZmZjAzMzY4OGY5MGZmOTYyMDhjNWU0ZWM5NWY1YTkyZTIwMTNjNWI1ZWYwZDQwZGYwYzgwMWM1NGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7855cc51aa354c9786ff00d655d87e67",
+      "statement": "Anthropic defaults are model claude-opus-5-5, ANTHROPIC_API_KEY, https://api.anthropic.com, and effort high; OpenAI-compatible defaults are OPENAI_API_KEY and https://api.openai.com/v1 with no default model.",
+      "evidence": [
+        {
+          "resource": "repo://internal/config/config.go#L36-L62",
+          "version": "repo-lines-v1:sha256:fc79014002f1990cf0f0864de074085af3b5ed07fc2066033bf95cc40f083230:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRmYWQ0YjVlZTcwNzdhZjg2NDhhMzM5NjhmNWVlYTRiNDE2NWM2M2EyMTg3MzdmYmIwZGE3YTE4NjIyOWUxZjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZTIxZDZmZjAzMzY4OGY5MGZmOTYyMDhjNWU0ZWM5NWY1YTkyZTIwMTNjNWI1ZWYwZDQwZGYwYzgwMWM1NGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9b74b9a665a845dca04e9bc9564b07c3",
+      "statement": "The configuration file rejects unknown keys and validation rejects unknown providers, empty models, and unknown effort levels.",
+      "evidence": [
+        {
+          "resource": "repo://internal/config/config.go#L85-L130",
+          "version": "repo-lines-v1:sha256:9c4c5a8df8420e65c9eb90b02685f9612868b02e8b5545cd84892527e357cb86:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2ZTY4NjgwYTExZWM3NDA3MjQ2Njg3MzQ5YTRkNTczZWJlMzJmMGYwNGU1MDhhNDc5ZDgyMjE2YzA5MzAyMmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2ODIyOTliYjQ0MjBmZTYwYTg0MDcyZTcwNmQwNGE2ZGUxOWZjNDM4OGE3YzhhOTg5ZGRlYTg2MGVmMzg4NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2YmJjOWU3ZjA0ODJlN2M2Y2NlY2IyODVlMjM3NzhmY2UzYThhZDNlOTlmZDQ5NGEyMjdkYTc1NjJmYTA1NTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkN2ZjYWNjMjAzODA1M2Y1MzQwN2FlZTQ4NjUxMjQ0M2EyMDg3OGY0ZTRjOTQyOTFjYWIzMDdhY2I0MzY1NGIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:590056685966b1eb2f3f349c939d3d09704e1b155404214685e366a74806610c",
+  "claims": [
+    {
+      "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
+      "statement": "owcli is a clean-room Go reimplementation of the repository side of OpenWiki whose specification lives in docs/design.md.",
+      "evidence": [
+        {
+          "resource": "repo://docs/design.md#L1-L14",
+          "version": "repo-lines-v1:sha256:f9f426a9c60c21e9ba1f9e1b6c9ae7374fc674dfeb18ae427e0d6a6b175bf310:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2MTI2YzAzOTlhYmE2NmUwMDFkZDExOGU2MGIyYzRkYTM4Mjg1OTQ1YmE5NTk4NWRhOWNhMTRmMzQ2NTE1ODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE1MDllODg0YzBlYmVhMTMyMjM3NzkxMzZjYjcwMTFiZjQwZTEyNjc4NzFkNDRjODIwZmM5ODhlZTIwY2I2MTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e3f9fd1095fd42ee9d254fabf2461f39",
+      "statement": "The CLI exposes bind, unbind, init, update, status, check, search, and read commands.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L45-L54",
+          "version": "repo-lines-v1:sha256:077dfc56407d079703de5fbefe59343750b25d9f7e48716938a27625d9019eec:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+        },
+        {
+          "resource": "repo://internal/cli/inspect.go#L118-L125",
+          "version": "repo-lines-v1:sha256:dcb8d034b2b774087036917208edf34e1dda5c8e06ad2850683ffde239e68cdd:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTMxN2FlMjg3NTdhZGJiNmRhMTQyZDA4YWRlMGFkNjM1OTIwYTQwMWU0ZDYxN2QxOTJkNzI1NzJlNTk1YTgzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWNlMjM4NGI5YjRkNmIxZjY0M2YxMWVlMWEwYzIzNGM5OWUyNDk3ZDEwMGIxNmNiNzc5OTM2ODlkYWQ3MTM5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM4NDdmMTk3ZDIxNjEwNjY3OWU0YjNiNGY2YTk3ODAzZWIzNDZlN2Y4ZTZmZmY1ZTg5ZThhNDg0OGM4OThiNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZmOTQ1MjAxNzVkNzJhMDAyZWQyMTNjODRlNGEyODhhY2YyMTM2ZGQ0MTJmOWU0ZmVlMmQzNWU0ZmQ0MzBiNSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/inspect.go#L183-L190",
+          "version": "repo-lines-v1:sha256:07c3db3ede4c63a7c7ea50f77eed482ad708e6cc571389134b21512a5bf3b1f7:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFlN2I0ZmYxYzk0MDQ4OTUyMzc4ZDM5M2NjMDM4NTcxZGM3YzhmMzdlZWEyMWE4NzI3NmQwZTQ0OTVkMWVjNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBmYmJmN2M2YTg1ODQ5YjA2MmE5NDYzMjFhYzdjMTQxNDhmOTE3YTFiOGUyYWQwNjc1ZmJlYThhZmQ1MTU1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzQ3Yjg0NTdmYmM4NThhZmQ1Y2U5ZDkyMGNjMzNiODc4MGFkNDFjZDkzZWVlZDg4NzdhM2FjNjI2MmYxN2M5ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTllOGZiOGYyZTFhNDFlZDVlZjI1YmNiMjRkMjBlOWUyNTA3ZmZkMzk3MDI5NGZlMjg2Mzk4OTIxYTg0YTJmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6dd3cf8eea064897ad4044921cc20ed9",
+      "statement": "The module targets Go 1.22 and depends on cobra, BurntSushi/toml, goldmark, yaml.v3, and modernc.org/sqlite pinned at v1.34.5.",
+      "evidence": [
+        {
+          "resource": "repo://go.mod#L1-L11",
+          "version": "repo-lines-v1:sha256:b5f6c05d6f7f11b81feaafda6a90222ffb8f61509b7acb606b6a04ccfa0d801a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1YjA4Y2M5YTkwMTVlZWNlYWFkNjhjNjY5NjNlMjdhOWE4ZTM5NTVlZWUxYmZmODA4NmFkNzZiNjcyYzMxY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxZDMyOWQwOTBkNTA0MTZkMzkyMmY5OTQ2NzFhMDRlMWE4YmEyMDhhOTk0NzVhYTI4M2YwM2M0MzdhMWY2MDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c73e468eaf64286b77464b0267daa6c",
+      "statement": "make build writes bin/owcli and make check runs vet plus all tests.",
+      "evidence": [
+        {
+          "resource": "repo://Makefile",
+          "version": "repo-file-v1:sha256:99c4fb219c70b2c7c8930cdced69b21d4cc0e67cec5caec97e4f091b9dfff861"
+        }
+      ]
+    },
+    {
+      "id": "claim_045806d57ae04a98af40a2d891548301",
+      "statement": "init and update can be interrupted and resumed by rerunning the same command, and an optional message guides the planner.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/generate.go#L29-L45",
+          "version": "repo-lines-v1:sha256:56e8516c5258f1b84e300fc164e5567dc76bd6ac39964d1ffe3dd501a2996f2f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNWI3NTc0NjdjOTJjYTZmZWU4YTdhYWNiY2JhMzUwNDhjZWIzYjQ1MzM4Mjc1NTgxM2M2ZjJhYjE1MjcxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmZmEyMzg4NmUyOTcyOGFiODMzMTQ2YmYxNTdkNzg1ZDM1NGFkNDk2ODg1MDJhNThjOWJjMGQwZDA1NjMyOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxYTRlYWYzOGMxMDI3ZmE1ZTczOGFiMTc0MjVkOTlmYmM1NTY1NDNiYmNlNWI0YTNlYzQ1NTZjODljYTlhYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NTUxNzhkZjA5NjlkM2IyN2U3NGIxMjY4ZGI3MWYwNGZjM2ZiNmFlYjQ3ZGJkYTliMjIwZTdmOGU5NDg5MzEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}

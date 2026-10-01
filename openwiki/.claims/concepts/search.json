@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8d16efc6d2988e284f44d8c0aed933f4736cb32d66cf6b142cee93aaf415fc3b",
+  "claims": [
+    {
+      "id": "claim_6ade388ddfb74da78bee16e2770554da",
+      "statement": "Search splits each page into one unit per non-navigation H2 section plus an introduction unit for text between the H1 and first H2, falling back to a single whole-body unit when there are no qualifying H2 sections, and skips deprecated or empty pages.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L363-L435",
+          "version": "repo-lines-v1:sha256:27fa7c6d3c313ec9442f0218926b2f2aaa1dfb061d692843d3375389fac2ebdc:eyJzZWxlY3RlZExpbmVDb3VudCI6NzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyYWRhYjEyYzVhNzZhNWJkN2I1ZmRjNzgyZGUwOWQ4OGJlNWQwNTA0NDk1ZTYyNjhmMTgzYTVlNWQyM2EyODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMzU3MmVkZmFkYTZhNDIyMDU0MzJiNDYyYWZkNmRhNTYwYTU5N2Q3ZGQwMDRhZTVmOTZmNTJkOTI1OTU2YTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4ZWZmZDg1NzRhNTAyODk0NWRhMjZlZGJmYTZmZmYxYWY2NDlhZjEwOTc0M2QwNjNlZTMxNTU0ODQxNTFlMDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmNjBmZDEyMmFiNzI4OGIyNThjM2M3NzNjZTMzYzA4OGViOTlhNjRjMWQxZDM5MmVkZGNkMGJlNGNjYTcyM2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0079750514504062a41c417ed22dc368",
+      "statement": "Introduction units index only heading and prose, leaving title, description, and identifiers empty.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L176-L186",
+          "version": "repo-lines-v1:sha256:a1272f8abcc29ec8761cf229f01adc63c01b58adc7ce2be0f190e460c2207480:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllMWU5NjYxZTNkYWNiYjNiYWRhNGEzMDM4Mzg3N2M1YzUzYzMyODcxOWE3Y2VjYmEwMzM4ZTU5OWIzZjA1ODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI3ZThlODhmNGU1YjcyN2I1MzhhOWJmYTM5YjUxYWQwMGY4OTVmZDI0ZTRjNDU0NTA5MmQyM2ZjOTAwMDJjMTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2e4d0e99d2c494f91eed79041635ae9",
+      "statement": "Headings are taken from goldmark's top-level block parse with setext underline detection, and anchors are slugs with -N suffixes for duplicates.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/markdown.go#L132-L138",
+          "version": "repo-lines-v1:sha256:c938b7707f90479d50c636172893779b57e522d008cc060ed429a478079d3303:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZhNmMxM2Y2MWE4ZGJjNGQ2ZTI1NTVkMGJmNjkxNDQ1ZGEyNzkyOWQ0YTVjZTg0YmJmOTdlMDRkNmQzY2YxMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzQxYjk2ZDRhZTdlY2M2YjA0OWFiM2Y2MWIxY2NjY2Y2NGQ3ZTc1YTdmNGIwYmYwNzRjMTFkMmE4M2VkYmU2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDE0MDBmYTY0OTZhODUwNGYzYjIxZGViNWY1NGNkZjNkOWU4MzVlZTM2NDQwZmY2M2NhZTllNWExYmE4MmZmNCJ9"
+        },
+        {
+          "resource": "repo://internal/search/markdown.go#L29-L70",
+          "version": "repo-lines-v1:sha256:177c85aa5197082bc6cdb0c22d20f8c26660cd9b9397c86474ff7fb38b22ea71:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkMDAxYTIzMjcyNzgwNmMwMzQ3OTgyNDRkZmIxNGRlZGRlNDNlZmJjZDczMWM2MGM4ODkwMzE1ZDczZDc1MmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5YjNjNjA4NzBmNTRhYzc1NDQwOGFkNTYwNjViODk0NDFjNjZkODQ1MWRhZDZkYTRhNDFmNTAxODZhOWQ3YmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAzZGFkMmFiNDk0MDFkMzI5OTQyMDJjMDNlM2VmZjNkZjY5NWMyZjA0MDA1N2EwMmNjNmY1YmM0ZTk5N2UyMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7cf9d3e0c24441f0ab22e11a3863fe40",
+      "statement": "Each query builds an in-memory FTS5 table tokenized with porter unicode61 over title, description, heading, prose, and identifiers, ranked with bm25 weights 8, 4, 6, 1, 3.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L158-L170",
+          "version": "repo-lines-v1:sha256:d4ca9e9df8aef403b4ed34642e5e7f21e5e16a91d243c681b6f2d6557f4ce53b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwYzMzNTlmNGIyYmE0NjU0ZGVjNmM4MWU2YzY3YjUxMzU2YzIyYzkwM2JmYmE5MjlhZWZkOWQ2OThjYzA5MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4YzAzODc5YTdiODFmNDQ3OTNmZmRlNTkwOGEzNDVmNjE0NzYxMWI0OTgwNDYwNWM5M2NlMTUwNDc3YjhhMWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIzMjllZmY5YWE1YTk1MGFiNGRmY2E4MDFkZWQxMWRhY2I2ZjQxZTAwYjA4M2IxMGVlMzhmZGZhMmUyMzhjOTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0MjliZWZhZTcxYmM3ZmVlMjViMDg2YzRhNGMzMTQ1M2EzNjNmZWZmMTgyOTJmMWMyODNkYTNiMzhlYWJmN2YifQ"
+        },
+        {
+          "resource": "repo://internal/search/search.go#L40-L43",
+          "version": "repo-lines-v1:sha256:2d79c8ca89a52ab1afca3f0d2baba751ab1881628f4861f3a0bd2eb522fb2337:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZmMDU4YWMyZWYyMzExMDg2NWQ1MTg5NDljOWI0MjBhMTk1Y2Y5ZjI2NzZlMzIxNzA5YjQ2ODc1NDI1NDk0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTAxOWYxMWNkYzczNWRjZWE2OGM2NWM0OTM2NzEzODcyOWExYmU5MzM2MTI3ODgwYWZlMzQ3NGY4Mzk3MTY1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTkwY2ZlNTZmMjVmMjVhZjRlMmQ5ZTU1OTVlYWI0MDg1YjJiMDQ3YzUwMTM4N2E3ZDYwYTVlZGMwOTFjZGMyNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_200d7316e7cd4768b8279111ce583ba6",
+      "statement": "Ranking orders matches by source-path hint matches, then the number of query terms matched, then BM25 score, then insertion order.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L209-L248",
+          "version": "repo-lines-v1:sha256:ef843b233e0d7e63f02202c3e701f1b8500cbfcf7cf386fd1437d3795053c4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0ZWZjNDk0MThkMjZkY2YxMjliMjJhNmFhMjExMDhjZWVjMzc2NzdhMzJkMDhlOWQ1ZmVlMzVkZGE2NmJiOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyMjNkNjBlNGY5MTg4Y2FhMjA5YWE3ZWUxNTkyZjFjNGI1MTE2OTBjODA5NzgzYzU4OTRmOGY3ZWM2ZDlkMDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxNjM0ZDViOTFhYTczZjEyOWZhODYyZWE2Y2U4OWRjNTU2MDI1NzA0ZjgwYTY5ZjBhYjdjYjVhNWFkNDExNDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiYjFhNzI0NGI1YjgwNDJmMWFhZDM5MzAzYWU2OTVkNmQwMWRhYjYzYmE5ZTIxYjhlY2ZhNmYzZWM4NzExMTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_272c191befff49c986471b15052012af",
+      "statement": "Indexed text is expanded with camelCase, acronym, and separator splits, and query terms are distinct lowercase word tokens (at most 64) with stop words dropped unless none remain.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L251-L292",
+          "version": "repo-lines-v1:sha256:e27c1a34c87ccc184183a790ecb49c2726d427b9cafb49326d024ef432122c38:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxNDU2ZDM5ZjZmYWExMjhmZGQ5NzU3NWY0ZDEwMjk2MWExZDYyNTY2NjczZGE0ZTNiZTk4MGMwM2E3ZTlkMzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3Y2M5NzkxMTA3MWZmNTAyNjdkM2NmMGIxNDc0MjkyODJhN2Q5NjU2ZTAzMjI5N2I0ZThmNzE0YzU0NTQ1MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZGM5ZjE0MzhiNTJiNmFlNTJkYTExMmZiM2U1MTVhMTMyZWQyYzRkZDQ2NmNlYTViODFjNTY3Y2I4NDI0ZGMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ff93c3bd78524faea92367fa7260f12e",
+      "statement": "Search requests are limited to 2000 query characters, 1 to 20 results (default 5), and 20 repository-relative path hints without traversal or globs.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L26-L38",
+          "version": "repo-lines-v1:sha256:14a4f40f0032208f8fa70aa5815150ebb24b5521e37975b174e6460234c67858:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmMTg0NjZhMDk5ZWQwMGFhOGYzZTU5OGQ5MGJhMzAzODgyZTE1ODNkNDAzNGJkMzk2YmQ4M2ZkMmVjZTllODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1OTAxMjk4ZWYyZDkyMWYyNmVhNTFlM2RjODBlOTg2MDNmNmU1MzNkYTYwMTJlYTUwMDg0ZTQxMmY1MTExMzUifQ"
+        },
+        {
+          "resource": "repo://internal/search/search.go#L294-L309",
+          "version": "repo-lines-v1:sha256:12c39b1a24bf6a314788d6ada1729c013e130e9996d3cc562ca1f5fb7519ac60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiNjg0MDZhNjU3NmIwOWZmNWM0NGNlOWZmZTNhNzJjMDQxMTMxODc2NGZmZjUxMjkzMjE3MTNlYzI5MzljOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYzg5NjdmOGQzOTA2ZjQ3ZTdjOGRiZDRhYmI3ZjU1YmFjOTA5MmZjNjljMWQ4MzY3MDU1NDFlODY1ZWNlNmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5OThhNGNmYWI2ZTliNjlhMDE1YWEzNTA1NzQ5MDYxNzJiNzU2MzcxOGQyMmE0OTY0YTFiMWY3MDAxMmJhNjYifQ"
+        },
+        {
+          "resource": "repo://internal/search/search.go#L85-L120",
+          "version": "repo-lines-v1:sha256:194bf67c7f175bc119492feee2cbddef90c71088ec26a6aec2b8ccbeaf34925e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2Njg4NTEzNTRlYzRjYjFlMzY2MGM2YzkyYjQ5M2FkNzAyZmUxNDQ0Y2EwZWMyYjBlMGQ5YmZlZGJjYmEwMmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYTU3MDgxMDUxZjQ2ODJhN2RiM2U1OTBiNGRkNTQxM2Q1M2RjOWEwMTU1MTI3NmRhY2I1MjFhN2UxZGI5YTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjNDRjNjZjMDE3YTRjZjQ4YmIyMWU1ZWZjOWMxYTIyNzE0NTdlMzhiMjkzMTU0ZTU0Zjg2MGJjNTU4NTRiMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiYThmMWJiZGNlYzNlYjM0MzFiOTczYzVmODBhNTkyMWEwNzZhZWQwNDBiMmM3ZmEyZjQxYWU5NGI5ZGY4MjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7925940ceab84201a0b0c8279e3c52b4",
+      "statement": "When a Reranker is configured, the top 20 lexical candidates are passed to it and its output is truncated to the requested limit.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L138-L155",
+          "version": "repo-lines-v1:sha256:136aa34b7ef413ba98a7515fcd7974a379feed697653de7bf13162c3032c780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmMTQyMWY1NjgyM2QxMzExZGM1YmJiNGRmNTIzZjkyZjE2ODJmNDIwMDk4MmNhZDBmNTQ4ZWNkNmJmZWE2NTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyNGVlY2VlYTZkODZkNjU1NjlhYzJjNzhiNzBmNTM5MmFiNWJmNGE3ZjE1N2M3ZGY4NjZmOWFiYjM0MzhjMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8ba664f4cf3a4d47a08c4897bffce89c",
+      "statement": "Excerpts choose the block with the most query terms, strip links, images, and Markdown punctuation, and truncate at a word boundary near 600 characters.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L463-L507",
+          "version": "repo-lines-v1:sha256:218786bfcbb7492fdf1ddef23d56513c8ed7857060bc11affde39a5001eea495:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxNDU2ZDM5ZjZmYWExMjhmZGQ5NzU3NWY0ZDEwMjk2MWExZDYyNTY2NjczZGE0ZTNiZTk4MGMwM2E3ZTlkMzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NmU5MDVlMzNmNWRjZDJkZTEyZjRiOTczYjRiMTQ2NDI1ZTkwMWQyY2QyNWE5MWRlMWI0MDM4ZjcwNTFlOTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjMjBkY2RlMGJiZGM5ZDBmODI2NDAyNmY5YTQyY2NjYzUyOWY4YWU3NTBmZjliYzIyMzE3ZWJjMjE5Njk4NjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyYmI3MzVlNTAxNjBjNDMzMTEzNDI1OWQxYzRjMzE3YTQxYjc2OTIxMGFmYWUyZWMwOTFkOWMyODI2OGViZmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7e17fd56db64458ab71cfa645c4b47ff",
+      "statement": "Read returns complete sections by anchor in request order for a normalized, retrievable page and rejects unknown anchors.",
+      "evidence": [
+        {
+          "resource": "repo://internal/search/search.go#L512-L557",
+          "version": "repo-lines-v1:sha256:3b295d7cc46a8d8f0b6689e9d7c6ab96fc0836f6bd315ffa53e24bde1ddb3188:eyJzZWxlY3RlZExpbmVDb3VudCI6NDYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdkMjA1NzQyYTE5N2MzZTg4ZTg5ZTNiOTY0NzEwYWEzNjRiZTgyNmFmNzM4NTcwYzRkYzg3ZDk1MjhlMjk1NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmNmRlZjNhYTI0YzUwMTE2ZGEzM2M1MjM3ZTk5ZTllNDcyMGE3ZGFlMTdiMWE4ZDljYTQyM2VkZTRmYjk0NmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI0YjE4ODBiNzNjMzg1MTdkNGI3NzZlMGU2MjQwYjZiMjVmN2MwMGMzZDc0OTg5MWJlZGZhMWRiYTFiMzU5NTMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-01T17:37:16.322Z"
+  }
+}
