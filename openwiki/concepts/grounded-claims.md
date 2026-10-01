@@ -4,8 +4,8 @@ title: Grounded Claims and Evidence
 description: How owcli ties wiki statements to versioned repository evidence - repo:// resources, content-derived version tokens with line relocation, the Claims store/session/runtime split, preflight staleness detection, sparse reconciliation, durability proofs, and projection into OKF front matter.
 tags: [claims, evidence, grounding, provenance, verification]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/459c44e-dirty
+    at: "2026-10-01T18:02:46.788Z"
 sources:
   - id: openwiki-source-46f044de4ec4da88d15d5cfe
     resource: repo://internal/claims/mutations.go
@@ -25,7 +25,7 @@ sources:
     resource: repo://internal/evidence/resolver.go
   - id: openwiki-source-338973cba1508ded8362d7d4
     resource: repo://internal/evidence/resource.go
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/459c44e-dirty", at: "2026-10-01T18:02:46.964Z" }
 ---
 
 # Grounded Claims and Evidence
@@ -166,7 +166,7 @@ stays persisted.
 ## Projection into OKF front matter
 
 - `SyncSources` collapses each page's evidence to whole-file resources and
-  writes them as OKF `sources` entries with deterministic ids
+  writes them, ordered case-insensitively like upstream, as OKF `sources` entries with deterministic ids
   `openwiki-source-<24 hex of sha256(resource)>`. That is the same scheme as
   upstream, so each tool reconciles the other's entries. Entries authored by
   anyone else are kept first and never duplicated.

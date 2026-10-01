@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/486e6ea-dirty
+    at: "2026-10-01T18:03:21.177Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -15,6 +15,10 @@ sources:
     resource: repo://internal/cli/cli.go
   - id: openwiki-source-5be0d15fffd7a818d0c655c1
     resource: repo://internal/generate/generate.go
+  - id: openwiki-source-558855d6164a3c50e05cc15a
+    resource: repo://internal/generate/prompts.go
+  - id: openwiki-source-38201bb963161492095c29eb
+    resource: repo://internal/guide/guide.go
   - id: openwiki-source-5a4f8537ee47255d553406c9
     resource: repo://internal/okf/finalize.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
@@ -23,7 +27,7 @@ sources:
     resource: repo://internal/search/search.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/459c44e", at: "2026-10-01T18:01:43.250Z" }
 ---
 
 # Architecture Overview
@@ -47,6 +51,10 @@ Everything lives under `internal/`, with `cmd/owcli/main.go` only calling
 flowchart TD
     cli["cli: cobra commands"] --> generate
     cli --> search
+    cli --> run
+    cli --> guide
+    generate --> guide
+    guide["guide: shared authoring standards"]
     generate["generate: planner and worker driver"] --> run
     generate --> agent
     run["run: resumable lifecycle"] --> claims
@@ -77,6 +85,9 @@ Arrows point from a package to the packages it imports.
   loop over a confined workspace, and `generate` composes them with the `run`
   lifecycle. See [Model Providers](../integrations/model-providers.md) and
   [Generation Run Lifecycle](../workflows/generation-run.md).
+- **Shared standards.** `guide` holds the planning, page, and Claim standards
+  as text. owcli's own agent prompts and the instructions printed for
+  interactive coding agents both use it, so there is one standard.
 
 ## How a command flows
 
@@ -92,6 +103,11 @@ deterministic finalization.
 During `Finish`, the OKF passes run in a fixed order and Claims evidence is
 projected into front matter through the `ClaimSources` hook, which calls
 `claims.SyncSources`, so `okf` never imports `claims`.
+
+`owcli run begin|plan|next|inspect|submit|skip|finish` expose the same
+lifecycle to an interactive coding agent, one JSON step per command, so the
+agent researches and writes pages and owcli calls no model at all. See
+[Agent-Driven Runs](../workflows/agent-driven-runs.md).
 
 `owcli search`, `read`, `status`, and `check` never call a model. `search`
 builds an in-memory SQLite FTS5 index per query and ranks wiki sections with

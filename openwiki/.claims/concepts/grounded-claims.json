@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:01d7d14eea147c198381ca8b494579514a58f157a8463b550e4fdf38ce3d4f4e",
+  "pageVersion": "sha256:b3582b76c284f0f77be24317a215b6836bf24a6021ef16b311a3b9550c87689c",
   "claims": [
     {
       "id": "claim_a3f95abd954f45a5a060016eb96b9838",
@@ -150,11 +150,11 @@
     },
     {
       "id": "claim_ae5dc73e87134aef93114760590bdbd9",
-      "statement": "Projected sources entries use ids openwiki-source- plus 24 hex digits of the SHA-256 of the whole-file resource, and entries authored by others are retained and not duplicated.",
+      "statement": "Projected sources entries use ids openwiki-source- plus 24 hex digits of the SHA-256 of the whole-file resource, are ordered case-insensitively to match upstream, and entries authored by others are retained and not duplicated.",
       "evidence": [
         {
-          "resource": "repo://internal/claims/project.go#L20-L102",
-          "version": "repo-lines-v1:sha256:264234ecc76c853062d926fc16820ecbac51a7db860c48eba96a2d4af594d144:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5ZjdmOWYwYjM3ODUzYWI1ZTM1ODJlMTQ2MTgzMWU1ZDJmMmUwZGIyZGY5NzJiMmEyNTkxMDY5YzUxZjhlOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJiZmRiZmExOThhNTI0ZGU0NWZiODUwMWFjMzE1NWVlNjQyYTNlNDM0MWQ4MmM1NGQ5MmQ4MzZmM2M5ZGYzNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkYmNlMGZlMDM5ZTQwMTM0OWQ4MDBiZGY5M2RhN2I2YWZhMGYwNjlhYThkNGM2NWUzMTIxMjE3OGI2MjA2M2MifQ"
+          "resource": "repo://internal/claims/project.go#L19-L113",
+          "version": "repo-lines-v1:sha256:f86f7dfcdb4a2d1ad9b1998e2cc0e7aa4581767138ce0f87ba2dcb37933eeef4:eyJzZWxlY3RlZExpbmVDb3VudCI6OTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3MDAxMmY5NDIxNjEzN2E4YTU1MDc3MjRjNGNiMmM5YmVjY2Y2NTA5ZTQ2YWZjNGUzMjRhYzBiZGMxZGUwZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5ZjdmOWYwYjM3ODUzYWI1ZTM1ODJlMTQ2MTgzMWU1ZDJmMmUwZGIyZGY5NzJiMmEyNTkxMDY5YzUxZjhlOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViYThhNDVkZmZkOWRkNzljNjExYWIzNGVjMzIwOTdiMzYyNTIyZGJkZTQ2YmRiMjk0NWVjYTM5OWY1YmM2NDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkYmNlMGZlMDM5ZTQwMTM0OWQ4MDBiZGY5M2RhN2I2YWZhMGYwNjlhYThkNGM2NWUzMTIxMjE3OGI2MjA2M2MifQ"
         }
       ]
     },
@@ -163,14 +163,14 @@
       "statement": "Verification projection replaces machine-owned events from both owcli/ and openwiki/ actors with at most one active event, keeps other actors' events, and skips excluded pages.",
       "evidence": [
         {
-          "resource": "repo://internal/claims/project.go#L136-L188",
+          "resource": "repo://internal/claims/project.go#L147-L199",
           "version": "repo-lines-v1:sha256:4a97bddd8dc66832593a62f4233f470736fb9956993d0243985247fa15f082c5:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiZTEzZTYxYTc5OWE5ZDJjNjAwY2MzMDMxZGRiYzFkMzhmOTlkMTdlZTlmMjU2NjMxNjQ5YTlhY2EwN2MzZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4MDE4MDgwNDM5ZmRmYWI5ZmEzYTExMzU0ZDU5NTU4ZGI0ZGViODQ1YWQ0ZGJhY2U3MmE4ZWE0ZDdmODgzMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRlZTgxZDdjMmVmZWE3ODBkY2I5YjdhNDYxMjJhNGZhYThmODUzMTNiZGJiM2VjNWRhMjZmNmRhZmMwMmNjMDQifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/459c44e-dirty",
+    "at": "2026-10-01T18:02:46.788Z"
   }
 }

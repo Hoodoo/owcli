@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:590056685966b1eb2f3f349c939d3d09704e1b155404214685e366a74806610c",
+  "pageVersion": "sha256:4dad062637b84ba763728b1c97e16696255e7f9030f56111909ac8ac5a05078b",
   "claims": [
     {
       "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_e3f9fd1095fd42ee9d254fabf2461f39",
-      "statement": "The CLI exposes bind, unbind, init, update, status, check, search, and read commands.",
+      "statement": "The CLI exposes bind, unbind, init, update, status, check, search, read, run, quickstart, and agents-md commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L45-L54",
-          "version": "repo-lines-v1:sha256:077dfc56407d079703de5fbefe59343750b25d9f7e48716938a27625d9019eec:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+          "resource": "repo://internal/cli/cli.go#L45-L57",
+          "version": "repo-lines-v1:sha256:c9367e6067595749f58a3461a3916c9169e6cc7e2f4862d77f0cffcefcc0dc53:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         },
         {
           "resource": "repo://internal/cli/inspect.go#L118-L125",
@@ -62,7 +62,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/459c44e",
+    "at": "2026-10-01T18:01:43.075Z"
   }
 }

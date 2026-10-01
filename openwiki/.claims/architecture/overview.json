@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:39b6ee64c180586bc80d4cbbe62a89928fb48be9739faf6f7ee2f5d2e2e79d8d",
+  "pageVersion": "sha256:a90b59690699e185a1324a2b57af33fabaa29c2705ddbef11f7e5023e9039619",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
-      "statement": "The owcli binary's entrypoint only builds and executes the cobra command tree from internal/cli, exiting with status 1 on error.",
+      "statement": "The owcli binary's entrypoint only builds and executes the cobra command tree from internal/cli, exiting with status 1 on error and printing the error unless it was already reported as JSON.",
       "evidence": [
         {
-          "resource": "repo://cmd/owcli/main.go#L11-L16",
-          "version": "repo-lines-v1:sha256:9d1a53a832cf0d6893db31c1ef7e111a2e6a19e7607eb7243d65a53a98068b36:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI0MjkzZWZiNGY2MDI5NDUyY2E4ZmQzYWExN2ZlYmZkN2M3MTA4MTY3NWY5NWQ4ODE0MWEzMTEyMmIzMDc3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+          "resource": "repo://cmd/owcli/main.go#L12-L19",
+          "version": "repo-lines-v1:sha256:1785da18ebfebb45f8049d7e74a33147d8d34581b9b45fda45d715ae5462a835:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI0MjkzZWZiNGY2MDI5NDUyY2E4ZmQzYWExN2ZlYmZkN2M3MTA4MTY3NWY5NWQ4ODE0MWEzMTEyMmIzMDc3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
     },
     {
       "id": "claim_547da34b35324cf1aaeed4b5ac939590",
-      "statement": "The root command registers bind, unbind, init, update, status, check, search, and read subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "statement": "The root command registers bind, unbind, init, update, status, check, search, read, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L45-L54",
-          "version": "repo-lines-v1:sha256:077dfc56407d079703de5fbefe59343750b25d9f7e48716938a27625d9019eec:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+          "resource": "repo://internal/cli/cli.go#L45-L57",
+          "version": "repo-lines-v1:sha256:c9367e6067595749f58a3461a3916c9169e6cc7e2f4862d77f0cffcefcc0dc53:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         }
       ]
     },
@@ -55,7 +55,7 @@
           "version": "repo-lines-v1:sha256:4f4d2eae54fad1c4107e67e107f0f3ca420187a51c9bd9c83004ff733020a1d4:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZjc2NTlkZTViMTAxZmRkNTg3Nzk4NjU5NmY4ZGRlMzhiYzRiMGVlYTRmNDM0NzkxMzU1NTRmYjY4Nzc4MTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
-          "resource": "repo://internal/run/run.go#L752-L756",
+          "resource": "repo://internal/run/run.go#L766-L770",
           "version": "repo-lines-v1:sha256:4bda7c55d74f6ad7bda8af0e6de435ad90896ffa4d27fe093d3daf55f40df594:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmRkYzIwNTE1Yjk5ZDUzNzA2ZjdhOTBlYmE4YjU4NGEwNTc2OGQyODQ1Y2ZlZWJkOGNmMzdkNjdmMjZmN2M1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUxYjQ5ZGM3MmY2MzI2M2RjNGY4MWRkMjFkZjNlZGJmZTY1ZTk2NWU3YWYyOGM0Mzg4YWYyNzQ1OGVlNjBjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDczMTI3NzM1YmI3NDJkODU0NTdlMjdlMDhlMTJiMzBmZTFiNWQ3MjcxZjA2MTA2NGExM2ZhMzYwM2I2OWUxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjc3MDAwNDZiNGI3YWZhODBhZTE3M2E3MWI0YTg4N2FiOWVmNjdhYWY5ZTk0NTA1ZTJhNzI1ZDc3YjY3YTkxMCJ9"
         }
       ]
@@ -103,10 +103,24 @@
           "version": "repo-lines-v1:sha256:a45bb52e030025e1b8addbaa59f4619bc8ae4f7b27b9af27a7ea4d55bce68a18:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWViZTAzZDQ5NzI4ZmJiMTMwN2ViOTE1NDVlZDk4Y2QzNWY3ODZkOWM2OTlkOTNhY2I3M2RjODhmYjc0OGNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI2ZTE4ZjQ0YzNiYjA0YTljNzg3OTBkYWNhOTVhMDgwZTg2NTAyZTQ4NGU5NjZiMGFjYTk3NGUwNGQzOTc0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhkNTU0YmRlMjY4OTY4NjkxZWZhMWRiYjhhYjFjNTAzN2M0ODRmNzZjYWExM2E5ZTY5ZmFmZWZmNWU3ZmVkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDIwOWEzMzEyZmY0MDZjZmU2ZGJkNzhmNTQ2NGYxZmYyMTU0NTc3NWM3YjQ1NzUzODAyYTZhNmY2YzcyMjNhNCJ9"
         }
       ]
+    },
+    {
+      "id": "claim_c4adf69587bbd82da6fafc30fbd2f63a",
+      "statement": "The guide package holds the planning, page-format, and Claim standards as text, and owcli's planner and worker system prompts are composed from it.",
+      "evidence": [
+        {
+          "resource": "repo://internal/generate/prompts.go#L1-L30",
+          "version": "repo-lines-v1:sha256:9272d0d359cca669e9df6d0cbcc1cb4a564ea7108f0d6b864a01e45ab0204014:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmYzQ0NTE4ODg1ZGY1OTNmMjQwYjNlNzJkODQ5MWZmYWE2NjgxYWQzZjVmZDBkMmQ1YjQ0NDZlNjc0ZTlmMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3NDY0N2ZiYzJiMmQ4ZTJjMzU0MjU3ZmNkNmI4ZWMwZTZjZTg2YjQ3NGRiNDA2Njk1MWU3MWM3MTliYjMyMWMifQ"
+        },
+        {
+          "resource": "repo://internal/guide/guide.go",
+          "version": "repo-file-v1:sha256:c5ed799dd2e3859aaebfabf621ab88c9c90163268e956e0e5205d523458b5cdb"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/486e6ea-dirty",
+    "at": "2026-10-01T18:03:21.177Z"
   }
 }

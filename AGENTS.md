@@ -60,18 +60,42 @@ Reached schedules and deadlines use notify.* for the current owner, or the autho
 <!-- END KATA -->
 
 <!-- OPENWIKI:START -->
+## Repository wiki (owcli)
 
-## OpenWiki
+owcli maintains openwiki/: an engineering wiki whose statements are grounded
+by Claims (repo:// evidence that owcli rechecks against the source).
 
-This repository has a generated `openwiki/` evidence index. It is optional just-in-time context, not required startup reading.
+- Read just in time, not at task start: `owcli search "<question>" [--path <src>]`,
+  then `owcli read <ref>`. Source and tests stay authoritative.
+- Write the wiki only inside a run. Never edit openwiki/ by hand, and never
+  touch .claims/, .run.json, .run-snapshots/, or index.md files.
+- Run steps print JSON with a "next" hint; errors are {"error":{"code","message"}}.
+  invalid_input means fix your input and retry the same step.
 
-- Do not enumerate, preload, or search wikis at task start. Use retrieval when the user asks for it, when unfamiliar architecture or dependency behavior materially affects the task, or when source inspection leaves an important uncertainty. Stop once the question is grounded.
-- When those conditions apply and OpenWiki retrieval tools are available, use `openwiki_search` for just-in-time context and `openwiki_read` for the relevant complete sections. If search returns `workspace_required`, ask which listed workspace to use and retry with its ID.
-- Use `openwiki_list_workspaces` or `openwiki_list_wikis` when workspace membership itself needs to be discovered.
-- If the retrieval tools are unavailable, read `openwiki/quickstart.md` and follow its links to the relevant pages.
-- Treat source code and tests as authoritative. A brief's unknowns and review items are verification gaps, not automatic requirements.
-- Prefer the narrowest quiet validation that proves the changed behavior. Preserve complete failure output.
+~~~dot
+digraph owcli {
+  rankdir=TB; node [shape=box];
+  done   [shape=diamond label="Finishing a task that changed code?"];
+  check  [label="owcli check (read-only, no model)"];
+  ok     [shape=diamond label="exit 0?"];
+  begin  [label="owcli run begin update\n(owcli run begin init for a new wiki)"];
+  plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan < plan.json"];
+  next   [label="owcli run next"];
+  write  [label="status pending: research seedPaths, read the page if existing;\nwrite exactly job.path with OKF front matter"];
+  submit [label="owcli run submit <jobId> < claims.json\nnew Claims without id; each claimsRequiringAttention entry:\nconfirm, revise (same id), or retract"];
+  skip   [label="cannot complete the page: owcli run skip <jobId>"];
+  finish [label="status complete: owcli run finish"];
+  done -> check -> ok;
+  ok -> begin [label="no: stale or unresolved Claims, broken links"];
+  begin -> plan  [label="planning"];
+  begin -> next  [label="generating (resumed)"];
+  plan -> next -> write -> submit -> next;
+  write -> skip -> next;
+  next -> finish;
+}
+~~~
 
-The scheduled OpenWiki GitHub Actions workflow refreshes the repository wiki. Do not hand-edit generated OpenWiki pages unless explicitly asked; prefer updating source code/docs and letting OpenWiki regenerate.
-
+A "noop" begin means the wiki is current: stop. If the user did not ask for
+wiki work, report a failing check instead of updating.
+Full procedure, JSON formats, and the page and Claim standards: `owcli quickstart`.
 <!-- OPENWIKI:END -->

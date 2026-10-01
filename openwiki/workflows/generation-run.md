@@ -4,8 +4,8 @@ title: Generation Run Lifecycle
 description: How owcli init and update run - the resumable begin/plan/next/submit/skip/finish lifecycle and its checkpoint, source fingerprinting and clean-update detection, the planner and page-worker agents with their confined workspace and tools, and how failures are rolled back or resumed.
 tags: [generation, lifecycle, resumability, agent, tools]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/459c44e
+    at: "2026-10-01T18:01:30.376Z"
 sources:
   - id: openwiki-source-10149a0a8bb117161e34382a
     resource: repo://internal/agent/loop.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/run/git.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/459c44e", at: "2026-10-01T18:01:43.250Z" }
 ---
 
 # Generation Run Lifecycle
@@ -34,6 +34,9 @@ Generating or updating a wiki is a **run**. Three packages share the work:
   the repository.
 - `internal/generate` connects the two: a planner agent, then one worker
   agent per page.
+
+The same lifecycle can instead be driven step by step by an interactive coding
+agent; see [Agent-Driven Runs](agent-driven-runs.md).
 
 ## The lifecycle
 
@@ -74,7 +77,8 @@ pages. The quickstart can never be deleted, and a page cannot be both written
 and deleted. Updates gain automatic jobs for pages whose Claims have
 grounding issues. Jobs are sorted by path with the quickstart last, so it is
 written after the pages it routes to. Resubmitting the same plan is a no-op; a
-different plan is rejected.
+different plan is rejected. An update plan may list no pages when only
+stale pages need work, since those are added automatically.
 
 **Next.** Returns the first pending job without reserving it, with whether the
 page exists, its Claim count, and only the Claims that need attention.
@@ -110,7 +114,8 @@ Then:
    pages are left exactly as they were;
 7. write `.last-update.json` as `complete`, or `interrupted` if anything was
    skipped or the source drifted;
-8. delete `.run.json` last, so any earlier failure leaves the run resumable.
+8. delete the saved snapshots and then `.run.json` last, so any earlier
+   failure leaves the run resumable.
 
 ## Source fingerprint
 

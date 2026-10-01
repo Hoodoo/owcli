@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:7bc545f189ec462eb787b6df0e3a638d1ec523f8f94b80807fbebc53a99ea530",
+  "claims": [
+    {
+      "id": "claim_571e5c9b711f178afec35670b117fb09",
+      "statement": "Every owcli run step prints one JSON object, and failures print an error object with the lifecycle error code and message and exit non-zero without a second plain-text error line.",
+      "evidence": [
+        {
+          "resource": "repo://cmd/owcli/main.go#L12-L19",
+          "version": "repo-lines-v1:sha256:1785da18ebfebb45f8049d7e74a33147d8d34581b9b45fda45d715ae5462a835:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI0MjkzZWZiNGY2MDI5NDUyY2E4ZmQzYWExN2ZlYmZkN2M3MTA4MTY3NWY5NWQ4ODE0MWEzMTEyMmIzMDc3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L27-L30",
+          "version": "repo-lines-v1:sha256:8416bec7c21e243d569c2941677cb50bbe82c817908ee1a581042c5a669ddbf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Y0YjE5NTE4NGM0YjVhMTQ5N2IzNDc2NWI4ZDczMzQ3NmEyNjVkZTE0ZDk4ZDUwYmJhNzMwYmMwOTE0Y2E2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkOTViZTZmYTkxNDA4YmU2NTc5NTFkYzhkNjk0NTA0ZjBiZjk5MWYzNWViNDUyNGMyOWJmNjdhNmFmNWUwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGFhOTRkYjNjZDY1MWI4OWU2YjY4N2Q0ZmJiZWYyOGM4YzZhZGNmNGI1NDgwNzFjZWU3MWViYWYzNzNjODQ0YSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L58-L75",
+          "version": "repo-lines-v1:sha256:6e06b14f178a5e6fc29bc2d89f6383e078132f51f66871c39f4c52038f6e74ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ZTE3Y2MzYzM1NjRlOWI0OGMyMGQzY2VjYjNkOGEwOGQ5Y2NlOGM1ODc2Mjk2NGNmYWI4MjlhODVjMjg5OGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3NDUxZjM2ZmVhMzYwMDA4Nzc0YmViNGNjZjRmNGUwZjI0ODVkM2VhZGVjNzk4OTBmODE3MTFhODUxMjcwNGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMzk1NjZjNDQ1YzJlMDM5ODY3YzYxYzllMDdmMDhmZDkwZTI5ZTM1MjRlNmY5MTgxMmYxZjQyY2QxZjAwOGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dc836e31882951bcbe3c42bfc6ed4365",
+      "statement": "Run steps after begin reattach to the checkpoint with run.Open, which loads .run.json and rebuilds the Claims runtime without modifying the run, reporting not_found when no run is active.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L76-L83",
+          "version": "repo-lines-v1:sha256:e2def3774811cc1303f951a84f139f18096198e5b77b4267346091c3cb3d06e6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlMmFiMmY5ZmNiZmMzYWI0MGM5ZmY0OTM0Mjg3NTdkMjA4MjFlNGRiYjAxY2UwMzg0OWVhZDkyYjc0YjE2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI5NjQwNzljM2M1YzgxNTIwZWYzM2EyYjlkMmUxNWExYjg0ZDcyODBkYjg1OTBkY2Q2NTc0N2UzZTAxMmE0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE2MWMwZTJhNmNhZTUyNGU4NmMyY2I4ZDJmZWMxYTY0ZjFjNDFhMTQzMzNiNjllYjJhMzJkZWUzM2VkMTMxOCJ9"
+        },
+        {
+          "resource": "repo://internal/run/host.go#L19-L38",
+          "version": "repo-lines-v1:sha256:7715a63dab45218002a944f072c0a2b5d79f0576c7fa5d8a3ba5d5f2c4a6f3c8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3YjViMzMyMmU0NWRkODdmYmVlN2JhNWU0NDk2OWE5NzVlYzQxOTMzZWFiODQ5YzM4ZDAzMjI4YTM3NmI2ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE4NjRjYWZmZTRlZWUyOTAzYzdhY2U3ODU5YjAxYTNmYjUzNzRjMDI2Zjg4MDcxY2IxOTFlOGI2MWZiNTg2YzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJlZTIxMTE4NjVmMzY3MGRkNzViMTFhYWFlOWM4ZTYyMWUyMjRkZWMzMDQzMDUzNTJkYTU4ZGUyYzZlMDRmNGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8285e750bea4f749d77bbacd9d8baadf",
+      "statement": "next persists the current job's pre-edit snapshot under .run-snapshots and keeps the first capture, and skip and finish use the persisted snapshots.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L257-L309",
+          "version": "repo-lines-v1:sha256:15600efbb7def073a9e5a3a8a219c9445c87c504341e2cdb57ada280b826393f:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTYzOGEyNDRlYTRlOWJlYTI4NWU2OGFlMjM1MzY5Zjk2ZTIyMmMyYmY3ZWQyZWE1NTQzZDMxNTBiZjEwNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFmODhiNmRiOGJkMjMyNjZmZTg4YmY3N2MzMmIxM2UyOTBkNDYyNDdmN2QyZThmNWI0YTM4ZmMwMTNmMDE5YTYifQ"
+        },
+        {
+          "resource": "repo://internal/run/host.go#L40-L100",
+          "version": "repo-lines-v1:sha256:3ab72c1553117483d975668ed055c3164b038788e3d49661a211eb0a72e134b9:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmOGFmNDFhNTcxYzBiY2NiZDJlM2QzYWI4YzBmNWQyMmFmZWMzNzFmZTFhNDJjZDE4ODc5MzY2NzlmZjc2MTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiNjA1YzM0NDAzYzM5NGIxOTJlMWEzODMwYjI3ODU1NGZkMDBjZjdlM2VjZDdkNTM3YWI3ZGU4Yzg0ZmU3OTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjMjYwMjAwOWJlMjM0MGYwNmQ1ZTU1ZWRhMTExZjM3MjMxYmY2YzkyNTQ0NWUyZTRhYmQ2OTkyMDJiM2ZjOTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzYzE4YWU1ZjU3ZjA2YjdhZjVkNjY1NWFjMjY3MmQwNzY0NDM5ZWUxZWVlM2U3MzQwODZlOTQ2NDczOTgyYTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bdc123011779e4c297e860cd517f3b9b",
+      "statement": "begin update reports changedPaths since the last documented commit, including uncommitted and untracked files and excluding ignored paths, capped at 300 entries.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L151-L163",
+          "version": "repo-lines-v1:sha256:74d02f3e76c0034d1ab1435e247de2508d1a8401514aa95f67fff50e6ee317c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjY2JkMGExMjcxMzViYmYxYmRkNDBmOTc4OWE1NTIxNjAwZmRjZjcwN2ZjY2NlMWMyNDY4ZTI4NDM5ZWEzNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4N2Y2ZWM5Nzc3NmY5OGNjN2MyYzA4YjA0OTg1NDViNDI5NmM5YmNiMDM5NDFmMDA0M2RmODcxZWI1ZGFlMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYjZjMGVhZDA4NTc4MTcxZDFlYzY0N2Y2M2QwOTE2YjI3MzlhM2U0MGZlMWI2M2FiY2QxZjk3OGIzMTczYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0M2RlNGRiNTRiMTkwOGZkNzdjN2ZlN2I3ZjhjZTM0NjljOGNhNmYxOTRiN2M4NWVlNTdmNDhiZDQ4ZGZlYTIifQ"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L24-L25",
+          "version": "repo-lines-v1:sha256:cb362ecd2717c30cd51b88335d47c3eeaaa48b514bdecf51da3be0abee89aaba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjViMzRjZTEzOTM4ODQ1ZTZmMzkyZTNiZjBlNzlmMDQ5ZTVkNWFhMzBjYWFhYzU2MWUwNTkxYWNmODZlNzBhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2M0ODZjOTY4ZmE1MTE5NjQzYWI4NGM5OWFhMTQ2NTFkNjhjN2FiOTJjODIxZTI0MGE3ZjhjOWEwOTZjMjc0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzg0NDczOTUyYWVmZWUwMjAwOWFhYThkMDk5NzM5Yzg3ZDM2ZDg2OTk4ZDdiOWEwMWE1MGY1MzIxMTVlOWI4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjliN2ZmYjY4MjE1NmMxYjVhZmQ0YjY1ODgyZDQ0OGFiZmNmZDUxOGE2ODhhMzQ3NmVjZWUyMDQ5ZDY2NjIzMiJ9"
+        },
+        {
+          "resource": "repo://internal/run/host.go#L100-L135",
+          "version": "repo-lines-v1:sha256:c2a4804d314b20f47735cf6f84021e055526759faf0bb82f502f57fc7f08a50d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiNjA1YzM0NDAzYzM5NGIxOTJlMWEzODMwYjI3ODU1NGZkMDBjZjdlM2VjZDdkNTM3YWI3ZGU4Yzg0ZmU3OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkyNjVhMGU2MTM0ZDI1YjNkMTQxZTM5YmM2ZTM4OTI4ODgwOTFhMGY4NDM1YmIzMGE0YmM1Yjk1YTA2MTRkYTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7a8df67115d3cda1f5bf99889b3abd49",
+      "statement": "JSON input is decoded with unknown fields disallowed, and submitted evidence may be either a string or an object with a resource field.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L208-L226",
+          "version": "repo-lines-v1:sha256:85613c1bc6b9811aea7e448f3006cd63ab671a4635856154f0bf996c86c95387:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY2NTBjMWEzNzNiMTQxNThkMzFiZjM1MjZhMzEwZDAxYWU1MzZhMjA4YTJmOTg5ZDMyMDBmZjBkZjY3MTVjNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3YTg3YTZlYTEwN2I5NjljZDI4YmYzYzk3NzA1ZTM2MjkxZDE0NWRjNzUzOWY0MTc3ODJhNjQ5ZjIzNGY0Y2UifQ"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L329-L362",
+          "version": "repo-lines-v1:sha256:7b9f4fe949d289bc0b41f31ea23139246143d8f76d0a089e7cbd194b83a98d44:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0NTg4MjhmYTY2ODBlNWFkNzhhMTE3NjY1ZTNiYTA4M2Q2MTM0ZDMyN2IyMTE4YTRjMGUyODJjY2M4MjY5NjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxOWI3MWExMTdjYWI4ZGVjNGU5NzczYzFjYThmNjc1MTU5NTY4ZWY5NTdhOGNmNzYyY2U4Nzk0MjcwMGEzODIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_772bc72aaf911026e8cca9213e5a2475",
+      "statement": "Agent-driven runs record host-agent as the model.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L21-L22",
+          "version": "repo-lines-v1:sha256:144824ab0e24146283210226c70bf9797a11aaa59ec7bac8b25e0d13ce9c0352:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDY0MDkxZTc1MmQzNDliYzA1NGRjZDAyMjZlNTE3Zjg3MGRhZmJhYjg4YmVmNGY3ODZmOWUxYTljYjIzM2I2YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA2MzEwMGI5YzAwNjQxZjNjNjE4ODY2Mjc0M2Y3NzA5MTQ3YmQ2YjBiNDk4N2MwOWNiZDUxYjU0MDdhODUzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmZjN2M2MTVlMDZlOWY4YzNiMDk3ZTk2YmVhM2IwODg3MmQ5NDYzNTUyYzhjMThhZjc4NGM0MmFiZTM4ZTU3YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNThjYTA3YjFkNGJjZTM4OWQ2MzJiODQ1YmE3NDcwMTUyYmRmYmNjMmRmYTljNGE4YWE2NTdlM2JmNTMzMDdiYSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/host.go#L54-L56",
+          "version": "repo-lines-v1:sha256:d83ea74026e237b75d0c5495e41a98a93a63ebe21d65b96dd68d2941c73eeec8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY4YWI5ZmFhYmViNjk3NzI2MmNmNzI2Zjc5YWI3MTExZWFiMTA4OTZmNjUwYWM3ODI2MTQ4ZWI1MjVlZWMxNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmFhMThiY2I0MTdlMmRlNWYxMWY5MTM0Zjk0Y2JmMTFmZDI3MjYwNjM5ZDRlODg1NmJkNzU1NjU5ODg1NmNhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDY4ZmUzZDViYTc2OTdiYTAyNzkyZTNmYjNhNTNiNzRkMmFlZThjZmNmZmY4Yzg5NDU2ZmQ4OTFiODllNjgzYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_83753a66013657f30f4da00753f78a7e",
+      "statement": "Update plans may list no pages, while init plans must include pages, and pages with Claim issues are added automatically.",
+      "evidence": [
+        {
+          "resource": "repo://internal/run/run.go#L367-L370",
+          "version": "repo-lines-v1:sha256:bdc64e8827c341938d20b94a8434defdcdfa827e1ee3d9e04db0f65e6d27078f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGNhOTZjMWQ4ZjVlZTI0MjMxZmNhMmUxMzJjYjhlNTA5ODdiNWM4NjFhZmM2MzE0ZmYwOTk3OGEwM2Q2Njk3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWJmZjcwZTI5MGI4MjUzMDA5NTZiNjUyZmU2ODQ1ZjY3OWU4YTk3NzNiZTc0M2QxNGEwOWQ4MDA5YmY1MjEyMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzVlZGQwMGIwN2I1ODdlZWFmMzc3ZDY4M2U2MGQwOTQzNzEzNmFmYzRhYjgxMWFkZmY3ZmNlNTUzYjFlODEzOSJ9"
+        },
+        {
+          "resource": "repo://internal/run/run.go#L417-L425",
+          "version": "repo-lines-v1:sha256:54dbd8cfe38cb6f2cad48cbd2fff95e2d0192eaec2861b117a126111aff1ef36:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDAwZTk5ZjY0ZTA1ZWYxYjcwNmMyNjAzZjQzMTU4NWI4OWYyZmNlYzc5YjZkYzcwYTc5NDdhOGE4NTViYjk3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTlkMjM5ZjVhZTJhOWU3NzI4NzM2YmMzZTJmNGEwMzdkNjQ2MjcyMTUyYWU3NmVlZjZmMzY1MzEyYjA4ZGU5NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjg4YWQ1NDEwZWE4NzY1N2QwZjYzNzQyYjM0NGJkMTFhZTk0ZWU5NWRmOGRlZmViYWM1YzJkZjQ4YzdlN2NmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmIzNzIyMWRhNmM1ZTg1ZGJiYTQ0MmQyYmQzZDQ4NDMwNTUzNDNmMDExZTEzNWQwNWM5NTU4YWI3MjczMTYyZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b848b9cdd949052db308cd57907efaab",
+      "statement": "agents-md writes the compact instructions between OPENWIKI managed markers into AGENTS.md and an existing CLAUDE.md, refuses external bindings, and prints the block with --print.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/agentsmd.go",
+          "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
+        },
+        {
+          "resource": "repo://internal/cli/instructions.go#L155-L192",
+          "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2218888d7eac691661a39266e2f17d1c",
+      "statement": "The compact instructions route agents to run owcli check before finishing a task that changed code and to update the wiki through the run lifecycle when it fails.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/instructions.go#L15-L50",
+          "version": "repo-lines-v1:sha256:fcf33bcc6d3f7236bab81d300fbb200067a50a68f8fb9df1e4c1876374079135:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNWJhZDU4NDA1M2ZlZDJiYmY3ZDVkN2M0YmM5NWIwY2M3MDM5ZDZlZTYyYTUyZGVjMDM2NmM4MWE2ZGM3NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzY2JjNWM2ZGIzMTBjYjA2NWNmNGYxZjM0ZmRkMGIxN2M3MzJmYjFiNTI3ZDQ0Y2IwNjUzY2EwZjU2NWE0ZGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f036f60d7b498aa02712a9d3abc378f3",
+      "statement": "owcli quickstart prints the full procedure followed by the planning, page, and Claim standards from the guide package.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/instructions.go#L56-L141",
+          "version": "repo-lines-v1:sha256:de09a699b10b454796a5259f94d0ddb5c56f47fb384fc146cecc34b33b6b8859:eyJzZWxlY3RlZExpbmVDb3VudCI6ODYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMTU0YTc2ZmUxMzk4YjJkNGY4NzJmY2FmNDMxYjQ4Mjc4ZGI2Yzg2MjU3ZDA0N2IyMDVkZTg0OTE1MThkNjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNWJmOGUwYzcwMWIxZWMxNDRiYjkzNzdkOTUzMTZmNTM2NzQwZWM0ZTMxZDNlMjMyZTAwMTE5OWUzNzU1NjAifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "owcli/486e6ea-dirty",
+    "at": "2026-10-01T18:03:28.143Z"
+  }
+}

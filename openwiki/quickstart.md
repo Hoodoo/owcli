@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/459c44e
+    at: "2026-10-01T18:01:43.075Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -19,7 +19,7 @@ sources:
     resource: repo://internal/cli/inspect.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/459c44e", at: "2026-10-01T18:01:43.250Z" }
 ---
 
 # owcli Quickstart
@@ -60,6 +60,12 @@ owcli bind --external | unbind [--purge]
 Interrupting `init` or `update` keeps every completed page; running the same
 command again resumes.
 
+From an interactive coding agent, the agent can do the writing itself with no
+API key: `owcli agents-md` installs compact instructions in `AGENTS.md` (or
+`owcli agents-md --print` for global agent config), `owcli quickstart` prints
+the full procedure, and `owcli run begin|plan|next|submit|finish` drives the
+run step by step. See [Agent-Driven Runs](workflows/agent-driven-runs.md).
+
 ## Where to look
 
 | If you want to... | Read |
@@ -67,6 +73,7 @@ command again resumes.
 | understand the packages and how a command flows through them | [Architecture Overview](architecture/overview.md) |
 | know where a wiki is stored, what the state files are, or how ignore rules work | [Storage Layouts and Bindings](architecture/storage-and-bindings.md) |
 | change how pages are planned, written, resumed, or rolled back | [Generation Run Lifecycle](workflows/generation-run.md) |
+| let a coding agent maintain the wiki, or change the agent instructions | [Agent-Driven Runs and Agent Instructions](workflows/agent-driven-runs.md) |
 | touch evidence, Claims, staleness, or `verified`/`sources` projection | [Grounded Claims and Evidence](concepts/grounded-claims.md) |
 | change front matter rules, indexes, link stamps, Mermaid checks, or provenance | [OKF Front Matter and Finalization](concepts/okf-output.md) |
 | change ranking, excerpts, or add a semantic reranker | [Wiki Search and Read](concepts/search.md) |

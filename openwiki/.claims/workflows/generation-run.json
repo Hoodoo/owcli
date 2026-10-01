@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:279b0b50c9c528ceb6d5782d7e05264d55738744ff2060713f7700e72de8b91a",
+  "pageVersion": "sha256:93d9c73ddb67f944d547fbc59a8adb1af45308c714be4080d47d2de2b9cc2bd8",
   "claims": [
     {
       "id": "claim_c2d86ceabce44d57bff46eed97cc1c17",
       "statement": "Resuming requires the same mode as the checkpoint, resets skipped jobs to pending, and drops the plan back to planning when the source fingerprint changed.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L120-L159",
+          "resource": "repo://internal/run/run.go#L127-L166",
           "version": "repo-lines-v1:sha256:d6aa1cee237d63acb599f67f3fc22b6cd87b546f83fc2393ec8bf4fd50e181d1:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZmU1Y2JkN2Q1ZjgyZGRmNWE5OGMxY2UxNWRlY2RmM2Y0NzgxMmE0Mjk0NDczZTY2NTkwZmY4OWZjMmEyMjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2NDU1ZDhiMDM1YmMwZDBjMDQxMGE5ZTlhMjY5ZjY2N2VlMjE2ZjMxMzUyNmMzZGZmMWE1ZTZhYzk0YTJmYTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2MmIyNGYwZjY5NTUxZDBiMmIyY2NmZjJhMzEyM2U5OWNmODIxODkyMDZiOWUxNmMzYzEzNWM3NDlmMzgyMTAifQ"
         }
       ]
@@ -17,7 +17,7 @@
       "statement": "A fresh update without a user message is a no-op when the last run completed at the current HEAD, the source tree is clean, there are no grounding issues, and every page's manifest pageVersion matches its bytes.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L161-L231",
+          "resource": "repo://internal/run/run.go#L168-L238",
           "version": "repo-lines-v1:sha256:087d512496d158da39e544dd2256f1e533f7cfd117c011f0e56d5f595406efc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzMzA3YmI0MzVmZjFhODhmODEzNDNiOTUzMWE5NTExZDg1OTIxNGRjYTkzN2NlODlmYTVjMDU5Zjc2NTE4ZmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3OWYxOTk0MWEyNDdjNWE1YWM2YmMzN2QxYzE4Zjc3YWQyY2ZjMDMxYjZiOTU1NzJjMzRjMzFjY2NlM2ViNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViODE1MzUwYTcxOTYyOTFhMjA5MTk2Y2RkYTAyNTI3ODY1YjNkM2NjYTU2ZGRmMDlhNDYxNjQzMGViMTA0YTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk5NDAxNDNkYTZhNWY0ODljODcwOGRkYzZkYWVjYTM2ZTdjYzA2MTNjOWYwZmNjNzZiN2QzMjhlNTAyYmQ0ZTcifQ"
         }
       ]
@@ -27,18 +27,18 @@
       "statement": "A fresh init backs the wiki up to a temporary directory, clears it except INSTRUCTIONS.md, seeds default instructions if missing, and restores the backup if begin fails before the checkpoint is durable.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L233-L273",
+          "resource": "repo://internal/run/run.go#L240-L280",
           "version": "repo-lines-v1:sha256:42a68c12e3fccebe6b67768ac922015ce7a856ae172b053ab39da96b26f4f7eb:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZDU2MmIyYjBmY2NkMzkyYjY2YzMxYWQ1YjgzNjI3N2YyYzZmZDQ5NDc5YjU3MGE3YmVhYjgxMWVjZDkwZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiMjEzM2Q1N2M0MDgwYWVhNmIxOWE2OGJkNThhNDJjYmY0YTU1OTllZjhjZGQzNjYyYTQ1MDEzZTllNTY2NTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmMzAyNzVkOTc5ZTc2ZjEzOWE1YjBlZmM4NTE4MjliYjY4ODI3ZTc1ZDk4ZmY3M2E2MDI3ZDY0OTg5ZGU0OWMifQ"
         }
       ]
     },
     {
       "id": "claim_176b3b448a2c4d649367d0f16ffed6f9",
-      "statement": "Plan normalization requires quickstart.md in init plans, forbids deletions in init and of the quickstart, rejects pages both written and deleted, adds jobs for pages with grounding issues in updates, and orders jobs by path with the quickstart last.",
+      "statement": "Plan normalization requires quickstart.md in init plans, allows update plans without pages, forbids deletions in init and of the quickstart, rejects pages both written and deleted, adds jobs for pages with grounding issues in updates, and orders jobs by path with the quickstart last.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L354-L423",
-          "version": "repo-lines-v1:sha256:e960fc621c8f40eeab57de6e7f909f8b1e1b6edae6a01f59ecba7daa8664ca7d:eyJzZWxlY3RlZExpbmVDb3VudCI6NzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNmJiNTRhMjkwOTI2ZDI4YzRkZjQ5NTUxYTc5YTQwYzBkZWU5OGI4MTcyYjAxNjQ4OTllZTczNDQyNDY5YWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1MTAxMDg0MDZjMTI1NWJhNjdkNDhiZDBmNWRlYWQxNWI5ZGFlMTdmYjBiOWQ4MDg0YjVjNGI2N2IyMDFjMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljODczM2UyY2UwMjM4ZWZjYWExOWExZDFmNzNhYjk2NmU2MGI0Y2ZiMWRjZTQ0YmYyNGM4MTBjNTcyMGU5MDIifQ"
+          "resource": "repo://internal/run/run.go#L362-L437",
+          "version": "repo-lines-v1:sha256:ca46617b95b06052926933c5eca85132d7902e2dc111056d89ceeeeb341f0464:eyJzZWxlY3RlZExpbmVDb3VudCI6NzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNmJiNTRhMjkwOTI2ZDI4YzRkZjQ5NTUxYTc5YTQwYzBkZWU5OGI4MTcyYjAxNjQ4OTllZTczNDQyNDY5YWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1MTAxMDg0MDZjMTI1NWJhNjdkNDhiZDBmNWRlYWQxNWI5ZGFlMTdmYjBiOWQ4MDg0YjVjNGI2N2IyMDFjMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljODczM2UyY2UwMjM4ZWZjYWExOWExZDFmNzNhYjk2NmU2MGI0Y2ZiMWRjZTQ0YmYyNGM4MTBjNTcyMGU5MDIifQ"
         }
       ]
     },
@@ -47,7 +47,7 @@
       "statement": "SubmitPage repairs front matter, reconciles Claims, finalizes Claims excluding other pending pages, proves durability, records the manifest entry, and only then marks the job complete; finalization failures rebuild the Claims runtime from durable state.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L541-L592",
+          "resource": "repo://internal/run/run.go#L555-L606",
           "version": "repo-lines-v1:sha256:94ae4f88afc2bbae024afc259e1016b7683a82d8c06aee3fa015cb7e30a97add:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkMjY4ZmUyNTRmNDQ5N2UyMDE3MjEyMDczMDFjOTg2ODI1NDUwNzIzNjgyZGMyM2ZjZWExZmI0MzZjYTc5NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2ZTE1MmIyMmU4ODJmMmU2YmM2ZWI3MzRhNDM0MWQwZGNkNzBjOWEzMGUwNTUwMmY5OTk1ZTRiZmQ4MTA4ZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Y2JhNjUxNzk2YWJhOGQ5MjBiNjU2MTVkNmE2MzU0MDc4OGQ3ZGY4NGE5MjZlMTc4YTg5NGZlMmJiMDRkN2QifQ"
         }
       ]
@@ -57,18 +57,18 @@
       "statement": "Skip restores the page and sidecar from the pre-worker snapshot, marks the job skipped, and writes interrupted last-update metadata.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L621-L671",
+          "resource": "repo://internal/run/run.go#L635-L685",
           "version": "repo-lines-v1:sha256:4748eaf25f260ba779dbb1c42b62bb5a0d78b081546b745b6d87d354a1029c81:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjYzI0MzY2YTM4NjU5YmQyYWNlZDYwNzQwMmE4ZGI4NDE0Y2I3YjEwODU1MTM4N2M4MDllYTYwYTQwNTEyNmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3NDFmNGNlNTQ2ZGE3YTY0Y2ZjMjdjODg1Y2RhZTEzZTFkMDFmMzE1ZTJhNWM4ZTM4OTIxOTczMGJjN2M0NzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhNGZlMGI4ZDUzNjdiZjM1ZmEwMDVkMTViZDQ2YmMyZmFhYzdhODhkYjZlODgxZTQ0NWE0ZTYzYWNkZDlkY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2MDJlMjljOGYyZDNkMjVhZTU2MjYyMmMxYmU4Yjg3ZDRlM2QyMGIxYTNmOGEzYjlhOTNjODc1MGMzM2MzOWMifQ"
         }
       ]
     },
     {
       "id": "claim_58d34aa239154929a0cd5d66867a7955",
-      "statement": "Finish restores skipped pages, deletes abandoned and planned pages, runs OKF finalization with claim sources, finalizes Claims and proves wiki durability excluding skipped pages, rebuilds the manifest, records complete or interrupted status, and removes the checkpoint last.",
+      "statement": "Finish restores skipped pages, deletes abandoned and planned pages, runs OKF finalization with claim sources, finalizes Claims and proves wiki durability excluding skipped pages, rebuilds the manifest, records complete or interrupted status, and removes saved snapshots and then the checkpoint last.",
       "evidence": [
         {
-          "resource": "repo://internal/run/run.go#L673-L821",
-          "version": "repo-lines-v1:sha256:b16360695298206724a01c1d170bb844d7118d676565b2f65809d3a81134e6e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQ5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2YTFlOTI4OTY5MGMyZjViNmZlMjM2YWRiN2MxYTMyOWQxNTE0NjQ0MmNmMDg3OWExZWE3OWJlZmE0NTg5OWRiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhMTViMDkwMGE0MmE1MDU4Y2YzMzQ1NWQ5ODRmN2ZjZDc1MTQzYzViMDM5YmI2YTdkNTkxNDNhMjFmODVmMDRmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJkZmI4MDJjNzlmNDJlNTllMzFmNzMwMzNjNzlkZjk0Y2UyZDM5OTRhOGYzMDExZDNiOWMyZWI3Y2IwOWM1MDVlIn0"
+          "resource": "repo://internal/run/run.go#L687-L804",
+          "version": "repo-lines-v1:sha256:af355fd5f04507dbef255793dd11042dd4f938682f2b167d0ca36bfb6f606e95:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2YTFlOTI4OTY5MGMyZjViNmZlMjM2YWRiN2MxYTMyOWQxNTE0NjQ0MmNmMDg3OWExZWE3OWJlZmE0NTg5OWRiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIyOWMwNTkxYTAyY2ZiYTMxZTYxMjhkY2ZmNDUyZjAwNGIyZTZkOTQ4ZWQ2MjIyZGRkOTRjMTBjMTFiNTg0MmEyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhMTViMDkwMGE0MmE1MDU4Y2YzMzQ1NWQ5ODRmN2ZjZDc1MTQzYzViMDM5YmI2YTdkNTkxNDNhMjFmODVmMDRmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJiYzI4NDFmYzBlMmU1NjEwYzM2ODBiZTY3ZWNiZTIzMTI0NmYxMDFkYzVlMGFkNjJlMTdhNzFhNzFlOTQ3OGNhIn0"
         }
       ]
     },
@@ -115,7 +115,7 @@
           "version": "repo-lines-v1:sha256:9083d28d44066b3fb1034d33a0eb51999dfdb35afe07aea4cfe29b1cd96cf9d3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiOWY5OTQ4OTE4ODU5OTJlOTdkNDUzMGEzMGE1ZmQ5NTI4YzdmOThiYjY1YWE1Mjc2YzgyN2M3NDJjMzI0ZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY0YTUzOGE0M2UwYzgyMGEzMGRlZjk5MDU1ZGM3YzA0YzA5NzVkZTczMGNhMjkwNWQ1YWVlNTdlMmI3MTAxNWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5YmQ2ODBjYjdiYTJlNGFiNTg0NmUxNjMwMGRmMTliZWVjNGJiM2Q4ZTJmOTYwMTliOGFmYmEwZmE5NGJjYTEifQ"
         },
         {
-          "resource": "repo://internal/generate/prompts.go#L62-L66",
+          "resource": "repo://internal/generate/prompts.go#L29-L33",
           "version": "repo-lines-v1:sha256:ed683ad226c96d01ff73dc43b24d0d0bd2c939ecd54b87cbe1cbccaea1d10d37:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2FhZTUxNzFiMDNjNDExZTU5NTQ4YjkxYTM5MjVkM2FhYzA5MzNjZmQzNjkzM2RlMjRiM2ExODg2YjczNGNjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWUyMDM3ZTBlMjBiZDE0YjIyMzM4MGQyMTZmZmRmOTExNzJkOGE3MDA0MjYxNWUwNzdkYWVhZTY5YzM5MmM0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
@@ -166,7 +166,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/459c44e",
+    "at": "2026-10-01T18:01:30.376Z"
   }
 }
