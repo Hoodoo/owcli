@@ -156,11 +156,19 @@ resolution, and source fingerprinting.
   when content changes. Also reports pages with code-derived metadata or no
   description (informational).
 - Mermaid: extract ```` ```mermaid ```` fences (ignoring fences nested in longer
-  fences); a conservative heuristic flags near-certain breakage (`end` as a
-  flowchart node id, `;` or unescaped `<`/`>` inside a label); invalid fences
-  become ```` ```text ```` preceded by `<!-- openwiki: mermaid parse failed: ... -->`
-  so a later update can repair them.
-- Internal link validation over relative Markdown links between pages.
+  fences); a conservative heuristic flags near-certain flowchart breakage (`end`
+  as a node id, `;` or `<`/`>` inside an *unquoted* label, after ignoring HTML
+  entities and `<br>`); invalid fences become ```` ```text ```` preceded by
+  `<!-- openwiki: mermaid parse failed ... -->` so a later update can repair
+  them. owcli has no authoritative Mermaid parser (upstream optionally loads
+  mermaid.js), so the heuristic is stricter than upstream's about false
+  positives: it never flags a diagram upstream's real parser accepted.
+- Internal link validation: relative links and GitHub-style heading anchors;
+  broken links get a `<!-- openwiki: broken internal link ... -->` stamp above
+  the line (old stamps are removed first); root-absolute links are flagged.
+  Targets resolve in repository coordinates with the wiki at `/openwiki`, so
+  links from pages to source files work in the external layout too. Unlike
+  upstream, a link to a directory without a trailing slash is not flagged.
 - Finalization order: Mermaid → indexes → links → claim sources → provenance.
 
 ## Grounded Claims
