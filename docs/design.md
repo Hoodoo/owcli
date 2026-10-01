@@ -266,10 +266,19 @@ non-ignored files, and porcelain status, excluding the wiki.
   on by default, disable with `no_fallbacks = true` for proxies/other platforms.
 - Requests are non-streaming with `max_tokens` 16000; streaming is a possible
   later improvement for very long page writes.
-- Tools: `ls`, `glob`, `grep`, `read_file` (line-numbered, paged) over the
-  repository with ignore enforcement; `write_file`/`edit_file` confined to the
-  current job's page; no shell. Lifecycle actions (`submit_plan`, `submit_page`,
-  `inspect_page_claims`) are exposed to the model as tools.
+- Workspace: one virtual tree where `openwiki/...` maps to the wiki root (in
+  either layout) and everything else to the repository. The repository's own
+  `openwiki/` directory is hidden (in the external layout it may be a stale
+  upstream wiki). Reads honor `.openwikiignore`, refuse `..` segments and
+  symlink escapes, and never show the wiki's hidden control files.
+- Tools: `ls`, `glob`, `grep`, `read_file` (line-numbered, paged), `git_log`
+  (fixed arguments) over the workspace; `write_file`/`edit_file` confined to
+  the current job's page; no shell. Lifecycle actions (`submit_plan`,
+  `submit_page`, `inspect_page_claims`) are exposed to the model as tools; a
+  tool can end the loop (e.g. a successful `submit_page`).
+- Loop: tool failures go back to the model as error results; a `max_tokens`
+  stop without tool calls gets a continue nudge; refusals and the step limit
+  (default 60 model calls) end the run with an error.
 - Planner agent produces the plan; one worker agent per page job, run
   sequentially. Prompts and claim guidance are written fresh for owcli.
 
