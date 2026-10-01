@@ -1,0 +1,279 @@
+# owcli design
+
+owcli is a clean-room Go reimplementation of the repository ("code") side of
+[OpenWiki](https://github.com/langchain-ai/openwiki) (MIT). It generates and
+maintains a linked Markdown wiki for a Git repository, grounds the wiki's
+factual statements in versioned source evidence, and searches it.
+
+This document is the behavioral specification the implementation works from.
+It is written in our own words from upstream's documentation and observed
+behavior. Upstream source may be consulted to resolve behavioral questions; it
+is never copied.
+
+Reference points:
+
+- Upstream at commit `594ef3a2250dbe4ad5257b6b7f50923e2bc98227` (v0.6.1). Its
+  own wiki under `openwiki/` is the most readable description of its behavior.
+- [OKF v0.2 spec](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md).
+
+## Scope
+
+In scope:
+
+- A CLI (`owcli`) that drives its own LLM agent loop to initialize and update a
+  repository wiki.
+- The storage backend: on-disk wiki layout, run checkpoint, page manifest,
+  update metadata, Claims sidecars, and the binding registry.
+- Grounded Claims: evidence resolution, staleness detection, sparse
+  reconciliation, durability proofs, and projection into OKF front matter.
+- `.openwikiignore` rules.
+- OKF v0.2 output: front matter validation and repair, generation provenance,
+  index synchronization, Mermaid validation/degradation, link validation.
+- Search and section read over a wiki.
+- Binding a repository **without writing artifacts into it** (external
+  storage), for exploring other people's projects.
+
+Out of scope: MCP server, parallel page workers, the visualizer UI, coding-agent
+host integrations, personal mode and connectors, workspaces/linking, GitHub
+Actions scheduling, telemetry, translation.
+
+## Compatibility goal
+
+The on-disk wiki format is compatible with upstream: same directory layout,
+front matter conventions, sidecar and manifest schemas, and evidence URI
+syntax. `owcli search` should work on a wiki upstream generated, and vice versa.
+Evidence *version tokens* should match upstream for whole-file evidence; line
+range tokens aim for compatibility but may diverge (a divergence only causes a
+one-time "stale" recheck, never data loss).
+
+## Architecture
+
+```
+cmd/owcli            CLI entrypoint and commands
+internal/ignore      .openwikiignore matcher
+internal/store       layouts (in-repo / external), bindings, atomic JSON state
+internal/okf         front matter, provenance, indexes, mermaid, links
+internal/evidence    repo:// resources, resolver, versions, containment
+internal/claims      sidecar store, session, mutations, preflight, reconcile, projection
+internal/search      section units, tokenizer, BM25F ranking, section read
+internal/llm         provider interface; Anthropic + OpenAI-compatible
+internal/agent       confined file tools, tool-call loop, prompts
+internal/run         generation lifecycle (begin/plan/next/submit/skip/finish)
+```
+
+All deterministic logic (everything except `llm` and the model-facing parts of
+`agent`) must be testable without a model.
+
+## Storage backend
+
+### Layouts
+
+A *wiki root* is the directory holding the wiki pages. Two layouts:
+
+- **In-repo** (default, upstream-compatible): `<repo>/openwiki/`.
+- **External** (`owcli bind --external`): `$XDG_DATA_HOME/owcli/wikis/<id>/openwiki/`
+  (fallback `~/.local/share/...`). `<id>` is a stable slug + short hash of the
+  repository's canonical absolute path. Nothing is written inside the repo: no
+  wiki, no state files, no `AGENTS.md` block, no workflow.
+
+The binding registry (`$XDG_CONFIG_HOME/owcli/bindings.json`) maps canonical
+repo roots to their layout. Resolution: explicit registry entry, else in-repo if
+`<repo>/openwiki/` exists, else unbound. All components receive a resolved
+`Layout` and never compute paths themselves.
+
+Evidence is always resolved against the repository, never the wiki root, and
+wiki paths are always excluded from evidence and fingerprinting regardless of
+layout.
+
+### Files under the wiki root
+
+| Path | Owner | Purpose |
+| --- | --- | --- |
+| `index.md` (every dir) | owcli | generated directory index; root carries `okf_version: "0.2"` |
+| `quickstart.md` | model | mandatory entry page, generated last |
+| `INSTRUCTIONS.md` | user | wiki-wide authoring guidance; preserved across init |
+| `log.md` | reserved | never treated as a concept |
+| `.claims/<page>.json` | owcli | Claims sidecar mirroring page path |
+| `.run.json` | owcli | resumable run checkpoint; deleted on successful finish |
+| `.page-manifest.json` | owcli | per-page completion record (`pageVersion`, `completedBy`, `completedRunId`, `gitHead`, `sourceFingerprint`) |
+| `.last-update.json` | owcli | last run metadata (`updatedAt`, `command`, `gitHead`, `model`, `status`: complete/interrupted, `language`) |
+
+All JSON state has a `schemaVersion`, is validated on read (malformed state is an
+error, never silently discarded), and is written atomically (temp file with
+exclusive create + rename).
+
+## Ignore rules
+
+`.openwikiignore` at the repo root, gitignore-like:
+
+- blank lines and `#` comments skipped; backslashes normalized to `/`;
+- `!` negates; last matching rule wins;
+- leading `/` anchors to root; a pattern containing `/` is also anchored;
+  otherwise it matches at any depth;
+- trailing `/` = directory-only (also matches files below that directory);
+- `**/` = zero or more directories, `**` = anything, `*` = within a segment,
+  `?` = one non-slash char; matching is case-insensitive;
+- a match on a directory also covers everything below it.
+
+`.git/` and the wiki root are always excluded. Rules are enforced by agent read
+tools (hard error on read, silent drop from listings/globs/greps), evidence
+resolution, and source fingerprinting.
+
+## OKF v0.2 output
+
+- Concept page = any `.md` under the wiki root except `index.md`, `log.md`,
+  `INSTRUCTIONS.md` and hidden paths.
+- Front matter validation reports issues instead of failing: required non-empty
+  `type`; optional non-empty strings `title`, `description`, `resource`, legacy
+  `timestamp`; `tags` list of non-empty strings; `generated` = `{by, at}`;
+  `verified` = event or list of events; `sources` = list of mappings with
+  non-empty `resource`; `status` in draft/stable/deprecated; `stale_after` and
+  every `at` = real ISO 8601 datetime with explicit offset. Unknown keys are kept.
+- Repair is conservative: valid front matter is untouched byte-for-byte; a
+  parseable mapping gets surgical per-field fixes (missing `type` gets
+  `Reference` + `openwiki_generated: true`; bad `title` re-derived from first H1
+  or filename; bad optional scalars and unprovable trust fields removed;
+  `sources`/`verified` filtered to valid entries); only unparseable YAML is
+  replaced with a minimal `type`/`title`/`openwiki_generated` block.
+- Front matter edits are line-preserving (set/replace/remove single fields,
+  replace one structured field) so producer extensions survive.
+- Authors own `type`, `title`, `description`, `tags`; owcli owns `generated`,
+  `verified`, `sources`.
+- Generation provenance: before authoring, snapshot SHA-256 of every page body
+  (front matter excluded) plus its prior `generated`; after, stamp
+  `{by: owcli/<version>, at: now}` on new/changed bodies (dropping `timestamp`),
+  restore the prior event on unchanged bodies.
+- Index sync: an `index.md` per directory listing files (title + description,
+  falling back to basename) and subdirectories, sorted by href, written only
+  when content changes. Also reports pages with code-derived metadata or no
+  description (informational).
+- Mermaid: extract ```` ```mermaid ```` fences (ignoring fences nested in longer
+  fences); a conservative heuristic flags near-certain breakage (`end` as a
+  flowchart node id, `;` or unescaped `<`/`>` inside a label); invalid fences
+  become ```` ```text ```` preceded by `<!-- openwiki: mermaid parse failed: ... -->`
+  so a later update can repair them.
+- Internal link validation over relative Markdown links between pages.
+- Finalization order: Mermaid → indexes → links → claim sources → provenance.
+
+## Grounded Claims
+
+- **Claim** = `{id, statement, evidence[]}`; **Evidence** = `{resource, version}`.
+  Ids are `claim_<32 hex>`, globally unique across the wiki.
+- **Resource** = `repo://<repo-relative path>[#Lx-Ly]`; `#L8` canonicalizes to
+  `#L8-L8`. Rejected: escaping paths, absolute/drive paths, control chars,
+  `.git`, the wiki root, ignored paths.
+- **Resolver** reads through a containment gate (no symlinks/aliases escaping
+  the physical repo root). Versions: `repo-file-v1:sha256:<hex>` for whole files;
+  `repo-lines-v1:sha256:<hex>:<base64 anchors>` for ranges, where anchors
+  (selected line count, first/last selected line hashes, up to 3 lines of
+  preceding/following context with hashes) let the resolver relocate moved but
+  unchanged text. Missing file/range resolves to *null* (unresolved), distinct
+  from a changed version (stale). Containment violations count as unresolved.
+  Resolution is cached per `(resource, previousVersion)` within one phase only.
+- **Sidecar** `.claims/<page path>.json`: `schemaVersion`, `pageVersion`
+  (`sha256:` of the page's exact bytes), `claims`, optional `verification`
+  event. Only concept pages get sidecars.
+- **Preflight** re-resolves all evidence: unresolved beats stale; issues are
+  sorted deterministically and attached to owning pages. Issues demand a
+  recheck, not a retraction.
+- **Mutations** `add/confirm/update/retract` apply as an all-or-nothing batch;
+  no duplicate targets, no unknown ids, no duplicate evidence; confirm and
+  evidence-less update refresh versions. Success marks the page dirty and clears
+  issues for the targeted ids.
+- **Sparse reconciliation** per page submission: `confirmedClaimIds`, `claims`
+  (with id = revise, without id = new, matched to an identical existing claim
+  first), `retractedClaimIds`. Omitted issue-free claims are confirmed
+  automatically; omitted issue-bearing claims reject the submission; retracting
+  an already-absent id is tolerated; a factual page may not end with zero claims.
+- **Durability** on finalize: refuse pages with evidence debt; re-resolve all
+  evidence one last time; hash the page; write the sidecar; add a
+  `verification` event when claims are non-empty. Per-page proof re-reads the
+  sidecar and checks persisted state, `pageVersion`, verification, its
+  projection into `verified`, and claim/evidence equality. Finish also removes
+  orphan sidecars.
+- **Projection**: evidence → OKF `sources` (collapsed to whole-file resources,
+  deterministic ids `openwiki-source-<hash>`, foreign entries kept); durable
+  verification → one `verified` event appended after non-owcli events; page
+  versions refreshed after projection, rolling back the stamp if refresh fails.
+
+## Generation lifecycle
+
+Six deterministic operations with a durable checkpoint, driven sequentially by
+the native agent runner:
+
+1. **begin** — validate language; if a checkpoint exists, resume (reset
+   skipped jobs to pending; drop the plan if the source fingerprint changed);
+   otherwise start fresh. A fresh update runs preflight and returns *noop* when
+   the tree is clean, there are no grounding issues, and every page has manifest
+   coverage. A fresh init backs up the existing wiki (keeping `INSTRUCTIONS.md`)
+   and restores it if begin fails before the checkpoint is durable.
+2. **submit plan** — normalize/dedupe paths, reject reserved pages, no page both
+   generated and deleted; init must include `quickstart.md` and may not delete;
+   updates get extra jobs for pages with claim issues; sort by path with
+   `quickstart.md` last; each job gets a UUID and `pending`.
+3. **next page** — first pending job with `existing`, `existingClaimCount`, and
+   only the issue-bearing claims. Read-only.
+4. **inspect page claims** — full compact claim set of the current job only.
+5. **submit page** — current job only; repair front matter; reconcile claims;
+   finalize that page (excluding other pending pages); prove durability; update
+   manifest; then mark complete in the checkpoint.
+6. **finish** — no pending jobs allowed; check fingerprint before and after;
+   delete abandoned/planned-deleted pages and their sidecars; run OKF
+   finalization; restore skipped pages from snapshots; finalize claims excluding
+   skipped pages; prove whole-wiki durability; rebuild manifest (restamp only
+   pages this run completed); write `.last-update.json` (`interrupted` if any
+   skip or drift); delete the checkpoint last.
+
+Worker failure before submit → restore the page and sidecar from the pre-worker
+snapshot and mark the job `skipped`. Failure after a successful submit never
+rolls back. The **source fingerprint** hashes HEAD, tracked and untracked
+non-ignored files, and porcelain status, excluding the wiki.
+
+## Agent runtime
+
+- `llm.Provider` interface: one chat call with system prompt, messages, and
+  tool definitions, returning text and tool calls. Implementations: Anthropic
+  Messages API and OpenAI-compatible Chat Completions (base URL configurable),
+  raw HTTP.
+- Tools: `ls`, `glob`, `grep`, `read_file` (line-numbered, paged) over the
+  repository with ignore enforcement; `write_file`/`edit_file` confined to the
+  current job's page; no shell. Lifecycle actions (`submit_plan`, `submit_page`,
+  `inspect_page_claims`) are exposed to the model as tools.
+- Planner agent produces the plan; one worker agent per page job, run
+  sequentially. Prompts and claim guidance are written fresh for owcli.
+
+## Search
+
+Upstream's "semantic" search is lexical. owcli reproduces it:
+
+- Units: for each non-deprecated concept page, one unit per H2 section (except
+  "Related pages/reading/links", "See also", "Navigation"), plus an
+  introduction unit (H1 text before the first H2) carrying only heading and
+  prose; a page with no H2 is one unit. Anchors are GitHub-style heading slugs
+  with `-N` dedup suffixes.
+- Fields and weights: title 8, description 4, heading 6, prose 1, identifiers
+  3 (page path, tags, source paths). Text is expanded with camelCase/acronym and
+  `_ . / : # -` splits; Porter stemming over Unicode word tokens.
+- Query: unique lowercase word tokens (max 64), stop words dropped unless
+  nothing remains; OR semantics.
+- Ranking: source-path-hint matches desc → number of query terms matched desc
+  → BM25 → stable order. Results: `page#anchor` ref, title, section, description,
+  best-matching block excerpt (≤600 chars). Default 5, max 20.
+- Read: return full raw section(s) for `page` + anchors.
+- An interface is left for an optional embedding reranker later.
+
+## CLI
+
+```
+owcli bind [--external] [path]   register a repo; in-repo or external layout
+owcli unbind [--purge] [path]    forget a binding (optionally delete external wiki)
+owcli init [message]             generate a wiki from scratch
+owcli update [message]           incremental update driven by drift and claim issues
+owcli status                     binding, last update, pending run, claim issues
+owcli check                      deterministic preflight + OKF validation, no model
+owcli search <query> [--path p]  ranked section search
+owcli read <page> <anchor>...    print sections
+```
+
+Configuration: provider, model, base URL, API key env var name — via flags,
+env (`OWCLI_*`), or `$XDG_CONFIG_HOME/owcli/config.toml`.
