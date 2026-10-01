@@ -71,6 +71,8 @@ by Claims (repo:// evidence that owcli rechecks against the source).
   touch .claims/, .run.json, .run-snapshots/, or index.md files.
 - Run steps print JSON with a "next" hint; errors are {"error":{"code","message"}}.
   invalid_input means fix your input and retry the same step.
+- Write plan and submit JSON to a file outside the repository (a file in the
+  repo counts as a source change) and pass it with --file.
 
 ~~~dot
 digraph owcli {
@@ -79,10 +81,10 @@ digraph owcli {
   check  [label="owcli check on the default branch (read-only, no model)"];
   ok     [shape=diamond label="exit 0?"];
   begin  [label="owcli run begin update\n(owcli run begin init for a new wiki)"];
-  plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan < plan.json"];
+  plan   [label="status planning: research changedPaths and claimIssues pages;\nowcli run plan --file /tmp/plan.json"];
   next   [label="owcli run next"];
   write  [label="status pending: research seedPaths, read the page if existing;\nwrite exactly job.path with OKF front matter"];
-  submit [label="owcli run submit <jobId> < claims.json\nnew Claims without id; each claimsRequiringAttention entry:\nconfirm, revise (same id), or retract"];
+  submit [label="owcli run submit <jobId> --file /tmp/claims.json\nnew Claims without id; each claimsRequiringAttention entry:\nconfirm, revise (same id), or retract"];
   skip   [label="cannot complete the page: owcli run skip <jobId>"];
   finish [label="status complete: owcli run finish"];
   done -> check -> ok;
