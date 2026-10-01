@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:ed8ceb1d964c4303b60c141e78959ad4eab29eaef68038847adbbdbc6431b8b7",
+  "pageVersion": "sha256:e893891284536a86a2a2c4a26943a6aa4d6a57ee7ace3a338cda8bd7988e36de",
   "claims": [
     {
       "id": "claim_03e24234579044ca91bae272759e502b",
       "statement": "make check runs go vet and go test over all packages, and make build produces bin/owcli with the version stamped from git describe.",
       "evidence": [
         {
-          "resource": "repo://Makefile",
-          "version": "repo-file-v1:sha256:99c4fb219c70b2c7c8930cdced69b21d4cc0e67cec5caec97e4f091b9dfff861"
+          "resource": "repo://Makefile#L1-L17",
+          "version": "repo-lines-v1:sha256:4fbde388e072fa6f0f9b449e245d0a3bbf61d73a30d5bee1e78273447c2e4351:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4ODdkNDVmOTlmN2Q5NzI4YjU0ZGFkYzk4Nzk3N2Y3YmFjYTc3MDVmYWZiOTdiZTc4MWJkMTlkMzkyOGE5MDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2ZjRlNWZmZDNhNjE2OTkzMTYyNjg2ZDhmMmJhNmFmNGM2ODEyMjkyM2U2OGY0NGZhZTI4YmUyYTYxZWM3YzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyMjk1YmVmNmJhOGI1ZjAyZmQ3NThhY2ExNGZlZDU0OGVhY2QyZWI5Nzk2ZWMwNzU3NzMyNDlhMWU2OGE4YjAifQ"
         }
       ]
     },
@@ -31,7 +31,7 @@
           "version": "repo-lines-v1:sha256:ff0641e552d1b5714cb0fd3bbdab8f68c3c72fa49c712684f96c2eb204b0e42e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGM5MjU5ZTczNjM2NDBjZGFmZTgzNWJlNDgxNzk2ZjE3NDQwOWQ0NWFlYTdiMmZjZDUwNGEyYWQwNjY2NjA5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzBjNjNmODU0N2VmZDJjMTMyOWY1ZTNmOTUyZDRhNmQ0OTRmZWZmOTc3NTEyZmU2ODI2NjE0YjZjM2QxNGViNSJ9"
         },
         {
-          "resource": "repo://internal/cli/generate.go#L26-L27",
+          "resource": "repo://internal/cli/generate.go#L27-L28",
           "version": "repo-lines-v1:sha256:2b58654a54d99a5350f1bb683bf2a6498f5193db602c7542586d47bbd74c329c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIyODExMGQ4YWIyYTIwYTc0OGM0MjZmMDM3YjgyZWY0Njg0MDQwMDBhYTAxMzAzMjQ2NjlkM2UxYzI0ODZiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjBhNzc3YTZmYjM1YjY5MzE4MzU5NTE0Y2VmMDk1ZDI0NmJkMTZmZDdiZGFhOGI4ODhhZGFlNTdiZjEzMjZkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmZjN2M2MTVlMDZlOWY4YzNiMDk3ZTk2YmVhM2IwODg3MmQ5NDYzNTUyYzhjMThhZjc4NGM0MmFiZTM4ZTU3YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVhZmY0NGEwMjAwOWI5N2Y4NGU3NjU1MzBiZTI2YTYyY2U2ODdkZmQ3M2Q3OWE2MzAwYTczZWQzY2UzMmViMiJ9"
         }
       ]
@@ -89,10 +89,24 @@
           "version": "repo-lines-v1:sha256:f1448706198b12db5837c47bf621961cfdcaba6427f8e233fe31791363c61378:eyJzZWxlY3RlZExpbmVDb3VudCI6OTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2NDlmYjMwYmEzNjc5OGEzOWM3YzEyMmEyMmNkMGFmMWE4NmNmNGFiNDliOWZkZmQyMjA1YzRlZGJlNWIzNDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzZTljYzQ5MGMxMDE3OTYwOGZiMGI1MmViMjZkMDM2NGRiYjM3Zjg0YzMxYjQ1MDhmMzZlNjg3Zjk4YjhiZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
+    },
+    {
+      "id": "claim_4cfde5e5f9027d82c4c86b1ef7cbc113",
+      "statement": "make install builds owcli and installs it into BINDIR, which defaults to ~/.local/bin.",
+      "evidence": [
+        {
+          "resource": "repo://Makefile#L19-L22",
+          "version": "repo-lines-v1:sha256:3b2e758004d051d15af255f2db409c9a05c557ec04199968bcfd2d60e478ae15:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQyZjE2MWY0M2I0ODBjMWFmMzA4NWRjNjZhMjI0M2YzMGNmOTgxMjMzYTM4ZTI0MjM2MzFiZDI5ZTA3MmQxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAzNTYyMzU0NDVlM2RiMzQ3YjAzMTM3ZjczNjA2NmI2ZTcyZTlhNzQ3YTU3N2RiNWNjZTU4YzFlMDM4MzYxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjEyZDQyZGNlOWRiNTUxMDJlYTA1Mzg2NTJhNjIwNzY0OWRiOWVlY2VhNWFhNjU5OGU0Mzc5Y2VhY2M2ZjJiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjNjMzU2NDljODcyMjJjNGNlNzgxZjVlYWVlMDdkYTFiZGRkYWRlYWU1MzFkZjgyNjczYmIzNDdjNzdlZDMyYiJ9"
+        },
+        {
+          "resource": "repo://Makefile#L3-L4",
+          "version": "repo-lines-v1:sha256:054a8e3c0e99f689e684d091ad9f91a74f9a639ad32fbea60e9cbd92434f4eb0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk4YzE3MmY5NTYzMmNiYjIzNDc0NjY5ZWM5MzdlMDc5ZDBkZjNjMmYzYWFlZjhhODQzNzY3ZTYzZDhlNWY2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDEyMjc4ODc0NDI2NWI0NWI3YmIyZmFkMzI5Yzc5OGI5ODQ4Mzk5NDBmMzY5YjU4N2RlNWI2OTA5OGY4NWNhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFmNzgyMWUzNDg0YTFkNWExNjc1MzViZTlmYTdiZTdjOGQ3YWYxYmNiZjNhZDFjYmE2YTNmNTU3MGFlZTZlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODM3ZTVkY2QyOGQwZDFlNzVmN2I5MmJkNzk2YzBiYThhMDc0MzVjNjg4MjdlYTkzYjNiMzY3YWE1ZmVjY2JlYyJ9"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T17:37:16.322Z"
+    "by": "owcli/70f8d76",
+    "at": "2026-10-01T21:32:04.947Z"
   }
 }

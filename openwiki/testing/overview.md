@@ -4,8 +4,8 @@ title: Testing
 description: How to build and test owcli, how model-dependent code is tested deterministically with a scripted provider, the fixture patterns used across packages, and the opt-in compatibility tests that compare owcli with upstream OpenWiki.
 tags: [testing, compatibility, fixtures, ci]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/70f8d76
+    at: "2026-10-01T21:32:04.947Z"
 sources:
   - id: openwiki-source-d46fb113abedebe5d8c15a4e
     resource: repo://internal/cli/e2e_test.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/search/compat_test.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+generated: { by: "owcli/70f8d76", at: "2026-10-01T21:32:50.382Z" }
 ---
 
 # Testing
@@ -33,6 +33,7 @@ network.
 ```sh
 make check     # go vet ./... && go test ./...
 make build     # bin/owcli, version stamped from git describe
+make install   # build, then copy to $(BINDIR) (default ~/.local/bin) to try a change end to end
 go test ./internal/run/ -run Resume -v
 ```
 

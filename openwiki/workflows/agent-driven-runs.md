@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/0.0.0-dev
-    at: "2026-10-01T18:37:20.804Z"
+  - by: owcli/70f8d76
+    at: "2026-10-01T21:32:35.200Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -15,11 +15,13 @@ sources:
     resource: repo://internal/cli/host.go
   - id: openwiki-source-a8036dfe86a8391c911fe4a6
     resource: repo://internal/cli/instructions.go
+  - id: openwiki-source-864ce28919ccb443e0ca864d
+    resource: repo://internal/run/git.go
   - id: openwiki-source-3d2ada078788ef210e305606
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/0.0.0-dev", at: "2026-10-01T18:37:57.940Z" }
+generated: { by: "owcli/70f8d76", at: "2026-10-01T21:32:50.382Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -37,10 +39,10 @@ agent learns the procedure from instructions modeled on Kata's.
 | Command | Input | Output (JSON) |
 | --- | --- | --- |
 | `owcli run begin init\|update [--external] [--message M]` | — | `status`: `noop`, `planning`, or `generating`; `runId`, `resumed`, `planInvalidated`, existing `pages`, and for updates `changedPaths` and `claimIssues`; `INSTRUCTIONS.md` text |
-| `owcli run plan [--file F]` | plan JSON on stdin | accepted page order |
+| `owcli run plan --file F` | plan JSON from `F` (or stdin) | accepted page order |
 | `owcli run next` | — | `pending` with `job` (`id`, `path`, `title`, `purpose`, `seedPaths`, `relatedPages`, `existing`, `existingClaimCount`, `claimsRequiringAttention`), the whole `plan`, and planner `instructions`; or `complete` |
 | `owcli run inspect <jobId>` | — | every Claim the page owns, with ids |
-| `owcli run submit <jobId> [--file F]` | sparse Claim decisions on stdin | `complete` with `remaining` |
+| `owcli run submit <jobId> --file F` | sparse Claim decisions from `F` (or stdin) | `complete` with `remaining` |
 | `owcli run skip <jobId>` | — | `skipped` |
 | `owcli run finish` | — | `complete` or `interrupted`, skipped and deleted pages, link and metadata notes |
 
@@ -52,6 +54,21 @@ can follow the loop without remembering it. Failures print
 - `invalid_state`: the step doesn't fit the run's state;
 - `conflict`: an interrupted run of the other mode exists;
 - `not_found`: no active run, or an unknown job.
+
+## Passing JSON input
+
+`plan` and `submit` read one JSON document from `--file`, or from stdin when
+the flag is empty or `-`. The instructions, help text, and `next` hints lead
+with `--file`: the agent writes the JSON with its own file tools and runs one
+command per step. Agents that cannot pipe a heredoc otherwise open a terminal
+session and type the payload, which costs two tool calls per step and echoes
+the whole payload back into the agent's context. To keep that from happening
+silently, a terminal on stdin is rejected at once with `invalid_input` and a
+hint to use `--file`.
+
+The file belongs outside the repository. Source fingerprints include
+untracked, non-ignored files, so a `plan.json` left in the working tree looks
+like a source change and `finish` reports the run as interrupted.
 
 JSON input is decoded strictly, so a misspelled field is reported instead of
 silently ignored. Evidence may be written as `"repo://..."` strings or as
@@ -112,6 +129,7 @@ Following Kata's pattern, there are two levels:
   upstream-generated one. The block says:
   - search just in time;
   - never hand-edit the wiki;
+  - pass plan and submit JSON with `--file`, from outside the repository;
   - after merging code into the default branch, run `owcli check` there, and
     if it fails, follow a dot digraph through begin, plan, next, write,
     submit (or skip), and finish;

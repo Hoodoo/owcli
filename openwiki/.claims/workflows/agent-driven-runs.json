@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:2f1ba8c58e082c244f27bae86fe4ed203c3e8b7d6b86602f7bd4aa243924fb19",
+  "pageVersion": "sha256:a633c032d28d0780356335faaf571170e54a32f8225dc4f7e543d7e655d56e92",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -11,11 +11,11 @@
           "version": "repo-lines-v1:sha256:1785da18ebfebb45f8049d7e74a33147d8d34581b9b45fda45d715ae5462a835:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE1ZDY0Zjk3MWIyNGY3MDFkMzRjNzdmMTI1YWQ5M2Q3MGI3YjQwYTAyYzAyMzZiMDQ1MzkzZTI0YmY2YjVmZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI0MjkzZWZiNGY2MDI5NDUyY2E4ZmQzYWExN2ZlYmZkN2M3MTA4MTY3NWY5NWQ4ODE0MWEzMTEyMmIzMDc3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         },
         {
-          "resource": "repo://internal/cli/host.go#L27-L30",
+          "resource": "repo://internal/cli/host.go#L28-L31",
           "version": "repo-lines-v1:sha256:8416bec7c21e243d569c2941677cb50bbe82c817908ee1a581042c5a669ddbf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Y0YjE5NTE4NGM0YjVhMTQ5N2IzNDc2NWI4ZDczMzQ3NmEyNjVkZTE0ZDk4ZDUwYmJhNzMwYmMwOTE0Y2E2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRkOTViZTZmYTkxNDA4YmU2NTc5NTFkYzhkNjk0NTA0ZjBiZjk5MWYzNWViNDUyNGMyOWJmNjdhNmFmNWUwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGFhOTRkYjNjZDY1MWI4OWU2YjY4N2Q0ZmJiZWYyOGM4YzZhZGNmNGI1NDgwNzFjZWU3MWViYWYzNzNjODQ0YSJ9"
         },
         {
-          "resource": "repo://internal/cli/host.go#L58-L75",
+          "resource": "repo://internal/cli/host.go#L59-L76",
           "version": "repo-lines-v1:sha256:6e06b14f178a5e6fc29bc2d89f6383e078132f51f66871c39f4c52038f6e74ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ZTE3Y2MzYzM1NjRlOWI0OGMyMGQzY2VjYjNkOGEwOGQ5Y2NlOGM1ODc2Mjk2NGNmYWI4MjlhODVjMjg5OGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3NDUxZjM2ZmVhMzYwMDA4Nzc0YmViNGNjZjRmNGUwZjI0ODVkM2VhZGVjNzk4OTBmODE3MTFhODUxMjcwNGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMzk1NjZjNDQ1YzJlMDM5ODY3YzYxYzllMDdmMDhmZDkwZTI5ZTM1MjRlNmY5MTgxMmYxZjQyY2QxZjAwOGQifQ"
         }
       ]
@@ -25,7 +25,7 @@
       "statement": "Run steps after begin reattach to the checkpoint with run.Open, which loads .run.json and rebuilds the Claims runtime without modifying the run, reporting not_found when no run is active.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L76-L83",
+          "resource": "repo://internal/cli/host.go#L77-L84",
           "version": "repo-lines-v1:sha256:e2def3774811cc1303f951a84f139f18096198e5b77b4267346091c3cb3d06e6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlMmFiMmY5ZmNiZmMzYWI0MGM5ZmY0OTM0Mjg3NTdkMjA4MjFlNGRiYjAxY2UwMzg0OWVhZDkyYjc0YjE2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI5NjQwNzljM2M1YzgxNTIwZWYzM2EyYjlkMmUxNWExYjg0ZDcyODBkYjg1OTBkY2Q2NTc0N2UzZTAxMmE0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE2MWMwZTJhNmNhZTUyNGU4NmMyY2I4ZDJmZWMxYTY0ZjFjNDFhMTQzMzNiNjllYjJhMzJkZWUzM2VkMTMxOCJ9"
         },
         {
@@ -39,8 +39,8 @@
       "statement": "next persists the current job's pre-edit snapshot under .run-snapshots and keeps the first capture, and skip and finish use the persisted snapshots.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L287-L339",
-          "version": "repo-lines-v1:sha256:15600efbb7def073a9e5a3a8a219c9445c87c504341e2cdb57ada280b826393f:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTYzOGEyNDRlYTRlOWJlYTI4NWU2OGFlMjM1MzY5Zjk2ZTIyMmMyYmY3ZWQyZWE1NTQzZDMxNTBiZjEwNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFmODhiNmRiOGJkMjMyNjZmZTg4YmY3N2MzMmIxM2UyOTBkNDYyNDdmN2QyZThmNWI0YTM4ZmMwMTNmMDE5YTYifQ"
+          "resource": "repo://internal/cli/host.go#L295-L347",
+          "version": "repo-lines-v1:sha256:d4075a82de8fd902552d9a9c87bdaf83c105d8f1a420314b86a6cf012991c12c:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTYzOGEyNDRlYTRlOWJlYTI4NWU2OGFlMjM1MzY5Zjk2ZTIyMmMyYmY3ZWQyZWE1NTQzZDMxNTBiZjEwNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFmODhiNmRiOGJkMjMyNjZmZTg4YmY3N2MzMmIxM2UyOTBkNDYyNDdmN2QyZThmNWI0YTM4ZmMwMTNmMDE5YTYifQ"
         },
         {
           "resource": "repo://internal/run/host.go#L40-L100",
@@ -53,11 +53,11 @@
       "statement": "begin update reports changedPaths since the last documented commit, including uncommitted and untracked files and excluding ignored paths, capped at 300 entries.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L161-L173",
+          "resource": "repo://internal/cli/host.go#L162-L174",
           "version": "repo-lines-v1:sha256:74d02f3e76c0034d1ab1435e247de2508d1a8401514aa95f67fff50e6ee317c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjY2JkMGExMjcxMzViYmYxYmRkNDBmOTc4OWE1NTIxNjAwZmRjZjcwN2ZjY2NlMWMyNDY4ZTI4NDM5ZWEzNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4N2Y2ZWM5Nzc3NmY5OGNjN2MyYzA4YjA0OTg1NDViNDI5NmM5YmNiMDM5NDFmMDA0M2RmODcxZWI1ZGFlMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxYjZjMGVhZDA4NTc4MTcxZDFlYzY0N2Y2M2QwOTE2YjI3MzlhM2U0MGZlMWI2M2FiY2QxZjk3OGIzMTczYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0M2RlNGRiNTRiMTkwOGZkNzdjN2ZlN2I3ZjhjZTM0NjljOGNhNmYxOTRiN2M4NWVlNTdmNDhiZDQ4ZGZlYTIifQ"
         },
         {
-          "resource": "repo://internal/cli/host.go#L24-L25",
+          "resource": "repo://internal/cli/host.go#L25-L26",
           "version": "repo-lines-v1:sha256:cb362ecd2717c30cd51b88335d47c3eeaaa48b514bdecf51da3be0abee89aaba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjViMzRjZTEzOTM4ODQ1ZTZmMzkyZTNiZjBlNzlmMDQ5ZTVkNWFhMzBjYWFhYzU2MWUwNTkxYWNmODZlNzBhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2M0ODZjOTY4ZmE1MTE5NjQzYWI4NGM5OWFhMTQ2NTFkNjhjN2FiOTJjODIxZTI0MGE3ZjhjOWEwOTZjMjc0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzg0NDczOTUyYWVmZWUwMjAwOWFhYThkMDk5NzM5Yzg3ZDM2ZDg2OTk4ZDdiOWEwMWE1MGY1MzIxMTVlOWI4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjliN2ZmYjY4MjE1NmMxYjVhZmQ0YjY1ODgyZDQ0OGFiZmNmZDUxOGE2ODhhMzQ3NmVjZWUyMDQ5ZDY2NjIzMiJ9"
         },
         {
@@ -71,12 +71,12 @@
       "statement": "JSON input is decoded with unknown fields disallowed, and submitted evidence may be either a string or an object with a resource field.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L238-L256",
-          "version": "repo-lines-v1:sha256:85613c1bc6b9811aea7e448f3006cd63ab671a4635856154f0bf996c86c95387:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY2NTBjMWEzNzNiMTQxNThkMzFiZjM1MjZhMzEwZDAxYWU1MzZhMjA4YTJmOTg5ZDMyMDBmZjBkZjY3MTVjNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3YTg3YTZlYTEwN2I5NjljZDI4YmYzYzk3NzA1ZTM2MjkxZDE0NWRjNzUzOWY0MTc3ODJhNjQ5ZjIzNGY0Y2UifQ"
+          "resource": "repo://internal/cli/host.go#L240-L264",
+          "version": "repo-lines-v1:sha256:3f5fd9b84b1f38edfc8cbc2ddd107e665d9c86c3d5c0cb2935f9721b5f993e9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxOGZhZTU3ZjE0MjgzODFmODJkNzUwMjIxOTJjN2JiMmExNWUxYjkzODcyYzAxNDBkNmE1NzlmNzhlNzlkZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyZTE2NTFmOTA5N2Y0ODU0NjJlNjhiZjE2ZGJmMTUxMTFiODhkNDFlNGQ4ZDYwMDIxZWIyZWMyNTFkNzUxNTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3YTg3YTZlYTEwN2I5NjljZDI4YmYzYzk3NzA1ZTM2MjkxZDE0NWRjNzUzOWY0MTc3ODJhNjQ5ZjIzNGY0Y2UifQ"
         },
         {
-          "resource": "repo://internal/cli/host.go#L359-L392",
-          "version": "repo-lines-v1:sha256:7b9f4fe949d289bc0b41f31ea23139246143d8f76d0a089e7cbd194b83a98d44:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0NTg4MjhmYTY2ODBlNWFkNzhhMTE3NjY1ZTNiYTA4M2Q2MTM0ZDMyN2IyMTE4YTRjMGUyODJjY2M4MjY5NjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxOWI3MWExMTdjYWI4ZGVjNGU5NzczYzFjYThmNjc1MTU5NTY4ZWY5NTdhOGNmNzYyY2U4Nzk0MjcwMGEzODIifQ"
+          "resource": "repo://internal/cli/host.go#L368-L398",
+          "version": "repo-lines-v1:sha256:f85e68ca3dbf31ce5d03f31e6a1b2968a19dffd2393481ef5bf489cc89d43e96:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyMTE4YTkxMWEzY2E2ZDM3YmVhNzMyYTUzMGM3Nzc5YjEwOTIyNDM2ODNmMGZlYjgxYjgzZTQ2MzFmOGNhMzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE3Y2M5NzkxMTA3MWZmNTAyNjdkM2NmMGIxNDc0MjkyODJhN2Q5NjU2ZTAzMjI5N2I0ZThmNzE0YzU0NTQ1MDcifQ"
         }
       ]
     },
@@ -85,11 +85,11 @@
       "statement": "Agent-driven runs record host-agent as the model.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L21-L22",
+          "resource": "repo://internal/cli/host.go#L22-L23",
           "version": "repo-lines-v1:sha256:144824ab0e24146283210226c70bf9797a11aaa59ec7bac8b25e0d13ce9c0352:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDY0MDkxZTc1MmQzNDliYzA1NGRjZDAyMjZlNTE3Zjg3MGRhZmJhYjg4YmVmNGY3ODZmOWUxYTljYjIzM2I2YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA2MzEwMGI5YzAwNjQxZjNjNjE4ODY2Mjc0M2Y3NzA5MTQ3YmQ2YjBiNDk4N2MwOWNiZDUxYjU0MDdhODUzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmZjN2M2MTVlMDZlOWY4YzNiMDk3ZTk2YmVhM2IwODg3MmQ5NDYzNTUyYzhjMThhZjc4NGM0MmFiZTM4ZTU3YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNThjYTA3YjFkNGJjZTM4OWQ2MzJiODQ1YmE3NDcwMTUyYmRmYmNjMmRmYTljNGE4YWE2NTdlM2JmNTMzMDdiYSJ9"
         },
         {
-          "resource": "repo://internal/cli/host.go#L54-L56",
+          "resource": "repo://internal/cli/host.go#L55-L57",
           "version": "repo-lines-v1:sha256:d83ea74026e237b75d0c5495e41a98a93a63ebe21d65b96dd68d2941c73eeec8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY4YWI5ZmFhYmViNjk3NzI2MmNmNzI2Zjc5YWI3MTExZWFiMTA4OTZmNjUwYWM3ODI2MTQ4ZWI1MjVlZWMxNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmFhMThiY2I0MTdlMmRlNWYxMWY5MTM0Zjk0Y2JmMTFmZDI3MjYwNjM5ZDRlODg1NmJkNzU1NjU5ODg1NmNhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDY4ZmUzZDViYTc2OTdiYTAyNzkyZTNmYjNhNTNiNzRkMmFlZThjZmNmZmY4Yzg5NDU2ZmQ4OTFiODllNjgzYyJ9"
         }
       ]
@@ -117,7 +117,7 @@
           "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L185-L222",
+          "resource": "repo://internal/cli/instructions.go#L191-L228",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -127,8 +127,8 @@
       "statement": "The compact instructions route agents to run owcli check after merging code into the default branch and to update the wiki through the run lifecycle when it fails, and not to update on work branches unless asked.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L15-L53",
-          "version": "repo-lines-v1:sha256:0abd86ec7b1c17ad5b2c087857f0b3221886db92a8dd308d7942d3a02097a4cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIxNmQ3YmJlMmQxMzY5YzAyODBhYzA3YTYxMjVhNDNjMjEzZmFhNjViMmI3ZDM5MTBmN2I1MWRjMjVlNDcifQ"
+          "resource": "repo://internal/cli/instructions.go#L15-L54",
+          "version": "repo-lines-v1:sha256:655e37200ae19ab6904e6090014fedd70663f8d765f8159ac22a320088c52d78:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyZjFjOGU3YTVjZWVjZTMwMzI1OTNmZjFhODFlY2Y2NjVlYzg0ZGE3MWM5NDAyMmFkYmY2MmUwNTlkZWY1OTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNWJhZDU4NDA1M2ZlZDJiYmY3ZDVkN2M0YmM5NWIwY2M3MDM5ZDZlZTYyYTUyZGVjMDM2NmM4MWE2ZGM3NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmNTFlZTI5ODAwZmU5NDViNGY1NDlmNjQwMjRiZmRiNzZmNzk4NzFjMGJlYzQ1YmNlNWZlOWFhNTkwM2VhOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzY2JjNWM2ZGIzMTBjYjA2NWNmNGYxZjM0ZmRkMGIxN2M3MzJmYjFiNTI3ZDQ0Y2IwNjUzY2EwZjU2NWE0ZGQifQ"
         }
       ]
     },
@@ -137,8 +137,8 @@
       "statement": "owcli quickstart prints reading and health commands, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L60-L170",
-          "version": "repo-lines-v1:sha256:1ef782b1454c14c020b338d94b9aa7c9a9413a167c4f26cd84f029e92cc41918:eyJzZWxlY3RlZExpbmVDb3VudCI6MTExLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
+          "resource": "repo://internal/cli/instructions.go#L62-L176",
+          "version": "repo-lines-v1:sha256:53f2294fcc9e81a52228110f3491de79a2a5f80afe57daa457a918131c4c31dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
         }
       ]
     },
@@ -147,11 +147,11 @@
       "statement": "owcli run begin reports the current branch and the default branch (origin's HEAD, else a local main or master) and adds a warning when they differ.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L148-L159",
+          "resource": "repo://internal/cli/host.go#L149-L160",
           "version": "repo-lines-v1:sha256:bc3027870d263e47990a37f7bb03bcb1cbb1a430a26bb116aab8ebeb57c45b7a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OWU1NTI3MGQyNGEyNDc4NjA2NDllZDEzNzE0Mzk2NGFhODE3YTkyNDE0MGE4NjExODUzYjQyNTE4YzllNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZjFkMDRhOTRhYjI0N2U4Yzg2YjgwNzIzOTIzMmYxMTU1NDk3Yzc0YWJjMDU2NWI0MGJhYTAzMjJjYWY2ZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3MzY2OGVjZDg0NTNmNGE3NTRiZDVmNWI1MzE0MmIyNzhlZTk1MzMwZWViNWVmMTI0ZTA1NjQ0ZGU2MDk5NzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxNzU3N2Y3MjUzYTAyNWM2OTMxODZiOTFlODE4NzNiNGYxZDI4YjUzNjU1M2FiYmFjYmI1ZDJkMmM4YTU0NzEifQ"
         },
         {
-          "resource": "repo://internal/cli/host.go#L194-L212",
+          "resource": "repo://internal/cli/host.go#L195-L213",
           "version": "repo-lines-v1:sha256:a19e951257ddc06c37621691ee99ed51d3b6a6c86df48322d4f8d1d0a4c4dc47:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3Zjg3NDMxMzg1Nzg2ZmI5ZTZhY2U3MDAxZmZjNzI5NzBhNzY2ZGE2YzJkMTZjNGFkM2Q3NWIxMDNiYTM4OTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYjA2ZGIwYThmNDRhNjZlNWJiNTJmYjVlM2UyN2JmNDk0MTAyYzJjOGJmYWY1YTA1YjM5MWNmNjYwZWRjNjYifQ"
         }
       ]
@@ -161,14 +161,52 @@
       "statement": "owcli run finish commits an external wiki and reports the commit as wikiCommit.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/host.go#L455-L476",
+          "resource": "repo://internal/cli/host.go#L463-L484",
           "version": "repo-lines-v1:sha256:8163f7ceef44fb9b0490b744454a27c9ea76d04007ee4f8e824cb72ead8d2d1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2ODA2ZjE1NWM1YWMxYWUyNzIyY2EwNmYyYWM5Y2FkY2I4ODFiOTEyM2NiNjI0YTNjMTA0NzViNDQ0OWRjMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzYWVmMTc0YjkzYzUwOTA1YTU0NWY5NTEwMjlhYTZlZWYyZGIyMWQ3NTQ5YzNjNmMxN2M3MzZmMWZmMDJhNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5YTA3MjMzODc3MDllYTA5ZWFmYzllMzAwNmFjMDg1YTU4ZjI0MTMyNjcyZjJjOGQ2NzU2MDM0YmI3YjFjYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVhN2JiZDdjY2EzZmY0MTczYjA2MmI4MzYwMDdhZGY2YTc5N2NhNGI4N2U1Mjg3Njk2ZTFlMDFiODQzMzNhNWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fbd278e4cc4730f49d9b0a3e422c53a7",
+      "statement": "plan and submit read JSON from --file, or from stdin when the flag is empty or -, and a terminal on stdin is rejected with invalid_input pointing at --file.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L240-L264",
+          "version": "repo-lines-v1:sha256:3f5fd9b84b1f38edfc8cbc2ddd107e665d9c86c3d5c0cb2935f9721b5f993e9b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxOGZhZTU3ZjE0MjgzODFmODJkNzUwMjIxOTJjN2JiMmExNWUxYjkzODcyYzAxNDBkNmE1NzlmNzhlNzlkZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyZTE2NTFmOTA5N2Y0ODU0NjJlNjhiZjE2ZGJmMTUxMTFiODhkNDFlNGQ4ZDYwMDIxZWIyZWMyNTFkNzUxNTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ3YTg3YTZlYTEwN2I5NjljZDI4YmYzYzk3NzA1ZTM2MjkxZDE0NWRjNzUzOWY0MTc3ODJhNjQ5ZjIzNGY0Y2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b505cb63e64b81300e8b10c17dd8906b",
+      "statement": "The compact instructions, quickstart, and next hints tell agents to write plan and submit JSON to a file outside the repository and pass it with --file.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/host.go#L181-L182",
+          "version": "repo-lines-v1:sha256:421327094401ee987c48a55584ba3f0b7db04c1a08002766c96e19c502eedeba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhlMzg1ZGIzNzRkOTU5ZmI0MDUzOGJkMjRkYjE5ZTExNDljYzMzYjJhMjA5OThhOWQ3NGMxMjNkMjY1NzNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1YTUxZDdmYjM2M2E1OGUwNjRhMTBlNmFjNjExNTMxMTYwZGVjYWY2MGE3ZDEwMGZmMmQzZTAxNzM2MjQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQ1MDdkNDI2MWNkZjNmNWRkZTQ1Yzk5ZWNkZmJmZjY4ZjkwOGJmZWM4NzYzODhmMDIwNjI5ZDE4NmJiODBlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzMmM2NTczMGEwMjFmNGU1ZGM5MGMwMWQwZjE1YTlhODRiYWVmYWIwMmU4NjMxNDY5MjM3MTlhMWIxMjAxNSJ9"
+        },
+        {
+          "resource": "repo://internal/cli/instructions.go#L131-L134",
+          "version": "repo-lines-v1:sha256:99ccd002d0aecf413a343ee6f8c8a45d0fcd6a6a8d4891d7cb6fdff51622481c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU0YmMyZmM4ZTk1YmM1MzFlNzZlYzQ3Y2U5ZWY2OTJkMWIwMTIyYzZlNTFkMjI2NmI2ZTJhNTIwNThhYzNiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ5M2E3YzI4YzI3M2E4OTJlOThiZDEwZTQwMWE0Y2Y2MDE2ZGU2OGRhNjExOGY3OTVmZGRjMGM3MGU2MDk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIwMTQ2ZjYxOTVkN2FkNTI0ZDQ2Nzg4NmJiOTVlMGIxNWU1ODliZmQ5ZWRiNDEwYzA2ODc2Nzg3ZjllNjgzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWI2MTI2NGE2ZDc5YmYxMzhiNDE0N2M4NjVmZWI5YTIxN2U2NWU3YzY0ZTFjMmU0NzRmZTYyMDQ3YTQxNjBkYyJ9"
+        },
+        {
+          "resource": "repo://internal/cli/instructions.go#L24-L25",
+          "version": "repo-lines-v1:sha256:4f3c298d3457ee69c453bedc51113b5802b1d90c4b192bec78790ca2511d36cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRiNzE0NTA3MjZjYmE2OTExZmYyY2IxYjliZjMwZWNmYWJlYjVkOTAzZmYwOGJiYTA5ZmI2MjVmNTkyNzZkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNkMmI0M2I2Y2IwMjJlMDFkNTIzOTdiOTg2ZTIzMzhmOWE5YThlOGM0NmIzMjc5YTU1N2Y3YWY1MzljOTRkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQyYmYwYmZhZDY4NjFhNDliOWVjODBkZDljODE3OTM4NDAxNjhjODBlNjRjNjhlZjNkMzQ5ZWQ0Y2I2ZjExZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVjNjNjNTJlZDBlMjkxYzc5MmM1ZWVhMTlkOTAzYjI0YjhmMTQwMjg3ZWUzYWEyNWExNDdjMDNmNTQ1MmY3MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_38ffc5bdddb443ca039f6f7469124e7e",
+      "statement": "Source files for fingerprinting include untracked files that are not git-ignored.",
+      "evidence": [
+        {
+          "resource": "repo://internal/run/git.go#L42-L50",
+          "version": "repo-lines-v1:sha256:b7f85351c8c86be06096956973f51c44358fc9dedd8a6e42d54213c24bf8989e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI5MmUxM2Q1NmEyOWFhZWE3ZDFkZDk5MDAwNmRlNDlkYzIyOTU2MTE0ZDZiYjg5MTgzMTZmYjk4MGYzZDkzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJhY2EwZDljM2RkZjQzNDAxZjlmZTZiYmJmZmQ0YzI2NDM5NDNlNWMwOWRhNjkwNjIwM2U1ZGVkYjk0NWM0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWZhYjBhYjk2OTRkMDc1Y2U5ZTE1NTcwMzU0NWM0M2UzZWI3OWNlYTM2OTAwMTQ2NTQzN2NiNjM4NmQ3OGY1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzc0ZjMwMjk4NTcwYTY3MmEzZWFlNzIzYzA2YWFkODRlMTY4N2E3OTYxNDczNTYyMmY3NzYwOGZhNmQ4NTJhNSJ9"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/0.0.0-dev",
-    "at": "2026-10-01T18:37:20.804Z"
+    "by": "owcli/70f8d76",
+    "at": "2026-10-01T21:32:35.200Z"
   }
 }
