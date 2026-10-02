@@ -4,8 +4,8 @@ title: Browser Viewer
 description: How owcli serve shows wikis in a browser - the loopback server and its default scope, the JSON API, how the page graph is built, page rendering with Claims, the embedded UI and its navigation rules, and how the viewer is tested.
 tags: [viewer, serve, graph, ui]
 verified:
-  - by: owcli/1bb33cd
-    at: "2026-10-02T09:08:40.013Z"
+  - by: owcli/ca4c372
+    at: "2026-10-02T10:02:05.663Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/serve/serve_test.go
   - id: openwiki-source-8c0d5d551a6c5db87a710545
     resource: repo://internal/serve/static/app.js
-generated: { by: "owcli/1bb33cd", at: "2026-10-02T09:08:56.220Z" }
+generated: { by: "owcli/ca4c372", at: "2026-10-02T10:02:05.870Z" }
 ---
 
 # Browser Viewer
@@ -103,8 +103,18 @@ build step and no dependencies. Only Mermaid is fetched from a CDN, and only
 when a page has a diagram; offline, the diagram shows as its source.
 
 - **Header:** a picker of every workspace and wiki from `/api/wikis`,
-  search with keyboard navigation, and colouring by page type or by wiki.
-- **Graph:** a small force-directed layout on a canvas. Drag the background
+  search with keyboard navigation, colouring by page type or by wiki, and
+  **Pages** and **Graph** toggles that hide the sidebar or the graph. The
+  choices are kept per browser in `localStorage`; when storage is blocked the
+  toggles still work, with defaults on the next visit.
+- **Sidebar:** the scope's pages as a tree, grouped by wiki in a workspace
+  and then by directory, with root pages first and pages sorted by title. A
+  filter matches titles and paths. The open page is highlighted and scrolled
+  into view, and pages with Claims to recheck carry a red dot. On narrow
+  screens the sidebar is a drawer, closed by default, that closes again
+  after a page is picked.
+- **Graph:** a small force-directed layout on a canvas, computed only once
+  the graph is shown. Drag the background
   to pan, scroll to zoom, drag a node to move it, click a node to read it.
   Hovering shows a tooltip and highlights the node's neighbours. The view is
   refitted when the window resizes, until the reader pans or zooms.
@@ -118,9 +128,9 @@ when a page has a diagram; offline, the diagram shows as its source.
 
 Navigation is sequenced: every page request gets a number, and a response
 for a page that is no longer the latest request is dropped, so a slow answer
-never replaces a newer page. Mermaid diagrams render one page at a time and
-only while their page is still shown; a render interrupted by navigation
-fails on its own without stopping later diagrams.
+never replaces a newer page. Mermaid diagrams are drawn off the page with
+`mermaid.render`, one at a time, and an SVG is inserted only if its page is
+still shown, so navigating away mid-render leaves nothing half-drawn.
 
 ## Testing
 
