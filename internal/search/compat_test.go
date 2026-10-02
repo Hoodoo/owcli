@@ -56,7 +56,7 @@ var compatQueries = []compatQuery{
 func TestUpstreamSearchParity(t *testing.T) {
 	dir, pkg := os.Getenv("OWCLI_UPSTREAM_DIR"), os.Getenv("OWCLI_UPSTREAM_PKG")
 	if dir == "" || pkg == "" {
-		t.Skip("OWCLI_UPSTREAM_DIR and OWCLI_UPSTREAM_PKG not set")
+		t.Skip("OWCLI_UPSTREAM_DIR and OWCLI_UPSTREAM_PKG not set (the operator installs upstream with make openwiki-install)")
 	}
 	dir, _ = filepath.Abs(dir)
 	qs, _ := json.Marshal(compatQueries)
@@ -121,7 +121,7 @@ console.log(JSON.stringify(out));
 func TestUpstreamWorkspaceSearchParity(t *testing.T) {
 	pkg := os.Getenv("OWCLI_UPSTREAM_PKG")
 	if pkg == "" {
-		t.Skip("OWCLI_UPSTREAM_PKG not set")
+		t.Skip("OWCLI_UPSTREAM_PKG not set (the operator installs upstream with make openwiki-install)")
 	}
 	source, err := filepath.Abs(filepath.Join("..", "..", "openwiki"))
 	if err != nil {

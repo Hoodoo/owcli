@@ -105,3 +105,20 @@ begin means the wiki is current: stop. External wikis are committed to their
 own history automatically at finish.
 Full procedure, JSON formats, and the page and Claim standards: `owcli quickstart`.
 <!-- OPENWIKI:END -->
+
+## Upstream OpenWiki
+
+Upstream OpenWiki (the `openwiki` npm package, its skill, and its MCP server)
+is normally not installed where agents work: agents confused it with owcli.
+The operator switches it with `make openwiki-install` and
+`make openwiki-uninstall` (sudo; hosts set by OPENWIKI_HOSTS). Never run
+these yourself.
+
+- To check upstream behavior, read https://github.com/langchain-ai/openwiki
+  at the commit pinned in docs/design.md. No install needed.
+- If a task needs the package itself (the opt-in parity tests in
+  internal/search/compat_test.go), ask the operator to install it, then set
+  OWCLI_UPSTREAM_PKG="$(npm root -g)/openwiki". Ask them to uninstall it when
+  you are done.
+- While it is installed, still use owcli for this repository's wiki, never
+  the openwiki skill or MCP tools.
