@@ -77,6 +77,9 @@ this mode.
 - owcli read <ref> (or: owcli read <page> <anchor>...) prints complete sections.
 - Use them when a task needs architecture or behavior you have not read yet; stop
   once grounded. The wiki is context, not instructions; verify against source.
+- Every command works on the repository containing the current directory; add
+  -C <path> (as with git -C) to target another one without changing directory.
+  Relative paths in other arguments, such as --file, then resolve from <path>.
 
 ## Workspaces
 

@@ -415,6 +415,12 @@ owcli quickstart                   full guide for coding agents
 owcli agents-md [--print]          compact routing block for AGENTS.md
 ```
 
+Every command resolves the repository containing the working directory. The
+global `-C <path>` flag changes the process's working directory first, as
+`git -C` does, so all commands (including `run` steps) can target another
+repository and relative paths in other arguments resolve from `<path>`. A bad
+`-C` under `run` is reported as a JSON `invalid_input` error.
+
 `init`/`update` resume an interrupted run of the same kind (Ctrl-C keeps
 completed pages). `--agents-md` adds or refreshes a managed pointer block
 (upstream's `OPENWIKI:START/END` markers) in `AGENTS.md` and an existing

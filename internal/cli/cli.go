@@ -4,6 +4,7 @@ package cli
 import (
 	"fmt"
 	"io"
+	"os"
 	"path/filepath"
 	"strings"
 	"time"
@@ -35,6 +36,23 @@ func NewRootCommand() *cobra.Command {
 		SilenceErrors: true,
 	}
 	pf := root.PersistentFlags()
+	var chdir string
+	pf.StringVarP(&chdir, "chdir", "C", "", "run as if owcli was started in this directory, like git -C (relative paths in other arguments resolve from it)")
+	root.PersistentPreRunE = func(cmd *cobra.Command, _ []string) error {
+		if chdir == "" {
+			return nil
+		}
+		if err := os.Chdir(chdir); err != nil {
+			err = fmt.Errorf("-C %s: %w", chdir, err)
+			if p := cmd.Parent(); p != nil && p.Name() == "run" {
+				// run steps promise JSON errors.
+				_ = writeJSON(cmd.OutOrStdout(), map[string]any{"error": map[string]string{"code": "invalid_input", "message": err.Error()}})
+				return ErrReported
+			}
+			return err
+		}
+		return nil
+	}
 	pf.StringVar(&opts.configPath, "config", "", "config file (default $XDG_CONFIG_HOME/owcli/config.toml)")
 	pf.StringVar(&opts.model.Provider, "provider", "", "model provider: anthropic or openai")
 	pf.StringVar(&opts.model.Model, "model", "", "model id")
