@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c00424a9c6561b8c7af0ada476910fd81ee2d4716b847ccc4488cf3a902fe44c",
+  "pageVersion": "sha256:2abfa3faba24ca494f3c0bb11fac6e0db304d77a0d7fe8feda03d548136804b4",
   "claims": [
     {
       "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_e3f9fd1095fd42ee9d254fabf2461f39",
-      "statement": "The CLI exposes bind, bindings, unbind, init, update, status, check, search, read, workspace, run, quickstart, and agents-md commands.",
+      "statement": "The CLI exposes bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, run, quickstart, and agents-md commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L63-L78",
-          "version": "repo-lines-v1:sha256:df225cfaf6cf4c55b3dc56238d9e71eb0cfaa660630f4b5a1abcd35436ea6bd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
+          "resource": "repo://internal/cli/cli.go#L63-L79",
+          "version": "repo-lines-v1:sha256:c86a32b9990c60fe1d09cff2f19741d303480e18f4902dbd27726172ab0ea0df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
         },
         {
           "resource": "repo://internal/cli/inspect.go#L118-L125",
@@ -79,7 +79,7 @@
       "statement": "Passing an existing external wiki home with bind --wiki-dir reattaches it to a new clone only when any repository previously bound to that home no longer exists.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L98-L124",
+          "resource": "repo://internal/cli/cli.go#L99-L125",
           "version": "repo-lines-v1:sha256:7fd55fde34050a8f3bb7a415db3ba2de6fdff797f45d6f46c39d57dbbb342d99:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NGVjOGFlMDM4YzA5MzIwZjE0Y2MzYjI3NWRiOGFjMGNkNmE3NzhiNjcxNWZhMGFhNmRiYWFiNDE5MzE1MjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4OTYwOTQzN2FkYzQ3MWMwNmI5M2M2YjQwMmViMDc0YzUwM2JmN2M2ZGQ4OTY4YWRiNWQ1NDNhNDYyODEwN2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFjYjEwMjViMjUyYzg3YjM4ZjMxYTcwYjQzODZjNDMxNzBjODY2OTI3NzEwMzcwZDY3ZjdiOTM4YjY0ZWJhOWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQifQ"
         },
         {
@@ -114,7 +114,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/c8bf7ec",
-    "at": "2026-10-02T08:36:19.149Z"
+    "by": "owcli/bf95e7c",
+    "at": "2026-10-02T08:46:46.942Z"
   }
 }

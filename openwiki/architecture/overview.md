@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-01T22:02:21.201Z"
+  - by: owcli/bf95e7c
+    at: "2026-10-02T08:46:16.376Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -13,6 +13,8 @@ sources:
     resource: repo://docs/design.md
   - id: openwiki-source-da21f52d07ab623ce6a4f0a7
     resource: repo://internal/cli/cli.go
+  - id: openwiki-source-302ef671148b579b9bc0a466
+    resource: repo://internal/cli/wikis.go
   - id: openwiki-source-5be0d15fffd7a818d0c655c1
     resource: repo://internal/generate/generate.go
   - id: openwiki-source-558855d6164a3c50e05cc15a
@@ -27,7 +29,7 @@ sources:
     resource: repo://internal/search/search.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
-generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
+generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
 ---
 
 # Architecture Overview
@@ -112,9 +114,11 @@ lifecycle to an interactive coding agent, one JSON step per command, so the
 agent researches and writes pages and owcli calls no model at all. See
 [Agent-Driven Runs](../workflows/agent-driven-runs.md).
 
-`owcli search`, `read`, `status`, `check`, `bindings`, and `workspace` never
-call a model. `bindings` inventories registered repositories and orphaned
-managed wiki homes; `workspace` manages named groups of wikis; `search`
+`owcli search`, `read`, `status`, `check`, `bindings`, `wikis`, and
+`workspace` never call a model. `bindings` inventories registered
+repositories and orphaned managed wiki homes; `wikis` lists every known wiki
+and workspace for people and tools; `workspace` manages named groups of
+wikis; `search`
 builds an in-memory SQLite FTS5 index per query over every wiki in its scope
 (one wiki, or a whole workspace) and ranks sections with weighted BM25.
 

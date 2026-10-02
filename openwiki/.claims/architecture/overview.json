@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:d08e1be0c4ac9faf852c7cc83bac58c7b5b1c02a818d0b210be42e75f9047684",
+  "pageVersion": "sha256:3f4f8b47cdd437ad9b5e29b938aef51201c4f79b902dd2e689848d445220f402",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_547da34b35324cf1aaeed4b5ac939590",
-      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L45-L60",
-          "version": "repo-lines-v1:sha256:df225cfaf6cf4c55b3dc56238d9e71eb0cfaa660630f4b5a1abcd35436ea6bd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
+          "resource": "repo://internal/cli/cli.go#L63-L78",
+          "version": "repo-lines-v1:sha256:2278ef6ca755b073c0498e264423c5153d3a1494112c7e52d44c3a5d0cf4624f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         }
       ]
     },
@@ -117,10 +117,20 @@
           "version": "repo-file-v1:sha256:c5ed799dd2e3859aaebfabf621ab88c9c90163268e956e0e5205d523458b5cdb"
         }
       ]
+    },
+    {
+      "id": "claim_acb2769e9a85669ede8d3492f1dbfc73",
+      "statement": "owcli wikis lists every known wiki and every workspace without calling a model.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/wikis.go#L47-L88",
+          "version": "repo-lines-v1:sha256:56af2852165264c257f11d2aa7cbcd4b1260a6b08507b191c5ca2242cb801d91:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiOGE4OTQ1YjM5ZGM2OWMwN2FkODdiYTA0NmQ5MjhjNmRhODc0MmEyM2E5MmYzMGFkMDUwZTJmZmFjODk3ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3ZmQ4YzkzNmEwOTFjZjI3N2FiMjJiOWY0NzVhZDg3ZjZkOWYyMmRhNDc5NmJiMjVkNmJjYTVmNGUyYzI1MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlODA3NGI1NzNiZGU0MTQ3MGE4NzMzYzRlOTRiOTQyNmNlM2EwMjJlYjQxZGZhOWQyMTAyMmI3NTBlNDEwNmMifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/8cd3bda",
-    "at": "2026-10-01T22:02:21.201Z"
+    "by": "owcli/bf95e7c",
+    "at": "2026-10-02T08:46:16.376Z"
   }
 }

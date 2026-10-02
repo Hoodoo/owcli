@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/c8bf7ec
-    at: "2026-10-02T08:36:10.732Z"
+  - by: owcli/bf95e7c
+    at: "2026-10-02T08:46:38.138Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/c8bf7ec", at: "2026-10-02T08:36:19.341Z" }
+generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -145,7 +145,7 @@ Following Kata's pattern, there are two levels:
   workspaces (cross-wiki search and read, `workspace_required`, naming a
   target with `--workspace` or `--wiki` from outside a repository, the
   `owcli workspace` commands), health checks (including `status --all` and
-  `check --all` across every known wiki), binding inventory, where registry and wiki files live, safe
+  `check --all` across every known wiki), the `owcli wikis` listing, binding inventory, where registry and wiki files live, safe
   reattachment after a clone moves, each lifecycle step with example JSON,
   error codes, and the planning, page, and Claim standards.
 

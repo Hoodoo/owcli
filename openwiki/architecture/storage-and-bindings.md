@@ -4,8 +4,8 @@ title: Storage Layouts and Bindings
 description: Where owcli keeps a wiki and its control state, how repositories are bound in-repo or externally (writing nothing into the repository, optionally in a chosen directory), how external wikis are versioned with Git, how state files are persisted atomically, and how .openwikiignore excludes paths.
 tags: [storage, bindings, layout, state, ignore]
 verified:
-  - by: owcli/c8bf7ec
-    at: "2026-10-02T08:35:56.662Z"
+  - by: owcli/bf95e7c
+    at: "2026-10-02T08:46:29.756Z"
 sources:
   - id: openwiki-source-97e4c0a36bad5faaa1e7ac8d
     resource: repo://internal/cli/all.go
@@ -15,6 +15,8 @@ sources:
     resource: repo://internal/cli/host.go
   - id: openwiki-source-1d2731c7c1f08c4fb512ad26
     resource: repo://internal/cli/inspect.go
+  - id: openwiki-source-302ef671148b579b9bc0a466
+    resource: repo://internal/cli/wikis.go
   - id: openwiki-source-73ced814c723211b0a29960d
     resource: repo://internal/ignore/ignore.go
   - id: openwiki-source-e370da3884d4a2d6ea7a5245
@@ -29,7 +31,7 @@ sources:
     resource: repo://internal/store/vcs.go
   - id: openwiki-source-2697fb4bf3ba0749710fbc98
     resource: repo://internal/store/wikiref.go
-generated: { by: "owcli/c8bf7ec", at: "2026-10-02T08:36:19.341Z" }
+generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
 ---
 
 # Storage Layouts and Bindings
@@ -103,6 +105,15 @@ The command also reports orphan directories directly under
 binding references. It never scans or classifies user-chosen `--wiki-dir`
 parents as orphans, and it does not delete anything. Custom homes that happen
 to be inside owcli's managed directory still count as referenced.
+
+`owcli wikis` is the broader discovery view. It lists every repository owcli
+knows, bound or only a workspace member, with its wiki ID, location, layout,
+workspaces (the active one marked), last update, and any problem, followed by
+every workspace and its members. `--json` returns all of it in one object and
+is meant as a stable, additive contract for tools such as an editor
+integration or a viewer; `--health` adds check results. owcli never scans the
+disk for wikis: a repository is known only once it is bound or added to a
+workspace.
 
 `owcli status --all` and `owcli check --all` go one step further than this
 inventory: they inspect every bound repository and every workspace member,
