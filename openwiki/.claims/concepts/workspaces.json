@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:22aa94b64c5c2b39456828587ef5ec9cb8823416a1323b9d1b95b72a011ad0b4",
+  "pageVersion": "sha256:5fb21054c7813922099166e770738229522c420ab34064042efdbba09fdc731a",
   "claims": [
     {
       "id": "claim_d58c5c1c7635440fddc582a8156e6267",
@@ -69,8 +69,8 @@
       "statement": "A workspace member without its own wiki can still search its workspaces.",
       "evidence": [
         {
-          "resource": "repo://internal/store/scope.go#L62-L94",
-          "version": "repo-lines-v1:sha256:00c2e699daab86f1225f0478c3a0db2180cfd70f856582343f66710ca7e578e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlZWIwNzY2MDExY2I5Mzk5YjllOTQ5NjExYWY5MTgxNjEwNmFjNjljNmZmMDYxN2M5ZWUyZDczZDk5M2YxMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkMzEzZmI2YWNhYWRlZjhmNjEzMjIwMmYyNzhhZTVkODVkNjEzNTY2ODU3ODcxZWNmMGY2OTFmOTQ1Y2RiZDQifQ"
+          "resource": "repo://internal/store/scope.go#L68-L101",
+          "version": "repo-lines-v1:sha256:22a398913aa4de14ed95c675e67190d72251d2150462365ee117ed0c3869cda7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiYmUyNjA4YmNmMmU4MzNkMWFhOTg2NzQyOTY2N2MxN2E1MzE0M2ExODJkNjUxMDdiODQyYTIxNTM3NDcwNTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyOWJjNjFkNmM4M2VlZTM3ZjBlZDNmZTcxZGUzYWE5MDE4MDJiNjc3MjJkYTRiZjA2YzYzZTQ5Mzk2ZGQ0ZmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiNTkwYjhjZDkwMjVjYzI3NDJmNjM4ZDQ0NDVkMTZhMTcyYjYwOWI5NDRjMzIwN2M4MzhjMGU0ZmU0Y2E0NTUifQ"
         }
       ]
     },
@@ -79,8 +79,8 @@
       "statement": "ResolveSearchScope requires an explicit workspace to contain the repository, searches the own wiki with no workspace, uses a single workspace automatically, uses the active one among several, and otherwise returns workspace_required with the choices.",
       "evidence": [
         {
-          "resource": "repo://internal/store/scope.go#L117-L171",
-          "version": "repo-lines-v1:sha256:3072c0ed58b8347ae22b330370e3e17841fb0d2846f3101d2e9da4fbc7d8806a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjNWQwYzU3MzRmOTBhNTFiYTY2M2ZhMWRlNTdkOGVmYjI2ODhlMDI4MDE2NTQzMTM4YzgzZTk4NGE5N2I5MzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhMDNkNjFiYmI3NDAyYjNhMWFiMTJiODY2Yzk3NWNmNzc0ZjRkZTI3NjBkNWYwOTg1NmNmNTBlYzQ4NTIxNzEifQ"
+          "resource": "repo://internal/store/scope.go#L128-L188",
+          "version": "repo-lines-v1:sha256:c6b8d5ae226af053932aa793fd6c8ba441e5b4b268cb6eec6717a61903937d14:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiODE1MTY2NmZmMTA0NzgzZTFmMmE0ZWE5NDIxMDNhNDg0MTZmMmFiYmYzMzFhY2E3ODY1ZTM3ZGUxYTEwZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwMGE0Zjk2MGQ5NmNkMTU1ZTNjMDc3ODVhYzkzYTk4NTA5M2I4NWUyYWNhOTk1OTdhM2E3YTQyZTQ5NmRmOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlYzYxMWJjNjY1YzlkODM2NWNjMzEyN2YzMmZlZTdkMGMzYjg0MjkyZDkwMDYwYmUyNDcxMTlmYjk1ODAzNzAifQ"
         }
       ]
     },
@@ -89,8 +89,8 @@
       "statement": "ResolveReadableWiki allows the repository's own wiki or a wiki sharing a workspace with it.",
       "evidence": [
         {
-          "resource": "repo://internal/store/scope.go#L172-L201",
-          "version": "repo-lines-v1:sha256:6914cc1a78aa94a5747df740f242371c6768b2c5fe83c9e6d244356a3ad7b3d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwMjY1ZDJmY2EzMWE4NzYwZWNkNDRiZmE1MmU5OGIwZDcwOWQxNmNiZjJlMjRhNDY1NGMxZjM3YTdjNTZkMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkYWZiOTM3OTMxZDEwMmJhODc3NDgyOTJlYzdiN2FmY2FhOWJjNmEwNDNkZTA3NzI5ZjU4ODMxOWM1ZWNkOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://internal/store/scope.go#L190-L228",
+          "version": "repo-lines-v1:sha256:1b82bee5dc942a0ece1190908a8532e86a90e61183a0e1808a0f0a4321abed04:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwMjY1ZDJmY2EzMWE4NzYwZWNkNDRiZmE1MmU5OGIwZDcwOWQxNmNiZjJlMjRhNDY1NGMxZjM3YTdjNTZkMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkYWZiOTM3OTMxZDEwMmJhODc3NDgyOTJlYzdiN2FmY2FhOWJjNmEwNDNkZTA3NzI5ZjU4ODMxOWM1ZWNkOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -123,10 +123,38 @@
           "version": "repo-lines-v1:sha256:fc5d237f2a3b695c39a87868652c026f4f32f77b2bb9ca5745e2d93099e0e572:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJmNzdjZWFlMmY0YmNhMzU0Y2E2OGNiNzFiZDJhMjJlM2MxODQ0YTFmNWQ2M2ZiODliMzk2NWM3ZmFiYzhiMzI3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI2NGEyZDAwNmMyMDQ0ZGU1ZmM3ZjMxZWM5MjYzY2MwMTViOTMwNmI3OTExOTI5ZjA2MWQzMmJlZDBiZTA1MjVjIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
+    },
+    {
+      "id": "claim_a17726903d76a9e0002e87ca7797dab4",
+      "statement": "With no current wiki, an explicit workspace is searched directly and --wiki resolves any known wiki, while a command with no target still fails.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/scope.go#L128-L188",
+          "version": "repo-lines-v1:sha256:c6b8d5ae226af053932aa793fd6c8ba441e5b4b268cb6eec6717a61903937d14:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiODE1MTY2NmZmMTA0NzgzZTFmMmE0ZWE5NDIxMDNhNDg0MTZmMmFiYmYzMzFhY2E3ODY1ZTM3ZGUxYTEwZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwMGE0Zjk2MGQ5NmNkMTU1ZTNjMDc3ODVhYzkzYTk4NTA5M2I4NWUyYWNhOTk1OTdhM2E3YTQyZTQ5NmRmOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlYzYxMWJjNjY1YzlkODM2NWNjMzEyN2YzMmZlZTdkMGMzYjg0MjkyZDkwMDYwYmUyNDcxMTlmYjk1ODAzNzAifQ"
+        },
+        {
+          "resource": "repo://internal/store/scope.go#L190-L228",
+          "version": "repo-lines-v1:sha256:1b82bee5dc942a0ece1190908a8532e86a90e61183a0e1808a0f0a4321abed04:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwMjY1ZDJmY2EzMWE4NzYwZWNkNDRiZmE1MmU5OGIwZDcwOWQxNmNiZjJlMjRhNDY1NGMxZjM3YTdjNTZkMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkYWZiOTM3OTMxZDEwMmJhODc3NDgyOTJlYzdiN2FmY2FhOWJjNmEwNDNkZTA3NzI5ZjU4ODMxOWM1ZWNkOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://internal/store/scope.go#L68-L101",
+          "version": "repo-lines-v1:sha256:22a398913aa4de14ed95c675e67190d72251d2150462365ee117ed0c3869cda7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiYmUyNjA4YmNmMmU4MzNkMWFhOTg2NzQyOTY2N2MxN2E1MzE0M2ExODJkNjUxMDdiODQyYTIxNTM3NDcwNTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyOWJjNjFkNmM4M2VlZTM3ZjBlZDNmZTcxZGUzYWE5MDE4MDJiNjc3MjJkYTRiZjA2YzYzZTQ5Mzk2ZGQ0ZmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiNTkwYjhjZDkwMjVjYzI3NDJmNjM4ZDQ0NDVkMTZhMTcyYjYwOWI5NDRjMzIwN2M4MzhjMGU0ZmU0Y2E0NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_164f7b442c2400d1d224ce61ca02f2fb",
+      "statement": "ResolveWikiRef accepts a workspace member ID, a WikiID, or a repository name known to exactly one bound repository or member, and lists the matching IDs when a name is ambiguous.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/wikiref.go#L50-L100",
+          "version": "repo-lines-v1:sha256:1fed42fb4cbab4692bb6b8c8e8176354dc68442ee8c290c0d1c2979fb3a4ad47:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNzIzNWQ0NThkOGM4M2NmZjM0MzU1ZWI1MWIyOWJmYWZhMjQzNmIwZDdkMDQ5NTIwY2QxNmViNjljZjc2NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhMGIzY2VjNzViY2ZlMzg1YmIxY2QwZmVlZWY1N2VkOGVlZTAxMjRjYzdhYjYxYjk2MzcyNGIwOTU5OGI5ZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1ODk1MzFiODdmOTI4ZmQ3MjJjNTQ4NmVhNDZmNjA0MGNhNjBjZjM5ODc3ZDcwOGM0NzcyMzZhYzAzNGE5Y2EifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/8cd3bda",
-    "at": "2026-10-02T07:50:08.266Z"
+    "by": "owcli/0d035b9",
+    "at": "2026-10-02T08:30:28.060Z"
   }
 }

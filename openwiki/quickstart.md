@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/45fa35f
-    at: "2026-10-02T08:04:24.660Z"
+  - by: owcli/0d035b9
+    at: "2026-10-02T08:30:45.768Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/45fa35f", at: "2026-10-02T08:04:24.845Z" }
+generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
 ---
 
 # owcli Quickstart
@@ -65,6 +65,7 @@ owcli bind --external | unbind [--purge]
 owcli bind --wiki-dir /old/wiki/home  # reattach after moving a clone
 owcli workspace create "Emacs packages" ~/src/lib ~/src/new-pkg  # search several wikis together
 owcli read --wiki lib openwiki/concepts/x.md#anchor  # read a result from another wiki
+owcli search --wiki vui-workitem "jira refresh"  # from anywhere: name a wiki (owcli bindings shows IDs) or --workspace
 ```
 
 Interrupting `init` or `update` keeps every completed page; running the same

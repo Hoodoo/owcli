@@ -4,8 +4,8 @@ title: Wiki Search and Read
 description: How owcli search ranks wiki sections lexically with an in-memory SQLite FTS5 index and weighted BM25, re-orders by source-path hints and query-term coverage, builds excerpts, leaves a hook for semantic reranking, and how owcli read returns whole sections.
 tags: [search, retrieval, fts5, bm25, ranking]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-01T22:02:54.214Z"
+  - by: owcli/0d035b9
+    at: "2026-10-02T08:30:13.219Z"
 sources:
   - id: openwiki-source-da21f52d07ab623ce6a4f0a7
     resource: repo://internal/cli/cli.go
@@ -13,7 +13,7 @@ sources:
     resource: repo://internal/search/markdown.go
   - id: openwiki-source-737fd75f8183342d95459c99
     resource: repo://internal/search/search.go
-generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
+generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
 ---
 
 # Wiki Search and Read
@@ -108,7 +108,11 @@ standalone results carry no `wiki` field, as upstream's do.
 wiki, or every searchable member of its workspace (`--workspace` picks one
 explicitly). In a workspace search the JSON also reports the `workspace`, its
 `wikis`, and any `skipped` members; when the choice is ambiguous the command
-exits 1 with `workspace_required`. See [Workspaces](workspaces.md).
+exits 1 with `workspace_required`. `--wiki <id>` searches a single wiki
+instead (one the current repository may read), and its results carry that
+wiki's ID. Outside any repository, or in one with no wiki and no workspace,
+a search must name its target with `--workspace` or `--wiki`, which then
+resolve from the registries alone. See [Workspaces](workspaces.md).
 
 ## Reranker hook
 

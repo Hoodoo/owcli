@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:602f81624e9a12545802264c05dc0fc0e7a17c07ac94cee4f59219b1507887a4",
+  "pageVersion": "sha256:29ce018ee7209964b2169b6fab54885c633fdf3aee1369e4c0b6ae9f321706e4",
   "claims": [
     {
       "id": "claim_6ade388ddfb74da78bee16e2770554da",
@@ -137,8 +137,8 @@
       "statement": "owcli search resolves its scope with ResolveSearchScope, exits with workspace_required and the choices when the choice is ambiguous, and reports workspace, wikis, and skipped members in workspace searches.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L207-L277",
-          "version": "repo-lines-v1:sha256:24af6a8558ec23c649df23eaa02e1cad3982e71eb5b3e65a024d3ece3ca9b9f2:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5YzFlYzhlYjEyZjdiNzc0ZjM2MzViNDI0OWM1OWJiMTg0MTcxMmM0NTFjOTJiMjIxNjZjZGNjNWI5YTE4MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlNWZmMTFkMmEzYzhkYTgzYjg4NTJmOTIzNjA1M2VkZWJiMjYzZWU0NDIxNTMyOWIwYjM1YTNmMWQxNjAzYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjMjM5NTI2ZGEyZGNiMjMxM2JlNTNiMWI4ODQ1YzYwMGUzNTEwMjIyYmY0YmYwZGFlNWNkYzgyYmI0NjI5YWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiZDY2NGQ1ZjVjOTVkZjAyYmNlMTYyMjg2OGU5MjU3YTI1MGNmMGE5NTFkZjg0NDEzNzY0ZGEyOTg1NDMzM2IifQ"
+          "resource": "repo://internal/cli/cli.go#L204-L317",
+          "version": "repo-lines-v1:sha256:7e77dcbe1984599ef8f1d48f221b57b73d0b9e6f65861a3a885465303cbb169e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI4ZTgyYjUwOTUyNzJhNzMyNGZiMmM4NThjODM1N2IyOGEyMDU4NDM2MGJiNDIyYzVmNDA4NzRmODRiNmI2ZjNmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YmE0YTllMGJhODEwZDA1NDI0MjIxYzQxMTc0ZWY5OGQ4YTI2MjhiMmU4NThhODBiNGIzM2E0NzIzMGU4ZjU3IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI5MDMyYjcxNDg5ZTg5YjY0NzVjOTRiZDNmMDY0MTU1NmEwMzE4ODQ1NjM2NTA2OTg5MzAzNWU2N2MzOTQ2ZjFmIn0"
         }
       ]
     },
@@ -147,14 +147,24 @@
       "statement": "owcli read --wiki opens a wiki resolved by ResolveReadableWiki.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L303-L315",
+          "resource": "repo://internal/cli/cli.go#L340-L352",
           "version": "repo-lines-v1:sha256:78e73d1fd037c03ab586e440e93471f87eec3fc08a7678647f9758b026c7db7d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5YzFlYzhlYjEyZjdiNzc0ZjM2MzViNDI0OWM1OWJiMTg0MTcxMmM0NTFjOTJiMjIxNjZjZGNjNWI5YTE4MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExMjgwMzA2NzdhZmEyMjA2MzkyMDEyMTRhOGFiODQ1YmUzZGYzYTVjZjg5ZGY1MDk1YWFlN2JmMDRmM2YxNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4MDk0ZmQ3ODlmOTdmNzg1Mjg1N2RlODM3MzFlNWFlZDJmOTg4MTI1Yjk5N2EwMjhlOGVjNmM5OTgyMzFhMTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMWMzNjIxMDMzNGQxNTUzZWE0NjZjODJjZjZmMTQ0NDdjMzczNTg2ZGQzZjU2NTQ4ZDEwNjE0MWFiNDU3NzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_38419e2232a8936073136a24753da0fd",
+      "statement": "owcli search --wiki searches one wiki resolved by ResolveReadableWiki, stamps results with its ID, and refuses to combine --wiki with --workspace.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L204-L317",
+          "version": "repo-lines-v1:sha256:7e77dcbe1984599ef8f1d48f221b57b73d0b9e6f65861a3a885465303cbb169e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI4ZTgyYjUwOTUyNzJhNzMyNGZiMmM4NThjODM1N2IyOGEyMDU4NDM2MGJiNDIyYzVmNDA4NzRmODRiNmI2ZjNmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YmE0YTllMGJhODEwZDA1NDI0MjIxYzQxMTc0ZWY5OGQ4YTI2MjhiMmU4NThhODBiNGIzM2E0NzIzMGU4ZjU3IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI5MDMyYjcxNDg5ZTg5YjY0NzVjOTRiZDNmMDY0MTU1NmEwMzE4ODQ1NjM2NTA2OTg5MzAzNWU2N2MzOTQ2ZjFmIn0"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/8cd3bda",
-    "at": "2026-10-01T22:02:54.214Z"
+    "by": "owcli/0d035b9",
+    "at": "2026-10-02T08:30:13.219Z"
   }
 }

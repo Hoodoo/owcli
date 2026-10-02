@@ -4,8 +4,8 @@ title: Workspaces
 description: How owcli groups repository wikis into named workspaces so an agent in one repository can search and read the others - the registry and its ID rules, member resolution, search-scope selection, federated search, the workspace commands, and where owcli differs from upstream.
 tags: [workspaces, search, registry, cli]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-02T07:50:08.266Z"
+  - by: owcli/0d035b9
+    at: "2026-10-02T08:30:28.060Z"
 sources:
   - id: openwiki-source-86bf4030244551d79539af25
     resource: repo://internal/cli/workspace.go
@@ -13,9 +13,11 @@ sources:
     resource: repo://internal/search/compat_test.go
   - id: openwiki-source-2f97c192c632b2ecd0cb2b99
     resource: repo://internal/store/scope.go
+  - id: openwiki-source-2697fb4bf3ba0749710fbc98
+    resource: repo://internal/store/wikiref.go
   - id: openwiki-source-40f5deaf3e3708af3d62370d
     resource: repo://internal/store/workspaces.go
-generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
+generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
 ---
 
 # Workspaces
@@ -98,6 +100,28 @@ still empty repository can join a knowledge base and use it from day one.
 
 `ResolveReadableWiki` lets `owcli read --wiki <id>` open the repository's own
 wiki or any wiki that shares a workspace with it, and nothing else.
+
+These restrictions protect the current repository's view. When there is no
+current wiki (the command runs outside any repository, or in one with no
+wiki that is in no workspace), there is nothing to protect: an explicit
+`--workspace` is searched directly, and `--wiki` names any known wiki. A
+command with no target there fails as before.
+
+## Referring to a wiki from anywhere
+
+`ResolveWikiRef` turns a reference into a wiki using only the binding and
+workspace registries, so it works from any directory:
+
+- a workspace member's ID (`kb`);
+- a wiki ID, `WikiID(root)`: the repository slug plus a hash of its root
+  (`vui-workitem-6b04d4025b7d`), shown by `owcli bindings`;
+- a repository name, when exactly one bound repository or member has it;
+  otherwise the error lists the matching IDs.
+
+Implicit in-repo wikis that are neither bound nor members are unknown to the
+registries; reach them by path with `-C`. `status` and `check` accept
+`--wiki` from anywhere. Writing commands (`init`, `update`, `run`) never
+resolve by reference: they work on a checkout, named with `-C`.
 
 ## Commands
 
