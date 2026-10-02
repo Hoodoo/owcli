@@ -82,21 +82,62 @@ func (d Dirs) ResolveWikiRef(ref string) (ScopedWiki, error) {
 		}
 		return ScopedWiki{}, workspaceErr("wiki %q is ambiguous; use one of: %s", ref, strings.Join(ids, ", "))
 	}
-	c := match[0]
-	if _, err := os.Stat(c.root); err != nil {
-		return ScopedWiki{}, workspaceErr("wiki %s: repository not found at %s", c.id, c.root)
-	}
-	l, err := d.Resolve(c.root)
-	if errors.Is(err, ErrUnbound) {
-		return ScopedWiki{}, workspaceErr("wiki %s: %s has no wiki; run `owcli -C %s init` or bind it", c.id, c.root, c.root)
-	}
+	w, problem, err := d.resolveCandidate(match[0])
 	if err != nil {
 		return ScopedWiki{}, err
 	}
-	if fi, err := os.Stat(l.WikiRoot); err != nil || !fi.IsDir() {
-		return ScopedWiki{}, workspaceErr("wiki %s: wiki directory missing at %s", c.id, l.WikiRoot)
+	if problem != "" {
+		return ScopedWiki{}, workspaceErr("wiki %s: %s", w.ID, problem)
 	}
-	return ScopedWiki{WikiIdentity: WikiIdentity{ID: c.id, Name: filepath.Base(c.root)}, Layout: l}, nil
+	return w, nil
+}
+
+// resolveCandidate resolves a known repository to its wiki. A problem (the
+// repository or its wiki is missing) is returned as text, with the identity
+// still filled in; err is for failures reading state.
+func (d Dirs) resolveCandidate(c wikiCandidate) (ScopedWiki, string, error) {
+	w := ScopedWiki{WikiIdentity: WikiIdentity{ID: c.id, Name: filepath.Base(c.root)}}
+	if _, err := os.Stat(c.root); err != nil {
+		return w, "repository not found at " + c.root, nil
+	}
+	l, err := d.Resolve(c.root)
+	if errors.Is(err, ErrUnbound) {
+		return w, fmt.Sprintf("%s has no wiki; run `owcli -C %s init` or bind it", c.root, c.root), nil
+	}
+	if err != nil {
+		return w, "", err
+	}
+	if fi, err := os.Stat(l.WikiRoot); err != nil || !fi.IsDir() {
+		return w, "wiki directory missing at " + l.WikiRoot, nil
+	}
+	w.Layout = l
+	return w, "", nil
+}
+
+// KnownWiki is one wiki the registries know, resolved. Problem explains why
+// it cannot be inspected; Wiki.Layout is valid only when Problem is empty.
+type KnownWiki struct {
+	Wiki    ScopedWiki
+	Root    string
+	Problem string
+}
+
+// KnownWikis lists every bound repository and workspace member, in
+// repository-root order, with its wiki resolved or its problem reported.
+func (d Dirs) KnownWikis() ([]KnownWiki, error) {
+	cands, _, err := d.candidates()
+	if err != nil {
+		return nil, err
+	}
+	out := make([]KnownWiki, 0, len(cands))
+	for _, c := range cands {
+		w, problem, err := d.resolveCandidate(c)
+		if err != nil {
+			return nil, err
+		}
+		out = append(out, KnownWiki{Wiki: w, Root: c.root, Problem: problem})
+	}
+	return out, nil
 }
 
 // ResolveLayoutRef resolves the wiki an operator command (status, check)

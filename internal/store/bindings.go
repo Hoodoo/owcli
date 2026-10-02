@@ -258,16 +258,25 @@ func (d Dirs) Bind(dir string, kind Kind, wikiDir string, now time.Time) (Layout
 }
 
 // Unbind forgets the binding for the repository containing dir and returns
-// the layout it had. With purge, an external wiki is deleted; an in-repo wiki
+// the layout it had. A deleted repository is unbound by its registered path. With purge, an external wiki is deleted; an in-repo wiki
 // is never deleted, since it belongs to the repository.
 func (d Dirs) Unbind(dir string, purge bool) (Layout, error) {
-	root, err := RepoRoot(dir)
-	if err != nil {
-		return Layout{}, err
-	}
 	r, err := d.loadRegistry()
 	if err != nil {
 		return Layout{}, err
+	}
+	root, err := RepoRoot(dir)
+	if err != nil {
+		// A repository that no longer exists can still be unbound by the
+		// path it was registered under.
+		abs, absErr := filepath.Abs(dir)
+		if _, statErr := os.Stat(abs); absErr != nil || !os.IsNotExist(statErr) {
+			return Layout{}, err
+		}
+		if _, ok := r.Bindings[abs]; !ok {
+			return Layout{}, err
+		}
+		root = abs
 	}
 	b, ok := r.Bindings[root]
 	if !ok {

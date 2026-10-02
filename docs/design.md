@@ -416,8 +416,8 @@ owcli unbind [--purge] [path]      forget a binding (optionally delete external 
 owcli bindings [--json]            list bindings and orphaned managed wiki directories
 owcli init [--external] [message]  generate a wiki from scratch; binds an unbound repo
 owcli update [message]             incremental update driven by drift and claim issues
-owcli status                       binding, last update, pending run, claim health
-owcli check                        read-only: preflight, OKF, links, diagrams; non-zero exit on problems
+owcli status [--wiki id | --all [--json]]  binding, last update, pending run, claim health
+owcli check [--wiki id | --all [--json]]   read-only: preflight, OKF, links, diagrams; non-zero exit on problems
 owcli search <query> [--path p] [--workspace w]  ranked section search (workspace-aware)
 owcli read [--wiki id] <ref | page anchor...>    print sections
 owcli workspace <create|add|remove|delete|list|wikis|use|current|clear>  workspace registry
@@ -431,6 +431,13 @@ global `-C <path>` flag changes the process's working directory first, as
 `git -C` does, so all commands (including `run` steps) can target another
 repository and relative paths in other arguments resolve from `<path>`. A bad
 `-C` under `run` is reported as a JSON `invalid_input` error.
+
+`status --all` and `check --all` inspect every known wiki: all bindings and
+workspace members, in repository-root order. A repository or wiki that is
+missing is reported for that wiki rather than aborting, and counts as a
+problem for `check --all`, which exits non-zero if any wiki has one. `unbind`
+accepts the registered path of a repository that no longer exists, so such
+entries can be cleared.
 
 `init`/`update` resume an interrupted run of the same kind (Ctrl-C keeps
 completed pages). `--agents-md` adds or refreshes a managed pointer block

@@ -111,6 +111,10 @@ owcli read --wiki <wiki> <ref>. A member needs no wiki of its own to search.
 - owcli status: binding, last run, pending run, Claim health.
 - owcli check: read-only validation (stale or unresolved Claims, orphaned
   sidecars, front matter, broken links, suspicious diagrams); exit 1 on problems.
+- owcli status --all / owcli check --all [--json]: the same for every bound
+  repository and workspace member, from anywhere; check --all exits 1 if any
+  wiki has problems or is missing. owcli unbind <path> also removes the binding
+  of a repository that no longer exists.
 
 ## When to update
 

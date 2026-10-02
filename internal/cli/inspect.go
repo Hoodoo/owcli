@@ -116,12 +116,36 @@ func inspectWiki(l store.Layout) (*wikiState, error) {
 }
 
 func newStatusCommand() *cobra.Command {
-	var wiki string
+	var (
+		wiki   string
+		all    bool
+		asJSON bool
+	)
 	cmd := &cobra.Command{
 		Use:   "status",
 		Short: "Show binding, last update, pending run, and claim health",
-		Args:  cobra.NoArgs,
+		Long: `Show the current repository's wiki: binding, last run, pending run, and
+Claim health. --wiki targets a registered wiki from anywhere; --all lists
+every bound repository and workspace member (--json for scripts).`,
+		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
+			if all {
+				if wiki != "" {
+					return fmt.Errorf("give --all or --wiki, not both")
+				}
+				health, err := allHealth()
+				if err != nil {
+					return err
+				}
+				if asJSON {
+					return writeJSON(cmd.OutOrStdout(), map[string]any{"wikis": health})
+				}
+				printStatusAll(cmd.OutOrStdout(), health)
+				return nil
+			}
+			if asJSON {
+				return fmt.Errorf("--json needs --all")
+			}
 			l, err := resolveLayoutRef(wiki)
 			if err != nil {
 				return err
@@ -152,6 +176,8 @@ func newStatusCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().StringVar(&wiki, "wiki", "", "target a registered wiki by ID or repository name instead of the current repository")
+	cmd.Flags().BoolVar(&all, "all", false, "every bound repository and workspace member")
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON (with --all)")
 	return cmd
 }
 
@@ -184,16 +210,54 @@ func short(h string) string {
 var errCheckFailed = errors.New("check found problems")
 
 func newCheckCommand() *cobra.Command {
-	var wiki string
+	var (
+		wiki   string
+		all    bool
+		asJSON bool
+	)
 	cmd := &cobra.Command{
 		Use:   "check",
 		Short: "Validate the wiki without a model: Claims, OKF front matter, links, diagrams",
 		Long: `Run every deterministic check without changing anything: Claims preflight
 (stale or unresolved evidence), orphaned sidecars, OKF front matter validity,
 broken internal links, and suspicious Mermaid diagrams. Exits non-zero when
-something needs attention.`,
+something needs attention.
+
+--wiki checks a registered wiki from anywhere. --all checks every bound
+repository and workspace member and exits non-zero if any has problems,
+including a repository or wiki that is missing (--json for scripts).`,
 		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
+			if all {
+				if wiki != "" {
+					return fmt.Errorf("give --all or --wiki, not both")
+				}
+				health, err := allHealth()
+				if err != nil {
+					return err
+				}
+				failing := 0
+				for _, h := range health {
+					if h.Problems > 0 {
+						failing++
+					}
+				}
+				if asJSON {
+					if err := writeJSON(cmd.OutOrStdout(), map[string]any{"wikis": health, "failing": failing}); err != nil {
+						return err
+					}
+				} else {
+					printCheckAll(cmd.OutOrStdout(), health)
+				}
+				if failing > 0 {
+					cmd.SilenceErrors = true
+					return errCheckFailed
+				}
+				return nil
+			}
+			if asJSON {
+				return fmt.Errorf("--json needs --all")
+			}
 			l, err := resolveLayoutRef(wiki)
 			if err != nil {
 				return err
@@ -211,6 +275,8 @@ something needs attention.`,
 		},
 	}
 	cmd.Flags().StringVar(&wiki, "wiki", "", "target a registered wiki by ID or repository name instead of the current repository")
+	cmd.Flags().BoolVar(&all, "all", false, "every bound repository and workspace member")
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON (with --all)")
 	return cmd
 }
 
