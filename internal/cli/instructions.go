@@ -106,6 +106,9 @@ owcli read --wiki <wiki> <ref>. A member needs no wiki of its own to search.
 
 ## Health
 
+- owcli serve [--port N] [--no-open]: a read-only browser viewer on 127.0.0.1
+  (page graph, rendered pages with their Claims, search) for people. Start it
+  only when the user asks; it runs until stopped.
 - owcli wikis [--json] [--health]: every wiki owcli knows (bound or in a
   workspace) with its ID for --wiki, location, workspaces, and last run, plus
   every workspace; one JSON object for tools. owcli never scans the disk.
