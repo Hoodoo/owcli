@@ -4,8 +4,8 @@ title: Workspaces
 description: How owcli groups repository wikis into named workspaces so an agent in one repository can search and read the others - the registry and its ID rules, member resolution, search-scope selection, federated search, the workspace commands, and where owcli differs from upstream.
 tags: [workspaces, search, registry, cli]
 verified:
-  - by: owcli/0d035b9
-    at: "2026-10-02T08:30:28.060Z"
+  - by: owcli/c8bf7ec
+    at: "2026-10-02T08:36:02.849Z"
 sources:
   - id: openwiki-source-86bf4030244551d79539af25
     resource: repo://internal/cli/workspace.go

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:77ceef507eb5a64bae25c300180dc74f557a9bad94afd3fd2c186248bc808260",
+  "pageVersion": "sha256:4eccadb7aee92e1ca7f7faf009dd7fd67bbb13083b9d2efe68eb781b9ace82ec",
   "claims": [
     {
       "id": "claim_ef779a1b85614312a6a3496dc3925e81",
@@ -61,8 +61,8 @@
       "statement": "Unbind with purge deletes an external wiki in the data directory but refuses to purge an in-repo wiki or a user-chosen wiki directory.",
       "evidence": [
         {
-          "resource": "repo://internal/store/bindings.go#L263-L293",
-          "version": "repo-lines-v1:sha256:bdf6f9c8c547a9079b531e52079c0b9f0bfc992530db4f56d2845ae3109bd6c1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzMGZjOWFhYzU1ZjkzODUwZWVhYjNlNGU3M2IxNDQyZTQ4ZjMzNzcwYTk5MDBhMDhhYjVlMjQxODY2ZTU0OGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllNTYwYTVkNTAzY2QzYTgxMDRlZTI4MzlmNjNjMTQ5ZWM3ZDZlZGZlNTM5YTZmZDIwMGVmYjAzM2Y1NTQ5ZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://internal/store/bindings.go#L260-L302",
+          "version": "repo-lines-v1:sha256:5052ac9b54d2d07aa92f74decfed636491c720736a29428b6c4ebd6223a0931d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzZDRhNmY3ZWZkZDUxMTE3Y2E2OTBkOWRhZjQ1NjFlMzE5MTkzYmU4MTMzOTIwZjEzYzE1NWJhOTM5ZWNjNGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmNjRlYzU0ZDljNzQzZWZkYmVmZmIxNTFmYWI4NDZmMTdhNjZlNTMxMGM1MGM1YTU4NDM2ODU4OGMwZjAxNGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -231,18 +231,56 @@
       "statement": "status and check accept --wiki to target a registered wiki instead of the current repository.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/inspect.go#L118-L156",
-          "version": "repo-lines-v1:sha256:1f902a2d83eed2ab48c04391b736df52caa8903bb6f6177836181e8261bc7df9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzMTdhZTI4NzU3YWRiYjZkYTE0MmQwOGFkZTBhZDYzNTkyMGE0MDFlNGQ2MTdkMTkyZDcyNTcyZTU5NWE4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzODQ3ZjE5N2QyMTYxMDY2NzllNGIzYjRmNmE5NzgwM2ViMzQ2ZTdmOGU2ZmZmNWU4OWU4YTQ4NDhjODk4YjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiMzE2MjJkNzU0Y2RlM2I0ZjNjYmM0ODU3MjMzOWU0ZTZlMzkzMTVmYTEwMjMyODkxYjcxMWU2ZmQxODBhNGUifQ"
+          "resource": "repo://internal/cli/inspect.go#L118-L182",
+          "version": "repo-lines-v1:sha256:3d666057681faf316a19e2b0681cd02093fb4995d207a02aac65c0a1194f6269:eyJzZWxlY3RlZExpbmVDb3VudCI6NjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzMTdhZTI4NzU3YWRiYjZkYTE0MmQwOGFkZTBhZDYzNTkyMGE0MDFlNGQ2MTdkMTkyZDcyNTcyZTU5NWE4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzODQ3ZjE5N2QyMTYxMDY2NzllNGIzYjRmNmE5NzgwM2ViMzQ2ZTdmOGU2ZmZmNWU4OWU4YTQ4NDhjODk4YjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiMzE2MjJkNzU0Y2RlM2I0ZjNjYmM0ODU3MjMzOWU0ZTZlMzkzMTVmYTEwMjMyODkxYjcxMWU2ZmQxODBhNGUifQ"
         },
         {
-          "resource": "repo://internal/store/wikiref.go#L102-L114",
-          "version": "repo-lines-v1:sha256:35b20a6ef10bf1a133f2514473b33f754eed97feb7552d5b0f1bec958607fab1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0ZDI1MjJkZGM4YTU5ZTIxMzYyZmMxYTI5OWYyNDA3YzA0MGExNTMxMmI1MzhlZjliODE4ODMzMTM1NzIwYzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjNWNlNzUyNDVhM2Y5YjFiYzhlMTU0NTNhNmM2YzQzOTliYTgzMzhlNjQxODFmYWI2ZDcyZTNmNzk0MzY0YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://internal/store/wikiref.go#L143-L155",
+          "version": "repo-lines-v1:sha256:35b20a6ef10bf1a133f2514473b33f754eed97feb7552d5b0f1bec958607fab1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0ZDI1MjJkZGM4YTU5ZTIxMzYyZmMxYTI5OWYyNDA3YzA0MGExNTMxMmI1MzhlZjliODE4ODMzMTM1NzIwYzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3Y2M5NzkxMTA3MWZmNTAyNjdkM2NmMGIxNDc0MjkyODJhN2Q5NjU2ZTAzMjI5N2I0ZThmNzE0YzU0NTQ1MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cb36f285adae3455e8b357466e462e2a",
+      "statement": "status --all and check --all inspect every bound repository and workspace member, reporting a missing repository or wiki per entry instead of aborting.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/all.go#L39-L66",
+          "version": "repo-lines-v1:sha256:bc7468188f08da718bac12b9d8431f10fd7df62af53cc800f08609c52b1bf0e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzMzJjZTM4Y2E1NTFjMDIxYjA3YmI2MDQzYWEwMWU0MmQ0MzI4NmYwMGNkNmIxNzhhODQzYTcxMDFhZjQ2ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1ZWNmOGY1ZWZhZWU1NjFjN2RiNDg1MjQ1ZTUwODIzNGUxNzdkMzZiZDE4OTU1OTdlMWU5MzI1OWEwYjNkZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlhMTk3ODIzMDkzNjMwNzQwNjZmYzJjNjBhODBlNmMzNWVhZmY5NzAyZWFmYmFjMTJkZGQyNGJiNTE1ZDNmY2EifQ"
+        },
+        {
+          "resource": "repo://internal/store/wikiref.go#L125-L141",
+          "version": "repo-lines-v1:sha256:0bf36a4eec996c9c3b44ce55dd1fbb588456b5ea760d9c755a94076b764cf666:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhZGIzNjBjMjM0YzkxOGIwZTUyMmUwNTZlYTI0NzhhZDllNTU2MTM3ODU4NzUwMjMyMmQzODBlM2QzMTIxZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3M2IyMWRiMTYzMmYyOTAxYzczN2ZkZTkzMDk1YWRmZGI0MDU3YmVlYTVlMzc0MmE2M2MxMTEzZTM0YzE0MzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1ODk1MzFiODdmOTI4ZmQ3MjJjNTQ4NmVhNDZmNjA0MGNhNjBjZjM5ODc3ZDcwOGM0NzcyMzZhYzAzNGE5Y2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2ddd9f08d8280117f32d5c3688be2b77",
+      "statement": "check --all exits non-zero when any wiki has problems, and a missing repository or wiki counts as a problem.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/all.go#L39-L66",
+          "version": "repo-lines-v1:sha256:bc7468188f08da718bac12b9d8431f10fd7df62af53cc800f08609c52b1bf0e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzMzJjZTM4Y2E1NTFjMDIxYjA3YmI2MDQzYWEwMWU0MmQ0MzI4NmYwMGNkNmIxNzhhODQzYTcxMDFhZjQ2ODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1ZWNmOGY1ZWZhZWU1NjFjN2RiNDg1MjQ1ZTUwODIzNGUxNzdkMzZiZDE4OTU1OTdlMWU5MzI1OWEwYjNkZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlhMTk3ODIzMDkzNjMwNzQwNjZmYzJjNjBhODBlNmMzNWVhZmY5NzAyZWFmYmFjMTJkZGQyNGJiNTE1ZDNmY2EifQ"
+        },
+        {
+          "resource": "repo://internal/cli/inspect.go#L212-L281",
+          "version": "repo-lines-v1:sha256:57b57b8a914174288db14b3ebf45bbc18efa272fd4c3988d0a586f504af9c26c:eyJzZWxlY3RlZExpbmVDb3VudCI6NzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxZTdiNGZmMWM5NDA0ODk1MjM3OGQzOTNjYzAzODU3MWRjN2M4ZjM3ZWVhMjFhODcyNzZkMGU0NDk1ZDFlYzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0N2I4NDU3ZmJjODU4YWZkNWNlOWQ5MjBjYzMzYjg3ODBhZDQxY2Q5M2VlZWQ4ODc3YTNhYzYyNjJmMTdjOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyN2ZkODQwYjY5MWMwOGQ1ODBjMzgwMjZhYTBlZDAyNGNlYjk0YzhhN2NhZDYwZTA1MzQ4NGVjZGU0NzUyNDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22b585f68677515e441d186b3ed96e2c",
+      "statement": "Unbind falls back to the registered path when the repository no longer exists.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/bindings.go#L260-L302",
+          "version": "repo-lines-v1:sha256:5052ac9b54d2d07aa92f74decfed636491c720736a29428b6c4ebd6223a0931d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzZDRhNmY3ZWZkZDUxMTE3Y2E2OTBkOWRhZjQ1NjFlMzE5MTkzYmU4MTMzOTIwZjEzYzE1NWJhOTM5ZWNjNGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmNjRlYzU0ZDljNzQzZWZkYmVmZmIxNTFmYWI4NDZmMTdhNjZlNTMxMGM1MGM1YTU4NDM2ODU4OGMwZjAxNGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/0d035b9",
-    "at": "2026-10-02T08:30:04.455Z"
+    "by": "owcli/c8bf7ec",
+    "at": "2026-10-02T08:35:56.662Z"
   }
 }

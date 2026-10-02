@@ -4,9 +4,11 @@ title: Storage Layouts and Bindings
 description: Where owcli keeps a wiki and its control state, how repositories are bound in-repo or externally (writing nothing into the repository, optionally in a chosen directory), how external wikis are versioned with Git, how state files are persisted atomically, and how .openwikiignore excludes paths.
 tags: [storage, bindings, layout, state, ignore]
 verified:
-  - by: owcli/0d035b9
-    at: "2026-10-02T08:30:04.455Z"
+  - by: owcli/c8bf7ec
+    at: "2026-10-02T08:35:56.662Z"
 sources:
+  - id: openwiki-source-97e4c0a36bad5faaa1e7ac8d
+    resource: repo://internal/cli/all.go
   - id: openwiki-source-4b30a1d99e54458bf298f962
     resource: repo://internal/cli/generate.go
   - id: openwiki-source-7a349ce9e7059616884bc063
@@ -27,7 +29,7 @@ sources:
     resource: repo://internal/store/vcs.go
   - id: openwiki-source-2697fb4bf3ba0749710fbc98
     resource: repo://internal/store/wikiref.go
-generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
+generated: { by: "owcli/c8bf7ec", at: "2026-10-02T08:36:19.341Z" }
 ---
 
 # Storage Layouts and Bindings
@@ -101,6 +103,17 @@ The command also reports orphan directories directly under
 binding references. It never scans or classifies user-chosen `--wiki-dir`
 parents as orphans, and it does not delete anything. Custom homes that happen
 to be inside owcli's managed directory still count as referenced.
+
+`owcli status --all` and `owcli check --all` go one step further than this
+inventory: they inspect every bound repository and every workspace member,
+from any directory. A repository or wiki that has gone missing is reported
+for that entry instead of aborting the listing, and counts as a problem, so
+`check --all` (exit 1 on any problem, `--json` for scripts) also catches
+registry entries that need cleaning up.
+
+`owcli unbind <path>` normally resolves the Git root of `<path>`. For a
+repository that no longer exists it falls back to the registered path
+itself, so a deleted repository's binding can still be removed.
 
 `Unbind --purge` deletes an external wiki in the data directory. It refuses
 to delete an in-repo wiki, which belongs to the repository and should be

@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/0d035b9
-    at: "2026-10-02T08:30:45.768Z"
+  - by: owcli/c8bf7ec
+    at: "2026-10-02T08:36:19.149Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
+generated: { by: "owcli/c8bf7ec", at: "2026-10-02T08:36:19.341Z" }
 ---
 
 # owcli Quickstart
@@ -59,6 +59,7 @@ owcli status                    # binding, last run, Claim health
 owcli -C ~/src/other-repo status  # any command, run as if started in another repo (like git -C)
 owcli bindings                  # all bindings, missing repos, managed orphan wikis
 owcli check                     # model-free validation; non-zero exit on problems
+owcli check --all               # every bound repo and workspace member, from anywhere (status --all too)
 owcli search "how are retries handled" --path src/net/retry.go
 owcli read openwiki/concepts/retries.md#backoff-policy
 owcli bind --external | unbind [--purge]

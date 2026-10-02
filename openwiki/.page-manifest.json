@@ -9,11 +9,11 @@
       "sourceFingerprint": "sha256:2f589cb9b43a43eb77e9c8276e1ca015498c921bcc4c859fc842cb4beaab65c5"
     },
     "/openwiki/architecture/storage-and-bindings.md": {
-      "pageVersion": "sha256:77ceef507eb5a64bae25c300180dc74f557a9bad94afd3fd2c186248bc808260",
-      "completedBy": "owcli/0d035b9",
-      "completedRunId": "2ef92c4b-9dac-43b5-a7b6-7f794ae2f74a",
-      "gitHead": "5460b7099d03f33e0ccc84f76f442f63c8f05165",
-      "sourceFingerprint": "sha256:f776f633e37120cb5b7cf6853f9cb097c8102bd582bfc2a73126aab2157b72e9"
+      "pageVersion": "sha256:4eccadb7aee92e1ca7f7faf009dd7fd67bbb13083b9d2efe68eb781b9ace82ec",
+      "completedBy": "owcli/c8bf7ec",
+      "completedRunId": "f2fa7c54-679e-4b3f-a223-c8692a181330",
+      "gitHead": "c8bf7ec4393e1607f0a1d3e421a7ba92111c0591",
+      "sourceFingerprint": "sha256:d7765fb57d1720cb83b487be01dfd3b86c507fa5272f58d9af44d9cb14f47e1a"
     },
     "/openwiki/concepts/grounded-claims.md": {
       "pageVersion": "sha256:b3582b76c284f0f77be24317a215b6836bf24a6021ef16b311a3b9550c87689c",
@@ -37,11 +37,11 @@
       "sourceFingerprint": "sha256:f776f633e37120cb5b7cf6853f9cb097c8102bd582bfc2a73126aab2157b72e9"
     },
     "/openwiki/concepts/workspaces.md": {
-      "pageVersion": "sha256:5fb21054c7813922099166e770738229522c420ab34064042efdbba09fdc731a",
-      "completedBy": "owcli/0d035b9",
-      "completedRunId": "2ef92c4b-9dac-43b5-a7b6-7f794ae2f74a",
-      "gitHead": "5460b7099d03f33e0ccc84f76f442f63c8f05165",
-      "sourceFingerprint": "sha256:f776f633e37120cb5b7cf6853f9cb097c8102bd582bfc2a73126aab2157b72e9"
+      "pageVersion": "sha256:b3635ff5511974615517f0c83f75c49d5c44c6969ca9df539262f198de97eb53",
+      "completedBy": "owcli/c8bf7ec",
+      "completedRunId": "f2fa7c54-679e-4b3f-a223-c8692a181330",
+      "gitHead": "c8bf7ec4393e1607f0a1d3e421a7ba92111c0591",
+      "sourceFingerprint": "sha256:d7765fb57d1720cb83b487be01dfd3b86c507fa5272f58d9af44d9cb14f47e1a"
     },
     "/openwiki/integrations/model-providers.md": {
       "pageVersion": "sha256:970f27d667cd7c358409a19ef5b4317c3716b74f2fd259e4829220eba4827ea3",
@@ -51,11 +51,11 @@
       "sourceFingerprint": "sha256:88673e87937a4e02489ab32a6597247e80f39d9cba4e1cc98bbf0071b18c60d7"
     },
     "/openwiki/quickstart.md": {
-      "pageVersion": "sha256:6fbbbdeddc22b9b51741e9a3f2a78f652e70efd5726b9766f4025e2a402bd2d3",
-      "completedBy": "owcli/0d035b9",
-      "completedRunId": "2ef92c4b-9dac-43b5-a7b6-7f794ae2f74a",
-      "gitHead": "5460b7099d03f33e0ccc84f76f442f63c8f05165",
-      "sourceFingerprint": "sha256:f776f633e37120cb5b7cf6853f9cb097c8102bd582bfc2a73126aab2157b72e9"
+      "pageVersion": "sha256:c00424a9c6561b8c7af0ada476910fd81ee2d4716b847ccc4488cf3a902fe44c",
+      "completedBy": "owcli/c8bf7ec",
+      "completedRunId": "f2fa7c54-679e-4b3f-a223-c8692a181330",
+      "gitHead": "c8bf7ec4393e1607f0a1d3e421a7ba92111c0591",
+      "sourceFingerprint": "sha256:d7765fb57d1720cb83b487be01dfd3b86c507fa5272f58d9af44d9cb14f47e1a"
     },
     "/openwiki/testing/overview.md": {
       "pageVersion": "sha256:456a8e48f038bf262d4ec48d79ec5af84a87ce942ad5db8ca1230f413932f575",
@@ -65,11 +65,11 @@
       "sourceFingerprint": "sha256:ea4a664372ed4dba815efafe423fcac9ff9a07c6355f1caed02b902274ee4c6e"
     },
     "/openwiki/workflows/agent-driven-runs.md": {
-      "pageVersion": "sha256:3744672ad08e7869b81729ca5699eb359627ca1940bd5fad3cedc51e057ab132",
-      "completedBy": "owcli/0d035b9",
-      "completedRunId": "2ef92c4b-9dac-43b5-a7b6-7f794ae2f74a",
-      "gitHead": "5460b7099d03f33e0ccc84f76f442f63c8f05165",
-      "sourceFingerprint": "sha256:f776f633e37120cb5b7cf6853f9cb097c8102bd582bfc2a73126aab2157b72e9"
+      "pageVersion": "sha256:d44b32cb95979bcaa40046494cc2914385febb87dba6e0343d0d02e1cc2d8fe4",
+      "completedBy": "owcli/c8bf7ec",
+      "completedRunId": "f2fa7c54-679e-4b3f-a223-c8692a181330",
+      "gitHead": "c8bf7ec4393e1607f0a1d3e421a7ba92111c0591",
+      "sourceFingerprint": "sha256:d7765fb57d1720cb83b487be01dfd3b86c507fa5272f58d9af44d9cb14f47e1a"
     },
     "/openwiki/workflows/generation-run.md": {
       "pageVersion": "sha256:93d9c73ddb67f944d547fbc59a8adb1af45308c714be4080d47d2de2b9cc2bd8",

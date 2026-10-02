@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:5fb21054c7813922099166e770738229522c420ab34064042efdbba09fdc731a",
+  "pageVersion": "sha256:b3635ff5511974615517f0c83f75c49d5c44c6969ca9df539262f198de97eb53",
   "claims": [
     {
       "id": "claim_d58c5c1c7635440fddc582a8156e6267",
@@ -147,14 +147,14 @@
       "statement": "ResolveWikiRef accepts a workspace member ID, a WikiID, or a repository name known to exactly one bound repository or member, and lists the matching IDs when a name is ambiguous.",
       "evidence": [
         {
-          "resource": "repo://internal/store/wikiref.go#L50-L100",
-          "version": "repo-lines-v1:sha256:1fed42fb4cbab4692bb6b8c8e8176354dc68442ee8c290c0d1c2979fb3a4ad47:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNzIzNWQ0NThkOGM4M2NmZjM0MzU1ZWI1MWIyOWJmYWZhMjQzNmIwZDdkMDQ5NTIwY2QxNmViNjljZjc2NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhMGIzY2VjNzViY2ZlMzg1YmIxY2QwZmVlZWY1N2VkOGVlZTAxMjRjYzdhYjYxYjk2MzcyNGIwOTU5OGI5ZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1ODk1MzFiODdmOTI4ZmQ3MjJjNTQ4NmVhNDZmNjA0MGNhNjBjZjM5ODc3ZDcwOGM0NzcyMzZhYzAzNGE5Y2EifQ"
+          "resource": "repo://internal/store/wikiref.go#L50-L93",
+          "version": "repo-lines-v1:sha256:4fb4405ac7c89c0e1c03199e3126ea04101b1b7969e67c7b0b61468dacb66a01:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNzIzNWQ0NThkOGM4M2NmZjM0MzU1ZWI1MWIyOWJmYWZhMjQzNmIwZDdkMDQ5NTIwY2QxNmViNjljZjc2NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhMGIzY2VjNzViY2ZlMzg1YmIxY2QwZmVlZWY1N2VkOGVlZTAxMjRjYzdhYjYxYjk2MzcyNGIwOTU5OGI5ZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwMjVmNTU1NGQ4MmEwOGMzMDNmNzU4OWViYjMxNmFhMzI3ZGNjYWQ2YmYwZDk2MDcxYzM2OWViMGY5NDEyYmUifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/0d035b9",
-    "at": "2026-10-02T08:30:28.060Z"
+    "by": "owcli/c8bf7ec",
+    "at": "2026-10-02T08:36:02.849Z"
   }
 }
