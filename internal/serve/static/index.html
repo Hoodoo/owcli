@@ -1,3 +1,51 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>owcli</title></head>
-<body><p>owcli viewer: the UI is not built yet. API: <a href="/api/wikis">/api/wikis</a>, <a href="/api/graph">/api/graph</a>.</p></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>owcli viewer</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <strong class="brand">owcli</strong>
+  <select id="scope" aria-label="Wiki or workspace"></select>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search" autocomplete="off" aria-label="Search">
+    <ol id="results" hidden></ol>
+  </div>
+  <label class="color-by">Color by
+    <select id="colorBy"><option value="type">page type</option><option value="wiki">wiki</option></select>
+  </label>
+  <span id="status" class="muted"></span>
+</header>
+<main>
+  <section id="graphPane">
+    <canvas id="graph"></canvas>
+    <div id="legend"></div>
+    <div id="tooltip" hidden></div>
+    <p class="hint muted">Drag to pan, scroll to zoom, click a page to read it. A red ring marks pages with Claims to recheck.</p>
+  </section>
+  <section id="reader">
+    <div id="empty" class="muted">Pick a page in the graph or search for one.</div>
+    <article id="page" hidden>
+      <div id="crumbs" class="muted"></div>
+      <h1 id="title"></h1>
+      <p id="description" class="muted"></p>
+      <div id="badges"></div>
+      <div id="content"></div>
+      <details id="claimsBox">
+        <summary id="claimsSummary"></summary>
+        <ol id="claims"></ol>
+      </details>
+      <div class="related">
+        <div><h3>Links to</h3><ul id="links"></ul></div>
+        <div><h3>Linked from</h3><ul id="backlinks"></ul></div>
+      </div>
+    </article>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ package serve
 
 import (
 	"encoding/json"
+	"io"
 	"net"
 	"net/http"
 	"net/http/httptest"
@@ -164,5 +165,25 @@ func TestListenIsLoopbackAndSkipsBusyPorts(t *testing.T) {
 	defer next.Close()
 	if got := next.Addr().(*net.TCPAddr); got.Port == busy.Port || !got.IP.IsLoopback() {
 		t.Fatalf("a busy port must be skipped: %s", got)
+	}
+}
+
+func TestUIFilesAreServed(t *testing.T) {
+	srv := fixture(t)
+	for path, want := range map[string]string{
+		"/":          `<script type="module" src="app.js">`,
+		"/app.js":    `api("/api/graph"`,
+		"/style.css": `#graph`,
+	} {
+		resp, err := http.Get(srv.URL + path)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var b strings.Builder
+		_, _ = io.Copy(&b, resp.Body)
+		resp.Body.Close()
+		if resp.StatusCode != 200 || !strings.Contains(b.String(), want) {
+			t.Errorf("%s: status %d, missing %q", path, resp.StatusCode, want)
+		}
 	}
 }
