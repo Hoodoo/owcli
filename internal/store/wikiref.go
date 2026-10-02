@@ -19,6 +19,7 @@ type wikiCandidate struct {
 	root   string
 	id     string // workspace ID for members, else WikiID
 	member bool
+	bound  bool
 }
 
 // candidates lists every repository owcli knows by registry: bindings and
@@ -34,10 +35,11 @@ func (d Dirs) candidates() ([]wikiCandidate, WorkspaceRegistry, error) {
 	}
 	byRoot := map[string]wikiCandidate{}
 	for root := range r.Bindings {
-		byRoot[root] = wikiCandidate{root: root, id: WikiID(root)}
+		byRoot[root] = wikiCandidate{root: root, id: WikiID(root), bound: true}
 	}
 	for _, w := range reg.Wikis {
-		byRoot[w.Root] = wikiCandidate{root: w.Root, id: w.ID, member: true}
+		_, bound := r.Bindings[w.Root]
+		byRoot[w.Root] = wikiCandidate{root: w.Root, id: w.ID, member: true, bound: bound}
 	}
 	out := make([]wikiCandidate, 0, len(byRoot))
 	for _, c := range byRoot {
@@ -119,6 +121,7 @@ func (d Dirs) resolveCandidate(c wikiCandidate) (ScopedWiki, string, error) {
 type KnownWiki struct {
 	Wiki    ScopedWiki
 	Root    string
+	Bound   bool // in the binding registry (else only a workspace member)
 	Problem string
 }
 
@@ -135,7 +138,7 @@ func (d Dirs) KnownWikis() ([]KnownWiki, error) {
 		if err != nil {
 			return nil, err
 		}
-		out = append(out, KnownWiki{Wiki: w, Root: c.root, Problem: problem})
+		out = append(out, KnownWiki{Wiki: w, Root: c.root, Bound: c.bound, Problem: problem})
 	}
 	return out, nil
 }

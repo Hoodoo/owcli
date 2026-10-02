@@ -106,6 +106,9 @@ owcli read --wiki <wiki> <ref>. A member needs no wiki of its own to search.
 
 ## Health
 
+- owcli wikis [--json] [--health]: every wiki owcli knows (bound or in a
+  workspace) with its ID for --wiki, location, workspaces, and last run, plus
+  every workspace; one JSON object for tools. owcli never scans the disk.
 - owcli bindings [--json]: all registered repository roots, wiki paths, last
   run status/source commit, missing repositories, and orphaned managed wikis.
 - owcli status: binding, last run, pending run, Claim health.

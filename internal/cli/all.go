@@ -47,22 +47,27 @@ func allHealth() ([]wikiHealth, error) {
 	}
 	out := make([]wikiHealth, 0, len(known))
 	for _, k := range known {
-		h := wikiHealth{ID: k.Wiki.ID, RepoRoot: k.Root, Problem: k.Problem}
-		if h.Problem == "" {
-			h.WikiDir = k.Wiki.Layout.WikiRoot
-			s, err := inspectWiki(k.Wiki.Layout)
-			if err != nil {
-				h.Problem = err.Error()
-			} else {
-				h.fill(s)
-			}
-		}
-		if h.Problem != "" {
-			h.Problems++
-		}
-		out = append(out, h)
+		out = append(out, healthOf(k))
 	}
 	return out, nil
+}
+
+// healthOf inspects one known wiki.
+func healthOf(k store.KnownWiki) wikiHealth {
+	h := wikiHealth{ID: k.Wiki.ID, RepoRoot: k.Root, Problem: k.Problem}
+	if h.Problem == "" {
+		h.WikiDir = k.Wiki.Layout.WikiRoot
+		s, err := inspectWiki(k.Wiki.Layout)
+		if err != nil {
+			h.Problem = err.Error()
+		} else {
+			h.fill(s)
+		}
+	}
+	if h.Problem != "" {
+		h.Problems++
+	}
+	return h
 }
 
 func (h *wikiHealth) fill(s *wikiState) {

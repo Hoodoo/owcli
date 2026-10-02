@@ -414,6 +414,7 @@ and read the others, as upstream's `openwiki link` does.
 owcli bind [--external] [path]     register a repo; in-repo or external layout
 owcli unbind [--purge] [path]      forget a binding (optionally delete external wiki)
 owcli bindings [--json]            list bindings and orphaned managed wiki directories
+owcli wikis [--json] [--health]    every known wiki and workspace, with membership and last run
 owcli init [--external] [message]  generate a wiki from scratch; binds an unbound repo
 owcli update [message]             incremental update driven by drift and claim issues
 owcli status [--wiki id | --all [--json]]  binding, last update, pending run, claim health
@@ -431,6 +432,15 @@ global `-C <path>` flag changes the process's working directory first, as
 `git -C` does, so all commands (including `run` steps) can target another
 repository and relative paths in other arguments resolve from `<path>`. A bad
 `-C` under `run` is reported as a JSON `invalid_input` error.
+
+`owcli wikis` is the discovery view: every bound repository and workspace
+member (ID, name, repository, wiki directory, layout, bound or member only,
+workspaces with the active one marked, last update, problem) and every
+workspace with its member IDs. Its `--json` is a contract for clients such as
+editor integrations or a viewer: fields are added, never renamed. owcli does
+not scan the filesystem for wikis; only repositories it was told about
+(bound, or added to a workspace) are known. `--health` adds the `check --all`
+counts.
 
 `status --all` and `check --all` inspect every known wiki: all bindings and
 workspace members, in repository-root order. A repository or wiki that is

@@ -71,6 +71,7 @@ func NewRootCommand() *cobra.Command {
 		newSearchCommand(),
 		newReadCommand(),
 		newWorkspaceCommand(),
+		newWikisCommand(),
 		newRunCommand(),
 		newQuickstartCommand(),
 		newAgentsMDCommand(),
