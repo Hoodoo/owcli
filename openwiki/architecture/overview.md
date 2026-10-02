@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: owcli/bf95e7c
-    at: "2026-10-02T08:46:16.376Z"
+  - by: owcli/1bb33cd
+    at: "2026-10-02T09:07:49.310Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -29,7 +29,7 @@ sources:
     resource: repo://internal/search/search.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
-generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
+generated: { by: "owcli/1bb33cd", at: "2026-10-02T09:08:56.220Z" }
 ---
 
 # Architecture Overview
@@ -41,10 +41,11 @@ wiki's factual statements in versioned source evidence ("Claims"), keeps the
 output conformant with the Open Knowledge Format (OKF) v0.2, and searches it.
 The behavioral specification lives in `docs/design.md`; that document also
 lists what is deliberately out of scope (MCP server, parallel page workers,
-the visualizer, coding-agent integrations, personal mode, upstream's
-interactive `link` repository finder, GitHub Actions scheduling, telemetry,
-translation). Workspaces themselves are in scope; see
-[Workspaces](../concepts/workspaces.md).
+coding-agent integrations, personal mode, upstream's interactive `link`
+repository finder, GitHub Actions scheduling, telemetry, translation).
+Workspaces and a browser viewer are in scope; see
+[Workspaces](../concepts/workspaces.md) and
+[Browser Viewer](../workflows/viewer.md).
 
 ## Package layering
 
@@ -86,6 +87,9 @@ Arrows point from a package to the packages it imports.
   See [Grounded Claims](../concepts/grounded-claims.md),
   [OKF Front Matter and Finalization](../concepts/okf-output.md), and
   [Wiki Search and Read](../concepts/search.md).
+- **Viewer.** `serve` is a read-only HTTP layer over `store`, `okf`,
+  `claims`, and `search`, with an embedded UI. See
+  [Browser Viewer](../workflows/viewer.md).
 - **Model-facing layer.** `llm` speaks to providers, `agent` runs the tool
   loop over a confined workspace, and `generate` composes them with the `run`
   lifecycle. See [Model Providers](../integrations/model-providers.md) and

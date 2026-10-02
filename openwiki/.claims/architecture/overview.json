@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:3f4f8b47cdd437ad9b5e29b938aef51201c4f79b902dd2e689848d445220f402",
+  "pageVersion": "sha256:1619695263c55e4292bba2ed38e300852a905828a8fd83979ae60bcc10c17557",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_547da34b35324cf1aaeed4b5ac939590",
-      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, serve, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L63-L78",
-          "version": "repo-lines-v1:sha256:2278ef6ca755b073c0498e264423c5153d3a1494112c7e52d44c3a5d0cf4624f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+          "resource": "repo://internal/cli/cli.go#L63-L79",
+          "version": "repo-lines-v1:sha256:7679de1955973165600ddb3a5031b8e8ec63a3eef1533b4e50feda8ddf667c3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         }
       ]
     },
@@ -89,18 +89,18 @@
       "statement": "The design targets on-disk compatibility with upstream OpenWiki, including evidence version tokens, with opt-in compatibility tests driven by OWCLI_UPSTREAM_DIR and OWCLI_UPSTREAM_SOURCE_DIR.",
       "evidence": [
         {
-          "resource": "repo://docs/design.md#L40-L53",
+          "resource": "repo://docs/design.md#L42-L55",
           "version": "repo-lines-v1:sha256:c400491a3a31ac8039acb5843aa0bc16b1455fc7afcaadcd3b65f3c4e4aa535a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkODRkOGFiMzcxOWQ1NmI2NWRiYjFhZjY3ZDAzMWY0YmQ1NTNjYTZkNmYwNGIzY2RmODczNzg2ZDFiMGMwNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczOTkzZDY5Zjc2YzRlMGMyMTRjMzI0ODlmZjU3OTdkMDc1NWExYjA4OTQ2NGE0ZTdmYWI3MTAwNjc1YTFkNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhZjM1MDQ0Y2MzZmY3NDlmN2RiZWRlNTQzZjAzN2EzNTA2NGI3NDVhMmM1MzhkMzM0Nzc5NzcxNmY5ZTMxNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3YTc1Nzk5NzNmYjA2ZGRhM2Y3MGMyMjM4YzQyMWExZTAwZGYxNjIxMGRlMzI2N2RiYWE4MmQ0YWU2ZjYyZGEifQ"
         }
       ]
     },
     {
       "id": "claim_b7afe4f4cfc04bb9954d7c20e5e7d243",
-      "statement": "The MCP server, parallel page workers, the visualizer UI, coding-agent integrations, personal mode, the interactive link repository finder, GitHub Actions scheduling, telemetry, and translation are out of scope for owcli, while workspace search is in scope.",
+      "statement": "The MCP server, parallel page workers, coding-agent integrations, personal mode, the interactive link repository finder, GitHub Actions scheduling, telemetry, and translation are out of scope for owcli, while workspace search and a read-only browser viewer are in scope.",
       "evidence": [
         {
-          "resource": "repo://docs/design.md#L19-L38",
-          "version": "repo-lines-v1:sha256:49ba53fdb57abfef5abc2b816bd1c4fbd5e43306ffe4b4faf4c500c19bec79e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmZWVjOGNiMzkzMTY1ZTk1MTgxMTk3ZWJlZmVjYTQ0YTQyNTZiZWY2ZjRjZmMxMGRlNjg4NDMxMzVkMWVjYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmNmJiOWVkNWRhNjQyNTNiOTliNGE0ZjU1ODc2Nzk4ZDdiODZkN2M3ODdmN2JiMTk1M2Y4YjFjNjI1OGJhZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2ZDBmYjFhMWExYmUxYzk4M2EwZTM1YTM5MWNkYjBmODg0NjFmNTNhMTNhNjRiYTdjNjU3YTNhZjdiM2U2YTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQyMDlhMzMxMmZmNDA2Y2ZlNmRiZDc4ZjU0NjRmMWZmMjE1NDU3NzVjN2I0NTc1MzgwMmE2YTZmNmM3MjIzYTQifQ"
+          "resource": "repo://docs/design.md#L19-L41",
+          "version": "repo-lines-v1:sha256:cc3b130a9f3ec215b4970f2cc5908bf060db9ef5de37dfa2eedb0c10983f9c9c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmZWVjOGNiMzkzMTY1ZTk1MTgxMTk3ZWJlZmVjYTQ0YTQyNTZiZWY2ZjRjZmMxMGRlNjg4NDMxMzVkMWVjYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2ZDBmYjFhMWExYmUxYzk4M2EwZTM1YTM5MWNkYjBmODg0NjFmNTNhMTNhNjRiYTdjNjU3YTNhZjdiM2U2YTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkOTJlYzE4YTg0OGMxNmE5NGRmZDUwYmE2MGZhMTE5OWU1N2IwYjI2YmMxYjc5Mjc5OTE4MWZiNjQyYTI1MTcifQ"
         }
       ]
     },
@@ -130,7 +130,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/bf95e7c",
-    "at": "2026-10-02T08:46:16.376Z"
+    "by": "owcli/1bb33cd",
+    "at": "2026-10-02T09:07:49.310Z"
   }
 }

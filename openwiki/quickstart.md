@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/bf95e7c
-    at: "2026-10-02T08:46:46.942Z"
+  - by: owcli/1bb33cd
+    at: "2026-10-02T09:08:56.022Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
+generated: { by: "owcli/1bb33cd", at: "2026-10-02T09:08:56.220Z" }
 ---
 
 # owcli Quickstart
@@ -59,6 +59,7 @@ owcli status                    # binding, last run, Claim health
 owcli -C ~/src/other-repo status  # any command, run as if started in another repo (like git -C)
 owcli bindings                  # all bindings, missing repos, managed orphan wikis
 owcli wikis [--json]            # every known wiki and workspace, with IDs for --wiki (for people and tools)
+owcli serve                     # browse wikis in the browser: page graph, pages with Claims, search
 owcli check                     # model-free validation; non-zero exit on problems
 owcli check --all               # every bound repo and workspace member, from anywhere (status --all too)
 owcli search "how are retries handled" --path src/net/retry.go
@@ -91,6 +92,7 @@ run step by step. See [Agent-Driven Runs](workflows/agent-driven-runs.md).
 | change front matter rules, indexes, link stamps, Mermaid checks, or provenance | [OKF Front Matter and Finalization](concepts/okf-output.md) |
 | change ranking, excerpts, or add a semantic reranker | [Wiki Search and Read](concepts/search.md) |
 | group wikis into workspaces, or change cross-wiki search scope and the workspace commands | [Workspaces](concepts/workspaces.md) |
+| change the browser viewer: its API, graph, or UI | [Browser Viewer](workflows/viewer.md) |
 | add a provider, change retries or fallbacks, or add a config option | [Model Providers and Configuration](integrations/model-providers.md) |
 | write tests, fake the model, or run the upstream compatibility tests | [Testing](testing/overview.md) |
 
