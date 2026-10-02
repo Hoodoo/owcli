@@ -116,12 +116,13 @@ func inspectWiki(l store.Layout) (*wikiState, error) {
 }
 
 func newStatusCommand() *cobra.Command {
-	return &cobra.Command{
+	var wiki string
+	cmd := &cobra.Command{
 		Use:   "status",
 		Short: "Show binding, last update, pending run, and claim health",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
-			l, err := resolveLayout()
+			l, err := resolveLayoutRef(wiki)
 			if err != nil {
 				return err
 			}
@@ -150,6 +151,8 @@ func newStatusCommand() *cobra.Command {
 			return nil
 		},
 	}
+	cmd.Flags().StringVar(&wiki, "wiki", "", "target a registered wiki by ID or repository name instead of the current repository")
+	return cmd
 }
 
 func issueLine(issues []claims.Issue) string {
@@ -181,7 +184,8 @@ func short(h string) string {
 var errCheckFailed = errors.New("check found problems")
 
 func newCheckCommand() *cobra.Command {
-	return &cobra.Command{
+	var wiki string
+	cmd := &cobra.Command{
 		Use:   "check",
 		Short: "Validate the wiki without a model: Claims, OKF front matter, links, diagrams",
 		Long: `Run every deterministic check without changing anything: Claims preflight
@@ -190,7 +194,7 @@ broken internal links, and suspicious Mermaid diagrams. Exits non-zero when
 something needs attention.`,
 		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
-			l, err := resolveLayout()
+			l, err := resolveLayoutRef(wiki)
 			if err != nil {
 				return err
 			}
@@ -206,6 +210,8 @@ something needs attention.`,
 			return nil
 		},
 	}
+	cmd.Flags().StringVar(&wiki, "wiki", "", "target a registered wiki by ID or repository name instead of the current repository")
+	return cmd
 }
 
 func printCheck(out io.Writer, s *wikiState) int {

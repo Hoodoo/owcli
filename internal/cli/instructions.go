@@ -94,6 +94,11 @@ owcli read --wiki <wiki> <ref>. A member needs no wiki of its own to search.
   set it with owcli workspace use <id>.
 - Results whose wiki is not this repository describe another codebase: use
   them for patterns and conventions, and ground changes in this repository.
+- Outside any repository, or in one with no wiki and no workspace, name the
+  target: owcli search --workspace <ws> or --wiki <id>, owcli read --wiki <id>,
+  owcli status|check --wiki <id>. owcli bindings and owcli workspace list show
+  IDs; an unambiguous repository name also works. Inside a repository with a
+  wiki, --workspace and --wiki stay limited to its own workspaces.
 - owcli workspace current shows this repository's workspaces; owcli workspace
   wikis <workspace> lists members and whether each can be searched.
 - Manage them with owcli workspace create|add|remove|delete|list|use|clear

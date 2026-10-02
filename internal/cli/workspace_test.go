@@ -200,3 +200,44 @@ func TestWorkspaceCommands(t *testing.T) {
 		t.Fatal("workspace commands must not touch member wikis")
 	}
 }
+
+func TestWikiRefsFromOutsideRepositories(t *testing.T) {
+	here, peer := workspaceRepos(t)
+	dirs, err := store.DefaultDirs()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := dirs.SaveWorkspaces([]store.WorkspaceDraft{{Name: "Emacs", Roots: []string{here, peer}}}); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Chdir(t.TempDir()); err != nil { // not a Git repository
+		t.Fatal(err)
+	}
+
+	if _, err := runCLI("search", "retry"); err == nil || !strings.Contains(err.Error(), "not inside a Git repository") {
+		t.Fatalf("untargeted search outside a repository: %v", err)
+	}
+	v, err := searchJSON(t, "--workspace", "emacs", "retry backoff")
+	if err != nil || len(v["results"].([]any)) == 0 || v["workspace"].(map[string]any)["id"] != "emacs" {
+		t.Fatalf("search --workspace from outside: %v %v", v, err)
+	}
+	v, err = searchJSON(t, "--wiki", "retry-lib", "retry backoff")
+	if err != nil || len(v["results"].([]any)) == 0 || v["results"].([]any)[0].(map[string]any)["wiki"] != "retry-lib" || v["workspace"] != nil {
+		t.Fatalf("search --wiki from outside: %v %v", v, err)
+	}
+	if out, err := runCLI("read", "--wiki", "retry-lib", "openwiki/concepts/retry.md#backoff-policy"); err != nil || !strings.Contains(out, "exponential backoff") {
+		t.Fatalf("read --wiki from outside: %v %q", err, out)
+	}
+	if out, err := runCLI("status", "--wiki", "retry-lib"); err != nil || !strings.Contains(out, peer) {
+		t.Fatalf("status --wiki: %v %q", err, out)
+	}
+	if out, err := runCLI("check", "--wiki", "retry-lib"); (err != nil && err != errCheckFailed) || strings.Contains(out, "not inside") {
+		t.Fatalf("check --wiki must resolve the wiki: %v %q", err, out)
+	}
+	if _, err := runCLI("search", "--wiki", "retry-lib", "--workspace", "emacs", "retry"); err == nil {
+		t.Fatal("--wiki and --workspace together must fail")
+	}
+	if _, err := runCLI("status", "--wiki", "nope"); err == nil || !strings.Contains(err.Error(), "no known wiki") {
+		t.Fatalf("unknown --wiki: %v", err)
+	}
+}

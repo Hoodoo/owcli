@@ -55,6 +55,7 @@ type registry struct {
 
 // BindingInfo is a registry entry enriched with filesystem and run metadata.
 type BindingInfo struct {
+	ID         string      `json:"id"` // WikiID, usable as --wiki from anywhere
 	RepoRoot   string      `json:"repoRoot"`
 	Kind       Kind        `json:"kind"`
 	WikiDir    string      `json:"wikiDir"`
@@ -127,7 +128,7 @@ func (d Dirs) ListBindings() (BindingsInventory, error) {
 	for root, b := range r.Bindings {
 		l := d.layoutFor(root, b)
 		_, statErr := os.Stat(root)
-		info := BindingInfo{RepoRoot: root, Kind: b.Kind, WikiDir: l.WikiRoot, RepoExists: statErr == nil, Custom: l.CustomHome}
+		info := BindingInfo{ID: WikiID(root), RepoRoot: root, Kind: b.Kind, WikiDir: l.WikiRoot, RepoExists: statErr == nil, Custom: l.CustomHome}
 		if info.LastUpdate, err = l.LoadLastUpdate(); err != nil {
 			return BindingsInventory{}, err
 		}

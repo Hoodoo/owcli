@@ -156,7 +156,7 @@ func newBindingsCommand() *cobra.Command {
 				if b.LastUpdate != nil {
 					last = fmt.Sprintf("%s at %s (source %s)", b.LastUpdate.Status, b.LastUpdate.UpdatedAt, short(b.LastUpdate.GitHead))
 				}
-				fmt.Fprintf(out, "%s\n  kind: %s\n  wiki: %s\n  state: %s\n  last run: %s\n", b.RepoRoot, b.Kind, b.WikiDir, state, last)
+				fmt.Fprintf(out, "%s\n  id: %s\n  kind: %s\n  wiki: %s\n  state: %s\n  last run: %s\n", b.RepoRoot, b.ID, b.Kind, b.WikiDir, state, last)
 			}
 			for _, orphan := range inv.Orphans {
 				fmt.Fprintf(out, "orphan: %s\n", orphan)
@@ -207,6 +207,7 @@ func newSearchCommand() *cobra.Command {
 		limit     int
 		asJSON    bool
 		workspace string
+		wiki      string
 	)
 	cmd := &cobra.Command{
 		Use:   "search <query>",
@@ -219,15 +220,29 @@ OpenWiki. Results are "page#anchor" refs; pass them to "owcli read".
 A repository in a workspace searches every wiki of that workspace in one
 ranking, and each result names its wiki: pass it to "owcli read --wiki". In
 several workspaces it uses the active one (owcli workspace use); without one,
-search exits non-zero with status "workspace_required" and the choices.`,
+search exits non-zero with status "workspace_required" and the choices.
+
+Outside any repository (or in one with no wiki and no workspace), name the
+target: --workspace W searches a workspace, --wiki ID a single registered
+wiki. Wiki IDs are shown by "owcli bindings" and "owcli workspace list"; a
+repository name works when it is unambiguous.`,
 		Args: cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			dirs, err := store.DefaultDirs()
 			if err != nil {
 				return err
 			}
-			scope, err := dirs.ResolveSearchScope(".", workspace)
-			if err != nil {
+			var scope store.SearchScope
+			if wiki != "" {
+				if workspace != "" {
+					return fmt.Errorf("give --wiki or --workspace, not both")
+				}
+				w, err := dirs.ResolveReadableWiki(".", wiki)
+				if err != nil {
+					return err
+				}
+				scope = store.SearchScope{Status: store.ScopeReady, Wikis: []store.ScopedWiki{w}}
+			} else if scope, err = dirs.ResolveSearchScope(".", workspace); err != nil {
 				return err
 			}
 			out := cmd.OutOrStdout()
@@ -248,6 +263,9 @@ search exits non-zero with status "workspace_required" and the choices.`,
 			var wikis []store.WikiIdentity
 			for _, w := range scope.Wikis {
 				src := search.Source{Store: claims.NewStore(w.Layout)}
+				if wiki != "" {
+					src.Wiki = w.ID
+				}
 				if scope.Workspace != nil {
 					src.Wiki = w.ID
 					wikis = append(wikis, w.WikiIdentity)
@@ -294,6 +312,7 @@ search exits non-zero with status "workspace_required" and the choices.`,
 	cmd.Flags().IntVar(&limit, "limit", search.DefaultResults, fmt.Sprintf("maximum results (1-%d)", search.MaxResults))
 	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
 	cmd.Flags().StringVar(&workspace, "workspace", "", "search this workspace (ID or name) instead of the automatic choice")
+	cmd.Flags().StringVar(&wiki, "wiki", "", "search only this wiki (ID or repository name); outside a repository any registered wiki")
 	return cmd
 }
 
@@ -308,7 +327,7 @@ func newReadCommand() *cobra.Command {
 		Long: `Print complete sections of one wiki page. Accepts a search ref
 ("openwiki/concepts/x.md#anchor") or a page plus anchors. With --wiki, read
 a wiki from a workspace this repository belongs to (the "wiki" of a search
-result).`,
+result); outside any repository, any registered wiki.`,
 		Args: cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			page, anchors := args[0], args[1:]
@@ -350,6 +369,16 @@ result).`,
 	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
 	cmd.Flags().StringVar(&wiki, "wiki", "", "wiki ID from a workspace search result (default: this repository's wiki)")
 	return cmd
+}
+
+// resolveLayoutRef resolves --wiki from the registries, or the current
+// repository when it is empty.
+func resolveLayoutRef(ref string) (store.Layout, error) {
+	dirs, err := store.DefaultDirs()
+	if err != nil {
+		return store.Layout{}, err
+	}
+	return dirs.ResolveLayoutRef(".", ref)
 }
 
 // resolveLayout finds the wiki of the repository containing the working

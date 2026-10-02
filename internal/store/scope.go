@@ -58,19 +58,24 @@ type scopeContext struct {
 	member     RegisteredWiki
 	isMember   bool
 	containing []Workspace
+	// noCurrent: dir is not in a repository, or in one with no wiki that is
+	// in no workspace. Explicit targets then resolve from the registries
+	// alone; without one, err explains why there is nothing to search.
+	noCurrent bool
+	err       error
 }
 
 // current resolves the repository containing dir. A repository that belongs
 // to a workspace may have no wiki of its own (it can still search the
 // workspace); any other repository must have one.
 func (d Dirs) current(dir string) (scopeContext, error) {
-	root, err := RepoRoot(dir)
-	if err != nil {
-		return scopeContext{}, err
-	}
 	reg, err := d.LoadWorkspaces()
 	if err != nil {
 		return scopeContext{}, err
+	}
+	root, err := RepoRoot(dir)
+	if err != nil {
+		return scopeContext{reg: reg, noCurrent: true, err: err}, nil
 	}
 	c := scopeContext{reg: reg, root: root}
 	c.member, c.isMember = reg.WikiByRoot(root)
@@ -87,6 +92,8 @@ func (d Dirs) current(dir string) (scopeContext, error) {
 	case err == nil:
 		c.layout, c.hasWiki = l, true
 	case errors.Is(err, ErrUnbound) && len(c.containing) > 0:
+	case errors.Is(err, ErrUnbound):
+		c.noCurrent, c.err = true, err
 	default:
 		return scopeContext{}, err
 	}
@@ -94,6 +101,9 @@ func (d Dirs) current(dir string) (scopeContext, error) {
 }
 
 func (c scopeContext) identity() WikiIdentity {
+	if c.root == "" {
+		return WikiIdentity{}
+	}
 	if c.isMember {
 		return WikiIdentity{ID: c.member.ID, Name: c.member.Name}
 	}
@@ -117,7 +127,7 @@ func (c scopeContext) containingWorkspace(ref string) (Workspace, error) {
 
 // ResolveSearchScope applies the workspace selection rules for a search
 // starting in dir: an explicit workspace (ID or name) must contain the
-// repository; otherwise a repository in no workspace searches its own wiki,
+// repository (with no current wiki it is used directly); otherwise a repository in no workspace searches its own wiki,
 // one in a single workspace searches it, one in several uses its active
 // workspace, and with none active the result is workspace_required.
 func (d Dirs) ResolveSearchScope(dir, requested string) (SearchScope, error) {
@@ -125,9 +135,17 @@ func (d Dirs) ResolveSearchScope(dir, requested string) (SearchScope, error) {
 	if err != nil {
 		return SearchScope{}, err
 	}
+	if c.noCurrent && requested == "" {
+		return SearchScope{}, c.err
+	}
 	scope := SearchScope{Status: ScopeReady, Current: c.identity()}
 	var ws Workspace
 	switch {
+	case c.noCurrent:
+		// No current wiki to protect: an explicit workspace is used directly.
+		if ws, err = c.reg.FindWorkspace(requested); err != nil {
+			return SearchScope{}, err
+		}
 	case requested != "":
 		if ws, err = c.containingWorkspace(requested); err != nil {
 			return SearchScope{}, err
@@ -171,11 +189,20 @@ func (d Dirs) ResolveSearchScope(dir, requested string) (SearchScope, error) {
 
 // ResolveReadableWiki returns the wiki a read from dir may open: the current
 // repository's own wiki when wikiID is empty or names it, otherwise a wiki
-// that shares a workspace with the current repository.
+// that shares a workspace with the current repository. With no current wiki
+// (outside any repository, or in one without a wiki or workspace), wikiID is
+// resolved from the registries with ResolveWikiRef.
 func (d Dirs) ResolveReadableWiki(dir, wikiID string) (ScopedWiki, error) {
 	c, err := d.current(dir)
 	if err != nil {
 		return ScopedWiki{}, err
+	}
+	if c.noCurrent {
+		if wikiID == "" {
+			return ScopedWiki{}, c.err
+		}
+		// No current wiki to protect: any known wiki can be named.
+		return d.ResolveWikiRef(wikiID)
 	}
 	if wikiID == "" || (c.isMember && wikiID == c.member.ID) {
 		if !c.hasWiki {

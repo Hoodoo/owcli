@@ -389,6 +389,17 @@ and read the others, as upstream's `openwiki link` does.
   used automatically, several use the active selection, and several without
   one return `workspace_required` with the choices (non-zero exit). Unlike
   upstream, a member needs no wiki of its own to search its workspaces.
+- With no current wiki (outside any repository, or in one with no wiki and
+  no workspace) there is nothing to protect, so an explicit `--workspace` or
+  `--wiki` is resolved from the registries alone. `status` and `check` accept
+  `--wiki` from anywhere. Writing commands never resolve by ID; they take a
+  checkout (`-C`).
+- Wiki references: a workspace member's ID; otherwise the wiki ID, a slug of
+  the repository name plus a hash of its root (the same ID an external
+  binding uses for its directory, so nothing is stored), shown by
+  `owcli bindings`; or a repository name when exactly one bound repository or
+  member has it. Implicit in-repo wikis that are neither bound nor members are
+  reachable only by path.
 - All wikis in scope are ranked in one index, so results interleave by
   relevance; each result carries its `wiki` in workspace searches only.
   `read --wiki <id>` opens a wiki that shares a workspace with the current
