@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/1bb33cd
-    at: "2026-10-02T09:08:56.022Z"
+  - by: owcli/3eb3728
+    at: "2026-10-02T13:16:16.547Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/1bb33cd", at: "2026-10-02T09:08:56.220Z" }
+generated: { by: "owcli/3eb3728", at: "2026-10-02T13:16:16.755Z" }
 ---
 
 # owcli Quickstart
@@ -48,13 +48,38 @@ make build                      # bin/owcli
 make check                      # go vet + all tests (offline)
 make install                    # build and copy to ~/.local/bin (override PREFIX or BINDIR)
 make update                     # git pull --ff-only, then make install
+```
 
+There are two ways to write a wiki.
+
+**Your coding agent writes it (no API key).** This is the usual way. In the
+repository, run `owcli agents-md` once (or `owcli agents-md --print` for an
+agent's global instructions when the wiki is external), then ask the agent to
+initialize or update the wiki. It follows `owcli quickstart` and drives
+`owcli run begin|plan|next|submit|finish` step by step; owcli calls no model.
+See [Agent-Driven Runs](workflows/agent-driven-runs.md).
+
+**owcli writes it with its own model calls (API key).** `owcli init` and
+`owcli update` run owcli's planner and page workers against a provider, so
+they need a key and are the only commands with model flags (`--provider`,
+`--model`, `--api-key-env`, `--base-url`, `--effort`, `--config`). Without a
+key they stop before binding anything and point to the agent-driven way.
+
+```sh
 export ANTHROPIC_API_KEY=...    # default provider; see Model Providers for others
-cd /path/to/some/repo
 owcli init                      # wiki in ./openwiki
 owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo untouched, Git-versioned
 owcli init --wiki-dir ~/kb/foo  # external wiki in a directory you choose (e.g. a knowledge-base repo)
 owcli update "cover the new billing module"
+```
+
+Interrupting `init` or `update` keeps every completed page; running the same
+command again resumes.
+
+Everything else works the same for both, never calls a model, and needs no
+key:
+
+```sh
 owcli status                    # binding, last run, Claim health
 owcli -C ~/src/other-repo status  # any command, run as if started in another repo (like git -C)
 owcli bindings                  # all bindings, missing repos, managed orphan wikis
@@ -70,15 +95,6 @@ owcli workspace create "Emacs packages" ~/src/lib ~/src/new-pkg  # search severa
 owcli read --wiki lib openwiki/concepts/x.md#anchor  # read a result from another wiki
 owcli search --wiki vui-workitem "jira refresh"  # from anywhere: name a wiki (owcli bindings shows IDs) or --workspace
 ```
-
-Interrupting `init` or `update` keeps every completed page; running the same
-command again resumes.
-
-From an interactive coding agent, the agent can do the writing itself with no
-API key: `owcli agents-md` installs compact instructions in `AGENTS.md` (or
-`owcli agents-md --print` for global agent config), `owcli quickstart` prints
-the full procedure, and `owcli run begin|plan|next|submit|finish` drives the
-run step by step. See [Agent-Driven Runs](workflows/agent-driven-runs.md).
 
 ## Where to look
 

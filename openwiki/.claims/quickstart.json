@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:dd6fb39b1cd7a471c2b93c95aff994f39bcb9f7c87bd810bd7f10a446f19280a",
+  "pageVersion": "sha256:52a9b80ead6d1b125f2b2803de0322ec004673605cf309db1d68aa45c248f1d7",
   "claims": [
     {
       "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
@@ -17,7 +17,7 @@
       "statement": "The CLI exposes bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, serve, run, quickstart, and agents-md commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L63-L80",
+          "resource": "repo://internal/cli/cli.go#L68-L85",
           "version": "repo-lines-v1:sha256:b3bf888989b8836dfe769db580ae81818e47e2ffabbdcb8ae127884f156ef3c5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
         },
         {
@@ -55,8 +55,8 @@
       "statement": "init and update can be interrupted and resumed by rerunning the same command, and an optional message guides the planner.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/generate.go#L30-L47",
-          "version": "repo-lines-v1:sha256:7b753958c3e075bfee3319e248df7228bfb5298a99429a0baf335ca7dcf6b530:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNWI3NTc0NjdjOTJjYTZmZWU4YTdhYWNiY2JhMzUwNDhjZWIzYjQ1MzM4Mjc1NTgxM2M2ZjJhYjE1MjcxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmZmEyMzg4NmUyOTcyOGFiODMzMTQ2YmYxNTdkNzg1ZDM1NGFkNDk2ODg1MDJhNThjOWJjMGQwZDA1NjMyOTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxYTRlYWYzOGMxMDI3ZmE1ZTczOGFiMTc0MjVkOTlmYmM1NTY1NDNiYmNlNWI0YTNlYzQ1NTZjODljYTlhYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3NTUxNzhkZjA5NjlkM2IyN2U3NGIxMjY4ZGI3MWYwNGZjM2ZiNmFlYjQ3ZGJkYTliMjIwZTdmOGU5NDg5MzEifQ"
+          "resource": "repo://internal/cli/generate.go#L30-L60",
+          "version": "repo-lines-v1:sha256:a3ad58ff82044e2d3c912dd81108aaac2fd5e8966b475d5f80fb7fc1f61dd6e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmNWI3NTc0NjdjOTJjYTZmZWU4YTdhYWNiY2JhMzUwNDhjZWIzYjQ1MzM4Mjc1NTgxM2M2ZjJhYjE1MjcxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiZjM3ZmVjMTQxZDViMDU4YTgzMmUwZmRlMDM3Y2EwNWQ3NjhiN2U0MmUzMzFjYmIzODlkOTcxMTlhNzI1OWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxYTRlYWYzOGMxMDI3ZmE1ZTczOGFiMTc0MjVkOTlmYmM1NTY1NDNiYmNlNWI0YTNlYzQ1NTZjODljYTlhYjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1MmFkMmM2NjgyYzYyMzBmYmI0NTRjMGVkZmE1YjFjMTc0MmY2NzUxZGNhMzhhNGFlM2I4NDk5NTY2ZTdmYTAifQ"
         }
       ]
     },
@@ -65,12 +65,8 @@
       "statement": "External wikis can be placed in a user-chosen directory with --wiki-dir, which implies an external binding.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/generate.go#L117-L122",
-          "version": "repo-lines-v1:sha256:18e3a27fd280adaaf16de0fb4f1334ed1b09ee96bad8020304886238c0168e78:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdjZGE4MmRhNjA2MjM4ZTA1ZTYyMzk5NTY5YzVlZTAzOTkzNDE5NjQ4YWU1ZDQzYTJiZjhjZDYzNDdmODI2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWM1OWQyNTA4YTkwOTIyMTBkYmYzNzQ1NWM4NDI0NGJmZGRiMjNhNTY1ZmMyMDI0YmMxODI3NGYxYmY0NjMxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJjMmQ1Y2E2YTQ2YmM5MDQ2NjNmYzdlMGJjYmIwNTYxMDI3ODE1MGFhZmY3ODYxZTIzYmI5MTNiODgwODQwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDA0ZGE0ZWYzOTg4ODE0OTRhZTdjNzJlZTdiNWQ3YjlmN2Y2ODNjNTdkODgwZmRhOWNmOWNiYjA5MmQwMzAxYyJ9"
-        },
-        {
-          "resource": "repo://internal/cli/generate.go#L127-L154",
-          "version": "repo-lines-v1:sha256:f335331e5ba8db985f90d189ebc45507cc5896d4c412e22e27c337a520bd7516:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZjcwN2FlMTI0OGJmMTUzMjM1NWM3MmEwNGJmMWQyY2FkOTNiMjRjYzA5YTQ5ZTQ4MjMyZTc5Njk1MDg3ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0NzRkNTUxNzg4YmM2MWM0Zjg1NWM1NzE5MzU1OWQxNzI0NmE5NTI2OTk0NjMyMDc2NWE2OTVkYmYyMzQ5NjYifQ"
+          "resource": "repo://internal/cli/generate.go#L131-L141",
+          "version": "repo-lines-v1:sha256:687081a1719a10ec8a9443540e877d5fb1829b3c6f3b510c09876e98e2bb6237:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViYjRhMjcwN2FlMTk3Nzc2NTBmZmE5YjllODQ0NjVkNWNjMGUxOTQxMzRlNjk1ZTFmY2JkODM2MjZmMjUxNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzNWU4ODU5ZDVlOGU3MDBhMDE4NmEyNTVhM2JhZDRmNzM4ZjkwYzYxMTg2ZWU5OTNhYjk1NjU2ZmM5ODUxZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1ZmVhZDY4NjQ2ODM5YTIwZDc2YWM4MjdjZmU1MjZiN2QzODFiODllNGZmNjdjOWE4NzdiZGEzYzhmZmE1Y2QifQ"
         }
       ]
     },
@@ -79,7 +75,7 @@
       "statement": "Passing an existing external wiki home with bind --wiki-dir reattaches it to a new clone only when any repository previously bound to that home no longer exists.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L100-L126",
+          "resource": "repo://internal/cli/cli.go#L105-L131",
           "version": "repo-lines-v1:sha256:7fd55fde34050a8f3bb7a415db3ba2de6fdff797f45d6f46c39d57dbbb342d99:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NGVjOGFlMDM4YzA5MzIwZjE0Y2MzYjI3NWRiOGFjMGNkNmE3NzhiNjcxNWZhMGFhNmRiYWFiNDE5MzE1MjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4OTYwOTQzN2FkYzQ3MWMwNmI5M2M2YjQwMmViMDc0YzUwM2JmN2M2ZGQ4OTY4YWRiNWQ1NDNhNDYyODEwN2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFjYjEwMjViMjUyYzg3YjM4ZjMxYTcwYjQzODZjNDMxNzBjODY2OTI3NzEwMzcwZDY3ZjdiOTM4YjY0ZWJhOWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQifQ"
         },
         {
@@ -107,14 +103,44 @@
       "statement": "The global -C flag changes the working directory before any command runs, so every command can target another repository.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L39-L57",
-          "version": "repo-lines-v1:sha256:9a9ec247bc84ac7454c0db5f7a2825c875e47bf30c70c9443731fd1460e9eee1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMTg3YmZkN2IwMmE0YjllYzNjODdhMzgxNDM0NjYyOTE2YjEyMzZlOGIzNGFiNTM4ZWY5NjE2ZDc1NDY5MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2NThkYWYxYWJiNjE5MzAwMmU2NGNlODEyZGE0ZTgwMmMwMWExZTI0ZmM3MzQyMjEwNDI4NTU4MDJkNWNkY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhODNhOTAxMzQ2OTRjNDFjM2ViNmU5ZGQ0NWM4NDIxZjRlODk4ZmI2NjY0MWNhYjAxMThlNDMzMjgwNzA1Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjZDRlM2E3ZTNhYmJjN2VlZDIyZTk0ZjdlNTk0NDZlZDJjODIwOGI2MTNiNzIzNmIxYjkzODM1Njc4ZmYzZDcifQ"
+          "resource": "repo://internal/cli/cli.go#L50-L68",
+          "version": "repo-lines-v1:sha256:bb8c2618b5facf019e215deb178cddc7b4296130993353dbc682ec26f5635a6e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMTg3YmZkN2IwMmE0YjllYzNjODdhMzgxNDM0NjYyOTE2YjEyMzZlOGIzNGFiNTM4ZWY5NjE2ZDc1NDY5MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhODNhOTAxMzQ2OTRjNDFjM2ViNmU5ZGQ0NWM4NDIxZjRlODk4ZmI2NjY0MWNhYjAxMThlNDMzMjgwNzA1Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjU2YzQ5ODM5OTNiMmE0M2I5NWRiOGZlNTQ4Yzc0YjVmMDZhN2ZmOGM4MTU5NGRjMTU5MGU4NWQ0MzBmNDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2f45cd8406ac53ac21fdbeb4652750ca",
+      "statement": "The root help describes the agent-driven way with no API key and owcli init/update with an API key.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L29-L49",
+          "version": "repo-lines-v1:sha256:dc9d809442de2831b7cb382b9bc56d9f6e6569871a098a64c17c46071b984aed:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMTFhNWNkNWU2ODdhOTYzODI5M2VjZmU1ODcwNGU0ZjdlMGJjYWQyYTEwYzRkZmVhMDhmNzM1ZmVjNTgxMWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlMzJmOTMyNDg3OTA0ZDFkYjBkYjI1ZmVkNGRjYzY2NDMwZDY5NzA3ZGQ1NTcyYjI4MzBmNzkxYmEzYWQzMjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwYTNjNzMwYzA1NWJkNWZkNzg0YjdlYmUyZTcxZDkxNmMwN2E5YWM3MWNjOGM3MzM5MTE3ODgxYzg1NWZmMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE2OTkxY2QwN2IwMDFiZmExMThkOGE4NmY3MGZkYjQ4NTI1YWI1NGMyZmQ5M2RkOGM1MTRjMWI4N2E5MGZkOTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_96dff56b39f974f4888ca55061c2f6b4",
+      "statement": "Only init and update register the model flags, including --config.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/generate.go#L131-L141",
+          "version": "repo-lines-v1:sha256:687081a1719a10ec8a9443540e877d5fb1829b3c6f3b510c09876e98e2bb6237:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViYjRhMjcwN2FlMTk3Nzc2NTBmZmE5YjllODQ0NjVkNWNjMGUxOTQxMzRlNjk1ZTFmY2JkODM2MjZmMjUxNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzNWU4ODU5ZDVlOGU3MDBhMDE4NmEyNTVhM2JhZDRmNzM4ZjkwYzYxMTg2ZWU5OTNhYjk1NjU2ZmM5ODUxZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1ZmVhZDY4NjQ2ODM5YTIwZDc2YWM4MjdjZmU1MjZiN2QzODFiODllNGZmNjdjOWE4NzdiZGEzYzhmZmE1Y2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d1dffe9707298e4e3589b978757c1777",
+      "statement": "Without an API key, init and update stop before binding anything and point to owcli agents-md and the agent-driven owcli run steps.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/generate.go#L60-L68",
+          "version": "repo-lines-v1:sha256:6af8996bc57715ef8d6a0d0ce8a89e26f5eaadf8047dbd8914ca38b34e668424:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2JmMzdmZWMxNDFkNWIwNThhODMyZTBmZGUwMzdjYTA1ZDc2OGI3ZTQyZTMzMWNiYjM4OWQ5NzExOWE3MjU5YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTY4MDZmMTU1YzVhYzFhZTI3MjJjYTA2ZjJhYzljYWRjYjg4MWI5MTIzY2I2MjRhM2MxMDQ3NWI0NDQ5ZGMyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTExMzRlZTZiY2Y5YzRiYzY4Zjg5NzkyYTJhYmMxM2I2NjJhZWJlNGQ0MWQwMmY1OTZlNzI5ZmFhZjE0NDY4NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWIxZmIxNWI1YWEwNDEzOTgwMzNhMWViNzVjOTQ4OTJiODRkNTc5MzIwYzRhNDA5ZDkwMGNhNjkwYTcxYWI3OSJ9"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/1bb33cd",
-    "at": "2026-10-02T09:08:56.022Z"
+    "by": "owcli/3eb3728",
+    "at": "2026-10-02T13:16:16.547Z"
   }
 }
