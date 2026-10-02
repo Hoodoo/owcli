@@ -171,7 +171,7 @@ func TestListenIsLoopbackAndSkipsBusyPorts(t *testing.T) {
 func TestUIFilesAreServed(t *testing.T) {
 	srv := fixture(t)
 	for path, want := range map[string]string{
-		"/":          `<script type="module" src="app.js">`,
+		"/":          `<nav id="sidebar"`,
 		"/app.js":    `api("/api/graph"`,
 		"/style.css": `#graph`,
 	} {

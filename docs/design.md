@@ -439,7 +439,11 @@ extended with what owcli knows: workspaces, Claims, and health.
   through. Heading IDs use the same GitHub-style slugs as wiki links and
   search refs. Mermaid fences are left as code for the client.
 - UI: embedded static files, no build step; only Mermaid is loaded from a CDN
-  (diagrams fall back to their source without network). Static export for
+  (diagrams fall back to their source without network). A sidebar lists the
+  scope's pages by wiki and directory with a filter; the sidebar and the
+  graph can each be hidden, and those choices persist per browser
+  (`localStorage`, with defaults when storage is unavailable). The graph is
+  laid out only once it is shown. Static export for
   hosting is a later option.
 
 ## CLI

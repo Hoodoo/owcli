@@ -44,6 +44,44 @@ const state = {
 // Bumped by every navigation; async work for an older page is dropped.
 let pageSeq = 0;
 
+// ---- layout preferences (per browser; defaults when storage is unavailable) --
+
+const narrow = () => matchMedia("(max-width: 800px)").matches;
+
+function loadPrefs() {
+  const prefs = { graph: true, sidebar: !narrow() };
+  try {
+    const saved = JSON.parse(localStorage.getItem("owcli.viewer") || "{}");
+    if (typeof saved.graph === "boolean") prefs.graph = saved.graph;
+    if (typeof saved.sidebar === "boolean" && !narrow()) prefs.sidebar = saved.sidebar;
+  } catch {
+    // private window or blocked storage: keep the defaults
+  }
+  return prefs;
+}
+
+const prefs = loadPrefs();
+
+function savePrefs() {
+  try {
+    localStorage.setItem("owcli.viewer", JSON.stringify({ graph: prefs.graph, sidebar: prefs.sidebar }));
+  } catch {
+    // not persisted; the toggle still works for this visit
+  }
+}
+
+function applyLayout() {
+  document.body.classList.toggle("no-graph", !prefs.graph);
+  document.body.classList.toggle("no-sidebar", !prefs.sidebar);
+  $("toggleGraph").setAttribute("aria-pressed", String(prefs.graph));
+  $("toggleSidebar").setAttribute("aria-pressed", String(prefs.sidebar));
+  $("colorBy").parentElement.hidden = !prefs.graph;
+  if (prefs.graph) {
+    if (!laidOut) layoutGraph();
+    resize();
+  }
+}
+
 const PALETTE = ["#4e79a7", "#f28e2b", "#59a14f", "#b07aa1", "#76b7b2", "#edc948", "#9c755f", "#e15759", "#bab0ac", "#86bcb6"];
 let colorKeys = new Map();
 
@@ -170,12 +208,107 @@ async function loadGraph() {
   if (issues) status += `, ${issues} with Claims to recheck`;
   if (g.skipped.length) status += `; skipped: ${g.skipped.map((m) => m.wiki.id).join(", ")}`;
   setStatus(status, issues > 0);
+  buildTree(g.wikis);
+  laidOut = false;
+  if (prefs.graph) layoutGraph();
+}
+
+// The graph is laid out when it is first shown, not while it is hidden.
+let laidOut = false;
+
+function layoutGraph() {
   alpha = 1;
   for (let i = 0; i < 300 && alpha > 0.02; i++) tick();
+  laidOut = true;
   userMoved = false;
   fit();
   draw();
 }
+
+// ---- sidebar: the scope's pages by wiki and directory -------------------------
+
+function buildTree(wikis) {
+  const tree = $("tree");
+  tree.replaceChildren();
+  if (!state.nodes.length) {
+    tree.append(el("div", { class: "none muted" }, "no pages"));
+    return;
+  }
+  const several = wikis.length > 1;
+  for (const w of wikis) {
+    const nodes = state.nodes.filter((n) => n.wiki === w.id);
+    const dirs = new Map(); // "" holds pages at the wiki root
+    for (const n of nodes) {
+      const i = n.page.lastIndexOf("/");
+      const dir = i < 0 ? "" : n.page.slice(0, i);
+      if (!dirs.has(dir)) dirs.set(dir, []);
+      dirs.get(dir).push(n);
+    }
+    const byTitle = (a, b) => a.title.localeCompare(b.title);
+    const list = el("ul");
+    for (const n of (dirs.get("") || []).sort(byTitle)) list.append(pageItem(n));
+    for (const dir of [...dirs.keys()].filter((d) => d).sort()) {
+      const ul = el("ul", {}, ...dirs.get(dir).sort(byTitle).map(pageItem));
+      list.append(el("li", {}, el("details", { open: "" }, el("summary", {}, dir), ul)));
+    }
+    tree.append(several ? el("details", { open: "" }, el("summary", {}, w.name || w.id), list) : list);
+  }
+  filterTree();
+  if (state.page) markActive(state.page.id);
+}
+
+function pageItem(n) {
+  const a = el("a", { href: "#", "data-id": n.id, title: n.page }, n.title);
+  if (n.stale + n.unresolved > 0) {
+    a.prepend(el("span", { class: "dot", title: `${n.stale} stale, ${n.unresolved} unresolved Claim(s)` }));
+  }
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    openPage(n.id, null, true);
+    if (narrow()) {
+      prefs.sidebar = false;
+      applyLayout();
+    }
+  });
+  return el("li", {}, a);
+}
+
+function markActive(id) {
+  for (const a of $("tree").querySelectorAll("a.active")) a.classList.remove("active");
+  const a = $("tree").querySelector(`a[data-id="${CSS.escape(id)}"]`);
+  if (!a) return;
+  a.classList.add("active");
+  for (let d = a.closest("details"); d; d = d.parentElement.closest("details")) d.open = true;
+  a.scrollIntoView({ block: "nearest" });
+}
+
+function filterTree() {
+  const q = $("filter").value.trim().toLowerCase();
+  for (const a of $("tree").querySelectorAll("a[data-id]")) {
+    const hit = !q || a.textContent.toLowerCase().includes(q) || a.title.toLowerCase().includes(q);
+    a.parentElement.hidden = !hit;
+  }
+  // Hide directories and wikis with no visible page; open them while filtering.
+  for (const d of [...$("tree").querySelectorAll("details")].reverse()) {
+    const any = [...d.querySelectorAll("a[data-id]")].some((a) => !a.parentElement.hidden);
+    d.parentElement.tagName === "LI" ? (d.parentElement.hidden = !any) : (d.hidden = !any);
+    if (q && any) d.open = true;
+  }
+}
+
+$("filter").addEventListener("input", filterTree);
+
+$("toggleGraph").addEventListener("click", () => {
+  prefs.graph = !prefs.graph;
+  savePrefs();
+  applyLayout();
+});
+
+$("toggleSidebar").addEventListener("click", () => {
+  prefs.sidebar = !prefs.sidebar;
+  if (!narrow()) savePrefs();
+  applyLayout();
+});
 
 function setStatus(text, warn) {
   const s = $("status");
@@ -482,6 +615,7 @@ new ResizeObserver(resize).observe(canvas);
 
 function showEmpty() {
   state.page = null;
+  for (const a of $("tree").querySelectorAll("a.active")) a.classList.remove("active");
   $("page").hidden = true;
   $("empty").hidden = false;
   state.selected = null;
@@ -518,6 +652,7 @@ async function openPage(nodeId, anchor, push) {
   state.page = { wiki, page, id: nodeId };
   state.selected = state.byId.get(nodeId) || null;
   draw();
+  markActive(nodeId);
   writeHash(push);
 
   $("empty").hidden = true;
@@ -611,9 +746,11 @@ function loadMermaid() {
   return mermaidLoader;
 }
 
-// Diagrams render one at a time, and only while their page is still shown:
-// Mermaid measures the live DOM and fails on nodes that were replaced.
+// Diagrams render off the page with mermaid.render, one at a time, and the
+// SVG is inserted only if its page is still shown, so navigating away
+// mid-render cannot break anything.
 let mermaidQueue = Promise.resolve();
+let mermaidCount = 0;
 
 async function renderMermaid(root, seq) {
   const blocks = [...root.querySelectorAll("pre > code.language-mermaid")];
@@ -623,21 +760,32 @@ async function renderMermaid(root, seq) {
     code.parentElement.replaceWith(div);
     return div;
   });
+  let mermaid;
   try {
-    const mermaid = await loadMermaid();
-    // A run interrupted by navigation fails; it must not block later runs.
-    const run = mermaidQueue.catch(() => {}).then(async () => {
-      if (seq !== pageSeq) return;
-      await mermaid.run({ nodes: divs.filter((d) => d.isConnected) });
-    });
-    mermaidQueue = run;
-    await run;
+    mermaid = await loadMermaid();
   } catch {
     for (const d of divs) {
       d.style.whiteSpace = "pre";
       d.title = "Diagram source: Mermaid could not be loaded (offline?)";
     }
+    return;
   }
+  for (const div of divs) {
+    const source = div.textContent;
+    mermaidQueue = mermaidQueue
+      .catch(() => {})
+      .then(async () => {
+        if (seq !== pageSeq) return;
+        try {
+          const { svg } = await mermaid.render(`owcli-mermaid-${++mermaidCount}`, source);
+          if (seq === pageSeq && div.isConnected) div.innerHTML = svg; // sanitized by Mermaid (securityLevel strict)
+        } catch {
+          div.style.whiteSpace = "pre";
+          div.title = "Diagram source: Mermaid could not draw it";
+        }
+      });
+  }
+  await mermaidQueue;
 }
 
 // ---- search -------------------------------------------------------------------
@@ -742,7 +890,7 @@ window.addEventListener("popstate", applyHash);
     setStatus(e.message, true);
     return;
   }
-  resize();
+  applyLayout();
   const h = readHash();
   const scope = h.scope || defaultScope(config);
   if (!scope) {

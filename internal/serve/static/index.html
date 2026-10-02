@@ -9,18 +9,24 @@
 </head>
 <body>
 <header>
+  <button id="toggleSidebar" type="button" aria-pressed="true" title="Show or hide the page list">Pages</button>
   <strong class="brand">owcli</strong>
   <select id="scope" aria-label="Wiki or workspace"></select>
   <div class="search">
     <input id="q" type="search" placeholder="Search" autocomplete="off" aria-label="Search">
     <ol id="results" hidden></ol>
   </div>
+  <button id="toggleGraph" type="button" aria-pressed="true" title="Show or hide the graph">Graph</button>
   <label class="color-by">Color by
     <select id="colorBy"><option value="type">page type</option><option value="wiki">wiki</option></select>
   </label>
   <span id="status" class="muted"></span>
 </header>
 <main>
+  <nav id="sidebar" aria-label="Pages">
+    <input id="filter" type="search" placeholder="Filter pages" autocomplete="off" aria-label="Filter pages">
+    <div id="tree"></div>
+  </nav>
   <section id="graphPane">
     <canvas id="graph"></canvas>
     <div id="legend"></div>
@@ -28,7 +34,7 @@
     <p class="hint muted">Drag to pan, scroll to zoom, click a page to read it. A red ring marks pages with Claims to recheck.</p>
   </section>
   <section id="reader">
-    <div id="empty" class="muted">Pick a page in the graph or search for one.</div>
+    <div id="empty" class="muted">Pick a page in the list or graph, or search for one.</div>
     <article id="page" hidden>
       <div id="crumbs" class="muted"></div>
       <h1 id="title"></h1>
