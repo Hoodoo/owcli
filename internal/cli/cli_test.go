@@ -2,6 +2,7 @@ package cli
 
 import (
 	"bytes"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -97,4 +98,51 @@ func runCLIIn(input string, args ...string) (string, error) {
 	cmd.SetArgs(args)
 	err := cmd.Execute()
 	return out.String(), err
+}
+
+// TestInitWithoutAPIKey: owcli init needs a key for its own model calls; without
+// one it points to the agent-driven path and leaves nothing behind.
+func TestInitWithoutAPIKey(t *testing.T) {
+	repo := cliRepo(t)
+	t.Setenv("ANTHROPIC_API_KEY", "")
+	for _, mode := range []string{"init", "update"} {
+		_, err := runCLI(mode)
+		if err == nil {
+			t.Fatalf("%s without a key must fail", mode)
+		}
+		for _, want := range []string{"needs an API key", "owcli agents-md", "owcli run begin " + mode, "owcli quickstart"} {
+			if !strings.Contains(err.Error(), want) {
+				t.Errorf("%s error lacks %q: %v", mode, want, err)
+			}
+		}
+	}
+	if _, err := os.Stat(filepath.Join(os.Getenv("XDG_CONFIG_HOME"), "owcli", "bindings.json")); !os.IsNotExist(err) {
+		t.Errorf("a failed init must not bind the repository: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(repo, "openwiki")); !os.IsNotExist(err) {
+		t.Errorf("a failed init must not create a wiki: %v", err)
+	}
+}
+
+// TestModelFlagsOnlyOnGenerate: commands that never call a model do not offer
+// model settings.
+func TestModelFlagsOnlyOnGenerate(t *testing.T) {
+	root := NewRootCommand()
+	for _, name := range []string{"init", "update"} {
+		c, _, _ := root.Find([]string{name})
+		for _, flag := range []string{"provider", "model", "base-url", "api-key-env", "effort", "config"} {
+			if c.Flags().Lookup(flag) == nil {
+				t.Errorf("%s lacks --%s", name, flag)
+			}
+		}
+	}
+	for _, name := range []string{"search", "serve", "status", "wikis", "run"} {
+		c, _, _ := root.Find([]string{name})
+		if c.Flags().Lookup("api-key-env") != nil || c.InheritedFlags().Lookup("api-key-env") != nil {
+			t.Errorf("%s offers --api-key-env", name)
+		}
+	}
+	if !strings.Contains(root.Long, "no API key") {
+		t.Error("root help must describe the agent-driven way")
+	}
 }

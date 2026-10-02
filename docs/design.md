@@ -495,5 +495,13 @@ completed pages). `--agents-md` adds or refreshes a managed pointer block
 
 Configuration: provider, model, base URL, API key env var name, effort,
 fallback opt-out — via flags, env (`OWCLI_*`), or
-`$XDG_CONFIG_HOME/owcli/config.toml`. The OpenAI-compatible provider has no
-default model; local endpoints (localhost) need no API key.
+`$XDG_CONFIG_HOME/owcli/config.toml`. Only `init` and `update` call a model,
+so only they take the model flags (and `--config`); no other command offers
+them. The OpenAI-compatible provider has no default model; local endpoints
+(localhost) need no API key.
+
+The usual way to write a wiki is agent-driven and needs no API key: the
+coding agent runs the `owcli run` steps (see Agent-driven runs). The root
+help, `init`/`update` help, and the error for a missing key all say so. A
+missing key is detected before anything is bound, so a failed `init` leaves
+no binding and no wiki behind.

@@ -38,8 +38,16 @@ func newGenerateCommand(opts *options, mode run.Mode) *cobra.Command {
 	}
 	cmd := &cobra.Command{
 		Use:   string(mode) + " [message]",
-		Short: short,
+		Short: short + " with owcli's own model calls (needs an API key)",
 		Long: short + `.
+
+owcli does the research and writing itself by calling a model, so this needs
+an API key: ANTHROPIC_API_KEY by default, or another provider through
+--provider, --api-key-env, --base-url, or the config file.
+
+Without an API key, let your coding agent write the wiki instead: run
+"owcli agents-md" once, then ask the agent to ` + verb(mode) + ` the wiki. It drives
+"owcli run begin ` + string(mode) + `" and the steps after it (see "owcli quickstart").
 
 The optional message tells the planner what to focus on. Interrupting a run
 (Ctrl-C) keeps completed pages; run the same command again to continue.`,
@@ -49,11 +57,16 @@ The optional message tells the planner what to focus on. Interrupting a run
 			if err != nil {
 				return err
 			}
-			l, err := layoutFor(mode, external, wikiDir)
+			// Check the provider before binding anything, so a missing key
+			// leaves the repository and the registry untouched.
+			provider, err := providerFactory(cfg)
+			if errors.Is(err, llm.ErrNoAPIKey) {
+				return fmt.Errorf("%w\n\nowcli %s writes the wiki with its own model calls, so it needs an API key\n(ANTHROPIC_API_KEY by default; see owcli %s --help for other providers).\n\nTo have your coding agent write the wiki instead, with no API key: run\n\"owcli agents-md\", then ask the agent to %s the wiki. It drives\n\"owcli run begin %s\" (see \"owcli quickstart\").", err, mode, mode, verb(mode), mode)
+			}
 			if err != nil {
 				return err
 			}
-			provider, err := providerFactory(cfg)
+			l, err := layoutFor(mode, external, wikiDir)
 			if err != nil {
 				return err
 			}
@@ -115,9 +128,16 @@ The optional message tells the planner what to focus on. Interrupting a run
 			return nil
 		},
 	}
+	f := cmd.Flags()
+	f.StringVar(&opts.configPath, "config", "", "config file (default $XDG_CONFIG_HOME/owcli/config.toml)")
+	f.StringVar(&opts.model.Provider, "provider", "", "model provider: anthropic or openai")
+	f.StringVar(&opts.model.Model, "model", "", "model id")
+	f.StringVar(&opts.model.BaseURL, "base-url", "", "provider API base URL")
+	f.StringVar(&opts.model.APIKeyEnv, "api-key-env", "", "environment variable holding the API key")
+	f.StringVar(&opts.model.Effort, "effort", "", "Anthropic effort: low, medium, high, xhigh, max")
 	if mode == run.Init {
-		cmd.Flags().BoolVar(&external, "external", false, "if the repository is not bound yet, store the wiki outside it")
-		cmd.Flags().StringVar(&wikiDir, "wiki-dir", "", "if the repository is not bound yet, store the wiki in this directory (implies --external)")
+		f.BoolVar(&external, "external", false, "if the repository is not bound yet, store the wiki outside it")
+		f.StringVar(&wikiDir, "wiki-dir", "", "if the repository is not bound yet, store the wiki in this directory (implies --external)")
 	}
 	cmd.Flags().BoolVar(&agentsMD, "agents-md", false, "add or refresh a pointer to the wiki in AGENTS.md (in-repo wikis only)")
 	cmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "show every tool call")
@@ -217,4 +237,12 @@ func firstLine(s string) string {
 		s = s[:160] + "…"
 	}
 	return s
+}
+
+// verb is what a user asks an agent to do in a mode.
+func verb(mode run.Mode) string {
+	if mode == run.Update {
+		return "update"
+	}
+	return "initialize"
 }

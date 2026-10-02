@@ -29,8 +29,19 @@ type options struct {
 func NewRootCommand() *cobra.Command {
 	opts := &options{}
 	root := &cobra.Command{
-		Use:           "owcli",
-		Short:         "Generate, ground, and search a repository wiki",
+		Use:   "owcli",
+		Short: "Generate, ground, and search a repository wiki",
+		Long: `Generate, ground, and search a repository wiki.
+
+There are two ways to write the wiki:
+
+  - Your coding agent writes it (no API key). Run "owcli agents-md" once, then
+    ask the agent to initialize or update the wiki; it follows
+    "owcli quickstart" and drives "owcli run begin|plan|next|submit|finish".
+  - owcli writes it with its own model calls: "owcli init" and "owcli update"
+    need an API key (ANTHROPIC_API_KEY by default; see their --help).
+
+Reading, searching, checking, and the viewer never call a model.`,
 		Version:       version.Version,
 		SilenceUsage:  true,
 		SilenceErrors: true,
@@ -53,12 +64,6 @@ func NewRootCommand() *cobra.Command {
 		}
 		return nil
 	}
-	pf.StringVar(&opts.configPath, "config", "", "config file (default $XDG_CONFIG_HOME/owcli/config.toml)")
-	pf.StringVar(&opts.model.Provider, "provider", "", "model provider: anthropic or openai")
-	pf.StringVar(&opts.model.Model, "model", "", "model id")
-	pf.StringVar(&opts.model.BaseURL, "base-url", "", "provider API base URL")
-	pf.StringVar(&opts.model.APIKeyEnv, "api-key-env", "", "environment variable holding the API key")
-	pf.StringVar(&opts.model.Effort, "effort", "", "Anthropic effort: low, medium, high, xhigh, max")
 
 	root.AddCommand(
 		newBindCommand(),
