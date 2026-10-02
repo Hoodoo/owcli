@@ -19,7 +19,7 @@ func runCLI(args ...string) (string, error) {
 }
 
 func TestCommandsRegistered(t *testing.T) {
-	want := []string{"bind", "bindings", "unbind", "init", "update", "status", "check", "search", "read", "workspace", "wikis"}
+	want := []string{"bind", "bindings", "unbind", "init", "update", "status", "check", "search", "read", "workspace", "wikis", "serve"}
 	cmd := NewRootCommand()
 	for _, name := range want {
 		if c, _, err := cmd.Find([]string{name}); err != nil || c.Name() != name {

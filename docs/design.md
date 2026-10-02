@@ -30,10 +30,12 @@ In scope:
 - OKF v0.2 output: front matter validation and repair, generation provenance,
   index synchronization, Mermaid validation/degradation, link validation.
 - Search and section read over a wiki, and across the wikis of a workspace.
+- A read-only browser viewer (`owcli serve`): page graph, rendered pages with
+  their Claims, and search, for one wiki or a workspace.
 - Binding a repository **without writing artifacts into it** (external
   storage), for exploring other people's projects.
 
-Out of scope: MCP server, parallel page workers, the visualizer UI, coding-agent
+Out of scope: MCP server, parallel page workers, coding-agent
 host integrations, personal mode and connectors, the interactive `link`
 repository finder, GitHub Actions scheduling, telemetry, translation.
 
@@ -408,6 +410,38 @@ and read the others, as upstream's `openwiki link` does.
 - Management is non-interactive (`owcli workspace ...`) instead of upstream's
   finder TUI, so agents can drive it.
 
+## Viewer
+
+`owcli serve` is a read-only viewer in the same binary, modeled on upstream's
+`openwiki visualize` (an interactive page graph beside a Markdown reader) and
+extended with what owcli knows: workspaces, Claims, and health.
+
+- Server: HTTP on `127.0.0.1` only, port 4321 by default (`--port`; the next
+  free port is used when it is taken), opens the browser unless `--no-open`.
+  GET only. Files are read on every request, so a reload shows edits; there
+  is no file watching.
+- Default scope: the current repository's wiki or workspace, as search would
+  choose; outside a repository, none (the UI starts at a picker). Any wiki or
+  workspace owcli knows can be opened by ID.
+- API (JSON): `/api/config` (default scope), `/api/wikis` (the `owcli wikis`
+  listing), `/api/graph?wiki=|workspace=` (nodes and edges),
+  `/api/page?wiki=&page=` (front matter, rendered HTML, Claims with evidence
+  and preflight issues, links, backlinks), `/api/search?q=&wiki=|workspace=`
+  (the search JSON, results always carry `wiki`). Errors are
+  `{"error":{"message"}}` with 400 or 404 for bad requests.
+- Graph: one node per concept page (id `<wiki>:<path without .md>`, title,
+  type, description, tags, size = body length, Claim count and stale or
+  unresolved counts); directed edges are internal Markdown links between
+  concept pages (images, external links, and links outside the wiki or to
+  missing pages are ignored). In a workspace, all member wikis share one
+  graph; links never cross wikis.
+- Pages render with goldmark and GFM. Raw HTML in a page is not passed
+  through. Heading IDs use the same GitHub-style slugs as wiki links and
+  search refs. Mermaid fences are left as code for the client.
+- UI: embedded static files, no build step; only Mermaid is loaded from a CDN
+  (diagrams fall back to their source without network). Static export for
+  hosting is a later option.
+
 ## CLI
 
 ```
@@ -415,6 +449,7 @@ owcli bind [--external] [path]     register a repo; in-repo or external layout
 owcli unbind [--purge] [path]      forget a binding (optionally delete external wiki)
 owcli bindings [--json]            list bindings and orphaned managed wiki directories
 owcli wikis [--json] [--health]    every known wiki and workspace, with membership and last run
+owcli serve [--port n] [--no-open] read-only browser viewer on 127.0.0.1
 owcli init [--external] [message]  generate a wiki from scratch; binds an unbound repo
 owcli update [message]             incremental update driven by drift and claim issues
 owcli status [--wiki id | --all [--json]]  binding, last update, pending run, claim health
