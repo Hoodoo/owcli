@@ -77,7 +77,7 @@ func TestResolveWikiRef(t *testing.T) {
 
 func TestScopeWithoutCurrentWiki(t *testing.T) {
 	f := newScopeFixture(t)
-	outside := t.TempDir() // not a Git repository
+	outside := t.TempDir()                       // not a Git repository
 	for _, dir := range []string{outside, f.e} { // f.e: a repository with no wiki, in no workspace
 		if _, err := f.d.ResolveSearchScope(dir, ""); err == nil {
 			t.Errorf("%s: a search with no target must fail", dir)
