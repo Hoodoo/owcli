@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-01T22:03:52.878Z"
+  - by: owcli/45fa35f
+    at: "2026-10-02T08:04:17.929Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/run/host.go
   - id: openwiki-source-6353eac56e48b42f7340a5d5
     resource: repo://internal/run/run.go
-generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
+generated: { by: "owcli/45fa35f", at: "2026-10-02T08:04:24.845Z" }
 ---
 
 # Agent-Driven Runs and Agent Instructions
@@ -140,7 +140,8 @@ Following Kata's pattern, there are two levels:
   For an external binding owcli refuses to write into the repository;
   `owcli agents-md --print` outputs the block for the agent's global
   instructions instead.
-- **`owcli quickstart`** prints the full procedure: reading commands,
+- **`owcli quickstart`** prints the full procedure: reading commands, the
+  global `-C <path>` flag,
   workspaces (cross-wiki search and read, `workspace_required`, the
   `owcli workspace` commands), health checks, binding inventory, where registry and wiki files live, safe
   reattachment after a clone moves, each lifecycle step with example JSON,

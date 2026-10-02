@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:81ff32f1b018946bfc605192d95c19eced6fd65b176e9c868db0a914225814c7",
+  "pageVersion": "sha256:c3e0f1aab9e826acbae32a7a63cfbedbb8845cc79e44dcacde5e96202c93f045",
   "claims": [
     {
       "id": "claim_cb67b69d063142d88f32a3afcc4453aa",
@@ -17,7 +17,7 @@
       "statement": "The CLI exposes bind, bindings, unbind, init, update, status, check, search, read, workspace, run, quickstart, and agents-md commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L45-L60",
+          "resource": "repo://internal/cli/cli.go#L63-L78",
           "version": "repo-lines-v1:sha256:df225cfaf6cf4c55b3dc56238d9e71eb0cfaa660630f4b5a1abcd35436ea6bd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NmZjZGM0MzMxN2MwMDY3MWY2NDI3NTU5MjQ3MmFjN2I5ZTZkZmYyZGFiYWQ1Yzc3NzQ5MjVmZDQzNjEwOGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5Nzk0MGEzY2M2OTc4ZjhjZGUzZDEyMWQ5ZWYwODU4MmQxMjZkOThkMDI4MzUzNmJkMjYxMzA1NGU1YzJmZjEifQ"
         },
         {
@@ -79,7 +79,7 @@
       "statement": "Passing an existing external wiki home with bind --wiki-dir reattaches it to a new clone only when any repository previously bound to that home no longer exists.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L80-L106",
+          "resource": "repo://internal/cli/cli.go#L98-L124",
           "version": "repo-lines-v1:sha256:7fd55fde34050a8f3bb7a415db3ba2de6fdff797f45d6f46c39d57dbbb342d99:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NGVjOGFlMDM4YzA5MzIwZjE0Y2MzYjI3NWRiOGFjMGNkNmE3NzhiNjcxNWZhMGFhNmRiYWFiNDE5MzE1MjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4OTYwOTQzN2FkYzQ3MWMwNmI5M2M2YjQwMmViMDc0YzUwM2JmN2M2ZGQ4OTY4YWRiNWQ1NDNhNDYyODEwN2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFjYjEwMjViMjUyYzg3YjM4ZjMxYTcwYjQzODZjNDMxNzBjODY2OTI3NzEwMzcwZDY3ZjdiOTM4YjY0ZWJhOWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhYTE4YmNiNDE3ZTJkZTVmMTFmOTEzNGY5NGNiZjExZmQyNzI2MDYzOWQ0ZTg4NTZiZDc1NTY1OTg4NTZjYWQifQ"
         },
         {
@@ -101,10 +101,20 @@
           "version": "repo-lines-v1:sha256:054a8e3c0e99f689e684d091ad9f91a74f9a639ad32fbea60e9cbd92434f4eb0:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk4YzE3MmY5NTYzMmNiYjIzNDc0NjY5ZWM5MzdlMDc5ZDBkZjNjMmYzYWFlZjhhODQzNzY3ZTYzZDhlNWY2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDEyMjc4ODc0NDI2NWI0NWI3YmIyZmFkMzI5Yzc5OGI5ODQ4Mzk5NDBmMzY5YjU4N2RlNWI2OTA5OGY4NWNhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFmNzgyMWUzNDg0YTFkNWExNjc1MzViZTlmYTdiZTdjOGQ3YWYxYmNiZjNhZDFjYmE2YTNmNTU3MGFlZTZlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODM3ZTVkY2QyOGQwZDFlNzVmN2I5MmJkNzk2YzBiYThhMDc0MzVjNjg4MjdlYTkzYjNiMzY3YWE1ZmVjY2JlYyJ9"
         }
       ]
+    },
+    {
+      "id": "claim_1b360cc6ca064e10ee62feea715381c4",
+      "statement": "The global -C flag changes the working directory before any command runs, so every command can target another repository.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli.go#L39-L57",
+          "version": "repo-lines-v1:sha256:9a9ec247bc84ac7454c0db5f7a2825c875e47bf30c70c9443731fd1460e9eee1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMTg3YmZkN2IwMmE0YjllYzNjODdhMzgxNDM0NjYyOTE2YjEyMzZlOGIzNGFiNTM4ZWY5NjE2ZDc1NDY5MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2NThkYWYxYWJiNjE5MzAwMmU2NGNlODEyZGE0ZTgwMmMwMWExZTI0ZmM3MzQyMjEwNDI4NTU4MDJkNWNkY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVhODNhOTAxMzQ2OTRjNDFjM2ViNmU5ZGQ0NWM4NDIxZjRlODk4ZmI2NjY0MWNhYjAxMThlNDMzMjgwNzA1Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjZDRlM2E3ZTNhYmJjN2VlZDIyZTk0ZjdlNTk0NDZlZDJjODIwOGI2MTNiNzIzNmIxYjkzODM1Njc4ZmYzZDcifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/8cd3bda",
-    "at": "2026-10-01T22:04:05.081Z"
+    "by": "owcli/45fa35f",
+    "at": "2026-10-02T08:04:24.660Z"
   }
 }

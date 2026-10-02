@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-01T22:04:05.081Z"
+  - by: owcli/45fa35f
+    at: "2026-10-02T08:04:24.660Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/store/bindings.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/8cd3bda", at: "2026-10-01T22:04:05.268Z" }
+generated: { by: "owcli/45fa35f", at: "2026-10-02T08:04:24.845Z" }
 ---
 
 # owcli Quickstart
@@ -56,6 +56,7 @@ owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo u
 owcli init --wiki-dir ~/kb/foo  # external wiki in a directory you choose (e.g. a knowledge-base repo)
 owcli update "cover the new billing module"
 owcli status                    # binding, last run, Claim health
+owcli -C ~/src/other-repo status  # any command, run as if started in another repo (like git -C)
 owcli bindings                  # all bindings, missing repos, managed orphan wikis
 owcli check                     # model-free validation; non-zero exit on problems
 owcli search "how are retries handled" --path src/net/retry.go

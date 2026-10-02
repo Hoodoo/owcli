@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:79b560fadf1b1766fd1a6eadf4e2bb7d0b4d51ae238af975858f480b772e515f",
+  "pageVersion": "sha256:e63a84c3c1300523df0f79b8721815d6a09fd8d815a0d7ca1e048990ec0be39d",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -117,7 +117,7 @@
           "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L211-L248",
+          "resource": "repo://internal/cli/instructions.go#L214-L251",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -134,11 +134,11 @@
     },
     {
       "id": "claim_f036f60d7b498aa02712a9d3abc378f3",
-      "statement": "owcli quickstart prints reading and health commands, workspaces, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
+      "statement": "owcli quickstart prints reading and health commands, the -C flag, workspaces, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L64-L196",
-          "version": "repo-lines-v1:sha256:6c1f72ba102f826214a7d888f318a81ebd6441e2f228a04f27892cd83baad207:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
+          "resource": "repo://internal/cli/instructions.go#L64-L199",
+          "version": "repo-lines-v1:sha256:64d3c375a03950e175c6208db65b07cb0be7b2f9193c803d32ce77b58368bd94:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
         }
       ]
     },
@@ -185,7 +185,7 @@
           "version": "repo-lines-v1:sha256:421327094401ee987c48a55584ba3f0b7db04c1a08002766c96e19c502eedeba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhlMzg1ZGIzNzRkOTU5ZmI0MDUzOGJkMjRkYjE5ZTExNDljYzMzYjJhMjA5OThhOWQ3NGMxMjNkMjY1NzNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1YTUxZDdmYjM2M2E1OGUwNjRhMTBlNmFjNjExNTMxMTYwZGVjYWY2MGE3ZDEwMGZmMmQzZTAxNzM2MjQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQ1MDdkNDI2MWNkZjNmNWRkZTQ1Yzk5ZWNkZmJmZjY4ZjkwOGJmZWM4NzYzODhmMDIwNjI5ZDE4NmJiODBlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzMmM2NTczMGEwMjFmNGU1ZGM5MGMwMWQwZjE1YTlhODRiYWVmYWIwMmU4NjMxNDY5MjM3MTlhMWIxMjAxNSJ9"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L151-L154",
+          "resource": "repo://internal/cli/instructions.go#L154-L157",
           "version": "repo-lines-v1:sha256:99ccd002d0aecf413a343ee6f8c8a45d0fcd6a6a8d4891d7cb6fdff51622481c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU0YmMyZmM4ZTk1YmM1MzFlNzZlYzQ3Y2U5ZWY2OTJkMWIwMTIyYzZlNTFkMjI2NmI2ZTJhNTIwNThhYzNiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ5M2E3YzI4YzI3M2E4OTJlOThiZDEwZTQwMWE0Y2Y2MDE2ZGU2OGRhNjExOGY3OTVmZGRjMGM3MGU2MDk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIwMTQ2ZjYxOTVkN2FkNTI0ZDQ2Nzg4NmJiOTVlMGIxNWU1ODliZmQ5ZWRiNDEwYzA2ODc2Nzg3ZjllNjgzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWI2MTI2NGE2ZDc5YmYxMzhiNDE0N2M4NjVmZWI5YTIxN2U2NWU3YzY0ZTFjMmU0NzRmZTYyMDQ3YTQxNjBkYyJ9"
         },
         {
@@ -219,14 +219,14 @@
       "statement": "The quickstart's Workspaces section explains cross-wiki search and read, workspace_required, and the workspace commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L81-L98",
+          "resource": "repo://internal/cli/instructions.go#L84-L101",
           "version": "repo-lines-v1:sha256:7b92d64a9257e5bae5f91c5ea0f4125c9f0635ac4ef26c80823e966b206213e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmODU2ODY5NjE3YWFmNzViZjA5YmYyMTA2OWU0ZGM0MzdkMGNjYzJkOWU0YWM1ZDY5ZWNmZTdhM2E0NGJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNjY2IwOWY2MTNmN2Y4YTA1ZWE0OTBlMjg4NzUyNDIwZGNhNjFlMjRhMWZmYjA1MzBmZGY5ZDZjZTRiYjEyZTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwZDQ1ZGMzMGI5NjVlYmUwMzNkYjU5OWRmNTZkODY4ZWQ5ZTRmYThjMGIzZTJkNTA4YTMzNTViZjhjYmM4YmEifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/8cd3bda",
-    "at": "2026-10-01T22:03:52.878Z"
+    "by": "owcli/45fa35f",
+    "at": "2026-10-02T08:04:17.929Z"
   }
 }
