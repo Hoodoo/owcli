@@ -5,7 +5,7 @@ description: How owcli groups repository wikis into named workspaces so an agent
 tags: [workspaces, search, registry, cli]
 verified:
   - by: owcli/8cd3bda
-    at: "2026-10-01T22:03:35.570Z"
+    at: "2026-10-02T07:50:08.266Z"
 sources:
   - id: openwiki-source-86bf4030244551d79539af25
     resource: repo://internal/cli/workspace.go

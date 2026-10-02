@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:6aee7867b57450bf62fb3245e59560118ad582bebe149fa459dab5b13b1ac04e",
+  "pageVersion": "sha256:22aa94b64c5c2b39456828587ef5ec9cb8823416a1323b9d1b95b72a011ad0b4",
   "claims": [
     {
       "id": "claim_d58c5c1c7635440fddc582a8156e6267",
@@ -119,14 +119,14 @@
       "statement": "An opt-in test splits owcli's wiki across two repositories in one workspace and compares federated wiki and ref rankings with upstream's.",
       "evidence": [
         {
-          "resource": "repo://internal/search/compat_test.go#L121-L239",
-          "version": "repo-lines-v1:sha256:83700f19dbbf90cfd54d85e3a6a9ff3569a9c2338a86a9f92ccb470f89751790:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzN2ZkMmNjZTg2Mzg1NTk1YmUxMzIyMjY0ZWFmNzUxMDUyM2MxNmQ4N2ZhOTg3NDU2NWJiYTEwMWM1NzkyMThiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJjNzAzNGVhMTIxY2JhMjk0OGEyMGRlNzIwODZlZDVmMzc0NzlkYWQxNzlmOWEzODU0NDkxODYzOWQxMTBmM2EwIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://internal/search/compat_test.go#L105-L239",
+          "version": "repo-lines-v1:sha256:fc5d237f2a3b695c39a87868652c026f4f32f77b2bb9ca5745e2d93099e0e572:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJmNzdjZWFlMmY0YmNhMzU0Y2E2OGNiNzFiZDJhMjJlM2MxODQ0YTFmNWQ2M2ZiODliMzk2NWM3ZmFiYzhiMzI3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI2NGEyZDAwNmMyMDQ0ZGU1ZmM3ZjMxZWM5MjYzY2MwMTViOTMwNmI3OTExOTI5ZjA2MWQzMmJlZDBiZTA1MjVjIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
     }
   ],
   "verification": {
     "by": "owcli/8cd3bda",
-    "at": "2026-10-01T22:03:35.570Z"
+    "at": "2026-10-02T07:50:08.266Z"
   }
 }

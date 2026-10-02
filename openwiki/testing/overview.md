@@ -4,8 +4,8 @@ title: Testing
 description: How to build and test owcli, how model-dependent code is tested deterministically with a scripted provider, the fixture patterns used across packages, and the opt-in compatibility tests that compare owcli with upstream OpenWiki.
 tags: [testing, compatibility, fixtures, ci]
 verified:
-  - by: owcli/70f8d76
-    at: "2026-10-01T21:32:04.947Z"
+  - by: owcli/8cd3bda
+    at: "2026-10-02T07:50:24.807Z"
 sources:
   - id: openwiki-source-d46fb113abedebe5d8c15a4e
     resource: repo://internal/cli/e2e_test.go
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/search/compat_test.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/70f8d76", at: "2026-10-01T21:32:50.382Z" }
+generated: { by: "owcli/8cd3bda", at: "2026-10-02T07:50:25.000Z" }
 ---
 
 # Testing
@@ -82,14 +82,21 @@ These tests skip unless their environment variables are set:
 | `TestUpstreamFinalizeIsNoop` | okf | `OWCLI_UPSTREAM_DIR` | the full finalization pipeline changes no file in a copy of the wiki |
 | `TestUpstreamSidecarCompat` | evidence | `OWCLI_UPSTREAM_DIR`, `OWCLI_UPSTREAM_SOURCE_DIR` | every evidence token is reproduced, freshly or via relocation |
 | `TestUpstreamClaimsCompat` | claims | both of the above | sidecars load strictly; preflight finds no issues on pages verified at the source commit |
-| `TestUpstreamSearchParity` | search | `OWCLI_UPSTREAM_DIR`, `OWCLI_UPSTREAM_PKG` (needs `node`) | refs and result content match upstream's `searchWiki` for a fixed query set |
+| `TestUpstreamSearchParity` | search | `OWCLI_UPSTREAM_DIR`, `OWCLI_UPSTREAM_PKG` (needs `node`) | refs and result content match upstream's `searchWiki` for a fixed query set (one known excerpt difference for list items continued after a blank line) |
+| `TestUpstreamWorkspaceSearchParity` | search | `OWCLI_UPSTREAM_PKG` (needs `node`, `git`) | owcli's own wiki split across two repositories in one workspace ranks the same wiki and ref at every position as upstream |
 
 `OWCLI_UPSTREAM_DIR` is a checkout of `langchain-ai/openwiki` (it contains
 `openwiki/`). `OWCLI_UPSTREAM_SOURCE_DIR` is a checkout of the commit named
 by a page's `gitHead` in the manifest; pages verified at other commits are
 skipped. `OWCLI_UPSTREAM_PKG` is an installed `openwiki` npm package directory
 (for example `/usr/lib/node_modules/openwiki`), whose
-`dist/retrieval/wiki.js` the search test runs through `node`.
+`dist/retrieval/wiki.js` the search tests run through `node`.
+
+Upstream's package is normally not installed where agents work, because
+agents mistook its skill and MCP server for owcli. The operator installs and
+removes it with `make openwiki-install` and `make openwiki-uninstall` (sudo;
+`OPENWIKI_HOSTS` picks the coding-agent integrations), and the skip messages
+of the package-based tests say so.
 
 ```sh
 git clone https://github.com/langchain-ai/openwiki /tmp/ow
