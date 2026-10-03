@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/llm"
-	"owcli/internal/llm/llmtest"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm/llmtest"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 func write(t *testing.T, root string, files map[string]string) {

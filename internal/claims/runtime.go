@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/evidence"
-	"owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/okf"
 )
 
 // Runtime wires a store, resolver, and session for one generation run.

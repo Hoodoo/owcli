@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/config"
-	"owcli/internal/llm"
-	"owcli/internal/llm/llmtest"
+	"github.com/Hoodoo/owcli/internal/config"
+	"github.com/Hoodoo/owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm/llmtest"
 )
 
 type turn = func(llm.Request) (llm.Response, error)

@@ -1,5 +1,5 @@
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo 0.0.0-dev)
-LDFLAGS := -X owcli/internal/version.Version=$(VERSION)
+LDFLAGS := -X github.com/Hoodoo/owcli/internal/version.Version=$(VERSION)
 PREFIX ?= $(HOME)/.local
 BINDIR ?= $(PREFIX)/bin
 

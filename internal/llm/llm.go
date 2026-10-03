@@ -11,7 +11,7 @@ import (
 	"os"
 	"strings"
 
-	"owcli/internal/config"
+	"github.com/Hoodoo/owcli/internal/config"
 )
 
 // Role of a message.

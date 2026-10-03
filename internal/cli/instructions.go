@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/guide"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/guide"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // compactInstructions is the routing summary placed in AGENTS.md. It is

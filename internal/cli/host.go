@@ -12,11 +12,11 @@ import (
 	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
 
-	"owcli/internal/claims"
-	"owcli/internal/okf"
-	"owcli/internal/run"
-	"owcli/internal/store"
-	"owcli/internal/version"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/run"
+	"github.com/Hoodoo/owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/version"
 )
 
 // hostModel is recorded as the model of agent-driven runs.

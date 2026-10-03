@@ -14,7 +14,7 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // Store persists pages' Claim sidecars and reads and writes page Markdown for

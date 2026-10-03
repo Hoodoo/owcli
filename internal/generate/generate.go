@@ -11,11 +11,11 @@ import (
 	"os"
 	"strings"
 
-	"owcli/internal/agent"
-	"owcli/internal/claims"
-	"owcli/internal/llm"
-	"owcli/internal/okf"
-	"owcli/internal/run"
+	"github.com/Hoodoo/owcli/internal/agent"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/run"
 )
 
 // Options configures Generate.

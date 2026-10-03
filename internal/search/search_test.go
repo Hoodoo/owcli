@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/claims"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 func wiki(t *testing.T, pages map[string]string) *claims.Store {

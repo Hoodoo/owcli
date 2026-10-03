@@ -10,8 +10,8 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"owcli/internal/evidence"
-	"owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/okf"
 )
 
 // SourceIDPrefix marks OKF sources entries owned by the Claims projection.

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm"
 )
 
 // Tool is something the model can call.

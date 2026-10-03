@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 const pageA = "---\ntype: Concept\ntitle: Alpha\ndescription: First page.\ntags: [one]\n---\n\n# Alpha\n\nSee [Beta](b.md#details) and ![img](b.md).\n\n## Retry policy\n\nAlpha retries with backoff.\n\n<script>alert(1)</script>\n"

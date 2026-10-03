@@ -21,12 +21,12 @@ import (
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
 
-	"owcli/internal/claims"
-	"owcli/internal/evidence"
-	"owcli/internal/ignore"
-	"owcli/internal/okf"
-	"owcli/internal/search"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/search"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 //go:embed static

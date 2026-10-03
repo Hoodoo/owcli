@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // TestStatusAndCheckAll covers a healthy wiki, a bound repository that was

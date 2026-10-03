@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sort"
 
-	"owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/evidence"
 )
 
 // pageState is one page's run-scoped Claim state.

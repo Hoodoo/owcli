@@ -13,9 +13,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/serve"
-	"owcli/internal/store"
-	"owcli/internal/version"
+	"github.com/Hoodoo/owcli/internal/serve"
+	"github.com/Hoodoo/owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/version"
 )
 
 func newServeCommand() *cobra.Command {

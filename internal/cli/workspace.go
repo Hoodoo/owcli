@@ -9,7 +9,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // workspaceResult is what a workspace subcommand produced: a JSON value and

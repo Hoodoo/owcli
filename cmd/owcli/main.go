@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"owcli/internal/cli"
+	"github.com/Hoodoo/owcli/internal/cli"
 )
 
 func main() {

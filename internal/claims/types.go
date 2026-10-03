@@ -12,7 +12,7 @@ import (
 	"errors"
 	"fmt"
 
-	"owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/evidence"
 )
 
 // SchemaVersion is the sidecar format version.

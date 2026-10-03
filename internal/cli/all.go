@@ -6,8 +6,8 @@ import (
 	"io"
 	"strings"
 
-	"owcli/internal/claims"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // wikiHealth summarizes one known wiki for status --all and check --all.

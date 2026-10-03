@@ -18,8 +18,8 @@ import (
 
 	_ "modernc.org/sqlite" // pure-Go SQLite with FTS5
 
-	"owcli/internal/claims"
-	"owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/okf"
 )
 
 // Limits on requests.

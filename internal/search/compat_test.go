@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/claims"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // upstreamScript calls upstream's searchWiki for each query and prints the

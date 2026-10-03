@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm"
 )
 
 // Loop errors.

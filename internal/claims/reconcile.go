@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/evidence"
 )
 
 // ProposedClaim is a revised existing Claim (with ID) or a new one (without).

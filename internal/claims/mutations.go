@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/evidence"
 )
 
 // NewClaimID returns "claim_" plus 32 random hex digits.

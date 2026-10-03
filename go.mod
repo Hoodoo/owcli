@@ -1,4 +1,4 @@
-module owcli
+module github.com/Hoodoo/owcli
 
 go 1.22.2
 

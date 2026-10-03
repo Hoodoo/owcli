@@ -7,7 +7,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // The `owcli wikis` JSON is a contract for clients such as editor

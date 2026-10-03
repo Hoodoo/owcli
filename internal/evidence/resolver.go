@@ -14,7 +14,7 @@ import (
 	"strings"
 	"syscall"
 
-	"owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/ignore"
 )
 
 // Version token prefixes.

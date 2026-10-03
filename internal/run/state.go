@@ -8,8 +8,8 @@ import (
 	"errors"
 	"fmt"
 
-	"owcli/internal/okf"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 const (

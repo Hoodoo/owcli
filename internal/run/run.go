@@ -12,11 +12,11 @@ import (
 	"strings"
 	"time"
 
-	"owcli/internal/claims"
-	"owcli/internal/evidence"
-	"owcli/internal/ignore"
-	"owcli/internal/okf"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // Language is the only wiki language owcli writes.

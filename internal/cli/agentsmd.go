@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // The managed block uses upstream's markers so a repository never ends up

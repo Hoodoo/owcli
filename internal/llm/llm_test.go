@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"owcli/internal/config"
+	"github.com/Hoodoo/owcli/internal/config"
 )
 
 type recorded struct {

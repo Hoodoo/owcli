@@ -11,7 +11,7 @@ import (
 	"strings"
 	"unicode"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 var (

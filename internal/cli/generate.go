@@ -15,13 +15,13 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/agent"
-	"owcli/internal/config"
-	"owcli/internal/generate"
-	"owcli/internal/llm"
-	"owcli/internal/run"
-	"owcli/internal/store"
-	"owcli/internal/version"
+	"github.com/Hoodoo/owcli/internal/agent"
+	"github.com/Hoodoo/owcli/internal/config"
+	"github.com/Hoodoo/owcli/internal/generate"
+	"github.com/Hoodoo/owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/run"
+	"github.com/Hoodoo/owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/version"
 )
 
 // providerFactory builds the model provider; tests replace it.

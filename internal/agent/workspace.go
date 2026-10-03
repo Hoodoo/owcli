@@ -12,8 +12,8 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/ignore"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // ErrDenied marks a path the agent may not access.

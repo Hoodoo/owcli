@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 const backoffDoc = "---\ntype: Concept\ntitle: Retry Handling\ndescription: How calls are retried.\n---\n\n# Retry Handling\n\n## Backoff policy\n\nThe client retries with exponential backoff.\n"

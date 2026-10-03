@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/evidence"
-	"owcli/internal/ignore"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // TestUpstreamClaimsCompat loads every sidecar of an upstream wiki with the

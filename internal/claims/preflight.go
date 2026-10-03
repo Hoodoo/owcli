@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sort"
 
-	"owcli/internal/evidence"
+	"github.com/Hoodoo/owcli/internal/evidence"
 )
 
 // Preflight is the result of checking every persisted Claim against current

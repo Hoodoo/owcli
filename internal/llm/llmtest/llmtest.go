@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sync"
 
-	"owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm"
 )
 
 // Scripted replays a fixed sequence of turns and records every request.

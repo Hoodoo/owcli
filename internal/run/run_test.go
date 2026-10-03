@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"owcli/internal/claims"
-	"owcli/internal/okf"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/okf"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 type fixture struct {

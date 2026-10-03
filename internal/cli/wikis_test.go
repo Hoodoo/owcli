@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // TestWikisListing checks the `owcli wikis --json` contract: every bound

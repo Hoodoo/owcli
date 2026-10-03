@@ -13,7 +13,7 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/ignore"
 )
 
 func git(repo string, args ...string) ([]byte, error) {

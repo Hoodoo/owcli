@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"owcli/internal/llm"
-	"owcli/internal/llm/llmtest"
-	"owcli/internal/run"
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/llm"
+	"github.com/Hoodoo/owcli/internal/llm/llmtest"
+	"github.com/Hoodoo/owcli/internal/run"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 func repo(t *testing.T) store.Layout {

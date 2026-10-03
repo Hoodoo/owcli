@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // Host-driven runs: an interactive agent drives the lifecycle one command

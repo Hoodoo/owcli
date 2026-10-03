@@ -1,6 +1,6 @@
 package generate
 
-import "owcli/internal/guide"
+import "github.com/Hoodoo/owcli/internal/guide"
 
 // System prompts for owcli's own agents. The authoring standard comes from
 // the guide package, which also feeds the instructions printed for

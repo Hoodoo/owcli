@@ -11,12 +11,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"owcli/internal/claims"
-	"owcli/internal/config"
-	"owcli/internal/run"
-	"owcli/internal/search"
-	"owcli/internal/store"
-	"owcli/internal/version"
+	"github.com/Hoodoo/owcli/internal/claims"
+	"github.com/Hoodoo/owcli/internal/config"
+	"github.com/Hoodoo/owcli/internal/run"
+	"github.com/Hoodoo/owcli/internal/search"
+	"github.com/Hoodoo/owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/version"
 )
 
 // options holds flags shared by every command.

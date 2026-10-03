@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"owcli/internal/store"
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // reservedNames are structural files that are never concepts.

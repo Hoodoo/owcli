@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"owcli/internal/ignore"
+	"github.com/Hoodoo/owcli/internal/ignore"
 )
 
 func TestParseAndFormat(t *testing.T) {
