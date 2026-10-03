@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4b3f5d69e7939c3c6a9cfc6f615bf292426a8767a350aabb1443b52e68383762",
+  "pageVersion": "sha256:f70b264fdd169b7c9150d57160369335d8700140049528c32c098d06c71136c4",
   "claims": [
     {
       "id": "claim_82e6100434134c66abbe5fabcb533d8e",
@@ -162,7 +162,7 @@
       "evidence": [
         {
           "resource": "repo://internal/serve/serve_test.go",
-          "version": "repo-file-v1:sha256:c6ac02e25a7a7fb7306a18027c4a5ae62c7731ac48cb2718bade6480fe034af7"
+          "version": "repo-file-v1:sha256:84faacb5ca161da2418a9c9cf497646e55ded651b75742a8fe50131a0cb7eb79"
         }
       ]
     },
@@ -228,7 +228,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/ca4c372",
-    "at": "2026-10-02T10:02:05.663Z"
+    "by": "owcli/2d956c2",
+    "at": "2026-10-03T15:43:57.761Z"
   }
 }

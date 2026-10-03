@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:fa21977976558d05bf6c8392661c55c86190ac4a560dcace618604d895f3ca90",
+  "pageVersion": "sha256:4cf885e4c93ecb3c51fb69771562cefb0266a8902c59f5f5a5ff83423b9c3772",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -114,7 +114,7 @@
       "evidence": [
         {
           "resource": "repo://internal/cli/agentsmd.go",
-          "version": "repo-file-v1:sha256:88a715f38b57a7b964c3e6b0b49bc524877f71d271a3449e095cff728dfe06ab"
+          "version": "repo-file-v1:sha256:315fecb70c0e80c01edc025baa581454d4f33a078270962eaf8174176f1ac1f6"
         },
         {
           "resource": "repo://internal/cli/instructions.go#L229-L266",
@@ -256,7 +256,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/1bb33cd",
-    "at": "2026-10-02T09:07:57.788Z"
+    "by": "owcli/2d956c2",
+    "at": "2026-10-03T15:43:52.382Z"
   }
 }

@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: owcli/1bb33cd
-    at: "2026-10-02T09:07:49.310Z"
+  - by: owcli/2d956c2
+    at: "2026-10-03T15:43:41.415Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go

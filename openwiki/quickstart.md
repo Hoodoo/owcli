@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/3eb3728
-    at: "2026-10-02T13:16:16.547Z"
+  - by: owcli/2d956c2
+    at: "2026-10-03T15:44:11.557Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -19,9 +19,11 @@ sources:
     resource: repo://internal/cli/inspect.go
   - id: openwiki-source-e370da3884d4a2d6ea7a5245
     resource: repo://internal/store/bindings.go
+  - id: openwiki-source-d7020a16bee4dd2b35383c30
+    resource: repo://internal/version/version.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/3eb3728", at: "2026-10-02T13:16:16.755Z" }
+generated: { by: "owcli/2d956c2", at: "2026-10-03T15:44:11.760Z" }
 ---
 
 # owcli Quickstart
@@ -49,6 +51,10 @@ make check                      # go vet + all tests (offline)
 make install                    # build and copy to ~/.local/bin (override PREFIX or BINDIR)
 make update                     # git pull --ff-only, then make install
 ```
+
+Without a clone, `go install github.com/Hoodoo/owcli/cmd/owcli@latest`
+installs from GitHub; the version then comes from the module version Go
+records in the binary (`internal/version`).
 
 There are two ways to write a wiki.
 

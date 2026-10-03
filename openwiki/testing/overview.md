@@ -4,8 +4,8 @@ title: Testing
 description: How to build and test owcli, how model-dependent code is tested deterministically with a scripted provider, the fixture patterns used across packages, and the opt-in compatibility tests that compare owcli with upstream OpenWiki.
 tags: [testing, compatibility, fixtures, ci]
 verified:
-  - by: owcli/8cd3bda
-    at: "2026-10-02T07:50:24.807Z"
+  - by: owcli/2d956c2
+    at: "2026-10-03T15:43:47.004Z"
 sources:
   - id: openwiki-source-d46fb113abedebe5d8c15a4e
     resource: repo://internal/cli/e2e_test.go

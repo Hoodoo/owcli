@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:1619695263c55e4292bba2ed38e300852a905828a8fd83979ae60bcc10c17557",
+  "pageVersion": "sha256:c286a0f5de0a305868c15c65849a66adf801fdaff0e87ae36586c21f82dbded8",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -17,7 +17,7 @@
       "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, serve, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L63-L79",
+          "resource": "repo://internal/cli/cli.go#L68-L84",
           "version": "repo-lines-v1:sha256:7679de1955973165600ddb3a5031b8e8ec63a3eef1533b4e50feda8ddf667c3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         }
       ]
@@ -110,7 +110,7 @@
       "evidence": [
         {
           "resource": "repo://internal/generate/prompts.go#L1-L30",
-          "version": "repo-lines-v1:sha256:9272d0d359cca669e9df6d0cbcc1cb4a564ea7108f0d6b864a01e45ab0204014:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmYzQ0NTE4ODg1ZGY1OTNmMjQwYjNlNzJkODQ5MWZmYWE2NjgxYWQzZjVmZDBkMmQ1YjQ0NDZlNjc0ZTlmMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3NDY0N2ZiYzJiMmQ4ZTJjMzU0MjU3ZmNkNmI4ZWMwZTZjZTg2YjQ3NGRiNDA2Njk1MWU3MWM3MTliYjMyMWMifQ"
+          "version": "repo-lines-v1:sha256:d2d02659b6be6074499eb756ef2cfcd9f84d5073138f3869c88c269ea22a9855:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmYzQ0NTE4ODg1ZGY1OTNmMjQwYjNlNzJkODQ5MWZmYWE2NjgxYWQzZjVmZDBkMmQ1YjQ0NDZlNjc0ZTlmMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwZDk4NmIwZGY3ZTljNDdhYTc4MmIwNjYwOTQ2OWJjOGVlY2E0NzYxMmI4MzhjZjgyOWRkYTRiY2RkZDMzMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3NDY0N2ZiYzJiMmQ4ZTJjMzU0MjU3ZmNkNmI4ZWMwZTZjZTg2YjQ3NGRiNDA2Njk1MWU3MWM3MTliYjMyMWMifQ"
         },
         {
           "resource": "repo://internal/guide/guide.go",
@@ -130,7 +130,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/1bb33cd",
-    "at": "2026-10-02T09:07:49.310Z"
+    "by": "owcli/2d956c2",
+    "at": "2026-10-03T15:43:41.415Z"
   }
 }

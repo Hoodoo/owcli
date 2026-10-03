@@ -4,8 +4,8 @@ title: Browser Viewer
 description: How owcli serve shows wikis in a browser - the loopback server and its default scope, the JSON API, how the page graph is built, page rendering with Claims, the embedded UI and its navigation rules, and how the viewer is tested.
 tags: [viewer, serve, graph, ui]
 verified:
-  - by: owcli/ca4c372
-    at: "2026-10-02T10:02:05.663Z"
+  - by: owcli/2d956c2
+    at: "2026-10-03T15:43:57.761Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md

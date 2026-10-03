@@ -4,8 +4,8 @@ title: Agent-Driven Runs and Agent Instructions
 description: How an interactive coding agent drives owcli init and update itself through the owcli run commands (JSON in and out, no model calls by owcli), how snapshots and resumption work across processes, and how owcli agents-md and owcli quickstart deliver Kata-style instructions.
 tags: [agents, lifecycle, json, instructions, agents-md]
 verified:
-  - by: owcli/1bb33cd
-    at: "2026-10-02T09:07:57.788Z"
+  - by: owcli/2d956c2
+    at: "2026-10-03T15:43:52.382Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
