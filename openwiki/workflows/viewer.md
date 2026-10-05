@@ -4,8 +4,8 @@ title: Browser Viewer
 description: How owcli serve shows wikis in a browser - the loopback server and its default scope, the JSON API, how the page graph is built, page rendering with Claims, the embedded UI and its navigation rules, and how the viewer is tested.
 tags: [viewer, serve, graph, ui]
 verified:
-  - by: owcli/2d956c2
-    at: "2026-10-03T15:43:57.761Z"
+  - by: owcli/v0.3.0-1-g9e64744
+    at: "2026-10-05T09:15:10.665Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -21,7 +21,7 @@ sources:
     resource: repo://internal/serve/serve_test.go
   - id: openwiki-source-8c0d5d551a6c5db87a710545
     resource: repo://internal/serve/static/app.js
-generated: { by: "owcli/ca4c372", at: "2026-10-02T10:02:05.870Z" }
+generated: { by: "owcli/v0.3.0-1-g9e64744", at: "2026-10-05T09:15:10.885Z" }
 ---
 
 # Browser Viewer
@@ -38,9 +38,16 @@ that a separate program could not import.
 
 `internal/cli/serve.go` builds the server and `internal/serve` implements it.
 
-- It listens on `127.0.0.1` only, never on the network. The port defaults to
-  4321; when it is taken, `Listen` tries the next ports. It prints the URL and
-  opens the browser unless `--no-open`, then runs until Ctrl-C.
+- By default it listens on `127.0.0.1`. The port defaults to 4321; when it is
+  taken, `Listen` tries the next ports. `--addr host:port` listens on exactly
+  that address instead (with a warning when it is not loopback and no
+  `--user-header` is set); giving both `--addr` and `--port` is an error. It
+  prints the URL and opens the browser unless `--no-open`, then runs until
+  Ctrl-C.
+- Every request passes a Host check first: the `Host` header must be
+  `localhost`, a loopback IP, the listen host, or a name given with
+  `--allow-host` (403 otherwise), which keeps other web pages from reading
+  the wikis by DNS rebinding.
 - Only GET is accepted. There is no file watching: every request reads the
   wiki files again, so reloading the page shows edits.
 - The default scope is what `owcli search` would use in the directory serve
@@ -132,6 +139,17 @@ never replaces a newer page. Mermaid diagrams are drawn off the page with
 `mermaid.render`, one at a time, and an SVG is inserted only if its page is
 still shown, so navigating away mid-render leaves nothing half-drawn.
 
+## Behind a reverse proxy
+
+`serve.Options` carries `ListenHost`, `AllowHosts`, and `UserHeader`, set
+from `--addr`/`--port`, `--allow-host`, and `--user-header`. With a user
+header (`X-Goog-Authenticated-User-Email` behind Google IAP), a request
+without it gets 401 before routing, so traffic that bypasses the proxy fails
+closed; `Server.Viewer` strips IAP's `accounts.google.com:` prefix. The
+header is only as trustworthy as the network, so it is meant for an address
+only the proxy can reach. The viewer is read-only, so the user is not
+recorded anywhere.
+
 ## Testing
 
 `internal/serve/serve_test.go` covers the API against two temporary Git
@@ -143,7 +161,8 @@ repositories in a workspace:
   missing pages returning 404;
 - workspace search, the config, POST being refused, and the embedded UI
   files being served;
-- loopback listening and skipping a busy port.
+- loopback listening and skipping a busy port;
+- the Host check and running behind a proxy (`TestHostGuardAndProxy`).
 
 The browser behaviour (graph interaction, navigation, Mermaid, layouts) was
 checked by driving the UI in Chrome with Playwright during development; that

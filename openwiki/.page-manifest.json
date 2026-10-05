@@ -79,11 +79,11 @@
       "sourceFingerprint": "sha256:8f3a344afe3e541a7540cc2a690b16d5e04e483b0f7b1e85f8aad5eb2eb3e939"
     },
     "/openwiki/workflows/viewer.md": {
-      "pageVersion": "sha256:f70b264fdd169b7c9150d57160369335d8700140049528c32c098d06c71136c4",
-      "completedBy": "owcli/2d956c2",
-      "completedRunId": "c526a4cd-8876-4257-b79e-a414abf5a722",
-      "gitHead": "2d956c2c46a3db73ab6381ca8c5987843088175d",
-      "sourceFingerprint": "sha256:d589f30252dbf25713e541398b3a20a0c598828ed25f6f2ca678c4d642436d48"
+      "pageVersion": "sha256:b77d503290257dccc3d0735924238c0affb53452b71a1a4b650f78ae59c821ef",
+      "completedBy": "owcli/v0.3.0-1-g9e64744",
+      "completedRunId": "ade7f95f-48f5-4dd6-9c98-239daf9244e1",
+      "gitHead": "9e64744287f2730ef4c20c11143ff883ed715a8d",
+      "sourceFingerprint": "sha256:549b632faea4fa177e3ef31a6e6d9a328d6b12c4d6da65b3e09d21cd02261557"
     }
   }
 }

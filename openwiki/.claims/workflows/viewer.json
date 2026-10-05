@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f70b264fdd169b7c9150d57160369335d8700140049528c32c098d06c71136c4",
+  "pageVersion": "sha256:b77d503290257dccc3d0735924238c0affb53452b71a1a4b650f78ae59c821ef",
   "claims": [
     {
       "id": "claim_82e6100434134c66abbe5fabcb533d8e",
-      "statement": "The viewer listens on 127.0.0.1 only, defaults to port 4321, and tries the following ports when one is taken.",
+      "statement": "The viewer listens on 127.0.0.1 by default, defaults to port 4321, and tries the following ports when one is taken; --addr listens on an exact address instead and cannot be combined with --port.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/serve.go#L21-L82",
-          "version": "repo-lines-v1:sha256:e76ff4f53621117cad3a6291b41500e68ee2c6ec7c7459cc1471ca59c92e197b:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllM2I4NmU0M2E1OTI5NmQ5OWFjZDRhZWFjOWZkNzIyYjYxMDVmNWMwZTc3ZjRkNTQ5Mjk1YjIyZjg1ZDFhMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmNjg0OTc1YjFiMWJjZWY5ZDQ1ZTkyZjQyNWUwMzc4YjdlODNjODE4ZWE0YmZiOTFlODZjY2EzOGViNWZkZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmYzdjNjE1ZTA2ZTlmOGMzYjA5N2U5NmJlYTNiMDg4NzJkOTQ2MzU1MmM4YzE4YWY3ODRjNDJhYmUzOGU1N2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4YmE5ZjQ0ZGU1NjEyOWJhMmVhNWZlZWU3NmM2OWU1MmU0M2FkYjcxNDIyOWQ5NjQ5ZDIyMDRhNTI1Nzc2ZmQifQ"
+          "resource": "repo://internal/cli/serve.go#L22-L110",
+          "version": "repo-lines-v1:sha256:b297966a26d39fab60773ab0020750dd4d4b0562a0748d87a5815f9e35a07adf:eyJzZWxlY3RlZExpbmVDb3VudCI6ODksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllM2I4NmU0M2E1OTI5NmQ5OWFjZDRhZWFjOWZkNzIyYjYxMDVmNWMwZTc3ZjRkNTQ5Mjk1YjIyZjg1ZDFhMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmNWJmYTBmZjMyZTQ5NDA3MDZlMGQ2ZjcwNzExMjYyYjdhYzkzNjI0OTM3YTdjMDE1YzVhYWUxMmYwZWExMWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzMTQxOWUyMTc0MmI0NmU3ZWUxODBkMDc2ZjlmMmQ2ZTFmYWNjZTllNThhMmFkNjFkZmRhZmQ3ZmNhYzZiYmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmYWIyZTkzZTcwOTIwN2IxZmI5MjFiZTg1MTIyMTViZTcyODAyZjgzNDFhZmU5YzI2NWRiNjg2MDlkZDFhMGUifQ"
         },
         {
           "resource": "repo://internal/serve/listen.go#L1-L24",
@@ -25,7 +25,7 @@
           "version": "repo-lines-v1:sha256:a1f7ecc93f6af357362428ec3f3c28b4fef1c838aca72bb6b952b726e33289c4:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzY1ZTE5Y2UxNzBhMGZmNzc3ODI0ZDFjOGU3MGIwYjM4NWFiNGU0YjhlMDc3NTNiYTI0ZDg1YzA5Y2NjNjU3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA0YWMxMzVkZTZhZjE5NWU0NzI5YmM3NmU0MzQ4OTRjY2M0ZGIwYjY3YzA5ODQ1NjkwZDllZDdiYWViYmVjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjU1ODBlOTE2ZTI5NzZmOWQxYWEzZDg3NTFmZWJkMzlkMGQ3MDkwYmRjOWJmOTExN2ZkYzQxNDExNzRjYmFhNyJ9"
         },
         {
-          "resource": "repo://internal/serve/serve.go#L80-L105",
+          "resource": "repo://internal/serve/serve.go#L137-L162",
           "version": "repo-lines-v1:sha256:a55014732b69756dec313f8406633ac5ae200a3d8c74c4a66e4469c868f5e073:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxYzQwNzdhNjZjMGQzOWQyYWRhNzJmOTE3MTg5OWQzNmIzZjNlMzUwZTFiNWEyNTg3ZTA4YzczYTVlYTZmNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3MDJjNDliMjZmODhiYzNhMjQ0NjJjZDk0YTEzODkwNWMwMGZmOGZlYjZhODdmYzU3OWI3MzQxYjNhYWYzMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4Y2YwZDU3YWQzYzkyMDAxZTdiZTZlMzIwZDBkM2JiZjQ3YmFhOGRkZDU2YjU0ZGUyMTEwMjZmY2VjYmQ0MWEifQ"
         }
       ]
@@ -35,8 +35,8 @@
       "statement": "The default scope is the scope owcli search would use in the starting directory, and a default wiki without an ID gets its WikiID.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/serve.go#L21-L82",
-          "version": "repo-lines-v1:sha256:e76ff4f53621117cad3a6291b41500e68ee2c6ec7c7459cc1471ca59c92e197b:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllM2I4NmU0M2E1OTI5NmQ5OWFjZDRhZWFjOWZkNzIyYjYxMDVmNWMwZTc3ZjRkNTQ5Mjk1YjIyZjg1ZDFhMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmNjg0OTc1YjFiMWJjZWY5ZDQ1ZTkyZjQyNWUwMzc4YjdlODNjODE4ZWE0YmZiOTFlODZjY2EzOGViNWZkZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmYzdjNjE1ZTA2ZTlmOGMzYjA5N2U5NmJlYTNiMDg4NzJkOTQ2MzU1MmM4YzE4YWY3ODRjNDJhYmUzOGU1N2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk4YmE5ZjQ0ZGU1NjEyOWJhMmVhNWZlZWU3NmM2OWU1MmU0M2FkYjcxNDIyOWQ5NjQ5ZDIyMDRhNTI1Nzc2ZmQifQ"
+          "resource": "repo://internal/cli/serve.go#L22-L110",
+          "version": "repo-lines-v1:sha256:b297966a26d39fab60773ab0020750dd4d4b0562a0748d87a5815f9e35a07adf:eyJzZWxlY3RlZExpbmVDb3VudCI6ODksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllM2I4NmU0M2E1OTI5NmQ5OWFjZDRhZWFjOWZkNzIyYjYxMDVmNWMwZTc3ZjRkNTQ5Mjk1YjIyZjg1ZDFhMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmNWJmYTBmZjMyZTQ5NDA3MDZlMGQ2ZjcwNzExMjYyYjdhYzkzNjI0OTM3YTdjMDE1YzVhYWUxMmYwZWExMWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzMTQxOWUyMTc0MmI0NmU3ZWUxODBkMDc2ZjlmMmQ2ZTFmYWNjZTllNThhMmFkNjFkZmRhZmQ3ZmNhYzZiYmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmYWIyZTkzZTcwOTIwN2IxZmI5MjFiZTg1MTIyMTViZTcyODAyZjgzNDFhZmU5YzI2NWRiNjg2MDlkZDFhMGUifQ"
         }
       ]
     },
@@ -45,12 +45,12 @@
       "statement": "The API serves config, wikis, graph, page, and search endpoints, resolving wiki IDs against the default scope first and then the registries.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L107-L165",
-          "version": "repo-lines-v1:sha256:12b70d900115a3e7c6dbe5bd39f2c350e95f53036569a1bc154b5a9638411305:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5YjVhZDE2OTdlYjEzZTFkMzEzZGNkNmY5ZmU0NGNmNGE5Y2ExODUwMTAxZWEzNDQ4Y2U1ZDg0MjM2NzE2ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMjVlMDJmZDhjZjQ2MmNkNDg3OWMxZmIzNmMyZGIzYzkyMDc2NmQ2NDVhNmFiYzlmMzg2OTVmYWIxZWJiOWUifQ"
+          "resource": "repo://internal/serve/serve.go#L164-L221",
+          "version": "repo-lines-v1:sha256:a65e35e0bc186724e8aecde8b2fde5ecdca15ea06fa2942b8f056b15870a5205:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5YjVhZDE2OTdlYjEzZTFkMzEzZGNkNmY5ZmU0NGNmNGE5Y2ExODUwMTAxZWEzNDQ4Y2U1ZDg0MjM2NzE2ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3OTRmNzk2ZjU2ZDk4NTk4YjI4YzgxNTdlNzcyM2I2YmU5OGYzZWYxY2Q3YmM1Y2JmMjBjN2FjZTFjYWVkOTYifQ"
         },
         {
-          "resource": "repo://internal/serve/serve.go#L56-L67",
-          "version": "repo-lines-v1:sha256:558c62bfc0a8f170e59fea9e1e184edec9dbc098986527ae891de3c99b44384b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzZWU4M2EwZjdkYjNhNmQ2NjMyNTNkYzM1ZDBiZDViYThhZWJkOGE5NmJmZDcxMWFjMTAxNTk2NGYxNWI2MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxNTUxMjMwYzk2MmVjY2ViYWM4OGJlZDRiYWY0ZmM0NGNhMmE0YjlhOTJiMGZjZThhYWQ4MTBjNDEwZTI3MDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ2NDdkMWU5MWZmZmRkN2JhMWJiMDJhOWU2ZjBiYzkzYjBlZDA1MmI0Y2IzNTNmNjZkZjAxM2JmZjY3NWZhMjQifQ"
+          "resource": "repo://internal/serve/serve.go#L72-L92",
+          "version": "repo-lines-v1:sha256:c622578fddc779e0f374bd39b0607b459e44daa20fee5bdd6c000323e1dee2da:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzZWU4M2EwZjdkYjNhNmQ2NjMyNTNkYzM1ZDBiZDViYThhZWJkOGE5NmJmZDcxMWFjMTAxNTk2NGYxNWI2MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxNTUxMjMwYzk2MmVjY2ViYWM4OGJlZDRiYWY0ZmM0NGNhMmE0YjlhOTJiMGZjZThhYWQ4MTBjNDEwZTI3MDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExZmY4OTc4NTNlNzRiMjhjYmRmZmY5ZmE0YTVkOWZiZWNkMjgxYmU5NTg1MWRiMDQ0N2Q4Mzg5OGI2YmMzNzgifQ"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "statement": "Bad references return 400 and a page that is not one of the wiki's concept pages returns 404.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L336-L406",
+          "resource": "repo://internal/serve/serve.go#L393-L463",
           "version": "repo-lines-v1:sha256:5afa0b5dbfabaf12dff34eed88ec70d579e2dbedaca7674cd48a9491c5be4d7f:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI0N2NhMjI1ZjcyMTcyMjE5MDY3ODgxNjFhYjU2ZjIyMmMzMmFiMGI2Nzk4YzQ3YzYxNGJkYTYxZDUzNWE2NmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2OTNkZmU5NGI1ODU5MGIxODMwMGU3ZDcyODE1YmE3NTg1YmYwODExZWU5MGM5MjQ3OWZkOWJlMjdiNTYzMTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlMDcyNTQ3Njk0NTIyMjI2NzA2NTk5MjlmMWRlYTY2OGU1NGJiOTllNTY3YWQzNjFhOTg1NmMwNjhkMTNkZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NmM4N2IxZjAzOGQzNmEzNmI2Nzc0YmEwNDYxY2IzZWZjOTc4NWYzYTNiNGIyNmJiYmQ2YTlmYjU0YjZiNzIifQ"
         },
         {
-          "resource": "repo://internal/serve/serve.go#L80-L105",
+          "resource": "repo://internal/serve/serve.go#L137-L162",
           "version": "repo-lines-v1:sha256:a55014732b69756dec313f8406633ac5ae200a3d8c74c4a66e4469c868f5e073:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxYzQwNzdhNjZjMGQzOWQyYWRhNzJmOTE3MTg5OWQzNmIzZjNlMzUwZTFiNWEyNTg3ZTA4YzczYTVlYTZmNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3MDJjNDliMjZmODhiYzNhMjQ0NjJjZDk0YTEzODkwNWMwMGZmOGZlYjZhODdmYzU3OWI3MzQxYjNhYWYzMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4Y2YwZDU3YWQzYzkyMDAxZTdiZTZlMzIwZDBkM2JiZjQ3YmFhOGRkZDU2YjU0ZGUyMTEwMjZmY2VjYmQ0MWEifQ"
         }
       ]
@@ -73,7 +73,7 @@
       "statement": "Graph nodes are concept pages identified by wiki and path, with type, size, links, backlinks, and Claim and issue counts from a preflight run on each request.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L167-L320",
+          "resource": "repo://internal/serve/serve.go#L224-L377",
           "version": "repo-lines-v1:sha256:14f3c3e67239ba5a7f56ada1050cc0ff66cc9d2ecdfc55b7412697221beb9eba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTU0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxYTQyZmY3MGNhZWE4NzU1NDNmNWM1OGQ2YzBmNzliNTg4YzE0YmI4MTc1ZTg4NDBlMDJlMTE5ZjYzZWM2ODlkIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJmZGNhZWMwMzY2MjE3Y2I4YzhlMDQzNWQyMzEwZmY3Yzg4MDAzNTBjODk0OGZhZTMzYjJmMDJmZmE1OTlmMjdkIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI5ZjIxNzA4MmQ0YjgxNWE0NjhkNTE5OGVhMTYxODMxOGIzZWUxYzY0MDBkYmRiMjJjNjIxZGE0MjM0NDVjM2M2In0"
         }
       ]
@@ -93,7 +93,7 @@
       "statement": "Pages render with goldmark and GFM without raw HTML, using okf.Slug heading IDs with numeric suffixes.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L408-L436",
+          "resource": "repo://internal/serve/serve.go#L465-L493",
           "version": "repo-lines-v1:sha256:cc6dfd4badb2ae7e091421533292c70b9d5f1d66361eb9d9b6e44c947ea1dfd3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc0ZjI4ZTYyNzMxZDlhOWY1MjVhZTZjNTE1Y2RmYWM0N2IwMTNkYzQ1MTgyMjg2NDk2MmRlODYxODFjZWU0MGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlNTNlMzM3YTIyYmVlY2FlZDUzOThiNWI5ZWM4ODJhZDJiODJhYjc1ZGM1ODViMTZlMzhkZmFhNWYxODAxNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0MjBlMTY5NjYwNGE0MjIyYmQxYTI3NGJkYTdjODMxOTE5NmEzODcyNTk3OWJjMzcxNDBlODYxYTRhNzNiNWQifQ"
         }
       ]
@@ -103,7 +103,7 @@
       "statement": "The page endpoint returns each Claim with its evidence resources and any preflight issue.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L329-L406",
+          "resource": "repo://internal/serve/serve.go#L386-L463",
           "version": "repo-lines-v1:sha256:be7d5cbcd622abd6ad852427d1c05ae16e342a282ff76320773aede6684f6276:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MWRkNGFkNjU1NDQ2Y2Q3MDkwM2ZhM2VhODkxMTc1YjhkMzQ5MjZkZDM4ODI4Yzg0ZDg5ZGU0Zjg2ZTg1YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2OTNkZmU5NGI1ODU5MGIxODMwMGU3ZDcyODE1YmE3NTg1YmYwODExZWU5MGM5MjQ3OWZkOWJlMjdiNTYzMTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNkMGM5ZDdjYjQ5M2NhYmExOWM0ZWRhZDI5MzllY2UzZWZhNTU2MmU4ZDdjMzdkNDdiNzIxYzNlYzllMjkyMWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NmM4N2IxZjAzOGQzNmEzNmI2Nzc0YmEwNDYxY2IzZWZjOTc4NWYzYTNiNGIyNmJiYmQ2YTlmYjU0YjZiNzIifQ"
         }
       ]
@@ -113,7 +113,7 @@
       "statement": "The UI is embedded static files, and Mermaid is loaded from a CDN only for pages with diagrams, falling back to the source.",
       "evidence": [
         {
-          "resource": "repo://internal/serve/serve.go#L32-L33",
+          "resource": "repo://internal/serve/serve.go#L33-L34",
           "version": "repo-lines-v1:sha256:fbf81f59d1186b24b87cf085c523f19ab4eba7d63d08c6e8154f1deead95adc3:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGIyODAxMjg3Y2FhMGVjOTIyY2VjMTIxZTEwNDFhYjA0NDY1YWU5YzJmYjM4OGI3MDZiYjNjNjBkMDdjMzllMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkNGRmYzUzMzY0M2UxNGVkOTk0ZDAzYjI4NDI1YjE4M2VhM2ZkZWEzNTk3OTgyYTc2NjAyYzFhZDE5NmNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTI0YmZlYjg3ODBkYmQ5N2M4Mjc3NTgyMDc4NTlkNjE0NjEzN2UzYTk0ZDE0NjVkMDg0ODVlNWE5ZWMwNDRmMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWM4ZGYxMjU1NzIzNWMwMjNkZDVlMzViYjJjYjlhYzJhMDZhMTQ1NjFmZjJkNWQ1NGM1ZGJkOTUxNmI3NWFmYSJ9"
         },
         {
@@ -162,7 +162,7 @@
       "evidence": [
         {
           "resource": "repo://internal/serve/serve_test.go",
-          "version": "repo-file-v1:sha256:84faacb5ca161da2418a9c9cf497646e55ded651b75742a8fe50131a0cb7eb79"
+          "version": "repo-file-v1:sha256:2082e0888284f07b618066ee6341ccef30a9aba5c51679dc9a3c4c078089d735"
         }
       ]
     },
@@ -171,7 +171,7 @@
       "statement": "docs/design.md specifies the viewer's server, default scope, API, graph, page rendering, and UI.",
       "evidence": [
         {
-          "resource": "repo://docs/design.md#L413-L448",
+          "resource": "repo://docs/design.md#L431-L466",
           "version": "repo-lines-v1:sha256:f32b9cb02195c9162a27e231674cfdeab9aeac52459400df377d917828ead7c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjZDg5MTlmNDMwZGIxYmE4MTcyOWFiMTJlOGQ2NzQ5ZGJlNDEyYTVkMWNhYTQzN2U4ZGIxMjQzMzM3YzBiMzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwNmM5YjlmNWFlOWI4OTMwNzNlNDdjMjBlNzEzZGRiYjQyNDEwM2M3NjgxMjFkNzk4MTU5ODNlMTRmOWFmMmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2NjcwODVkMWZjYWZkMDVhYTlkZmQyYjAzMjcwMTk1MzhhMWEzNTgyM2UzYjI2YWZiOTExNDUyYjZlNjYyYmQifQ"
         }
       ]
@@ -225,10 +225,40 @@
           "version": "repo-lines-v1:sha256:54c41ee271cc36d8114d18a0bf44cc36802441a02f901ced9161160caeccdb44:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxNmEzOTVjYjYzODQ0NzViYmU1N2JmMjk1NDg3OWVkYzJmYzU4YWFhZjI4YTA3NWI1NTNjYzY2OGM3YTE0Y2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1ZTk2ZWM0MmQ2YjZlOTQ0YTY2ZWFjYWY4ZTU3N2NhMzYxM2U1ZmU5YTQ2YjM5M2ZiMzBjYzcwZjJlZmM5NTAifQ"
         }
       ]
+    },
+    {
+      "id": "claim_e0e9476f73f6a8c8842e174fcde5692f",
+      "statement": "Every request passes a Host check against localhost, loopback IPs, the listen host, and allowed hosts (403 otherwise), and with a user header configured a request without it gets 401.",
+      "evidence": [
+        {
+          "resource": "repo://internal/serve/serve.go#L72-L112",
+          "version": "repo-lines-v1:sha256:27118ec8a42e175c7bcb36cd3e1e09ea74cd07aba5d2842cf8b26d14ca74a36c:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzZWU4M2EwZjdkYjNhNmQ2NjMyNTNkYzM1ZDBiZDViYThhZWJkOGE5NmJmZDcxMWFjMTAxNTk2NGYxNWI2MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1NDVkOTZiYjU3MTQ5ZDc2ZWI2OTliMDg1OTFmMzNmZDg3YmNlZGVkMmJmNDFiZmMzNDA5ZDgwMTkwZjZjZmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxNTUxMjMwYzk2MmVjY2ViYWM4OGJlZDRiYWY0ZmM0NGNhMmE0YjlhOTJiMGZjZThhYWQ4MTBjNDEwZTI3MDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJjM2RmNWZlNGI4NzlkNTlhZWVkMjZkY2UzNzgxN2ExYWE2MzAwMDcyYjI2N2FiNzEwNzFkMjkzYzNjZjhiYzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_575cbda3c7022ec00e04646e9f520f90",
+      "statement": "Viewer strips everything up to the last colon of the configured user header.",
+      "evidence": [
+        {
+          "resource": "repo://internal/serve/serve.go#L114-L123",
+          "version": "repo-lines-v1:sha256:cba69de374fd56306e4ad0f58fff7cea61fadea1e9a98d2c5f1b78e7953ea9c8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkNTVhMWRhY2ZlYTZkYzE2OTNiZjViY2ZkMmNiN2ZlOWM5MDRiMDU1NGYxNDMzYTA0OWExYTRmMjhmOTE3NTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0MThlYzI4ZjZlZjYyMWFjYTg0MTJjMzQ4MTEwN2IxM2E3MjQ0NzM4OWM2ODljNjVhZDkwYThjZjY5NTMwNmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlZmU4Y2MzMjUzM2JiNDA2ZGE1YWE3MWQ5NzQyZTg1OWVjMTIwNmJjOWYwMTFiZjRjZTM2ZDNhZTZmOTU1MGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac7b0db04aeb4ac84ee7c5e566565dd6",
+      "statement": "TestHostGuardAndProxy covers loopback and foreign Host headers, the proxy's public name, the 401 without a user header, and the viewer.",
+      "evidence": [
+        {
+          "resource": "repo://internal/serve/serve_test.go#L194-L227",
+          "version": "repo-lines-v1:sha256:83bd90cf330598b1e70f4cda3eb278a1f7e71dd7c4c12c82e780b223aaadc2d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0OGU3OWVlNDA0Y2Q5ZGQ3Yzk4OGY2NWJlZTVhOTg2OGY5MDY3NWZlYzU1OTE3Y2NlODZmZWRhMWQwNmY5YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiODc5OTcyZjJkYzM3YzRlYmUwZGU2ZDE4ZDY5NGU1ZDJjZjBlODM3OGYyOTJlNDJkNTFjMTk3NTJiMWIwNjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/2d956c2",
-    "at": "2026-10-03T15:43:57.761Z"
+    "by": "owcli/v0.3.0-1-g9e64744",
+    "at": "2026-10-05T09:15:10.665Z"
   }
 }
