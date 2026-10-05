@@ -22,8 +22,21 @@ type Dirs struct {
 	Data   string // holds wikis/<id>/openwiki for external layouts
 }
 
-// DefaultDirs resolves $XDG_CONFIG_HOME/owcli and $XDG_DATA_HOME/owcli.
+// HomeEnv names the variable that puts all of owcli's state (config.toml,
+// bindings.json, workspaces.json, and external wikis) in one directory.
+const HomeEnv = "OWCLI_HOME"
+
+// DefaultDirs resolves $OWCLI_HOME for both directories when it is set,
+// else $XDG_CONFIG_HOME/owcli and $XDG_DATA_HOME/owcli.
 func DefaultDirs() (Dirs, error) {
+	if v := os.Getenv(HomeEnv); v != "" {
+		// Absolute, because external bindings record wiki paths under it.
+		dir, err := filepath.Abs(v)
+		if err != nil {
+			return Dirs{}, err
+		}
+		return Dirs{Config: dir, Data: dir}, nil
+	}
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return Dirs{}, err

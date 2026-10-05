@@ -71,12 +71,25 @@ func TestValidate(t *testing.T) {
 }
 
 func TestDirHonorsXDG(t *testing.T) {
+	t.Setenv("OWCLI_HOME", "")
 	t.Setenv("XDG_CONFIG_HOME", "/x")
 	dir, err := Dir()
 	if err != nil {
 		t.Fatal(err)
 	}
 	if dir != "/x/owcli" {
+		t.Fatalf("got %s", dir)
+	}
+}
+
+func TestDirHonorsOwcliHome(t *testing.T) {
+	t.Setenv("XDG_CONFIG_HOME", "/x")
+	t.Setenv("OWCLI_HOME", "/kgbo/owcli")
+	dir, err := Dir()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if dir != "/kgbo/owcli" {
 		t.Fatalf("got %s", dir)
 	}
 }

@@ -11,6 +11,8 @@ import (
 	"path/filepath"
 
 	"github.com/BurntSushi/toml"
+
+	"github.com/Hoodoo/owcli/internal/store"
 )
 
 // Provider names accepted by Config.Provider.
@@ -99,16 +101,14 @@ func (c Config) Validate() error {
 	return nil
 }
 
-// Dir returns owcli's configuration directory ($XDG_CONFIG_HOME/owcli).
+// Dir returns owcli's configuration directory: $OWCLI_HOME when set, else
+// $XDG_CONFIG_HOME/owcli. It is the same directory that holds bindings.json.
 func Dir() (string, error) {
-	if dir := os.Getenv("XDG_CONFIG_HOME"); dir != "" {
-		return filepath.Join(dir, "owcli"), nil
-	}
-	home, err := os.UserHomeDir()
+	dirs, err := store.DefaultDirs()
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(home, ".config", "owcli"), nil
+	return dirs.Config, nil
 }
 
 // LoadFile reads a TOML config file. A missing file yields an empty Config.
@@ -141,7 +141,7 @@ func FromEnv(getenv func(string) string) Config {
 
 // Load resolves the effective config: defaults < file < env < flags, then
 // provider-specific defaults for anything still empty.
-// An empty path uses $XDG_CONFIG_HOME/owcli/config.toml.
+// An empty path uses config.toml in Dir.
 func Load(path string, flags Config) (Config, error) {
 	if path == "" {
 		dir, err := Dir()

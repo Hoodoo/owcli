@@ -44,6 +44,14 @@ owcli status                                # binding, last update, pending run,
 owcli serve                                 # local viewer: graph, pages, search, Claims
 ```
 
+## Where owcli keeps its state
+
+In-repo wikis live in the repository. owcli's own state, the binding and
+workspace registries, `config.toml`, and external wikis, lives in
+`~/.config/owcli` and `~/.local/share/owcli` (following `XDG_CONFIG_HOME` and
+`XDG_DATA_HOME`). Set `OWCLI_HOME` to keep all of it in one directory instead;
+`owcli bindings` shows the resolved paths.
+
 ## Workspaces
 
 Group related repositories so a search from any of them covers all their

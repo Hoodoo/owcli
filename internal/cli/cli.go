@@ -102,7 +102,9 @@ wikis are versioned with Git: owcli commits after every finished run, in the
 wiki's own repository or, when --wiki-dir is inside an existing repository
 such as a shared knowledge base, in that repository (only the wiki's files).
 
-The registry is $XDG_CONFIG_HOME/owcli/bindings.json. To reattach a wiki after
+The registry is $XDG_CONFIG_HOME/owcli/bindings.json. Setting OWCLI_HOME puts
+the registry and external wikis in that one directory instead
+($OWCLI_HOME/bindings.json, $OWCLI_HOME/wikis/). To reattach a wiki after
 moving a clone, pass the existing directory that contains openwiki/ with
 --wiki-dir. If its previous repository no longer exists, the binding is moved
 to the new canonical repository path. Use "owcli bindings" to find paths.`,

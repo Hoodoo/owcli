@@ -103,6 +103,15 @@ instructions trigger an update after merging into it (several merges may share
 one run); `owcli run begin` reports the current and default branch and warns
 when they differ.
 
+owcli's own state lives in two directories, `$XDG_CONFIG_HOME/owcli`
+(`config.toml`, `bindings.json`, `workspaces.json`) and `$XDG_DATA_HOME/owcli`
+(external wikis under `wikis/`). Setting `OWCLI_HOME` replaces both with one
+directory (made absolute, since external bindings record paths under it), so
+a tool bundle can keep owcli's state next to other tools' without moving every
+application's XDG directories. `store.DefaultDirs` is the one place this is
+resolved; `config.Dir` delegates to it. The paths below assume the XDG
+default.
+
 The binding registry (`$XDG_CONFIG_HOME/owcli/bindings.json`) maps canonical
 repo roots to their layout. Resolution: explicit registry entry, else in-repo if
 `<repo>/openwiki/` exists, else unbound. All components receive a resolved

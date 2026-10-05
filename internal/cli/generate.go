@@ -129,7 +129,7 @@ The optional message tells the planner what to focus on. Interrupting a run
 		},
 	}
 	f := cmd.Flags()
-	f.StringVar(&opts.configPath, "config", "", "config file (default $XDG_CONFIG_HOME/owcli/config.toml)")
+	f.StringVar(&opts.configPath, "config", "", "config file (default $OWCLI_HOME/config.toml, else $XDG_CONFIG_HOME/owcli/config.toml)")
 	f.StringVar(&opts.model.Provider, "provider", "", "model provider: anthropic or openai")
 	f.StringVar(&opts.model.Model, "model", "", "model id")
 	f.StringVar(&opts.model.BaseURL, "base-url", "", "provider API base URL")

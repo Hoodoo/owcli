@@ -63,7 +63,8 @@ to pass to "owcli read --wiki". A repository can be in several workspaces;
 choose the one its searches use with "owcli workspace use". Members need not
 have a wiki of their own to search their workspace.
 
-The registry is $XDG_CONFIG_HOME/owcli/workspaces.json. Repositories are
+The registry is $XDG_CONFIG_HOME/owcli/workspaces.json ($OWCLI_HOME/workspaces.json
+when OWCLI_HOME is set). Repositories are
 given as paths (default: the current directory) and resolved to their Git
 roots; their wikis are found through owcli's bindings, in-repo or external.
 

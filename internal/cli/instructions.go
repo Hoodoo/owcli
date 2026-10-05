@@ -102,7 +102,8 @@ owcli read --wiki <wiki> <ref>. A member needs no wiki of its own to search.
 - owcli workspace current shows this repository's workspaces; owcli workspace
   wikis <workspace> lists members and whether each can be searched.
 - Manage them with owcli workspace create|add|remove|delete|list|use|clear
-  when the user asks; the registry is $XDG_CONFIG_HOME/owcli/workspaces.json.
+  when the user asks; the registry is $XDG_CONFIG_HOME/owcli/workspaces.json
+  ($OWCLI_HOME/workspaces.json when OWCLI_HOME is set).
 
 ## Health
 
@@ -147,6 +148,11 @@ openwiki/ child. A custom --wiki-dir is the home containing openwiki/. To
 reattach after moving a clone, run "owcli bind --wiki-dir <existing-home>" in
 the new clone; owcli transfers a binding only when the old repository is gone.
 Use "owcli bindings" to inspect paths and managed orphan directories.
+
+OWCLI_HOME, when set, holds all of owcli's state in one directory instead of
+the two XDG ones: bindings.json, workspaces.json, config.toml, and external
+wikis under wikis/. Every path above then starts at $OWCLI_HOME; owcli
+bindings and owcli wikis print the resolved locations.
 
 ## Writing: the run lifecycle
 

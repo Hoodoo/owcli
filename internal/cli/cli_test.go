@@ -89,6 +89,35 @@ func TestBindingsCommand(t *testing.T) {
 	}
 }
 
+// TestOwcliHome: with OWCLI_HOME set, the binding registry and external
+// wikis live there, and nothing is written under the XDG directories.
+func TestOwcliHome(t *testing.T) {
+	base := t.TempDir()
+	t.Setenv("XDG_CONFIG_HOME", filepath.Join(base, "config"))
+	t.Setenv("XDG_DATA_HOME", filepath.Join(base, "data"))
+	home := filepath.Join(base, "owcli-home")
+	t.Setenv("OWCLI_HOME", home)
+	repo := t.TempDir()
+	if out, err := exec.Command("git", "-C", repo, "init", "-q").CombinedOutput(); err != nil {
+		t.Fatalf("git init: %v %s", err, out)
+	}
+
+	if _, err := runCLI("bind", "--external", repo); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(filepath.Join(home, "bindings.json")); err != nil {
+		t.Errorf("bindings.json not in OWCLI_HOME: %v", err)
+	}
+	if wikis, _ := filepath.Glob(filepath.Join(home, "wikis", "*", "openwiki")); len(wikis) != 1 {
+		t.Errorf("want one external wiki under OWCLI_HOME/wikis, got %v", wikis)
+	}
+	for _, dir := range []string{"config", "data"} {
+		if _, err := os.Stat(filepath.Join(base, dir)); !os.IsNotExist(err) {
+			t.Errorf("%s written under XDG despite OWCLI_HOME: %v", dir, err)
+		}
+	}
+}
+
 func runCLIIn(input string, args ...string) (string, error) {
 	cmd := NewRootCommand()
 	var out bytes.Buffer

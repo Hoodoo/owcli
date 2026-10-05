@@ -42,6 +42,31 @@ func testDirs(t *testing.T) Dirs {
 	return Dirs{Config: filepath.Join(base, "config"), Data: filepath.Join(base, "data")}
 }
 
+func TestDefaultDirsOwcliHome(t *testing.T) {
+	t.Setenv("XDG_CONFIG_HOME", "/x/config")
+	t.Setenv("XDG_DATA_HOME", "/x/data")
+	t.Setenv(HomeEnv, "")
+	dirs, err := DefaultDirs()
+	if err != nil || dirs.Config != "/x/config/owcli" || dirs.Data != "/x/data/owcli" {
+		t.Fatalf("XDG: %+v, %v", dirs, err)
+	}
+
+	wd, _ := os.Getwd()
+	if err := os.Chdir(t.TempDir()); err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { os.Chdir(wd) })
+	t.Setenv(HomeEnv, "rel/home")
+	dirs, err = DefaultDirs()
+	if err != nil {
+		t.Fatal(err)
+	}
+	want, _ := filepath.Abs("rel/home")
+	if dirs.Config != want || dirs.Data != want {
+		t.Fatalf("OWCLI_HOME: got %+v, want both %s", dirs, want)
+	}
+}
+
 func TestExternalBindWritesNothingIntoRepo(t *testing.T) {
 	repo := gitRepo(t)
 	d := testDirs(t)
