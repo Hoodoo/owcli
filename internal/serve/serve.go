@@ -11,6 +11,7 @@ import (
 	"errors"
 	"fmt"
 	"io/fs"
+	"net"
 	"net/http"
 	"path"
 	"strconv"
@@ -44,6 +45,21 @@ type Options struct {
 	Wikis func() (any, error)
 	// Version is shown by the UI.
 	Version string
+
+	// ListenHost is the host part of the listen address. Requests must name
+	// it, localhost, a loopback IP, or one of AllowHosts in their Host
+	// header, which keeps other web pages from reading the wikis by DNS
+	// rebinding.
+	ListenHost string
+	// AllowHosts are further names accepted in the Host header, such as the
+	// public name a reverse proxy forwards.
+	AllowHosts []string
+	// UserHeader names a request header a proxy sets to the signed-in viewer
+	// (X-Goog-Authenticated-User-Email behind Google IAP). When set,
+	// requests without it are refused, so traffic that bypasses the proxy
+	// fails closed. Only set it when nothing but the proxy can reach the
+	// server.
+	UserHeader string
 }
 
 // Server answers viewer requests.
@@ -62,7 +78,48 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("/api/search", s.get(s.search))
 	sub, _ := fs.Sub(staticFiles, "static")
 	mux.Handle("/", http.FileServer(http.FS(sub)))
-	return mux
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !s.hostAllowed(r.Host) {
+			http.Error(w, "forbidden host", http.StatusForbidden)
+			return
+		}
+		if s.opts.UserHeader != "" && s.Viewer(r) == "" {
+			http.Error(w, "no signed-in user", http.StatusUnauthorized)
+			return
+		}
+		mux.ServeHTTP(w, r)
+	})
+}
+
+func (s *Server) hostAllowed(hostport string) bool {
+	host := hostport
+	if h, _, err := net.SplitHostPort(hostport); err == nil {
+		host = h
+	}
+	host = strings.ToLower(strings.Trim(host, "[]"))
+	if host == "localhost" || host == strings.ToLower(s.opts.ListenHost) {
+		return true
+	}
+	for _, h := range s.opts.AllowHosts {
+		if host == strings.ToLower(h) {
+			return true
+		}
+	}
+	ip := net.ParseIP(host)
+	return ip != nil && ip.IsLoopback()
+}
+
+// Viewer returns who the proxy says is signed in, or "" without a
+// UserHeader. Google IAP prefixes the address with "accounts.google.com:".
+func (s *Server) Viewer(r *http.Request) string {
+	if s.opts.UserHeader == "" {
+		return ""
+	}
+	v := strings.TrimSpace(r.Header.Get(s.opts.UserHeader))
+	if i := strings.LastIndex(v, ":"); i >= 0 {
+		v = v[i+1:]
+	}
+	return v
 }
 
 // requestError is a client mistake, answered with 400 or 404.

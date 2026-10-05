@@ -187,3 +187,41 @@ func TestUIFilesAreServed(t *testing.T) {
 		}
 	}
 }
+
+// TestHostGuardAndProxy: foreign Host headers are refused (DNS rebinding);
+// behind a proxy the public name is accepted and requests without the user
+// header are refused.
+func TestHostGuardAndProxy(t *testing.T) {
+	wikis := func() (any, error) { return map[string]any{"wikis": []string{}}, nil }
+	call := func(s *Server, host, user string) int {
+		r := httptest.NewRequest("GET", "/api/wikis", nil)
+		r.Host = host
+		if user != "" {
+			r.Header.Set("X-Goog-Authenticated-User-Email", "accounts.google.com:"+user)
+		}
+		w := httptest.NewRecorder()
+		s.Handler().ServeHTTP(w, r)
+		return w.Code
+	}
+	local := New(Options{Wikis: wikis, ListenHost: "127.0.0.1"})
+	for host, want := range map[string]int{"127.0.0.1:4321": 200, "localhost:4321": 200, "[::1]:4321": 200, "evil.test": 403} {
+		if got := call(local, host, ""); got != want {
+			t.Errorf("loopback viewer, Host %s: %d, want %d", host, got, want)
+		}
+	}
+	proxied := New(Options{Wikis: wikis, ListenHost: "0.0.0.0", AllowHosts: []string{"Wiki.Example.com"}, UserHeader: "X-Goog-Authenticated-User-Email"})
+	if got := call(proxied, "wiki.example.com", "alice@example.com"); got != 200 {
+		t.Errorf("signed-in viewer: %d", got)
+	}
+	if got := call(proxied, "wiki.example.com", ""); got != 401 {
+		t.Errorf("no user header: %d", got)
+	}
+	if got := call(proxied, "evil.test", "alice@example.com"); got != 403 {
+		t.Errorf("unknown host: %d", got)
+	}
+	r := httptest.NewRequest("GET", "/", nil)
+	r.Header.Set("X-Goog-Authenticated-User-Email", "accounts.google.com:alice@example.com")
+	if v := proxied.Viewer(r); v != "alice@example.com" {
+		t.Errorf("viewer %q", v)
+	}
+}

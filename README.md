@@ -60,6 +60,20 @@ owcli relocate --dry-run ~/src ~/work      # show what would change
 owcli relocate ~/src ~/work
 ```
 
+## Serving the viewer behind a proxy
+
+`owcli serve` listens on 127.0.0.1 and refuses requests that name another
+host. To publish it through a proxy that signs people in, such as Google
+IAP:
+
+```sh
+owcli serve --no-open --addr 0.0.0.0:4321 --allow-host wiki.example.com \
+  --user-header X-Goog-Authenticated-User-Email
+```
+
+Requests without the header are refused. Only trust it when nothing but the
+proxy can reach the address.
+
 ## Workspaces
 
 Group related repositories so a search from any of them covers all their
