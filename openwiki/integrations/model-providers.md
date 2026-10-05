@@ -4,8 +4,8 @@ title: Model Providers and Configuration
 description: The provider-neutral llm.Provider interface, the raw-HTTP Anthropic Messages and OpenAI-compatible Chat Completions clients (retries, refusal fallbacks, effort, prompt caching), and how owcli resolves model configuration from defaults, config file, environment, and flags.
 tags: [llm, anthropic, openai, ollama, configuration, retries]
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T17:37:16.322Z
+  - by: owcli/v0.1.0-1-g88bff78
+    at: "2026-10-05T08:01:39.084Z"
 sources:
   - id: openwiki-source-a8910515ddd14810ad43f5c1
     resource: repo://internal/config/config.go
@@ -17,7 +17,9 @@ sources:
     resource: repo://internal/llm/llm.go
   - id: openwiki-source-3345efbdfe5cc3508c2d2456
     resource: repo://internal/llm/openai.go
-generated: { by: "claude-code", at: "2026-10-01T17:37:16.322Z" }
+  - id: openwiki-source-e370da3884d4a2d6ea7a5245
+    resource: repo://internal/store/bindings.go
+generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
 ---
 
 # Model Providers and Configuration
@@ -100,7 +102,8 @@ vLLM, and similar servers:
 ## Configuration
 
 `config.Load` merges, from lowest to highest precedence: built-in defaults,
-`$XDG_CONFIG_HOME/owcli/config.toml`, `OWCLI_*` environment variables, and
+`config.toml` in `config.Dir` (`$OWCLI_HOME`, else `$XDG_CONFIG_HOME/owcli`),
+`OWCLI_*` environment variables, and
 command-line flags. Provider-specific defaults then fill whatever is still
 empty, and `Validate` checks the result.
 

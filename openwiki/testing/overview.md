@@ -4,13 +4,17 @@ title: Testing
 description: How to build and test owcli, how model-dependent code is tested deterministically with a scripted provider, the fixture patterns used across packages, and the opt-in compatibility tests that compare owcli with upstream OpenWiki.
 tags: [testing, compatibility, fixtures, ci]
 verified:
-  - by: owcli/2d956c2
-    at: "2026-10-03T15:43:47.004Z"
+  - by: owcli/v0.1.0-1-g88bff78
+    at: "2026-10-05T08:01:54.533Z"
 sources:
+  - id: openwiki-source-7167404a878afd2c39f60630
+    resource: repo://internal/cli/cli_test.go
   - id: openwiki-source-d46fb113abedebe5d8c15a4e
     resource: repo://internal/cli/e2e_test.go
   - id: openwiki-source-4b30a1d99e54458bf298f962
     resource: repo://internal/cli/generate.go
+  - id: openwiki-source-33596866b76fcbeddb053d4f
+    resource: repo://internal/cli/main_test.go
   - id: openwiki-source-385bf16ff5320b468557e102
     resource: repo://internal/evidence/compat_test.go
   - id: openwiki-source-7b3f1f61c82f6f8facf8911f
@@ -21,7 +25,7 @@ sources:
     resource: repo://internal/search/compat_test.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/8cd3bda", at: "2026-10-02T07:50:25.000Z" }
+generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
 ---
 
 # Testing
@@ -65,7 +69,10 @@ error reached the model before submitting corrected Claims.
   because temp directories may be symlinked.
 - **Isolated owcli state.** CLI tests point `XDG_CONFIG_HOME` and
   `XDG_DATA_HOME` at temp directories and `chdir` into the repository, since
-  commands act on the working directory.
+  commands act on the working directory. `OWCLI_HOME` would override those
+  directories, so `TestMain` in `internal/cli/main_test.go` unsets it; tests
+  that exercise it (`TestOwcliHome`, `TestDefaultDirsOwcliHome`) set it
+  themselves.
 - **External layout by default.** Lifecycle and CLI tests mostly use the
   external layout, then assert `git status --porcelain --ignored` is empty to
   prove nothing was written into the repository.

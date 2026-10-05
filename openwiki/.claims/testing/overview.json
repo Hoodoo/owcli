@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f6310290d421f3530f91eda8c1eb334913d2c24ae3e67910b701682a1ceba352",
+  "pageVersion": "sha256:413222c0a46eda1040f2ca367ab192dbb79ed4591d10d541ed6396f210054fa4",
   "claims": [
     {
       "id": "claim_03e24234579044ca91bae272759e502b",
@@ -123,10 +123,30 @@
           "version": "repo-lines-v1:sha256:00ba9e8ceab1ade7d1acc7c4e4b75aacf82e136a3b937a08fffdaeff886dfc43:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2ZmM1YmE0YzQwOWY0ODA3YzFjM2NjMzM3OWFiZTAwNjE1MjRlMTg3OGJkNzc4NDgzNGIwYTY5NjE2MzYzY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE0YjM2NTdlZjJhZjgxMTk3ZTNkNDM3MzUxYWQ0NDMzMTQxOWNhNTZiN2Q3NTZlY2I3MjNjMGUzMzZiNDA1ODQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzODQ5ODgzY2U5ZDY5OGVjMDA0OWEzNzEwMzM1MjgwNjM5MTZlNmM5Yjg4NTAxOTQxNTI0MmM5ZDdkZmM3ZmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
+    },
+    {
+      "id": "claim_8327389b7a39b0efdf34e2cdde652ab6",
+      "statement": "TestMain in internal/cli unsets OWCLI_HOME so CLI tests' XDG temp directories isolate them from the developer's real owcli state.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/main_test.go#L1-L13",
+          "version": "repo-lines-v1:sha256:d3d5f29d1d6f93ec293f82ad16e3b207ec296beb68745c0bc3f4e3d15f4f6138:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1ZmViOGRhOGQ3NGVhZDYxYWRjZjA1ZGZiYzkwZDRlYzcxN2U5NTEwZThmMTRlMGU4OWJmMWU4MzhkM2JkMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_36aefc9927364fd532f3b2360d91ab88",
+      "statement": "TestOwcliHome checks that with OWCLI_HOME set, bind --external writes bindings.json and the external wiki under it and nothing under the XDG directories.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/cli_test.go#L94-L118",
+          "version": "repo-lines-v1:sha256:3c562265a3242b2f745dfb6396b34b20f4186a6c1283d82e5f869d23b88e2bc4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3NGQ4OTYyNmNiNzhiZTM5YWVkNTc5MTY4OTA1MmY1ODc0ZTVhNmZiZjNhM2JkM2EwZjI1ZjFkZTBjZjcxOTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzYTNiYjAxNGM1ODAzMGJlNWRkODc4MDU5MTA0NTQwMTY4YmFlZTYzYzdkYjcyMDJhNzMyMWIyMmZjZTE3YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiYjhmZTBjODQxNjU3MDExNmFhNDkwMDFhYzQ0YmU3YjI2NTdkYmNmY2Q2OWM0NzI3ZDc1NDdmODNiNGY0ZDMifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/2d956c2",
-    "at": "2026-10-03T15:43:47.004Z"
+    "by": "owcli/v0.1.0-1-g88bff78",
+    "at": "2026-10-05T08:01:54.533Z"
   }
 }

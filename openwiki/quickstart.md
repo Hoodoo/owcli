@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/2d956c2
-    at: "2026-10-03T15:44:11.557Z"
+  - by: owcli/v0.1.0-1-g88bff78
+    at: "2026-10-05T08:02:34.204Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -23,7 +23,7 @@ sources:
     resource: repo://internal/version/version.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/2d956c2", at: "2026-10-03T15:44:11.760Z" }
+generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
 ---
 
 # owcli Quickstart
@@ -74,7 +74,7 @@ key they stop before binding anything and point to the agent-driven way.
 ```sh
 export ANTHROPIC_API_KEY=...    # default provider; see Model Providers for others
 owcli init                      # wiki in ./openwiki
-owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/..., repo untouched, Git-versioned
+owcli init --external           # wiki in $XDG_DATA_HOME/owcli/wikis/... ($OWCLI_HOME/wikis/... if set), repo untouched, Git-versioned
 owcli init --wiki-dir ~/kb/foo  # external wiki in a directory you choose (e.g. a knowledge-base repo)
 owcli update "cover the new billing module"
 ```

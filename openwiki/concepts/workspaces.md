@@ -4,20 +4,22 @@ title: Workspaces
 description: How owcli groups repository wikis into named workspaces so an agent in one repository can search and read the others - the registry and its ID rules, member resolution, search-scope selection, federated search, the workspace commands, and where owcli differs from upstream.
 tags: [workspaces, search, registry, cli]
 verified:
-  - by: owcli/c8bf7ec
-    at: "2026-10-02T08:36:02.849Z"
+  - by: owcli/v0.1.0-1-g88bff78
+    at: "2026-10-05T08:01:23.940Z"
 sources:
   - id: openwiki-source-86bf4030244551d79539af25
     resource: repo://internal/cli/workspace.go
   - id: openwiki-source-0eff31b693285d0d2305a525
     resource: repo://internal/search/compat_test.go
+  - id: openwiki-source-e370da3884d4a2d6ea7a5245
+    resource: repo://internal/store/bindings.go
   - id: openwiki-source-2f97c192c632b2ecd0cb2b99
     resource: repo://internal/store/scope.go
   - id: openwiki-source-2697fb4bf3ba0749710fbc98
     resource: repo://internal/store/wikiref.go
   - id: openwiki-source-40f5deaf3e3708af3d62370d
     resource: repo://internal/store/workspaces.go
-generated: { by: "owcli/0d035b9", at: "2026-10-02T08:30:45.958Z" }
+generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
 ---
 
 # Workspaces
@@ -38,7 +40,8 @@ rules), `internal/search` (ranking across wikis, see
 
 ## The registry
 
-The registry is `$XDG_CONFIG_HOME/owcli/workspaces.json`, next to the
+The registry is `$XDG_CONFIG_HOME/owcli/workspaces.json` (or
+`$OWCLI_HOME/workspaces.json` when `OWCLI_HOME` is set), next to the
 binding registry described in
 [Storage Layouts and Bindings](../architecture/storage-and-bindings.md). It
 uses upstream's version-1 schema:

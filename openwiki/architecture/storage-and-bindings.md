@@ -4,8 +4,8 @@ title: Storage Layouts and Bindings
 description: Where owcli keeps a wiki and its control state, how repositories are bound in-repo or externally (writing nothing into the repository, optionally in a chosen directory), how external wikis are versioned with Git, how state files are persisted atomically, and how .openwikiignore excludes paths.
 tags: [storage, bindings, layout, state, ignore]
 verified:
-  - by: owcli/bf95e7c
-    at: "2026-10-02T08:46:29.756Z"
+  - by: owcli/v0.1.0-1-g88bff78
+    at: "2026-10-05T08:01:13.751Z"
 sources:
   - id: openwiki-source-97e4c0a36bad5faaa1e7ac8d
     resource: repo://internal/cli/all.go
@@ -17,6 +17,8 @@ sources:
     resource: repo://internal/cli/inspect.go
   - id: openwiki-source-302ef671148b579b9bc0a466
     resource: repo://internal/cli/wikis.go
+  - id: openwiki-source-a8910515ddd14810ad43f5c1
+    resource: repo://internal/config/config.go
   - id: openwiki-source-73ced814c723211b0a29960d
     resource: repo://internal/ignore/ignore.go
   - id: openwiki-source-e370da3884d4a2d6ea7a5245
@@ -31,7 +33,7 @@ sources:
     resource: repo://internal/store/vcs.go
   - id: openwiki-source-2697fb4bf3ba0749710fbc98
     resource: repo://internal/store/wikiref.go
-generated: { by: "owcli/bf95e7c", at: "2026-10-02T08:46:47.127Z" }
+generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
 ---
 
 # Storage Layouts and Bindings
@@ -63,9 +65,18 @@ and that folder is never treated as source.
 
 ## Binding and resolution
 
-`Dirs` locates owcli's own state: `$XDG_CONFIG_HOME/owcli/bindings.json` (the
-registry) and `$XDG_DATA_HOME/owcli` (external wikis), with the usual
-`~/.config` and `~/.local/share` fallbacks. Repository roots come from
+`Dirs` locates owcli's own state: `Config` (holding `bindings.json`,
+`workspaces.json`, and `config.toml`) and `Data` (external wikis under
+`wikis/`). `DefaultDirs` resolves them, and is the only place that does:
+`config.Dir` delegates to it.
+
+- With `OWCLI_HOME` set (`store.HomeEnv`), both are that one directory, made
+  absolute because external bindings record wiki paths under it. This lets a
+  tool bundle keep owcli's state alone in a directory of its choosing without
+  moving every application's XDG directories.
+- Otherwise `Config` is `$XDG_CONFIG_HOME/owcli` and `Data` is
+  `$XDG_DATA_HOME/owcli`, with the usual `~/.config` and `~/.local/share`
+  fallbacks. The rest of this page writes paths in this default form. Repository roots come from
 `git rev-parse --show-toplevel` with symlinks resolved, so a repository must
 be a Git work tree.
 

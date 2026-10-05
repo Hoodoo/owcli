@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:b3635ff5511974615517f0c83f75c49d5c44c6969ca9df539262f198de97eb53",
+  "pageVersion": "sha256:c5c2aba7e2320b0d607b392afd3b979f69bcb13abe939aba811696764b2f3a91",
   "claims": [
     {
       "id": "claim_d58c5c1c7635440fddc582a8156e6267",
@@ -99,8 +99,8 @@
       "statement": "owcli workspace offers create, add, remove, delete, list, wikis, use, current, and clear, and with --json prints errors as invalid_input for wrong requests and not_found for unbound repositories.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/workspace.go#L22-L99",
-          "version": "repo-lines-v1:sha256:802432bbd7c050d6e219e34cef7b6c7cf8e7ca65dc3e0a20f0dbb62988ddf340:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkNGVmYmQ4MDVmODNjY2NhNzdmNGRmMWYzODQxZGNlZGU1YmVkODJlZmVjMmIzODdhZWFkY2M4OTk1N2NkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwYjcxOWFjMGVmZjI3MWI1MWRhMjAxNjJhYWNmNzdlMGUxMTU4YzMwZjkyNGY2OTQ1M2Y0NzBkZmY3N2Q4YmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2MGVkNzkyZjk2MWIzMjYwZDU0OTE3NjAyZDg4OThkZTM2ZGQxYTBkOTllNTFlYmU3YTQxZTI4ZGU4YzI2MmUifQ"
+          "resource": "repo://internal/cli/workspace.go#L22-L100",
+          "version": "repo-lines-v1:sha256:1460f18973476d764eb1be1f2a689e26d301b6c515406e693dafd6b99873e264:eyJzZWxlY3RlZExpbmVDb3VudCI6NzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkNGVmYmQ4MDVmODNjY2NhNzdmNGRmMWYzODQxZGNlZGU1YmVkODJlZmVjMmIzODdhZWFkY2M4OTk1N2NkOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwYjcxOWFjMGVmZjI3MWI1MWRhMjAxNjJhYWNmNzdlMGUxMTU4YzMwZjkyNGY2OTQ1M2Y0NzBkZmY3N2Q4YmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2MGVkNzkyZjk2MWIzMjYwZDU0OTE3NjAyZDg4OThkZTM2ZGQxYTBkOTllNTFlYmU3YTQxZTI4ZGU4YzI2MmUifQ"
         }
       ]
     },
@@ -109,7 +109,7 @@
       "statement": "Removing a path that is not a member of the workspace is an error.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/workspace.go#L180-L219",
+          "resource": "repo://internal/cli/workspace.go#L181-L220",
           "version": "repo-lines-v1:sha256:bad190581e606c8bd81ebd79a8bc794c943ca472cbd31692e714eb40f14c9154:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzOWYxNDY3Nzg3YTI4YWFiMzRhYTY4YWU1ZDIwOWE0YWE5NmM5N2M0OGFjZDEwNzdmODQwNDNiODg3YWZmYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmZDk2MjIwN2FjMDU5ZGQ5NDQyNzllMTQ4OWZmZWZhMTc2ZTAxYmFmMTM2NGRjNmJkNzljMmMzYTAxNWYwZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYmRjYWY5MzFjMjRmZmMyZWNjMTI3OWI4MjNlMDM2NDk4MjFmN2RkY2QwY2FmMTBmMjk1NzllZWNjYzUxYWQifQ"
         }
       ]
@@ -147,14 +147,28 @@
       "statement": "ResolveWikiRef accepts a workspace member ID, a WikiID, or a repository name known to exactly one bound repository or member, and lists the matching IDs when a name is ambiguous.",
       "evidence": [
         {
-          "resource": "repo://internal/store/wikiref.go#L50-L93",
+          "resource": "repo://internal/store/wikiref.go#L52-L95",
           "version": "repo-lines-v1:sha256:4fb4405ac7c89c0e1c03199e3126ea04101b1b7969e67c7b0b61468dacb66a01:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhNzIzNWQ0NThkOGM4M2NmZjM0MzU1ZWI1MWIyOWJmYWZhMjQzNmIwZDdkMDQ5NTIwY2QxNmViNjljZjc2NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhMGIzY2VjNzViY2ZlMzg1YmIxY2QwZmVlZWY1N2VkOGVlZTAxMjRjYzdhYjYxYjk2MzcyNGIwOTU5OGI5ZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwMjVmNTU1NGQ4MmEwOGMzMDNmNzU4OWViYjMxNmFhMzI3ZGNjYWQ2YmYwZDk2MDcxYzM2OWViMGY5NDEyYmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_198525b49e901579ddc4ac804835c4a7",
+      "statement": "workspaces.json lives in owcli's config directory, which is $OWCLI_HOME when set.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/workspace.go#L66-L67",
+          "version": "repo-lines-v1:sha256:355714a75ff087593d6dae41bd856d5a8dafd7b250b0099d3a0d1cf2321f095d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FkYzQyZDlmZWE2ODVlOGNhYmQzZjFhMjMwODY2NGM5MTE2NzQ5N2I0MDQ0NzlhYTViYTA1MGNkODU0OTQ1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJiNmQxZDRmOGUwNmEzMzY1NzIxN2RkZGE5MGZhYTgyN2IzZjI2YThhMzhmNmNhNTYxM2RjZjIwMjMyYWIzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjNlODNhNGJmN2YwZDdmMTE2ODRjMDk2ZjE0NTc2MzljYzZiYjQ2YmY4ZmQ4MzIzNjliOTU0OWYzN2MwMDZmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzExYjE4OWUwODNkZjU4NTVjMzdjYTlmZmRkMDJhMTlmZjRiNzliNWJkMDU2Yzk4MzQ1OWU3MzNkZDEzZTUwMSJ9"
+        },
+        {
+          "resource": "repo://internal/store/bindings.go#L25-L39",
+          "version": "repo-lines-v1:sha256:b19dfd3e3a9cac1cf5a545c55a270b16496c69f4d4969420bf405f3d89303593:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiYjM0YTlkOTg4NGJiMTU2NTZjMjgxNGVhMjYyM2M5MzJiZjFkZTgyZWJmYzE1ZjIzMDI2NjY1NmNhNmI3NDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmN2MwNTcwZDA4MzAwN2ZkNmQ2NTAzN2M5MGIzYWQxNGQyYTVmOTIwY2M2OGIxYTVkMDZiYWNmMDNjZGEyYTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM1NTM5ZmFjYzBkNzAwNDE4MzJkMWEzMzU5ZjAwMDU4ZWU3NjNlNjQ2ZTdhMjcwYjEzMmY5N2VmYTBjYzA2NjcifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/c8bf7ec",
-    "at": "2026-10-02T08:36:02.849Z"
+    "by": "owcli/v0.1.0-1-g88bff78",
+    "at": "2026-10-05T08:01:23.940Z"
   }
 }

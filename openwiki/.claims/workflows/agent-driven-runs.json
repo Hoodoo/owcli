@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4cf885e4c93ecb3c51fb69771562cefb0266a8902c59f5f5a5ff83423b9c3772",
+  "pageVersion": "sha256:79c1678f023baa0372f16ad5fe498850bb7a30a30b021be58ef69fb92229df00",
   "claims": [
     {
       "id": "claim_571e5c9b711f178afec35670b117fb09",
@@ -117,7 +117,7 @@
           "version": "repo-file-v1:sha256:315fecb70c0e80c01edc025baa581454d4f33a078270962eaf8174176f1ac1f6"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L229-L266",
+          "resource": "repo://internal/cli/instructions.go#L235-L272",
           "version": "repo-lines-v1:sha256:20be2618e7a885a5b730b520619f624c82c8ca5f8410316bd28dd412a301501c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZGFhMDdjZTE1NTQzN2ZjNzU0MzZiY2EwYmM1ZjQ3MDZjNmM0NzkyZDE4Mjc1ZTBhNzY3Mjg1NGFlNmZjMjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTY0MDc5YzNjNWM4MTUyMGVmMzNhMmI5ZDJlMTVhMWI4NGQ3MjgwZGI4NTkwZGNkNjU3NDdlM2UwMTJhNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
@@ -137,8 +137,8 @@
       "statement": "owcli quickstart prints reading and health commands, the -C flag, workspaces, binding inventory and wiki locations, update/versioning guidance, the full run procedure, and the planning, page, and Claim standards from the guide package.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L64-L214",
-          "version": "repo-lines-v1:sha256:21ec01106af7b186aa007758c4dcb98682dbc96b2dd7a05f41d7d76389f54f46:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI5YzU5ZTI2YjU5ZWUyYjc3ZTdmNjM5MDVjMDViNjBjMTc3NDY3YzMyMzE5OThkMzc0NWY2ZTI2NTQxY2ViZDAyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1MDFhM2EyYzViYWU0YzEwMGQ0MTY4NmM5YjY2MTU1NTQ2ZjFiY2E5OTcyNTIxZTcwZDkwNmY5ZTk4MGVlNWVkIn0"
+          "resource": "repo://internal/cli/instructions.go#L64-L221",
+          "version": "repo-lines-v1:sha256:3c4c5c94235d1a6ee5f64175953b7e25bbc6b06384d3ca6c203666cb4a221fa5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTU4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2NDg4MTMxYTliNzQ1NGZhZDliNmZmMGVjMDFiMjdjNTAyOTY5YzFiMjVkYjQ1NzA3MDI5MTdhNjk2OTc2NmIzIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIzMzg0MmI4ZGFhYmY0ZWU0NzUwNzNkYTQyZGVkYTc4NDQ3OWY5YzU4YzI2ZjUxODcyYzg3MGFiN2ViMTM5OGJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJmYjViZjhlMGM3MDFiMWVjMTQ0YmI5Mzc3ZDk1MzE2ZjUzNjc0MGVjNGUzMWQzZTIzMmUwMDExOTllMzc1NTYwIn0"
         }
       ]
     },
@@ -185,7 +185,7 @@
           "version": "repo-lines-v1:sha256:421327094401ee987c48a55584ba3f0b7db04c1a08002766c96e19c502eedeba:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhlMzg1ZGIzNzRkOTU5ZmI0MDUzOGJkMjRkYjE5ZTExNDljYzMzYjJhMjA5OThhOWQ3NGMxMjNkMjY1NzNhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ1YTUxZDdmYjM2M2E1OGUwNjRhMTBlNmFjNjExNTMxMTYwZGVjYWY2MGE3ZDEwMGZmMmQzZTAxNzM2MjQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQ1MDdkNDI2MWNkZjNmNWRkZTQ1Yzk5ZWNkZmJmZjY4ZjkwOGJmZWM4NzYzODhmMDIwNjI5ZDE4NmJiODBlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzMmM2NTczMGEwMjFmNGU1ZGM5MGMwMWQwZjE1YTlhODRiYWVmYWIwMmU4NjMxNDY5MjM3MTlhMWIxMjAxNSJ9"
         },
         {
-          "resource": "repo://internal/cli/instructions.go#L169-L172",
+          "resource": "repo://internal/cli/instructions.go#L175-L178",
           "version": "repo-lines-v1:sha256:99ccd002d0aecf413a343ee6f8c8a45d0fcd6a6a8d4891d7cb6fdff51622481c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU0YmMyZmM4ZTk1YmM1MzFlNzZlYzQ3Y2U5ZWY2OTJkMWIwMTIyYzZlNTFkMjI2NmI2ZTJhNTIwNThhYzNiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ5M2E3YzI4YzI3M2E4OTJlOThiZDEwZTQwMWE0Y2Y2MDE2ZGU2OGRhNjExOGY3OTVmZGRjMGM3MGU2MDk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIwMTQ2ZjYxOTVkN2FkNTI0ZDQ2Nzg4NmJiOTVlMGIxNWU1ODliZmQ5ZWRiNDEwYzA2ODc2Nzg3ZjllNjgzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWI2MTI2NGE2ZDc5YmYxMzhiNDE0N2M4NjVmZWI5YTIxN2U2NWU3YzY0ZTFjMmU0NzRmZTYyMDQ3YTQxNjBkYyJ9"
         },
         {
@@ -219,8 +219,8 @@
       "statement": "The quickstart's Workspaces section explains cross-wiki search and read, workspace_required, targets named from outside a repository, and the workspace commands.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L84-L106",
-          "version": "repo-lines-v1:sha256:091af2775557d945890336e78f8575d2cc3b143a93dd18765bc439e1d89cf708:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmODU2ODY5NjE3YWFmNzViZjA5YmYyMTA2OWU0ZGM0MzdkMGNjYzJkOWU0YWM1ZDY5ZWNmZTdhM2E0NGJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5YThmODQ0MGVmNjQzMWVlZDY3ODUzNzE3ZTc2ZTIwNzY2ZDkwMjk2MGJhOTY5YWYzNzk5NTRiMmVjNzA3OWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwZDQ1ZGMzMGI5NjVlYmUwMzNkYjU5OWRmNTZkODY4ZWQ5ZTRmYThjMGIzZTJkNTA4YTMzNTViZjhjYmM4YmEifQ"
+          "resource": "repo://internal/cli/instructions.go#L84-L107",
+          "version": "repo-lines-v1:sha256:89462b0b46ebdcca74fd17fff0011a39e39933540423de13280659f786699ec6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmODU2ODY5NjE3YWFmNzViZjA5YmYyMTA2OWU0ZGM0MzdkMGNjYzJkOWU0YWM1ZDY5ZWNmZTdhM2E0NGJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5YThmODQ0MGVmNjQzMWVlZDY3ODUzNzE3ZTc2ZTIwNzY2ZDkwMjk2MGJhOTY5YWYzNzk5NTRiMmVjNzA3OWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4NDVkZTNmNTdkNjNkMmM3Mzc1NjZkYmJlYzBiNDBlYmNkNjliMDE5MWRjNDk5YjdmNjM4NWU4NDFiMDIwYTYifQ"
         }
       ]
     },
@@ -229,7 +229,7 @@
       "statement": "The quickstart's health section covers status --all and check --all across every bound repository and workspace member.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L120-L123",
+          "resource": "repo://internal/cli/instructions.go#L121-L124",
           "version": "repo-lines-v1:sha256:53e86df91328143f075ec0ef82778b455df6a364a5e775fc418616ad4b5aeacb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjgwNjU4MzVkMzczNjk0N2E4YTEwODQ4ZmJkNDRlYzEzNGZjNjFjNDQ0MjdiOGQ3ZmNhZjBmYzgxYjI0N2MzMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNiNDkwNDQ3NGIwOTU4ZjU4MWMwYjk5NDkxOWQ4YzM5NzJmY2NjNmM0ZmI2ZjYyNDczMWM5ZTllZDViOWM2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDU3ZWI3NzYxNTA3NDY0ZTU3NzM5OWU5OGM4YTU5YzBlMWMxYTFiNjRkYTc0MTBhMGRlYWZjM2Y0MGM2ZTVmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWViMjM2MzhmMzc3MGE4MGFhMGQwOGY1ZWU4OGI4NmVmZjJiNGZmMjBiNmVkZWY3N2RiZTQ3ZjA3NzhjOTRhNiJ9"
         }
       ]
@@ -239,7 +239,7 @@
       "statement": "The quickstart lists owcli wikis as the listing of every known wiki and workspace, noting that owcli never scans the disk.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L112-L114",
+          "resource": "repo://internal/cli/instructions.go#L113-L115",
           "version": "repo-lines-v1:sha256:42989057bb6040c3d42ad227dc321ba49282e424323af9c605cd50ef62e72e72:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTAwYTkxOTc0MDlmOTM0OGI4MjYzNmM5ODY0ZWJiN2NmOWViNGZlZmYzMzM3NmM3OWZiNTJiNjg5MmQwZDkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNiNTM2NTZkZjdhNGExOTZjODQ3ZTQyMGFlNzFlZGVmNjU3MmIxZGIzN2ZmMzVkNmE5NTI0ZGVhNzRkYjk3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzEzZTZlYjVkNmNkZDQ0ZDgwNzdmMWY4NDIzN2Q5YzQxOGM0OWMwZGRhZWMzNDMwNGExZTk5OGQzMmFjMzQzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmNhM2EyYWJlNDk1Yjg1YTZhODBmYmFhY2QwZTk5Yjk5OTQxN2ZiNDNmMjQyMzgxZTg1ZjZhYTM4MTFmZWNkZiJ9"
         }
       ]
@@ -249,14 +249,24 @@
       "statement": "The quickstart describes owcli serve as a read-only viewer for people that agents start only when the user asks.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/instructions.go#L109-L111",
+          "resource": "repo://internal/cli/instructions.go#L110-L112",
           "version": "repo-lines-v1:sha256:32c3222629f56364a2917e2b3001aa929c28b3055dca5a4ab224ecac85c3bcf3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjNkM2UyMGRiMjM0YzJjMzY1MzI1ODg5NjE5ODk2YjAzYjlkZTBlM2EwMTAxYjhmMzEzZGIyNzljN2NjMDdiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg4NDBiZWU4NGJhNjE4NDVmMmRhNjRhYTBhYzIzMmYxODU0YTY5NmNkOThmOGYzNjUxYTMzZjY3NmM0MzhlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzEzZTZlYjVkNmNkZDQ0ZDgwNzdmMWY4NDIzN2Q5YzQxOGM0OWMwZGRhZWMzNDMwNGExZTk5OGQzMmFjMzQzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDI5ODkwNTdiYjYwNDBjM2Q0MmFkMjI3ZGMzMjFiYTQ5MjgyZTQyNDMyM2FmOWM2MDVjZDUwZWY2MmU3MmU3MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e6f08558f7047461c6b3a5eabd48a40",
+      "statement": "The quickstart's Where wikis live section tells agents that OWCLI_HOME, when set, holds bindings.json, workspaces.json, config.toml, and external wikis in one directory.",
+      "evidence": [
+        {
+          "resource": "repo://internal/cli/instructions.go#L141-L156",
+          "version": "repo-lines-v1:sha256:7c6aa8933103a15cddf28c308c4fefdd54a45955765a5f721c1e62269ba16326:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4NWQ5OWUwMTU2Nzg0ODI2MWY3YmNmZTE3ZjA5MzVmMjY4NGM2YWYwZWM2MWRiNDE3ZGVkM2MwZjkzMTlkMGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjOTUzOWIyMTNhMWJmZTg4ZDkxODhmZGI1NmJiZWRlMTFjZmY4NWQ0YWY4MWYyZDMxY2QzOTIyNjZlMGQ1ODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczM2RiOTliZTFlYThjZDdkYzRmZjYyNGQ3MDdmZDJiZjU0ZDc5OWFjY2JjOWNiN2MwYzhhZjFjYTUwOWViNDQifQ"
         }
       ]
     }
   ],
   "verification": {
-    "by": "owcli/2d956c2",
-    "at": "2026-10-03T15:43:52.382Z"
+    "by": "owcli/v0.1.0-1-g88bff78",
+    "at": "2026-10-05T08:02:14.759Z"
   }
 }
