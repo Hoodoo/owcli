@@ -118,6 +118,36 @@ func TestOwcliHome(t *testing.T) {
 	}
 }
 
+// TestRelocateCommand: relocate rewrites a moved repository's binding, and
+// --json reports the change.
+func TestRelocateCommand(t *testing.T) {
+	base := t.TempDir()
+	t.Setenv("XDG_CONFIG_HOME", filepath.Join(base, "config"))
+	t.Setenv("XDG_DATA_HOME", filepath.Join(base, "data"))
+	src, _ := filepath.EvalSymlinks(t.TempDir())
+	repo := filepath.Join(src, "old")
+	if out, err := exec.Command("git", "init", "-q", repo).CombinedOutput(); err != nil {
+		t.Fatalf("git init: %v %s", err, out)
+	}
+	if _, err := runCLI("bind", "--external", repo); err != nil {
+		t.Fatal(err)
+	}
+	moved := filepath.Join(src, "new")
+	if err := os.Rename(repo, moved); err != nil {
+		t.Fatal(err)
+	}
+	out, err := runCLI("relocate", "--json", repo, moved)
+	if err != nil || !strings.Contains(out, `"to": "`+moved+`"`) || !strings.Contains(out, `"exists": true`) {
+		t.Fatalf("relocate: %q, %v", out, err)
+	}
+	if out, err = runCLI("bindings"); err != nil || !strings.Contains(out, moved) || strings.Contains(out, repo+"\n") {
+		t.Fatalf("bindings after relocate: %q, %v", out, err)
+	}
+	if out, err = runCLI("relocate", repo, moved); err != nil || !strings.Contains(out, "nothing registered") {
+		t.Fatalf("second relocate: %q, %v", out, err)
+	}
+}
+
 func runCLIIn(input string, args ...string) (string, error) {
 	cmd := NewRootCommand()
 	var out bytes.Buffer

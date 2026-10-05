@@ -52,6 +52,14 @@ workspace registries, `config.toml`, and external wikis, lives in
 `XDG_DATA_HOME`). Set `OWCLI_HOME` to keep all of it in one directory instead;
 `owcli bindings` shows the resolved paths.
 
+Bindings and workspaces store repository paths. After moving repositories,
+or a home directory to a new machine, rewrite them in one step:
+
+```sh
+owcli relocate --dry-run ~/src ~/work      # show what would change
+owcli relocate ~/src ~/work
+```
+
 ## Workspaces
 
 Group related repositories so a search from any of them covers all their

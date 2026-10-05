@@ -112,6 +112,15 @@ application's XDG directories. `store.DefaultDirs` is the one place this is
 resolved; `config.Dir` delegates to it. The paths below assume the XDG
 default.
 
+Both registries store absolute repository paths. `owcli relocate <old> <new>`
+(`store.Relocate`) rewrites every path under an old prefix: binding keys,
+custom external wiki directories, and workspace member roots. It keeps wiki
+and workspace IDs and active selections, refuses a rewrite that would bind a
+root twice or make `workspaces.json` invalid, and writes nothing on
+`--dry-run`. A wiki outside any workspace is identified by a hash of its root
+(`WikiID`), so its ID changes with the move; consumers such as goatlassian
+match wikis by repository root for that reason.
+
 The binding registry (`$XDG_CONFIG_HOME/owcli/bindings.json`) maps canonical
 repo roots to their layout. Resolution: explicit registry entry, else in-repo if
 `<repo>/openwiki/` exists, else unbound. All components receive a resolved

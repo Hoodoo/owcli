@@ -69,6 +69,7 @@ Reading, searching, checking, and the viewer never call a model.`,
 		newBindCommand(),
 		newBindingsCommand(),
 		newUnbindCommand(),
+		newRelocateCommand(),
 		newGenerateCommand(opts, run.Init),
 		newGenerateCommand(opts, run.Update),
 		newStatusCommand(),
@@ -107,7 +108,8 @@ the registry and external wikis in that one directory instead
 ($OWCLI_HOME/bindings.json, $OWCLI_HOME/wikis/). To reattach a wiki after
 moving a clone, pass the existing directory that contains openwiki/ with
 --wiki-dir. If its previous repository no longer exists, the binding is moved
-to the new canonical repository path. Use "owcli bindings" to find paths.`,
+to the new canonical repository path. Use "owcli bindings" to find paths, and
+"owcli relocate" when repositories moved together.`,
 		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			dirs, err := store.DefaultDirs()
@@ -200,6 +202,65 @@ func newUnbindCommand() *cobra.Command {
 		},
 	}
 	cmd.Flags().BoolVar(&purge, "purge", false, "also delete an external wiki")
+	return cmd
+}
+
+func newRelocateCommand() *cobra.Command {
+	var dryRun, asJSON bool
+	cmd := &cobra.Command{
+		Use:   "relocate <old-path> <new-path>",
+		Short: "Rewrite registered repository paths after repositories moved",
+		Long: `Rewrite every path owcli has stored under old-path to the same path under
+new-path: binding keys and custom --wiki-dir locations in bindings.json, and
+member roots in workspaces.json. Use it after moving one repository, a
+directory of repositories, or a home directory to a new machine:
+
+  owcli relocate ~/src/shop ~/work/shop
+  owcli relocate /home/me /Users/me
+
+Run it once the repositories are at their new place; paths that do not exist
+there are reported as missing but still rewritten. Workspace IDs and active
+selections are kept. A wiki in no workspace is identified by a hash of its
+repository path, so its ID changes; tools that stored the old ID should
+match it by repository root. Nothing is written with --dry-run, or when a
+rewritten path would collide with one already registered.`,
+		Args: cobra.ExactArgs(2),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			dirs, err := store.DefaultDirs()
+			if err != nil {
+				return err
+			}
+			changes, err := dirs.Relocate(args[0], args[1], dryRun)
+			if err != nil {
+				return err
+			}
+			if asJSON {
+				if changes == nil {
+					changes = []store.PathChange{}
+				}
+				return writeJSON(cmd.OutOrStdout(), map[string]any{"dryRun": dryRun, "changes": changes})
+			}
+			out := cmd.OutOrStdout()
+			for _, c := range changes {
+				missing := ""
+				if !c.Exists {
+					missing = "  (missing)"
+				}
+				fmt.Fprintf(out, "%-10s %-8s %s -> %s%s\n", c.Registry, c.Field, c.From, c.To, missing)
+			}
+			switch {
+			case len(changes) == 0:
+				fmt.Fprintf(out, "nothing registered under %s\n", args[0])
+			case dryRun:
+				fmt.Fprintf(out, "dry run: %d path(s) would change\n", len(changes))
+			default:
+				fmt.Fprintf(out, "relocated %d path(s)\n", len(changes))
+			}
+			return nil
+		},
+	}
+	cmd.Flags().BoolVar(&dryRun, "dry-run", false, "show what would change without writing")
+	cmd.Flags().BoolVar(&asJSON, "json", false, "print JSON")
 	return cmd
 }
 

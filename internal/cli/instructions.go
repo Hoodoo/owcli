@@ -147,6 +147,10 @@ $XDG_DATA_HOME/owcli/wikis/<repo-slug>-<path-hash>/ and their pages are in the
 openwiki/ child. A custom --wiki-dir is the home containing openwiki/. To
 reattach after moving a clone, run "owcli bind --wiki-dir <existing-home>" in
 the new clone; owcli transfers a binding only when the old repository is gone.
+After repositories moved (a directory of them, or a home directory on a new
+machine), "owcli relocate <old-path> <new-path> [--dry-run]" rewrites every
+stored path under the old one, in bindings and workspaces. Run it when the
+user asks.
 Use "owcli bindings" to inspect paths and managed orphan directories.
 
 OWCLI_HOME, when set, holds all of owcli's state in one directory instead of
