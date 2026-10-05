@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c7efe0695cf29f0390c421127e182703b0aa5bb19d521266d7cd6f86a2761419",
+  "pageVersion": "sha256:6f2de735b715e411ec10ccadf75dc3b29918c592665c3530b2a0a755ee1b3925",
   "claims": [
     {
       "id": "claim_ef779a1b85614312a6a3496dc3925e81",
@@ -331,10 +331,64 @@
           "version": "repo-lines-v1:sha256:9e805d4eca6008357c2fe247d7f6dd0a80e8f930cbff17dc7be1af82650a7283:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGJmOWQzN2ZmOTAyM2Y3ZjIwYWQ3M2U4Y2QwM2Q5ZTBkZDViZGYxM2M1MjAxYjk4NTQxYTZjZTg0OTM5ZTg0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTYzMWI2ZTJjYTA3ZDhiYWYwZWI0NGU3NDlkYmY0OTBiMzkyZTNhNTM0ZWY2MTAyMjc3MTE0NmNkZjlhZjFhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJlMzYyOTI3MGZlNGMwN2JhMDhiOWNhYjc3ZDE4NmI4NDhjMjk0NzA3OTdkZjQ1ZTQ1YzRiOWU1NjdmMDEzYyJ9"
         }
       ]
+    },
+    {
+      "id": "claim_53e84b1190e60894f311a96f1ecae9a2",
+      "statement": "Relocate rewrites binding keys, custom external wiki directories, and workspace member roots at or under the old prefix to the new prefix.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/relocate.go#L54-L105",
+          "version": "repo-lines-v1:sha256:180cac68a550bbd71abc8c35162af4b7c297d6a82feb84211225231a3b98f52a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczMjMyYTE2ZjlhODU4ZjZhNmQ5ZDE1ZWU4YmJlMDk3YjliNmQ3N2RhNWIxYTBjZGM1OGUyZDg2NTNkNzUxNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0OWI1MDVlMTQxYzc5YTQ4MTRhODYzYjlmNWI4ODRiYmI3OGRkZDk1NzJiMGVjNDJkZjhiNDg2NmY0YjZiZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNWZhZmQyYTA5ZGU4MDZmYjdmMDRmNDY0NzRiN2E3MDMzOGUyNThiZDIxNGYxMzg4MWRhZGEyNTc1MWM3M2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_19c1410fea19b7c43326f37969bddef0",
+      "statement": "Relocate makes both prefixes absolute and resolves the new one through symlinks when it exists.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/relocate.go#L32-L50",
+          "version": "repo-lines-v1:sha256:075d9b259624a19e4a554fe6acf3ab3bf842346ce9a9780729907d866e20343b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2OTRhNTJiNWRmODQxNDk3ZjY3YzM1NmY0ZmZmNGFiMTBmNmVhYzI5YTE3ZjQxNzcyZmU2MGQ4YmQ0ODkzZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3M2I0MWQ5YzRkNTY0OGYwYTZiM2UzYWViY2VkMzVhZWE2MzRmZjk5ODc1NGZlMzJmNmY2NzUwZWQ0ZGFjODkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlMmJkZjA0NTY2N2NiMjExOTRlM2UyY2Q5YzFhMzA1YzFhNWRkYTI1NzU1MmRhZjdlYjA1YTM4ZTc0YzBkZTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0OWI1MDVlMTQxYzc5YTQ4MTRhODYzYjlmNWI4ODRiYmI3OGRkZDk1NzJiMGVjNDJkZjhiNDg2NmY0YjZiZTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd58ed37ec2d4bcff76a19fa06c1d64a",
+      "statement": "Relocate refuses when two bindings would share a root or when the rewritten workspaces registry fails validation, writes nothing on a dry run, and writes each registry only if it changed.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/relocate.go#L89-L127",
+          "version": "repo-lines-v1:sha256:338ec4c323d18f4ba007567b1f15f6b42a7ab07be3770b0b7861b6bd72a750dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjMmExY2M0NGVlMDE4NGJlNjkwYzJkMzY1MWI0YjMzODI0MjcxYjE5ZmZjNzAzODMzZDNlYzJhM2VlZGJjNmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjYTRlMzllZTAxN2I1ZTc5NGRjMWM3N2ZmY2RiZjc3NWU0Zjc1OWRkZWI4MDVlOTQwYzY1YjgyZWEwMTk2ZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIzNWQ4NDlhNGNmYmFkZWU1ZWFiZTJjMGMwY2FlOTM5YjdkNzQ5NWQxMGUxNWZmNGM5YzJiNmQ4NDgyZWE4ZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_31d868fe7768d015335e0ee07117138a",
+      "statement": "Each reported change records whether the new path exists, and missing paths are still rewritten.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/relocate.go#L11-L18",
+          "version": "repo-lines-v1:sha256:36c6c27a899db0a3a55bcb1ef23cc928e4eeba21dd41fee168f52d76ad673d23:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWNmNWE2NmIxZTUwYTllZTdiZDA5NDM5ZjdmMGM5N2QxZTc4NmJhNmRkZmI1YmQ3NTg3YjgxOTQ1ODJjMTcyYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ1ZGU2NzM5MGNlMzJiZmZlZjBkZTk2NGMxYzcyMDA5OTVkNjhjYTNlZWNhZGViM2RkMDliODcyYTU0ZWI3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWVhMGQ1MGZlODIxNWEzMmU4YTIzY2FkOWM4Y2Y4ZTE5ZWEzNmUwM2UzZTRkZjNiOGE3ZmUwNTc1NWJjODIwNCJ9"
+        },
+        {
+          "resource": "repo://internal/store/relocate_test.go#L72-L85",
+          "version": "repo-lines-v1:sha256:a86565df81627e8c58ecad443f2c2ccde3e133455708e787714717c69c6056a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3YjhjNTBmYjFlOWUyNmVkOGVjNTE5NjA3NzVlOTIyZmRlYTc1MzczNTdhZDM0ZDlmZmFhMDAyYjE5NGU3MTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmOTZkMmNiZmY4NDU3NTkzMWZiYWM5YmE4YTA0N2ZiMDQyYWNhYzBhYzVkZTJjZTc4Y2EzZTcxOWNhNmNkMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyYzgxMjAyOTA3NWU4M2RjN2UyY2Y5MjY3OWY3YzRkMmUwNzE0MDRmZDRhMmU2Y2NkMTY0NTE3ODBjZmZmNjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyN2ExNDRmYTgxZmI5OGQxNmVhZWI1NGNiYWU4N2EwYTUxNmU4NGZkYzFlMjA1ZGIwNzMxODNlODBmMzA4MjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a542ca50d8625641a51a553564dc91ed",
+      "statement": "Tests check that wiki IDs and active workspace selections survive a relocate and that a second relocate finds nothing to change.",
+      "evidence": [
+        {
+          "resource": "repo://internal/store/relocate_test.go#L88-L109",
+          "version": "repo-lines-v1:sha256:f0def817d0a6b0abcf3dec6fdb0484c9b877fc59da9a1d0a1965870293a2c73f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllNWMyNzkzN2QwYTMxNjEyOWZjMDVhN2QzNjRmNGJkMTVhYmNkMTk3NjEyNDQyNDNjNzRlNzE0YWI2ZTBlYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3Y2RhODJkYTYwNjIzOGUwNWU2MjM5OTU2OWM1ZWUwMzk5MzQxOTY0OGFlNWQ0M2EyYmY4Y2Q2MzQ3ZjgyNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg0MjEzNDEzM2I5M2Y3YmM3MmYzZWM1M2YzYmI1ZWQzOTE4NjYzNzhkZWRhMTRkMGFlNzU4NzBiOThmOGE3ZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM1MTUyYjQzODhiZTdlYzExMDQ0N2YzZjk5OGU2ZjNlNmQ4MDAyMWFjNDgzYjM4OGFhMTAwNjViYjg0MGY2YzIifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "owcli/v0.1.0-1-g88bff78",
-    "at": "2026-10-05T08:01:13.751Z"
+    "by": "owcli/v0.2.0-1-g3d84f34",
+    "at": "2026-10-05T08:30:45.934Z"
   }
 }

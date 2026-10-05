@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c286a0f5de0a305868c15c65849a66adf801fdaff0e87ae36586c21f82dbded8",
+  "pageVersion": "sha256:d5e1b6511edd413ce402ac60b291c029eaba318713fda55d5bb6f91ea32737a6",
   "claims": [
     {
       "id": "claim_5d03454900e04f338c345602586056f7",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_547da34b35324cf1aaeed4b5ac939590",
-      "statement": "The root command registers bind, bindings, unbind, init, update, status, check, search, read, workspace, wikis, serve, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
+      "statement": "The root command registers bind, bindings, unbind, relocate, init, update, status, check, search, read, workspace, wikis, serve, run, quickstart, and agents-md subcommands, with init and update built from the same generate command constructor parameterized by run mode.",
       "evidence": [
         {
-          "resource": "repo://internal/cli/cli.go#L68-L84",
-          "version": "repo-lines-v1:sha256:7679de1955973165600ddb3a5031b8e8ec63a3eef1533b4e50feda8ddf667c3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1ZjhjNjc5ODYyMjljNzIxYjgzODBlOTdmMjBjMDljMDUyZmE1ODdlNTU2YmYwYWM1YTZmYWJmMWQ3Nzg1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
+          "resource": "repo://internal/cli/cli.go#L68-L85",
+          "version": "repo-lines-v1:sha256:b24d9c209bfd43014b8f605aadee4acc2a6817e7e07b245222fe49d99dcc7bd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MGJkMTU2NmNjMDc1Y2RjOTk1MmE3MjU3OGNmMzIyZTZmODNmZTE1YjkwY2Y0MDgwZjZkMDFjZmEwYzU1NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYWMxOGEzYjU0OTg2OTA0YzI3NzhhNDBjZjVkZWM0ZmViYzU2MmNlNWRhOThlNTY3MmMxZWM2NzY5YWI2MTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU3NmVmYWQwYmE4OTgyMThjNmVlNDM0ZmY0NzI4NzcwYWNjMjdhZGY3ZGVjNzRlOTMzZmE4MDBkMzZjM2VmY2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTViMzBiNzM0YzkyM2MzZjMyZGZiMzcxMjg3MTQxMmU2M2VkMDkxYmM4MTdlYTM5OWM2YzcxOWQyODU1NjUifQ"
         }
       ]
     },
@@ -130,7 +130,7 @@
     }
   ],
   "verification": {
-    "by": "owcli/2d956c2",
-    "at": "2026-10-03T15:43:41.415Z"
+    "by": "owcli/v0.2.0-1-g3d84f34",
+    "at": "2026-10-05T08:30:20.363Z"
   }
 }

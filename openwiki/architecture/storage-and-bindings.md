@@ -4,8 +4,8 @@ title: Storage Layouts and Bindings
 description: Where owcli keeps a wiki and its control state, how repositories are bound in-repo or externally (writing nothing into the repository, optionally in a chosen directory), how external wikis are versioned with Git, how state files are persisted atomically, and how .openwikiignore excludes paths.
 tags: [storage, bindings, layout, state, ignore]
 verified:
-  - by: owcli/v0.1.0-1-g88bff78
-    at: "2026-10-05T08:01:13.751Z"
+  - by: owcli/v0.2.0-1-g3d84f34
+    at: "2026-10-05T08:30:45.934Z"
 sources:
   - id: openwiki-source-97e4c0a36bad5faaa1e7ac8d
     resource: repo://internal/cli/all.go
@@ -27,13 +27,17 @@ sources:
     resource: repo://internal/store/jsonfile.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
+  - id: openwiki-source-fecec150f494f58fc6e0ca2c
+    resource: repo://internal/store/relocate.go
+  - id: openwiki-source-9c7b3f748bf8f8145ae970fb
+    resource: repo://internal/store/relocate_test.go
   - id: openwiki-source-2a1571daf127cab0d9643bf7
     resource: repo://internal/store/state.go
   - id: openwiki-source-e9a6561d6a59924c5bdad33d
     resource: repo://internal/store/vcs.go
   - id: openwiki-source-2697fb4bf3ba0749710fbc98
     resource: repo://internal/store/wikiref.go
-generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
+generated: { by: "owcli/v0.2.0-1-g3d84f34", at: "2026-10-05T08:31:24.474Z" }
 ---
 
 # Storage Layouts and Bindings
@@ -102,6 +106,29 @@ moved or renamed: run `owcli bind --wiki-dir <existing-home>` from the new
 clone. If that home is registered to an old repository path which no longer
 exists, `Bind` removes the stale key and records the new canonical root. It
 refuses to take a wiki home away from a repository that still exists.
+
+## Relocating after a move
+
+`owcli relocate <old> <new>` (`Dirs.Relocate` in `internal/store/relocate.go`)
+handles repositories that moved together: a directory of clones, or a home
+directory on a new machine. It rewrites every stored path at or under the old
+prefix to the same path under the new one:
+
+- binding keys in `bindings.json`;
+- custom external wiki directories (`wikiDir`);
+- member roots in `workspaces.json`.
+
+Both prefixes are made absolute; the new one is resolved through symlinks
+when it exists, because binding keys are canonical roots. Wiki and workspace
+IDs, active selections, and managed external wiki homes (named by a stored
+ID) are untouched. A wiki outside any workspace is identified by a hash of
+its root, so its ID changes with the move.
+
+Each change is reported with whether the new path exists; missing paths are
+still rewritten, so the command can run before every clone is in place.
+Nothing is written with `--dry-run`, when nothing matches, when two bindings
+would end up on one root, or when the rewritten `workspaces.json` would fail
+validation. Each registry is written atomically and only if it changed.
 
 ## Discovering bindings and orphans
 

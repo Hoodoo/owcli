@@ -4,8 +4,8 @@ title: owcli Quickstart
 description: Entry point for working on owcli, a clean-room Go reimplementation of OpenWiki's repository mode - what it does, how to build, run, and test it, and which wiki page answers which question.
 tags: [quickstart, overview, cli, navigation]
 verified:
-  - by: owcli/v0.1.0-1-g88bff78
-    at: "2026-10-05T08:02:34.204Z"
+  - by: owcli/v0.2.0-1-g3d84f34
+    at: "2026-10-05T08:31:24.266Z"
 sources:
   - id: openwiki-source-0542b60281e3aea77c59392e
     resource: repo://docs/design.md
@@ -23,7 +23,9 @@ sources:
     resource: repo://internal/version/version.go
   - id: openwiki-source-012f2c78e3b1446dfc35803f
     resource: repo://Makefile
-generated: { by: "owcli/v0.1.0-1-g88bff78", at: "2026-10-05T08:02:34.422Z" }
+  - id: openwiki-source-23775c3de52f3ab95a13cb8b
+    resource: repo://README.md
+generated: { by: "owcli/v0.2.0-1-g3d84f34", at: "2026-10-05T08:31:24.474Z" }
 ---
 
 # owcli Quickstart
@@ -97,6 +99,7 @@ owcli search "how are retries handled" --path src/net/retry.go
 owcli read openwiki/concepts/retries.md#backoff-policy
 owcli bind --external | unbind [--purge]
 owcli bind --wiki-dir /old/wiki/home  # reattach after moving a clone
+owcli relocate --dry-run ~/src ~/work  # many repos moved (or a new machine): rewrite stored paths
 owcli workspace create "Emacs packages" ~/src/lib ~/src/new-pkg  # search several wikis together
 owcli read --wiki lib openwiki/concepts/x.md#anchor  # read a result from another wiki
 owcli search --wiki vui-workitem "jira refresh"  # from anywhere: name a wiki (owcli bindings shows IDs) or --workspace

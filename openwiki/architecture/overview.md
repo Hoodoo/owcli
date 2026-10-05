@@ -4,8 +4,8 @@ title: Architecture Overview
 description: How owcli is layered into Go packages, how a command flows from the CLI through generation, Claims, OKF finalization, and search, and what "compatible with upstream OpenWiki" means.
 tags: [architecture, packages, data-flow, compatibility]
 verified:
-  - by: owcli/2d956c2
-    at: "2026-10-03T15:43:41.415Z"
+  - by: owcli/v0.2.0-1-g3d84f34
+    at: "2026-10-05T08:30:20.363Z"
 sources:
   - id: openwiki-source-58776e6c955bcb51b8c7cf24
     resource: repo://cmd/owcli/main.go
@@ -29,7 +29,7 @@ sources:
     resource: repo://internal/search/search.go
   - id: openwiki-source-7cd39e52790a42c3eb3a3aa2
     resource: repo://internal/store/layout.go
-generated: { by: "owcli/1bb33cd", at: "2026-10-02T09:08:56.220Z" }
+generated: { by: "owcli/v0.2.0-1-g3d84f34", at: "2026-10-05T08:31:24.474Z" }
 ---
 
 # Architecture Overview
@@ -118,9 +118,10 @@ lifecycle to an interactive coding agent, one JSON step per command, so the
 agent researches and writes pages and owcli calls no model at all. See
 [Agent-Driven Runs](../workflows/agent-driven-runs.md).
 
-`owcli search`, `read`, `status`, `check`, `bindings`, `wikis`, and
-`workspace` never call a model. `bindings` inventories registered
-repositories and orphaned managed wiki homes; `wikis` lists every known wiki
+`owcli search`, `read`, `status`, `check`, `bindings`, `relocate`, `wikis`,
+and `workspace` never call a model. `bindings` inventories registered
+repositories and orphaned managed wiki homes; `relocate` rewrites their
+stored paths after repositories move; `wikis` lists every known wiki
 and workspace for people and tools; `workspace` manages named groups of
 wikis; `search`
 builds an in-memory SQLite FTS5 index per query over every wiki in its scope
